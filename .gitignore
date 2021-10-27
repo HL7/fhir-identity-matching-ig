@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+/fsh-generated
+/input-cache/
+/output/
+/template/
+/temp/
+/nbproject/
+/ignore/
+/bin/
+/target/
+/docs/
+/.hg/
+/.github/
+/.gitmodules
+publish.sh

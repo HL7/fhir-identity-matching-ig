@@ -1,0 +1,26 @@
+﻿{
+  "package-id": "hl7.fhir.us.identity-matching",
+  "title": "Interoperable Digital Identity and Patient Matching",
+  "canonical": "http://hl7.org/fhir/us/identity-matching",
+  "introduction": "The objective of this IG is to provide guidance on identity verification and patient matching as used in workflows pertinent to FHIR exchange, to facilitate cross-organizational and cross-network interoperability.",
+  "category": "Security",
+  "list": [
+    {
+      "version": "current",
+      "desc": "Continuous Integration Build for Digital Identity FHIR IG (latest in version control)",
+      "path": "http://build.fhir.org/ig/HL7/fhir-identity-matching-ig",
+      "status": "ci-build",
+      "current": true
+    },
+    {
+      "version": "0.1.0",
+      "date": "2022Jan",
+      "desc": "Digital Identity IG First STU ballot",
+      "sequence": "STU 1",
+      "path": "http://hl7.org/fhir/us/identity-matching/2022Jan",
+      "status": "ballot",
+      "fhirversion": "4.0.1",
+      "current": false
+    }
+  ]
+}
