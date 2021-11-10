@@ -39,14 +39,14 @@ pages:
   index.md:
     title: Home
   industry-initiatives.md:
-  identity-assurance.md:
+  guidance-on-identity-assurance.md:
   patient-matching.md:
     title: Patient Matching
   digital-identity.md:
     title: Digital Identity
+  downloads.md:
   artifacts.md:
     title: FHIR Artifacts
-  downloads.md:
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │  To control the menu.xml using this config, uncomment and set the "menu" property.             │
@@ -54,11 +54,10 @@ pages:
 menu:
   Home: index.html
   Industry Initiatives: industry-initiatives.html
-  Guidance:
-    Identity Assurance: identity-assurance.html
-    Patient Matching: patient-matching.html
-    Digital Identity: digital-identity.html
-  FHIR Artifacts: artifacts.html 
+  Guidance on Identity Assurance: guidance-on-identity-assurance.html
+  Patient Matching: patient-matching.html
+  Digital Identity: digital-identity.html
+  FHIR Artifacts: artifacts.html
   Downloads: downloads.html
- 
+
   
