@@ -48,12 +48,14 @@ A responder performing a patient match **SHOULD** attempt to match identity attr
 
 1) *In this case, only the requested number of identities should be returned and the requester can ask for all resources or some subset, as needed.* 
 2) *All applicable records are returned; a different threshold on number of records returned could be considered instead.*
-  *Note that a collection of records together can make them more valuable than one of the records may appear on its own.*
-  *Use MatchGrade extension to help explain the entire story?*  
+    *Note that a collection of records together can make them more valuable than one of the records may appear on its own.*
+    *Use MatchGrade extension to help explain the entire story?*  
 
 Additionally, for Individual Access requests or equivalent workflows, the match must be performed using the subset of patient records for which the patient’s identity has been verified by the responder at IAL1.8 or greater and patient attributes either directly reflect or are consistent with an identity verification event at that level or higher.
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates the minimum attributes required to obtain match results and their level of verification required in different use cases:
+
+----
 
 | **Required Minimum Included Attributes**                     | **Verification Required in B2B TPO  Workflow**               | **Verification Required in App-Mediated B2C  Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -64,7 +66,10 @@ It is a best practice to include all known (required + optional) patient matchin
 | First, Last, Date of Birth, Insurance Member  ID             |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
 | First, Last, DOB, (mobile number or email  address)          |                                                              | Consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
 
+----
+
 ### Verification
+
 It is helpful to know the date verification was performed, in the case of address and cell number since those attributes change.
 
 Identity verification level to establish matching attributes is another potential metadata item.
