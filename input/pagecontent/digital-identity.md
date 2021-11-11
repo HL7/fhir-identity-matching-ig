@@ -24,14 +24,14 @@ Patient provides their identifier(s) to a healthcare organization at registratio
 
 ### Requirements for Digital Patient Identifiers 
 
--Validated
+- Identifier **SHALL** be validated.
 
--Identity proofing process at a minimum establishes that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity)
+- Identity proofing process at a minimum establishes that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity).
 
--Unique for all time within the assigner’s system
+- Identifier **SHALL** be unique for all time within the assigner’s system.
 
--Identifier can’t be reassigned to a different individual and patient onboarding process requires that patient assert that these attributes uniquely represents them 
+- Identifier **SHALL NOT** be reassigned to a different individual and patient onboarding process requires that patient assert that these attributes uniquely represents them. 
 
--FHIR-ready. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records recognizes this type of identity for patients in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
+- Identifier **SHALL** be <span style="background-color:yellow">'FHIR-ready'</span>. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records recognizes this type of identity for patients in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
 
 {% include link-list.md %}
