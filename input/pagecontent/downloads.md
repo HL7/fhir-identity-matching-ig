@@ -14,13 +14,13 @@ The following ZIP file contains a downloadable version of this IG that can be ho
 &emsp;&emsp;  
 **Editors:**   
   
+&emsp;&emsp;Julie Maas, EMR Direct  
+&emsp;&emsp;Carmen Smiley, ONC  
 &emsp;&emsp;Jeff Brown, MITRE Corporation  
-&emsp;&emsp;Luis C. Maas, EMR Direct and UDAP.org  
 
 ​                 
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
-The members of the ONC FHIR at Scale Taskforce (FAST) Security Tiger Team
-The members of the HL7/UDAP.org joint project working group
-The members of the HL7 Security Work Group
+The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team
+The members of the HL7 Patient Administration Work Group
