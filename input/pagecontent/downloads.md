@@ -22,5 +22,5 @@ The following ZIP file contains a downloadable version of this IG that can be ho
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
-&emsp;&emsp;The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team
-&emsp;&emsp;The members of the HL7 Patient Administration Work Group
+The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team<BR>  
+The members of the HL7 Patient Administration Work Group  
