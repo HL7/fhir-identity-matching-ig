@@ -8,10 +8,16 @@ The following package file includes an NPM package file used by many FHIR tools.
 
 The following ZIP file contains a downloadable version of this IG that can be hosted locally:
 [Downloadable Copy](full-ig.zip)
-
+  &emsp;&emsp;  
+  &emsp;&emsp;  
 ### Credits
+&emsp;&emsp;  
+**Editors:**   
+  
+&emsp;&emsp;Jeff Brown, MITRE Corporation  
+&emsp;&emsp;Luis C. Maas, EMR Direct and UDAP.org  
 
-Editor: Luis C. Maas, EMR Direct and UDAP.org
+​                 
 
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
