@@ -4,20 +4,6 @@ Digital Identity is the unique representation of a subject engaged in an online 
 
 Note: digital identities involved in healthcare transactions may correspond to Patients, Providers, Payers, and other healthcare actors.
 
-### Requirements for Enterprise Identifiers
-
-Locally established business identifiers used in cross-organizational matching MUST correspond to unique identities in the real world (TBD? WAS: will have minimum metadata and verification constraints and is designed for cross-walking between the many systems necessary for successful patient matching in health information exchange).
-
-Requirements:
-
-Unique for the individual person (i.e. not the same identifier for entire family) within organizational boundaries of the exchange partner 
-
-“assigner” plus “identifier”/ (number) is not reusable for a different person
-
-Can be stored as an identifier along with its assigner in FHIR Patient resource and therefore used in $match operations or other transactions (To do: provide examples of how to represent in other HL7 modalities?)
-
-IDs with date issued, expiration date, or validity periods will contain this metadata when available.
-
 To do: revise this example best practice workflow?
 
 ### Workflow Example
@@ -35,5 +21,33 @@ Patient provides their identifier(s) to a healthcare organization at registratio
 - Identifier **SHALL NOT** be reassigned to a different individual and patient onboarding process requires that patient assert that any attributes they provide uniquely represent them. (To do: more speific details about what this means for certain types of attributes such as phone number, address, email.)
 
 - Identifier **SHOULD** be <span style="background-color:yellow">'FHIR-ready'</span>. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
+
+### Requirements for Enterprise Identifiers
+
+Locally established business identifiers used in cross-organizational matching MUST correspond to unique identities in the real world (TBD? WAS: will have minimum metadata and verification constraints and is designed for cross-walking between the many systems necessary for successful patient matching in health information exchange).
+
+Requirements:
+
+Unique for the individual person (i.e. not the same identifier for entire family) within organizational boundaries of the exchange partner 
+
+“assigner” plus “identifier”/ (number) is not reusable for a different person
+
+Can be stored as an identifier along with its assigner in FHIR Patient resource and therefore used in $match operations or other transactions (To do: provide examples of how to represent in other HL7 modalities?)
+
+IDs with date issued, expiration date, or validity periods will contain this metadata when available.
+
+### Other Miscellaneous Identifiers
+
+Absent a Digital Identifier or Enterprise Identifier as described above, other good identifiers are of particularly good use in best practice person matching, for example:
+
+Social Security Numbers/Last 4
+
+Driver's License Numbers
+
+Military ID Numbers
+
+Passport Numbers
+
+Individual National Provider Identifier
 
 {% include link-list.md %}
