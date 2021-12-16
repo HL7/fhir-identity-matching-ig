@@ -2,7 +2,7 @@
 
 Digital Identity is the unique representation of a subject engaged in an online transaction. A digital identity **MUST** always be unique in the context of a digital service that is compliant with this IG, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that the subject’s real-life identity is evident from the credential identifier on its own. 
 
-In our efforts to address matching errors by prioritizing the use of Digital Identifiers, this section of the IG defines what are likely to be new Digital Identifiers suitable for use in person metching where high confidence in the Digital Identity associated with such an Identifier is needed. Though there can be usability benefits in having just one such credential, an individual's choice to utliize multiple such Digital Identifiers from multiple services, also referred to as identity providers and assigners, would also be consistent with the requirements of this IG. This secion of the IG also describes Enterprise Identifiers which are the next best option when a Digital Identifier is unavailable or has not yet been eatablished, as well as other Miscellaneous Identifiers.
+In our efforts to address matching errors by prioritizing the use of Digital Identifiers, this section of the IG defines what are likely to be new Digital Identifiers suitable for use in person metching where high confidence in the Digital Identity associated with such an Identifier is needed. Though there can be usability benefits in having just one such credential, an individual's choice to utliize multiple such Digital Identifiers from multiple services, also referred to as identity providers and assigners, would also be consistent with the requirements of this IG. This section of the IG also describes Enterprise Identifiers which are the next best option when a Digital Identifier is unavailable or has not yet been eatablished, as well as other Miscellaneous Identifiers.
 
 Note: digital identities involved in healthcare transactions may correspond to Patients, Providers, Payers, and other healthcare actors.
 
@@ -52,7 +52,7 @@ Passport Numbers
 
 Individual National Provider Identifier
 
-### Miscellaneous Identifiers Workflow Example
+### Miscellaneous Identifier Workflow Example
 
 
 
