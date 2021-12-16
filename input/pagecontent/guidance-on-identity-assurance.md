@@ -1,14 +1,12 @@
-Introduction
-
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings–for example, articulate example procedures to achieve IAL2 and other proofing levels between IAL1 and IAL2 that are typical in healthcare workflows and which consider the available identity evidence of all patient populations.
-Potential references:
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. Example procedures which can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations.
 
 ### Best Practices for Identity Verification
 
-1.2 and 1.4 are in the VCI framework, but nobody has initiated. The granularity is in concept only, though there is an absolute need to better define between 1 and 2, we may frame this as a proposal, though do not give the impression that NIST has endorsed. Carmen to invite NIST to future meeting.
-To verify an individual’s identity at one of the levels below, the following information about the individual is collected:
+The following intermediate identity assurance levels are undergoing discussion in this group, though it should be noted that NIST has NOT endorsed these. (To do: we are in the process of inviting NIST representative(s) to a future meeting to collect their feedback).
+
+To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 
 - Full legal name
 - home address
@@ -16,9 +14,7 @@ To verify an individual’s identity at one of the levels below, the following i
 - email
 - phone number (mobile unless the individual does not have a mobile number?)
 
-----
-
-The identity provider then validates this information using appropriate evidence from the list below:  
+The identity provider then validates this information using appropriate evidence from the list below, according to the desired level of identity assurance:  
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -54,11 +50,11 @@ The identity provider then validates this information using appropriate evidence
 
 ​    
 
-This level of identity verification is intended to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered for the person in the Identity Provider’s system OR is billed to their name.  
+This level of identity verification is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered for the person in the Identity Provider’s system OR is billed to their name.  
 
 - **IAL1.8** requirements: 
 
-  2 Fairs--for example: 
+  2 Fair pieces of evidence--for example: 
 
   - Two of:  photo ID, medical record, or insurance card 
 
