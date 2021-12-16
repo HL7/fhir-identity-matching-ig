@@ -1,16 +1,12 @@
 ### Overview
 
-Digital Identity is the unique representation of a subject engaged in an online transaction. A digital identity is always unique in the context of a digital service, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that the subject’s real-life identity is evident from the credential identifier on its own. In our efforts to address matching errors by instead using Digital Identifiers, this section of the Implementation Guide defines what are likely to be new classes of Digital Identifiers suitable for use in person metching where high confidence of the Digital Identity associated with such an Identifier is needed. Though there can be usability benefits in having just one such credential, an individual's choice to utliize multiple such Digital Identifiers from multiple identity providers ("assigners") would also be consistent with the requirements of this Implementation Guide.
+Digital Identity is the unique representation of a subject engaged in an online transaction. A digital identity **MUST** always be unique in the context of a digital service that is compliant with this IG, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that the subject’s real-life identity is evident from the credential identifier on its own. 
+
+In our efforts to address matching errors by prioritizing the use of Digital Identifiers, this section of the IG defines what are likely to be new Digital Identifiers suitable for use in person metching where high confidence in the Digital Identity associated with such an Identifier is needed. Though there can be usability benefits in having just one such credential, an individual's choice to utliize multiple such Digital Identifiers from multiple services, also referred to as identity providers and assigners, would also be consistent with the requirements of this IG. This secion of the IG also describes Enterprise Identifiers which are the next best option when a Digital Identifier is unavailable or has not yet been eatablished, as well as other Miscellaneous Identifiers.
 
 Note: digital identities involved in healthcare transactions may correspond to Patients, Providers, Payers, and other healthcare actors.
 
-To do: revise this example best practice workflow?
-
-### Workflow Example
-
-Patient provides their identifier(s) to a healthcare organization at registration and/or check-in, and the identifier(s) is/are then associated with the patient’s record. As an alternative to such an in-person binding to the record, patient rosters could be shared that describe how to associate each patient medical record number and insurance identifier pairing, for example, to manage identities at scale.
-
-### Requirements for Digital Patient Identifiers 
+### Requirements for Digital Identifiers 
 
 - Identifier **SHALL** be capable of a validation process. (To do: add details about the meaning of this. For example, if user profile data may be used validate the identity of an authenticated user)
 
@@ -21,6 +17,8 @@ Patient provides their identifier(s) to a healthcare organization at registratio
 - Identifier **SHALL NOT** be reassigned to a different individual and patient onboarding process requires that patient assert that any attributes they provide uniquely represent them. (To do: more speific details about what this means for certain types of attributes such as phone number, address, email.)
 
 - Identifier **SHOULD** be <span style="background-color:yellow">'FHIR-ready'</span>. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
+
+### Digital Identifier Workflow Example
 
 ### Requirements for Enterprise Identifiers
 
@@ -36,6 +34,10 @@ Can be stored as an identifier along with its assigner in FHIR Patient resource 
 
 IDs with date issued, expiration date, or validity periods will contain this metadata when available.
 
+### Enterprise Identifier Workflow Example
+
+Patient provides their identifier(s) to a healthcare organization at registration and/or check-in, and the identifier(s) is/are then associated with the patient’s record. As an alternative to such an in-person binding to the record, patient rosters could be shared that describe how to associate each patient medical record number and insurance identifier pairing, for example, to manage identities at scale.
+
 ### Miscellaneous Established Identifiers
 
 Absent a Digital Identifier or Enterprise Identifier as described above, other good identifiers are of particularly good use in best practice person matching, for example:
@@ -49,5 +51,9 @@ Military ID Numbers
 Passport Numbers
 
 Individual National Provider Identifier
+
+### Miscellaneous Identifiers Workflow Example
+
+
 
 {% include link-list.md %}
