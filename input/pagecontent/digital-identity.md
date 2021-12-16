@@ -1,6 +1,6 @@
 ### Overview
 
-Digital Identity is the unique representation of a subject engaged in an online transaction. A digital identity is always unique in the context of a digital service, but does not necessarily need to uniquely identify the subject in all contexts. In other words, such a digital service **SHALL NOT** require that the subject’s real-life identity is evident from the credential identifier on its own.
+Digital Identity is the unique representation of a subject engaged in an online transaction. A digital identity is always unique in the context of a digital service, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that the subject’s real-life identity is evident from the credential identifier on its own. In our efforts to address matching errors by instead using Digital Identifiers, this section of the Implementation Guide defines what are likely to be new classes of Digital Identifiers suitable for use in person metching where high confidence of the Digital Identity associated with such an Identifier is needed. Though there can be usability benefits in having just one such credential, an individual's choice to utliize multiple such Digital Identifiers from multiple identity providers ("assigners") would also be consistent with the requirements of this Implementation Guide.
 
 Note: digital identities involved in healthcare transactions may correspond to Patients, Providers, Payers, and other healthcare actors.
 
@@ -14,7 +14,7 @@ Patient provides their identifier(s) to a healthcare organization at registratio
 
 - Identifier **SHALL** be capable of a validation process. (To do: add details about the meaning of this. For example, if user profile data may be used validate the identity of an authenticated user)
 
-- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity).
+- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). To do: clarify language regarding Digital Identifier being 1:1 with unique person on assigner's system; how to handle name changes in this case.
 
 - Identifier **SHALL** be unique for all time within the assigner’s system.
 
@@ -24,7 +24,7 @@ Patient provides their identifier(s) to a healthcare organization at registratio
 
 ### Requirements for Enterprise Identifiers
 
-Locally established business identifiers used in cross-organizational matching MUST correspond to unique identities in the real world (TBD? WAS: will have minimum metadata and verification constraints and is designed for cross-walking between the many systems necessary for successful patient matching in health information exchange).
+Locally established business identifiers used in cross-organizational matching MUST correspond to unique identities in the real world (TBD? WAS: will have minimum metadata and verification constraints and is designed for cross-walking between the many systems necessary for successful patient matching in health information exchange). NOTE that these are examples of what we have in place today that can be used for matching and may not meet all the requirements we’d like to have of a Digital Identifier as defined in this IG.
 
 Requirements:
 
@@ -36,7 +36,7 @@ Can be stored as an identifier along with its assigner in FHIR Patient resource 
 
 IDs with date issued, expiration date, or validity periods will contain this metadata when available.
 
-### Other Miscellaneous Identifiers
+### Miscellaneous Established Identifiers
 
 Absent a Digital Identifier or Enterprise Identifier as described above, other good identifiers are of particularly good use in best practice person matching, for example:
 
