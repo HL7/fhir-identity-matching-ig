@@ -54,7 +54,7 @@ A responder performing a patient match **SHOULD** attempt to match identity attr
 
 Additionally, for Individual Access requests or equivalent workflows, the match must be performed using the subset of patient records for which the patient’s identity has been verified by the responder at IAL1.8 or greater and patient attributes either directly reflect or are consistent with an identity verification event at that level or higher.
 
-It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates the minimum attributes required to obtain match results and their level of verification required in different use cases:
+It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics).
 
 ### Verification
 
