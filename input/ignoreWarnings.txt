@@ -1,5 +1,0 @@
-== Suppressed Messages ==
-# Warnings and Information messages to be ignored and reason
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
