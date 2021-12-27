@@ -10,7 +10,9 @@ DirectTrust Consumer Credentials Workgroup (in the public domain if membership i
 
 Finland and Germany SSI-based Collaboration in the EU
 
-Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy )
+OpenID for Identity Assurance https://openid.net/wg/ekyc-ida/ 
+
+Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy)
 
 ----
 
