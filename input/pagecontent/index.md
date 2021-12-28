@@ -6,6 +6,7 @@ This Identity FHIR IG has been established upon the recommendations of ONC's FHI
 The IG may provide a foundation for future digital identity management requirements.
 </div>
 
+&emsp;&emsp;  
 ### About This Guide
 
 The focus of this implementation guide is to describe how to extend the FHIR patient $match operation for use in cross-organizational workflows, that it may serve as a set of best practices for matching in similar FHIR transactions not specifically invoking $match, as well as in other transaction types.
@@ -24,6 +25,7 @@ This Guide is divided into several pages which are listed at the top of each pag
 
 {% include link-list.md %}
 
+&emsp;&emsp;  
 ### Executive Summary
 
 This Implementation Guide enhances current workflows that support patient matching and Digital Identity, while envisioning the path for incorporating emerging identity concepts over time. In addition to extending the patient $match operation for cross-organizational use by highlighting best practices in the use of matching attributes and their verification prior to making or answering a patient match request and for returning and interpreting match results, this specification will also offer guidance on identity assurance as it relates to attribute and evidence verification and to establishing Digital Identity. Implementation guidance for interoperable Digital Identity is another, longer-term objective for this project. 
@@ -35,7 +37,8 @@ This guide will address the two concepts of patient matching and Digital Identit
 > **Patient Matching.**  Patient matching and record linkage help address interoperability by determining whether records - both those held within a single facility and those in different healthcare organizations – correctly refer to a specific individual.  Matching methods use demographic information, such as name and date of birth.
 
 Research has shown that matching is improved with the strength of identity used to process a match (1, 2, 3, 4). For this reason, this Implementation Guide will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching.
-
+&emsp;&emsp;  
+&emsp;&emsp;  
 ### Use Cases and Roles
 
 - Provider to Provider Health Information Exchange
@@ -56,8 +59,31 @@ Research has shown that matching is improved with the strength of identity used 
 (2)  <a href="https://www.gao.gov/assets/gao-19-197.pdf">Approaches and Challenges to Electronically Matching Patients’ Records across Providers</a>  GAO, January 2019  
 (3)  <a href="https://sequoiaproject.org/resources/patient-matching/">The Sequoia Project</a>    
 (4) <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RR2200/RR2275/RAND_RR2275.pdf">Defining and Evaluating Patient-Empowered Approaches to Improving Record Matching</a>  RAND, 2018
+&emsp;&emsp;  
+&emsp;&emsp;  
+### Credits  
+<style>
+table, th, td 
+{
+  border: 1px solid White; 
+  padding: 2px
+}
+</style>
+|  |    |    |
+| <u><b>Primary Authors:</b></u>&emsp; |Julie Maas  | EMR Direct        |
+|   |Carmen Smiley  | ONC        |
+|   |Jeff Brown  | MITRE Corporation        |
+|   |         |  |
+| <u><b>Contributors:</b></u>&emsp;  |Paul Vaughan  | Optum        |
+|   | Vijey Kris Sridharan | United Health Care |
+|   | Jim St Clair | Lumedic |
+|   | Catherine Schulten | Change Healthcare |
+|   | Ryan Howells | Leavitt Partners |
+|   | Rita Torkzadeh |         |
 
+&emsp;&emsp;  
+This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
-
-
-
+The members of the ONC FHIR at Scale Taskforce (FAST) Security Tiger Team
+The members of the HL7/UDAP.org joint project working group
+The members of the HL7 Security Work Group

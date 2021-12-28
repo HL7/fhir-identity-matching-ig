@@ -11,17 +11,3 @@ The following ZIP file contains a downloadable version of this IG that can be ho
 [Downloadable Copy](full-ig.zip)
   &emsp;&emsp;  
   &emsp;&emsp;  
-### Credits
-&emsp;&emsp;  
-**Editors:**   
-  
-&emsp;&emsp;Julie Maas, EMR Direct  
-&emsp;&emsp;Carmen Smiley, ONC  
-&emsp;&emsp;Jeff Brown, MITRE Corporation  
-
-​                 
-
-This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
-
-The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team<BR>  
-The members of the HL7 Patient Administration Work Group  

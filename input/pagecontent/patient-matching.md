@@ -56,8 +56,6 @@ Additionally, for Individual Access requests or equivalent workflows, the match 
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates the minimum attributes required to obtain match results and their level of verification required in different use cases:
 
-----
-
 | **Required Minimum Included Attributes**                     | **Verification Required in B2B TPO  Workflow**               | **Verification Required in App-Mediated B2C  Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ((First Name + Last Name) or DOB) + unique  enterprise identifier | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below for specific IDs                              |
@@ -67,8 +65,7 @@ It is a best practice to include all known (required + optional) patient matchin
 | First, Last, Date of Birth, Insurance Member  ID             |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
 | First, Last, DOB, (mobile number or email  address)          |                                                              | Consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
 
-----
-
+&emsp;&emsp;  
 
 ### Verification
 
@@ -81,6 +78,8 @@ When attributes like telephone number are verified as associated with a patient,
 Indicate verification as an extension to provenance?
 
 Probably too specific for IG to require minimum verification bar on attributes, on responding side and on requesting side although a grammar for expressing verification metadata seems useful
+
+&emsp;&emsp;  
 
 ### Recommended Best Practices
 
@@ -167,6 +166,8 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 - Currently this could be supported via extensions *<u>(add example?)</u>*, but we might want to at least suggest inclusion in future versions of FHIR *<u>(add example?)</u>*
 - The solution will need to consider how this works with a FHIR system that contains both records from many sources and perhaps golden records from the match implementation itself; i.e. are both types of matches accessible as Patient resources, *<u>or no?</u>*
 
+&emsp;&emsp;  
+
 ### Scoring Matches
 
 Scoring **SHOULD** be as probabilistic as possible
@@ -175,11 +176,15 @@ Common correlations such has families must be modeled *<u>(ONC recommendation re
 
 Scores **SHOULD** be computed, not guessed, whenever possible
 
+&emsp;&emsp;  
+
 ### No Match Results
 
 Recommended errors?
 
 If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only?]</u>*.
+
+&emsp;&emsp;  
 
 ### Exception Handling
 

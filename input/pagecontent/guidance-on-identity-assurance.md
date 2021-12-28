@@ -1,12 +1,12 @@
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. Example procedures which can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations.
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings–for example, articulate example procedures to achieve IAL2 and other proofing levels between IAL1 and IAL2 that are typical in healthcare workflows and which consider the available identity evidence of all patient populations.
+Potential references:
 
 ### Best Practices for Identity Verification
 
-The following intermediate identity assurance levels are undergoing discussion in this group, though it should be noted that NIST has NOT endorsed these. (To do: we are in the process of inviting NIST representative(s) to a future meeting to collect their feedback).
-
-To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
+1.2 and 1.4 are in the VCI framework, but nobody has initiated. The granularity is in concept only, though there is an absolute need to better define between 1 and 2, we may frame this as a proposal, though do not give the impression that NIST has endorsed. Carmen to invite NIST to future meeting.
+To verify an individual’s identity at one of the levels below, the following information about the individual is collected:
 
 - Full legal name
 - home address
@@ -14,7 +14,9 @@ To verify an individual’s identity at one of the levels below, the following i
 - email
 - phone number (mobile unless the individual does not have a mobile number?)
 
-The identity provider then validates this information using appropriate evidence from the list below, according to the desired level of identity assurance:  
+----
+
+The identity provider then validates this information using appropriate evidence from the list below:  
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -50,18 +52,18 @@ The identity provider then validates this information using appropriate evidence
 
 ​    
 
-This level of identity verification is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered for the person in the Identity Provider’s system OR is billed to their name.  
+This level of identity verification is intended to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered for the person in the Identity Provider’s system OR is billed to their name.  
 
 - **IAL1.8** requirements: 
 
-  2 Fair pieces of evidence--for example: 
+  2 Fairs--for example: 
 
   - Two of:  photo ID, medical record, or insurance card 
 
     ​    **OR**
 
   - Gov't issued photo ID + mobile number billed to the person; 
-    Declaration of identity assertion by the individual(5)
+    Declaration of identity assertion by the individual[^5]
 
 In healthcare settings, additional demographics may also be collected and used in matching (for example, administrative gender and birth sex). Refer to the Patient Matching section for additional verification requirements on such attributes.  
 
@@ -84,12 +86,13 @@ From 800-63-3:
 
 - KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification.
 
-- KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The CSP MAY use KBV to resolve to a unique, claimed identity.
+- KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The Credential Service Provider (CSP) **MAY** use KBV to resolve to a unique, claimed identity.
 
 - KBV can be used to verify one Fair piece of evidence
 
 - NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements. 
 
-(5) See also: [Patient IAL2 as in TEFCA](https://oncprojectracking.healthit.gov/wiki/see%20additional%20details%20in%20section%206.2.4:%20https:/www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63a practices for IAL2 identity assurance, however with different required identity evidence. Identity verification procedures should be the same.
+[^5]: See also: [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63a practices for IAL2 identity assurance, however with different required identity evidence. Identity verification procedures should be the same.
 
 {% include link-list.md %}
+

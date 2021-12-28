@@ -1,20 +1,19 @@
-Introduction
-
 ### Industry Initiatives
 
 This section is an ongoing compilation of industry-wide digital identity and patient matching projects, with input from the Digital Identity & Matching Workgroup on cross-cutting capabilities and how various efforts may be leveraged in the healthcare setting. 
 
-CARIN Digital Identity Workgroup
+- CARIN Digital Identity Workgroup
 
-DirectTrust Consumer Credentials Workgroup (in the public domain if membership is required?)
+- DirectTrust Consumer Credentials Workgroup (in the public domain if membership is required?)
 
-Finland and Germany SSI-based Collaboration in the EU
+- Finland and Germany SSI-based Collaboration in the EU
 
-Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy )
+- Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy )
 
 ----
 
-### Other standards
+### Other standards   
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Identifier Cross-reference PIX for Mobile (PIXm)](http://wiki.ihe.net/index.php/Patient_Identifier_Cross-Reference_for_Mobile_(PIXm))  
 
