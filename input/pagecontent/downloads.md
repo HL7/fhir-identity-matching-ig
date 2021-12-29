@@ -10,18 +10,4 @@ The following package file includes an NPM package file used by many FHIR tools.
 The following ZIP file contains a downloadable version of this IG that can be hosted locally:
 [Downloadable Copy](full-ig.zip)
   &emsp;&emsp;  
-  &emsp;&emsp;  
-### Credits
-&emsp;&emsp;  
-**Editors:**   
-  
-&emsp;&emsp;Julie Maas, EMR Direct  
-&emsp;&emsp;Carmen Smiley, ONC  
-&emsp;&emsp;Jeff Brown, MITRE Corporation  
-
-​                 
-
-This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
-
-The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team<BR>  
-The members of the HL7 Patient Administration Work Group  
+  &emsp;&emsp;    

@@ -11,7 +11,7 @@ Description: "The goal of this profile is to describe a data-minimized version o
 
 * meta.profile ^slicing.discriminator.type = #pattern
 * meta.profile ^slicing.discriminator.path = "$this"
-* meta.profile ^slicing.description = "Slice based on value"
+* meta.profile ^slicing.description = "Slice based on pattern"
 * meta.profile ^slicing.ordered = false
 * meta.profile ^slicing.rules = #open
 * meta.profile ^comment = "meta.profile is required as a matter of convenience of receiving systems. The meta.profile SHOULD be used by the Server to hint/assert/declare that this instance conforms to one (or more) stated profiles (with business versions). meta.profile does not capture any business logic, processing directives, or semantics (for example, inpatient or outpatient). "
@@ -30,4 +30,3 @@ Description: "The goal of this profile is to describe a data-minimized version o
 * gender 0..1
 // * gender ^comment = "MAY be excluded."
 
-* link 0..0
