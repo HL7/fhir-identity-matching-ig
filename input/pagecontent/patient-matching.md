@@ -1,8 +1,6 @@
-Introduction
-
 ### Overview
 
-This section of the guide extends the existing HL7 FHIR patient $match for cross-organizational use by authorized, trusted parties.  
+This section of the guide extends the existing HL7 FHIR patient [$match](https://www.hl7.org/fhir/patient-operation-match.html) for cross-organizational use by authorized, trusted parties.  
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to authorize an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient requested" purpose of use) **SHALL** always include explicit end-user authorization.   
 
@@ -89,7 +87,7 @@ Patient Match is not expected to enforce the minimum included attributes listed 
 
 - For example, a bare name might theoretically match no candidates or an overwhelming number of candidates. In this case, Patient Match may return no candidates, even if matching data exists. A simple phone number may or may not be enough for Patient Match to find candidates - that is left up to the implementation.
 
-Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to $match to encourage entering more information.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
+Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to [$match](https://www.hl7.org/fhir/patient-operation-match.html) to encourage entering more information.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
@@ -100,8 +98,8 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 
 &emsp;   
 ### Patient Weighted Information  
-<font color="darkgray">[* **NOTE:**  The information and values included here are Draft state and have not been finalized* ]</font>  
-
+> <font color="Maroon"><b>NOTE:</b> The information and values included here are Draft state and have not been finalized </font>  
+ 
 Providing an agreed upon value for matching (i.e., "weight") to specific Patient information elements allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
 <style>
@@ -129,7 +127,7 @@ th {
 | 1          | Gender                       |
 
 ​     
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the $match operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.) 
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.) 
 ​     
 ​     
 
