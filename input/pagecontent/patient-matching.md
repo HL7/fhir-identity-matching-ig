@@ -1,8 +1,6 @@
-Introduction
-
 ### Overview
 
-This section of the guide extends the existing HL7 FHIR patient $match for cross-organizational use by authorized, trusted parties.  
+This section of the guide extends the existing HL7 FHIR patient [$match](https://www.hl7.org/fhir/patient-operation-match.html) for cross-organizational use by authorized, trusted parties.  
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to authorize an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient requested" purpose of use) **SHALL** always include explicit end-user authorization.   
 
@@ -56,8 +54,6 @@ Additionally, for Individual Access requests or equivalent workflows, the match 
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates the minimum attributes required to obtain match results and their level of verification required in different use cases:
 
-----
-
 | **Required Minimum Included Attributes**                     | **Verification Required in B2B TPO  Workflow**               | **Verification Required in App-Mediated B2C  Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ((First Name + Last Name) or DOB) + unique  enterprise identifier | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below for specific IDs                              |
@@ -67,8 +63,7 @@ It is a best practice to include all known (required + optional) patient matchin
 | First, Last, Date of Birth, Insurance Member  ID             |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
 | First, Last, DOB, (mobile number or email  address)          |                                                              | Consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
 
-----
-
+&emsp;&emsp;  
 
 ### Verification
 
@@ -78,9 +73,11 @@ Identity verification level to establish matching attributes is another potentia
 
 When attributes like telephone number are verified as associated with a patient, 1) that information helps to bootstrap new account creation. *USPS API and Address Doctor*.
 
-Indicate verification as an extension to provenance?
+Indicate verification as an extension to provenance? 
 
 Probably too specific for IG to require minimum verification bar on attributes, on responding side and on requesting side although a grammar for expressing verification metadata seems useful
+
+&emsp;&emsp;  
 
 ### Recommended Best Practices
 
@@ -90,7 +87,7 @@ Patient Match is not expected to enforce the minimum included attributes listed 
 
 - For example, a bare name might theoretically match no candidates or an overwhelming number of candidates. In this case, Patient Match may return no candidates, even if matching data exists. A simple phone number may or may not be enough for Patient Match to find candidates - that is left up to the implementation.
 
-Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to $match to encourage entering more information.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
+Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to [$match](https://www.hl7.org/fhir/patient-operation-match.html) to encourage entering more information.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
@@ -101,7 +98,7 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 
 &emsp;   
 ### Patient Weighted Information  
-<font color="darkgray">[* **NOTE:**  The information and values included here are Draft state and have not been finalized* ]</font>  
+> <font color="Maroon"><b>NOTE:</b> The information and values included here are Draft state and have not been finalized </font>  
 
 Providing an agreed upon value for matching (i.e., "weight") to specific Patient information elements allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
@@ -130,7 +127,7 @@ th {
 | 1          | Gender                       |
 
 ​     
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the $match operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.) 
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.) 
 ​     
 ​     
 
@@ -167,6 +164,8 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 - Currently this could be supported via extensions *<u>(add example?)</u>*, but we might want to at least suggest inclusion in future versions of FHIR *<u>(add example?)</u>*
 - The solution will need to consider how this works with a FHIR system that contains both records from many sources and perhaps golden records from the match implementation itself; i.e. are both types of matches accessible as Patient resources, *<u>or no?</u>*
 
+&emsp;&emsp;  
+
 ### Scoring Matches
 
 Scoring **SHOULD** be as probabilistic as possible
@@ -175,11 +174,15 @@ Common correlations such has families must be modeled *<u>(ONC recommendation re
 
 Scores **SHOULD** be computed, not guessed, whenever possible
 
+&emsp;&emsp;  
+
 ### No Match Results
 
 Recommended errors?
 
 If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only?]</u>*.
+
+&emsp;&emsp;  
 
 ### Exception Handling
 
