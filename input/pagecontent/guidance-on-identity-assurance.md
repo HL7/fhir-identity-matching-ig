@@ -1,10 +1,10 @@
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. Example procedures which can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations.
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. The levels articulated below and the systems of Identity Providers following this guidance are expected to be consistent with NIST 800-63 except as specified otherwise. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
 
 ### Best Practices for Identity Verification
 
-The following intermediate identity assurance levels are undergoing discussion in this group, though it should be noted that NIST has NOT endorsed these. (To do: we are in the process of inviting NIST representative(s) to a future meeting to collect their feedback).
+The following intermediate identity assurance levels (IAL 1.2-1.8) are undergoing discussion in this group, though it should be noted that NIST has NOT endorsed these. (To do: we are in the process of inviting NIST representative(s) to a future meeting to collect their feedback).
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 
@@ -14,7 +14,7 @@ To verify an individual’s identity at one of the levels below, the following i
 - email address
 - phone number (mobile unless the individual does not have a mobile number?)
 
-The identity provider then validates this information using appropriate evidence from the list below, according to the desired level of identity assurance:  
+The Identity Provider then validates this information using appropriate evidence from the list below, corresponding to the desired level of identity assurance:  
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -22,7 +22,7 @@ The identity provider then validates this information using appropriate evidence
 ​       
 
 - **IAL1.2** requirements: 
-  - An unspecified ID was used to verify name and birth date.
+  - An unspecified ID was used to verify name and date of birth.
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
 
 
@@ -37,7 +37,7 @@ The identity provider then validates this information using appropriate evidence
 
 - **IAL1.6** requirements: 
 
-  - Gov’t issued photo ID plus -  
+  - Gov’t issued photo ID confirmed by comparison to individual plus -  
 
     ​    mail notice to address of record 
 
@@ -46,6 +46,7 @@ The identity provider then validates this information using appropriate evidence
     ​    send equivalent notice via email address or phone number associated with the person in records 
 
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
+  - Knowledge Based Verification (KBV) **MUST NOT** be used as a substitute for in-person or remote unsupervised matched of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
 
 
 ​    
@@ -56,12 +57,13 @@ This level of identity verification is expected to map to many existing systems�
 
   2 Fair pieces of evidence--for example: 
 
-  - Two of:  photo ID, medical record, or insurance card 
+  - Two of:  photo ID confirmed by comparison to individual, medical record, or insurance card 
 
     ​    **OR**
 
-  - Gov't issued photo ID + mobile number billed to the person; 
-    Declaration of identity assertion by the individual(5)
+  - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the person; 
+    
+  Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity(5)
 
 In healthcare settings, additional demographics may also be collected and used in matching (for example, administrative gender and birth sex). Refer to the Patient Matching section for additional verification requirements on such attributes.  
 
@@ -90,6 +92,6 @@ From 800-63-3:
 
 - NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements. 
 
-(5) See also: [Patient IAL2 as in TEFCA](https://oncprojectracking.healthit.gov/wiki/see%20additional%20details%20in%20section%206.2.4:%20https:/www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63a practices for IAL2 identity assurance, however with different required identity evidence. Identity verification procedures should be the same.
+(5) See also: [Patient IAL2 as in TEFCA](https://oncprojectracking.healthit.gov/wiki/see%20additional%20details%20in%20section%206.2.4:%20https:/www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
 
 {% include link-list.md %}
