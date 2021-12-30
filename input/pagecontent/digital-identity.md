@@ -8,13 +8,13 @@ In our efforts to address matching errors by prioritizing the use of Digital Ide
 
 ### Requirements for Digital Identifiers 
 
-- Identifier **SHALL** be capable of a validation process. (To do: add details about the meaning of this. For example, if user profile data may be used validate the identity of an authenticated user)
+- Identifier **SHALL** be capable of a validation process. Acceptable validation methods include 1) the user authenticates themselves at a level of authentication assurance commensurate with that of the credential itself (AAL2 for any identity assurance level greater than IAL1; To do: include additional validation methods such as: 2) the profile photo associated with the account is consistent with this IG and is a visual match to the individual or to a government-issued photo ID saved in their record).
 
-- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). To do: clarify language regarding Digital Identifier being 1:1 with unique person on assigner's system; how to handle name changes in this case.
+- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). To do: clarify language regarding Digital Identifier being 1:1 with unique person on assigner's system; how to handle name changes in this case; include an example documented process in Guidance tab? 
 
-- Identifier **SHALL** be unique for all time within the assigner’s system.
+- Identifier **SHALL** be unique for all time within the assigner’s system. A new Identifier cannot be generated for the same individual, as that would lead to mismatches on patient identity and potential patient safety issues. 
 
-- Identifier **SHALL NOT** be reassigned to a different individual and patient onboarding process requires that patient assert that any attributes they provide uniquely represent them. (*To do: more speific details about what this means for certain types of attributes such as phone number, address, email.*)
+- Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. The associated patient onboarding process **SHALL** require the patient to assert that any attributes they provide uniquely represent them. (*To do: more speific details about what this means for certain types of attributes such as phone number, address, email.*)
 
 - Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
 
@@ -22,8 +22,7 @@ In our efforts to address matching errors by prioritizing the use of Digital Ide
 
 ### Digital Identifier Workflow Example
 
-&emsp;&emsp;  
-&emsp;&emsp;  
+Patient completes an [IAL 1.6](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) or greater identity verification process with a healthcare organization at registration and/or check-in, and the resultant Digital Identifier is then associated with the patient’s record in that organization's EHR. The process includes collection and verification of (at a minimum, verification of control) a personal mobile number and email address belonging to the patient. The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. The patient subsequently authenticates to their insurance company's system using this credential, after which the insurance company uses the Digital Identifier in a match request to the healthcare organization. Because this strong assurance identity has been used to authenticate the individual to both systems, the healthcare organization can confidently share the correct patient data with the requesting party. 
 
 ### Requirements for Enterprise Identifiers
 
