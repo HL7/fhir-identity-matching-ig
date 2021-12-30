@@ -12,9 +12,9 @@ To verify an individual’s identity at one of the levels below, the following i
 - home address
 - date of birth
 - email address
-- phone number (mobile unless the individual does not have a mobile number?)
+- phone number (a mobile number is required unless the individual does not have a mobile number)
 
-The Identity Provider then validates this information using appropriate evidence from the list below, corresponding to the desired level of identity assurance:  
+The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance:  
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -37,7 +37,7 @@ The Identity Provider then validates this information using appropriate evidence
 
 - **IAL1.6** requirements: 
 
-  - Gov’t issued photo ID confirmed by comparison to individual plus -  
+  - Gov’t issued photo ID confirmed by comparison to individual plus   
 
     ​    mail notice to address of record 
 
@@ -51,13 +51,13 @@ The Identity Provider then validates this information using appropriate evidence
 
 ​    
 
-This level of identity verification is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered for the person in the Identity Provider’s system OR is billed to their name.  
+IAL 1.6 identity verification is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
 - **IAL1.8** requirements: 
 
   2 Fair pieces of evidence--for example: 
 
-  - Two of:  photo ID confirmed by comparison to individual, medical record, or insurance card 
+  - Two of:  photo ID confirmed by comparison to individual; medical record; or insurance card 
 
     ​    **OR**
 
