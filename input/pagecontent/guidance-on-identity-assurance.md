@@ -11,7 +11,7 @@ To verify an individualâ€™s identity at one of the levels below, the following i
 - Full legal name
 - home address
 - date of birth
-- email
+- email address
 - phone number (mobile unless the individual does not have a mobile number?)
 
 The identity provider then validates this information using appropriate evidence from the list below, according to the desired level of identity assurance:  
@@ -65,9 +65,9 @@ This level of identity verification is expected to map to many existing systemsâ
 
 In healthcare settings, additional demographics may also be collected and used in matching (for example, administrative gender and birth sex). Refer to the Patient Matching section for additional verification requirements on such attributes.  
 
-NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make a consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
+An individual profile photo associated with an identity **MUST** be confirmed during identity verification or during a subsequent, authenticated event to visually match the subject, to prevent errors in matching or identity resolution, e.g., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the subject's identity evidence for IAL2 remote unsupervised etc. 
 
-Include process for verifying a photo for use in matching, e.g., as in 800-63 where photo taken during a proofing event is confirmed as matching with photo on identity evidence for IAL2 remote unsupervised etc. 
+NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make a consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
 *To Do: Provide additional guidance on how to simplify procedures for identity verification at levels emphasized in this Implementation Guide; this may be as simple as adding example evidence lists that can be used in various levels, particularly IAL1.6-2.*
 
