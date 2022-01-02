@@ -8,15 +8,29 @@ In our efforts to address matching errors by prioritizing the use of Digital Ide
 
 ### Requirements for Digital Identifiers 
 
-- Identifier **SHALL** be capable of a validation process. Acceptable validation methods include 1) the user authenticates themselves at a level of authentication assurance commensurate with that of the credential itself and the credential is confirmed to originate from a trusted Identity Provider (authentication assurance **MUST** be AAL2 or greater for any identity assurance level greater than IAL1; To do: include additional validation methods such as: 2) a query to the Identity Provider's system to TBD and verification methods such as: the profile photo associated with the account is consistent with this IG and is a visual match to the individual or to a government-issued photo ID saved in their record).
+- Identifier **SHALL** be capable of a validation process. Acceptable validation methods include 1) the user authenticates themselves at a level of authentication assurance commensurate with that of the credential itself and the credential is confirmed to originate from a trusted Identity Provider (authentication assurance **MUST** be AAL2 or greater for any [identity assurance level](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) greater than IAL1; 2) relying party queries the Identity Provider's system to confirm demographics associated with the individual in a privacy preserving way, for example by presenting a cryptographic hash of first, last, date of birth and home address along with the Identifier. Acceptable verification methods include: 1) the profile photo associated with an OpenID Credential bound to the Identifier is consistent with this Implementation Guide and NIST requirements on use of biometrics and is a visual match to the individual or to a government-issued photo ID previously associated with the individual during a documented identity verification event and saved in their record.
 
-- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). To do: clarify language regarding Digital Identifier being 1:1 with unique person on assigner's system; how to handle name changes in this case; include an example documented process in Guidance tab? 
+- A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). Each Digital Identifier **MUST** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system. 
 
-- Identifier **SHALL** be unique for all time within the assigner’s system. A new Identifier cannot be generated for the same individual, as that would lead to mismatches on patient identity and potential patient safety issues. 
+- Identifier **SHALL** be unique for all time within the assigner’s system. More than one Identifier cannot be generated within the assigner's system for the same individual, as that would lead to mismatches on patient identity and potential patient safety issues. 
 
-- Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. The associated patient onboarding process **SHALL** require the patient to assert that any attributes they provide uniquely represent them. (*To do: more speific details about what this means for certain types of attributes such as phone number, address, email.*)
+- Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. The associated patient onboarding process **SHALL** require the patient to assert that any attributes they provide correspond to their own identity. Legal names **MUST** be used and the use of work addresses or phone numbers not belonging to the individual **SHOULD** be discouraged. The email address and mobile number provided **MUST** be under the individual's exclusive control if used to secure the Identifier or an associated credential.
 
-- Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request.
+- Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
+
+'''json
+{
+   ...
+   "iss":"https://generalhospital.example.com/as",
+   "sub":"328473298643",
+   "identifier":"123e4567-e89b-12d3-a456-426614174000a",
+   "amr":"http://udap.org/code/auth/aal2",
+   "acr":"http://udap.org/code/id/ial2",
+   "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
+}
+'''
+
+- The combination of Identifier plus Assigner cannot be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and one **MAY NOT** be programmatically derived from the other since the OpenID Connect identifier may need to be re-issued from time to time and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **MUST** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or in addition to the OpenID Connect credential.   
 
 &emsp;&emsp;  
 
