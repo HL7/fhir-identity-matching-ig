@@ -18,7 +18,7 @@ In our efforts to address matching errors by prioritizing the use of Digital Ide
 
 - Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
 
-'''json
+```json
 {
    ...
    "iss":"https://generalhospital.example.com/as",
@@ -28,7 +28,7 @@ In our efforts to address matching errors by prioritizing the use of Digital Ide
    "acr":"http://udap.org/code/id/ial2",
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
-'''
+```
 
 - The combination of Identifier plus Assigner cannot be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and one **MAY NOT** be programmatically derived from the other since the OpenID Connect identifier may need to be re-issued from time to time and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **MUST** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or in addition to the OpenID Connect credential.   
 
