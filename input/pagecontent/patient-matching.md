@@ -19,7 +19,7 @@ When transmitting identity attributes in a match request about individuals to au
 - within a UDAP assertion object, or 
 - as part of a patient match or patient search request,
 
-Each included identity attribute either must have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or must be consistent with other evidence used in identity verification. If a level of assurance is not explicitly asserted, at a minimum, 
+Each included identity attribute either **SHALL** have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in identity verification. If a level of assurance is not explicitly asserted, at a minimum, 
 1. The combination of identity attributes submitted is consistent with and sufficient to identify a unique identity (for example, first, last, DOB and home street address OR first, last, and an Identifier that is compliant with this Implementation Guide) and corresponds to a human person whose identity has been verified at IAL1.2 or greater in accordance with the practices of NIST 800-63a using Fair or stronger evidence and/or credit bureau records (or equivalent). As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for the individual and for an implementer's overall operations. Otherwise, 
 2. For Individual Access (or if PHI or PII will be returned, as a result of or subsequent to the match request, other than to a Covered Entity in a Treatment, Payment, or Operations workflow), a minimum of IAL1.8 or LoA-2 In Person end user identity verification is required and in that case, all identity attributes submitted for matching are verified either as part of, at minimum, an IAL1.8 or LoA-2 In Person identity verification event or are consistent with evidence presented during the event, before including those attributes in a match request.
 
@@ -50,7 +50,7 @@ A responder performing a patient match **SHOULD** attempt to match identity attr
     *Note that a collection of records together can make them more valuable than one of the records may appear on its own.*
     *Use MatchGrade extension to help explain the entire story?*  
 
-Additionally, for Individual Access requests or equivalent workflows, the match must be performed using the subset of patient records for which the patient’s identity has been verified by the responder at IAL1.8 or greater and patient attributes either directly reflect or are consistent with an identity verification event at that level or higher.
+Additionally, for Individual Access requests or equivalent workflows, the match **SHALL** be performed using the subset of patient records for which the patient’s identity has been verified by the responder at IAL1.8 or greater and patient attributes either directly reflect or are consistent with an identity verification event at that level or higher.
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates the minimum attributes required to obtain match results and their level of verification required in different use cases:
 
@@ -170,7 +170,7 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 Scoring **SHOULD** be as probabilistic as possible
 
-Common correlations such has families must be modeled *<u>(ONC recommendation reference?)</u>*
+Common correlations such has families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*
 
 Scores **SHOULD** be computed, not guessed, whenever possible
 

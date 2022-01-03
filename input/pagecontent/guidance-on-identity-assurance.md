@@ -46,7 +46,7 @@ The Identity Provider then validates this information using appropriate evidence
     ​    send equivalent notice via email address or phone number associated with the person in records 
 
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
-  - Knowledge Based Verification (KBV) **MUST NOT** be used as a substitute for in-person or remote unsupervised matched of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
+  - Knowledge Based Verification (KBV) **SHALL NOT** be used as a substitute for in-person or remote unsupervised matched of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
 
 
 ​    
@@ -63,11 +63,12 @@ IAL 1.6 identity verification is expected to map to many existing systems’ pro
 
   - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the person; 
     
+  
   Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity(5)
 
 In healthcare settings, additional demographics may also be collected and used in matching (for example, administrative gender and birth sex). Refer to the Patient Matching section for additional verification requirements on such attributes.  
 
-An individual profile photo associated with an identity **MUST** be confirmed during identity verification or during a subsequent, authenticated event to visually match the subject, to prevent errors in matching or identity resolution, e.g., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the subject's identity evidence for IAL2 remote unsupervised etc. 
+An individual profile photo associated with an identity **SHALL** be confirmed during identity verification or during a subsequent, authenticated event to visually match the subject, to prevent errors in matching or identity resolution, e.g., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the subject's identity evidence for IAL2 remote unsupervised etc. 
 
 NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make a consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
