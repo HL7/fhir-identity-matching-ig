@@ -46,12 +46,12 @@ The Identity Provider then validates this information using appropriate evidence
     ​    send equivalent notice via email address or phone number associated with the person in records 
 
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
-  - Knowledge Based Verification (KBV) **SHALL NOT** be used as a substitute for in-person or remote unsupervised matched of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
+  - Knowledge Based Verification (KBV) **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
 
 
 ​    
 
-IAL 1.6 identity verification is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
+IAL 1.6 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
 - **IAL1.8** requirements: 
 
