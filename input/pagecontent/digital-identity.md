@@ -12,7 +12,8 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 - A documented identity proofing process at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion (such that it is fraudulent to claim a false identity). Each Digital Identifier **SHALL** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system. 
 
-- Identifier **SHALL** be unique for all time within the assigner’s system. More than one Identifier cannot be generated within the assigner's system for the same individual, as that would lead to mismatches on patient identity and potential patient safety issues. 
+   - Identifier **SHALL** be unique for all time within the assigner’s system. 
+   - More than one Identifier cannot be generated within the assigner's system for the same individual, as that would lead to mismatches on patient identity and potential patient safety issues. 
 
 - Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. The associated patient onboarding process **SHALL** require the patient to assert that any attributes they provide correspond to their own identity. Legal names **SHALL** be used and the use of work addresses or phone numbers not belonging to the individual **SHOULD** be discouraged. The email address and mobile number provided **SHALL** be under the individual's exclusive control if used to secure the Identifier or an associated credential.
 
@@ -29,6 +30,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
+Alternatively, the assigner and identifier may be included as FHIR system and value data within a fhirUser identity claim as per 2015 Edition Cures Update requirements.
 
 - The combination of Identifier plus Assigner cannot be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and one **MAY NOT** be programmatically derived from the other since the OpenID Connect identifier may need to be re-issued from time to time and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **SHALL** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or in addition to the OpenID Connect credential.   
 
