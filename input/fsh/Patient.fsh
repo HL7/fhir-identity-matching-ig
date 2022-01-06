@@ -20,13 +20,13 @@ Description: "The goal of this profile is to describe a data-minimized version o
 
 // * name 1..1 MS
 // * name.given 0..3 MS
-* name obeys idi-2
+//* name obeys idi-2
 
-* telecom obeys idi-3
+//* telecom obeys idi-3
 
 // * birthDate 0..1
 // * birthDate ^comment = "MAY be excluded."
 
-* gender 0..1
+//* gender 0..1
 // * gender ^comment = "MAY be excluded."
 

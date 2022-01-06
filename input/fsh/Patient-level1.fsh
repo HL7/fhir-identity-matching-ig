@@ -2,11 +2,11 @@ Profile: IDIPatientL1
 Parent: Patient
 Id: IDI-Patient-L1
 Title: "IDI Patient 1 (Level 1 matching)"
-Description: "The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient used for Identity Matching utilizing the $match operation, and prescribe a predetermined minimum set of data elements to be included and described as a 'Level'"
+Description: "The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient used for Identity Matching utilizing the $match operation, and prescribe a predetermined minimum set of data elements to be included and described as a 'Level' (combined weighted information minimum of 6)"
 
 // Inherited short and definition include animals
 * . ^short = "Patient information to be supplied to $match operation"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation."
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting of included information of 6."
 * obeys idi-L1
 
 * meta.profile ^slicing.discriminator.type = #pattern
