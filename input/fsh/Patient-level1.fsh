@@ -6,7 +6,7 @@ Description: "The goal of this profile is to describe a data-minimized version o
 
 // Inherited short and definition include animals
 * . ^short = "Patient information to be supplied to $match operation"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation."
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting of included information of 6."
 * obeys idi-L1
 
 * meta.profile ^slicing.discriminator.type = #pattern
