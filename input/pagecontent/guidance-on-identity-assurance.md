@@ -1,6 +1,6 @@
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. The levels articulated below and the systems of Identity Providers following this guidance are expected to be consistent with NIST 800-63 except as specified otherwise. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. The levels articulated below and the systems of Identity Providers following this guidance SHALL be consistent with NIST 800-63 except as specified otherwise. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
 
 ### Best Practices for Identity Verification
 
