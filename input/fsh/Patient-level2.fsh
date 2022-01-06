@@ -2,7 +2,7 @@ Profile: IDIPatientL2
 Parent: Patient
 Id: IDI-Patient-L2
 Title: "IDI Patient 2 (Level 2 matching)"
-Description: "The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient used for Identity Matching utilizing the $match operation, and prescribe a predetermined minimum set of data elements to be included and described as a 'Level'"
+Description: "The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient used for Identity Matching utilizing the $match operation, and prescribe a predetermined minimum set of data elements to be included and described as a 'Level' (combined weighted information minimum of 12)"
 
 // Inherited short and definition include animals
 * . ^short = "Patient information to be supplied to $match operation"
