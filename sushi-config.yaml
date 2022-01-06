@@ -29,7 +29,7 @@ parameters:
   apply-contact: true
   apply-version: true
   usage-stats-opt-out: true
-  excludexml: true
+  excludexml: false
   excludejsn: false
   excludettl: true
   excludemap: true
