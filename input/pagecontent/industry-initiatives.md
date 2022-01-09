@@ -12,6 +12,8 @@ Finland and Germany SSI-based Collaboration in the EU
 
 OpenID for Identity Assurance https://openid.net/wg/ekyc-ida/ 
 
+[AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
+
 Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy)
 
 ----
