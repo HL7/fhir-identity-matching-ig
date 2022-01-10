@@ -14,9 +14,9 @@ When transmitting identity attributes to third parties with whom that sharing of
 - within a UDAP assertion object, or 
 - as part of a match or search request,
 
-and a a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that the identity verification process completed by that party. If a level of assurance is not explicitly asserted, at a minimum, the combination of identity attributes submitted **MUST** be consistent with and sufficient to on their own identify a unique person in the real world (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63 using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for end users and for an implementer's overall operations. 
+and a a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that the identity verification process completed by that party. If a level of assurance is not explicitly asserted, at a minimum, the combination of identity attributes submitted **SHALL** be consistent with and sufficient to on their own identify a unique person in the real world (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63 using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for end users and for an implementer's overall operations. 
 
-Individual Access (or if PHI or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow), is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **MUST** authenticate the Individual before returning PHI or PII.
+Individual Access (or if PHI or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow), is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **SHALL** authenticate the Individual before returning PHI or PII.
 
 Security best practices, including transaction authorization, are generally out of scope for this solution, however implementers also **SHALL NOT** allow patients to request a match directly. A trusted system may request a match on a patient’s behalf and use it to inform the patient, especially to: 
 
@@ -34,12 +34,11 @@ For sharing of immunization records only, patient matching **MAY** be performed 
 
 A responder performing a patient match **SHOULD** attempt to match identity attributes included by the requestor against the subset of responder's patient records which include only unique identities. 
 
-*Asking for at most 4 results to be returned in a match request may mean more than 4 actual Patient resources returned, if the responding system has not mapped one identity to one record. Two options:*
+Asking for at most 4 results to be returned in a match request may mean more than 4 actual Patient resources returned, if the responding system has not mapped one identity to one record. Two options:
 
-1) *In this case, only the requested number of identities should be returned and the requester can ask for all resources or some subset, as needed.* 
-2) *All applicable records are returned; a different threshold on number of records returned could be considered instead.*
-    *Note that a collection of records together can make them more valuable than one of the records may appear on its own.*
-    *Use MatchGrade extension to help explain the entire story?*  
+1. In this case, only the requested number of identities should be returned and the requester can ask for all resources or some subset, as needed. 
+2. All applicable records are returned; a different threshold on number of records returned could be considered instead.
+    Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Use MatchGrade extension to help explain the entire story?*  
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases:
 
@@ -60,7 +59,7 @@ It is helpful to know the date verification was performed, in the case of addres
 
 The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html).
 
-When attributes like telephone number are verified as associated with a patient, 1) that information helps to bootstrap new account creation. An API from USPS may be helpful in verifying individual addresses in the coming years. NPI records can be used to verify provider addresses and telephone numbers today.
+When attributes like telephone number are verified as associated with a patient, that information helps to bootstrap new account creation. An API from USPS may be helpful in verifying individual addresses in the coming years. NPI records can be used to verify provider addresses and telephone numbers today.
 
 &emsp;&emsp;  
 
@@ -127,7 +126,7 @@ The concept of matching Identities is best kept separate from the notion of a Go
 
 - Linkage between records **SHOULD** be indicated by the Patient.link field
 - Records **SHOULD** be ordered first by identity, then by score vs. the input
-- Identities (sets of records) **SHOULD** be ordered by score vs. the input as per: "The response from an '"'mpi'"' query is a bundle containing patient records, ordered from most likely to least likely."  
+- Identities (sets of records) **SHOULD** be ordered by score vs. the input as per: "The response from an 'mpi' query is a bundle containing patient records, ordered from most likely to least likely."  
 
 If a match implementation supports creating a golden record to summarize the identity, match output **SHOULD** contain that record as well
 
@@ -171,8 +170,16 @@ If no results are returned, the workflow may result in a new patient record bein
 
 ### Exception Handling
 
+To do
+
 ### Privacy Considerations
 
+To do
+
+
 ### Benchmarking
+
+To do
+
 
 {% include link-list.md %}
