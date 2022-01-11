@@ -20,6 +20,8 @@ Patient ID Now Coalition Framework for a National Strategy on Patient Identity  
 
 ### Other standards
 
+To do: Need to clarify context for this series of 6 IHE links & look into whether updated versions may be more appropriate:
+
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Identifier Cross-reference PIX for Mobile (PIXm)](http://wiki.ihe.net/index.php/Patient_Identifier_Cross-Reference_for_Mobile_(PIXm))  
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - XCPD (Cross Community Patient Discovery)](https://wiki.ihe.net/index.php/Cross-Community_Patient_Discovery)  
