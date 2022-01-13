@@ -1,6 +1,6 @@
 Invariant:  idi-1
 Description: "One of identifier or telecom or family and given names or address or birthdate SHALL be present"
-Expression:  "identifier.exists() or telecom.exists() or (name.family.exists() and name.given.exists()) or address.exists() or birthDate.exists()"
+Expression:  "identifier.exists() or telecom.exists() or (name.family.exists() and name.given.exists()) or (address.exists(use = 'home') and address.line.exists() and address.city.exists()) or birthDate.exists()"
 Severity:   #error
 
 Invariant:  idi-2
