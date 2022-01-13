@@ -50,6 +50,8 @@ The Identity Provider then validates this information using appropriate evidence
  
 IAL 1.6 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
+Identity verification at this level and higher always includes verifiation of the individual's physical residential Address of Record.
+
 ​    
 
 - **IAL1.8** requirements: 
@@ -65,6 +67,9 @@ IAL 1.6 identity verification is the lowest level of identity assurance that can
   
   Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity(5)
 
+
+​    
+
 - **IAL2** requirements: 
 
   1 Strong plus 2 Fair pieces of evidence OR 1 Superior/Very Strong piece of evidence--for example: 
@@ -76,7 +81,7 @@ IAL 1.6 identity verification is the lowest level of identity assurance that can
   - Gov't issued passport, REAL ID, or Enhanced ID; this photo ID is confirmed by comparison to the individual 
     
   
-  Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity and notice is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
+  Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
   
 In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and birth sex). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
 
