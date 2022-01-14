@@ -80,7 +80,7 @@ table, th, td
 |   | Jim St Clair | Lumedic |
 |   | Catherine Schulten | Change Healthcare |
 |   | Ryan Howells | Leavitt Partners |
-|   | Rita Torkzadeh |         |
+|   | Rita Torkzadeh | Independent Consultant |
 
 &emsp;&emsp;  
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
