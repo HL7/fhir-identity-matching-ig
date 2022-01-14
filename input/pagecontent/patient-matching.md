@@ -83,8 +83,10 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
   
 
 &emsp;   
-### Patient Weighted Information  
-> <font color="Maroon"><b>NOTE:</b> The information and values included here are Draft state and have not been finalized </font>  
+
+### Patient Weighted Information
+
+&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
 
 Providing an agreed upon value for matching (i.e., "weight") to specific Patient information elements allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
@@ -112,11 +114,12 @@ th {
 | 1          | Marital Status               |
 | 1          | Gender                       |
 
-​     
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.) 
-​     
-​     
+&emsp;&emsp;  
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
 
+> <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. </font> 
+
+&emsp;   
 
 ### Golden Records
 
