@@ -86,6 +86,7 @@ table, th, td
 This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
 
 The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team
+
 The members of the HL7 Patient Administration Work Group
 
 
