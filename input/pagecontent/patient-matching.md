@@ -108,7 +108,7 @@ th {
 | 10          | Driver’s License Number (DL) or other ID Number and Issuing US State |
 | 4          | Address (including line), telecom email or phone, identifier (other than passport or DL) OR verified facial photo (i.e. max weight of 4 for any combination of these)                 |
 | 4          | First Name & Last Name       |
-| 5          | Address Line & Address city  |
+| 4          | Address Line & Address city  |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
