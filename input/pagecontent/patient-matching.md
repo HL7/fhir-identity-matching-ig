@@ -2,7 +2,7 @@
 
 This section of the guide extends the existing HL7 FHIR patient [$match](https://www.hl7.org/fhir/patient-operation-match.html) for cross-organizational use by authorized, trusted parties.  
 
-> **NOTE:** As security is generally out of scope for this guide, the conditions required to authorize an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient requested" purpose of use) **SHALL** always include explicit end-user authorization.   
+> **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient requested" purpose of use) **SHALL** always include explicit end-user authorization.   
 
 Except where its recommendations involve FHIR $match-specific parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Realizing that a better-formed match request produces the most reliable results, this implementation guide also includes a Guidance on Identity Assurance section as a companion resource to this best practice patient matching. 
 
@@ -16,7 +16,7 @@ When transmitting identity attributes to third parties with whom that sharing of
 
 and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, at a minimum, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own identify, the identity of a unique person in the real world (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63 using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). 
 
-As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for end users and for an implementer's overall operations. 
+As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for end users of health IT systems and for an implementer's overall operations. 
 
 Individual Access (or if PHI or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow), is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **SHALL** authenticate the Individual before returning PHI or PII.
 
@@ -42,6 +42,22 @@ Asking for at most 4 results to be returned in a match request may mean more tha
 2. All applicable records are returned; a different threshold on number of records returned could be considered instead.
     Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Use MatchGrade extension to help explain the entire story?*  
 
+> **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this implementation guide.
+
+&emsp;&emsp;  
+
+### Verification
+
+It is helpful to know the date verification of attributes was performed, in the case of address and cell number since those attributes change. Future versions of this implementation guide will likely include a grammar for indicating this information in match transactions.
+
+The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html).
+
+When attributes like telephone number are verified as associated with a patient, that information helps to bootstrap new account creation. An API from USPS may be helpful in verifying individual street addresses in future versions of this implementation guide. NPI records can be used to verify provider addresses and telephone numbers today.
+
+&emsp;&emsp;  
+
+### Recommended Best Practices
+
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases:
 
 | **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO  Workflow**               | **Attribute Verification in App-Mediated B2C  Workflow**      |
@@ -52,22 +68,6 @@ It is a best practice to include all known (required + optional) patient matchin
 | First, Last, Date of Birth, Current Address,  City, State    |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
 | First, Last, Date of Birth, Insurance Member  ID             |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
 | First, Last, DOB, (mobile number or email  address)          |                                                              | Consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
-
-&emsp;&emsp;  
-
-### Verification
-
-It is helpful to know the date verification was performed, in the case of address and cell number since those attributes change. Future versions of this IG will likely include a grammar for indicating this information in match transactions.
-
-The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html).
-
-When attributes like telephone number are verified as associated with a patient, that information helps to bootstrap new account creation. An API from USPS may be helpful in verifying individual addresses in the coming years. NPI records can be used to verify provider addresses and telephone numbers today.
-
-&emsp;&emsp;  
-
-### Recommended Best Practices
-
-Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
 
 Patient Match is not expected to enforce the minimum included attributes listed above. However, when a minimum combination of attributes is supplied, Patient Match **SHOULD** be able to find matching candidates if they exist. Under the hood, this is a requirement on the indexing capability for Patient Match to locate candidates before evaluating them. When something less than the minimum is supplied, Patient Match **MAY** return no candidates, even if matching candidates exist. 
 
@@ -81,6 +81,9 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 
 - For example, a candidate Identity that has the right address in one record, the right name in another, and the right telephone in another could be a strong candidate, even though no single record contains all the given information.  
   
+Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
+
+The section below provides example weight values that a match requestor can use along with specialized patient resource profiles to indicate their intent to follow pre-defined minimum match input requirements. 
 
 &emsp;   
 
@@ -106,9 +109,8 @@ th {
 | :----------: | ---------------------------- |
 | 10          | Passport Number (PPN) and issuing country       |
 | 10          | Driver’s License Number (DL) or other ID Number and Issuing US State |
-| 4          | Address (including line), telecom email or phone, identifier (other than passport or DL) OR verified facial photo (i.e. max weight of 4 for any combination of these)                 |
+| 4          | Address (including line and city), telecom email or phone, identifier (other than passport, DL or other state ID) OR verified facial photo (i.e. max weight of 4 for any combination of these)                 |
 | 4          | First Name & Last Name       |
-| 4          | Address Line & Address city  |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
@@ -165,7 +167,7 @@ Scores **SHOULD** be computed, not guessed, whenever possible
 
 Recommended errors?
 
-If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only?]</u>*.
+If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only? Question for OCR about whether this is permitted &  additional text we might include along those lines.]</u>*.
 
 &emsp;&emsp;  
 
