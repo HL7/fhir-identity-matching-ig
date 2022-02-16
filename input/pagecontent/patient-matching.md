@@ -105,11 +105,11 @@ th {
 </style>
 
 
-| **Weight** | **Element**                  |
+| **Weight** | **Element(s)**                  |
 | :----------: | ---------------------------- |
-| 10          | Passport Number (PPN) and issuing country       |
-| 10          | Driver’s License Number (DL) or other ID Number and Issuing US State |
-| 4          | Address (including line and city), telecom email or phone, identifier (other than passport, DL or other state ID) OR verified facial photo (i.e. max weight of 4 for any combination of these)                 |
+| 10          | Passport Number (PPN) and issuing country (max weight of 10 for this category, even if multiple Passport Numbers included)      |
+| 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State (max weight of 10 for this category, even if multiple ID Numbers included) |
+| 4          | Address (including line and city), telecom email or phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for 1 or any combination of these)                 |
 | 4          | First Name & Last Name       |
 
 &emsp;&emsp;  
