@@ -77,12 +77,13 @@ Patient Match is expected to supply a Patient resource conforming to the Patient
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
-Patient Match **MUST** return only candidates which are an exact match on Name, allowing for at most a single character difference between the Name in the match request and the Identity or records in the responding system.
+Patient Match **SHALL** return only candidates which are an exact match on Name, allowing for at most a single character difference between the Name in the match request and the Identity or records in the responding system.
 
 Patient Match **SHOULD** be in terms of groups of records that have been partitioned prior to the Patient Match call into Identities -- groups of records that are thought to represent people. 
 
 - For example, a candidate Identity that has the right address in one record, the right name in another, and the right telephone in another could be a strong candidate, even though no single record contains all the given information.  
   
+
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
 
 The section below provides example weight values that a match requestor can use along with specialized patient resource profiles to indicate their intent to follow pre-defined minimum match input requirements. 
@@ -111,12 +112,13 @@ th {
 | :----------: | ---------------------------- |
 | 10          | Passport Number (PPN) and issuing country (max weight of 10 for this category, even if multiple Passport Numbers included)      |
 | 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State (max weight of 10 for this category, even if multiple ID Numbers included) |
-| 4          | Address (including line and city), telecom email or phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for 1 or any combination of these)                 |
+| 4          | Address (including line and city), telecom email or phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
 | 4          | First Name & Last Name       |
 | 2          | Date of Birth       |
 
+
 &emsp;&emsp;  
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* (Base Level) profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. </font> 
 

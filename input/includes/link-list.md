@@ -6,5 +6,6 @@
 [Digital Identity]: digital-identity.html
 [FHIR Artifacts]: artifacts.html
 [IDI Patient]: StructureDefinition-IDI-Patient.html
+[IDI Patient 0]: StructureDefinition-IDI-Patient-L0.html
 [IDI Patient 1]: StructureDefinition-IDI-Patient-L1.html
-[IDI Patient 2]: StructureDefinition-IDI-Patient-L2.html
+
