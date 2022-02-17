@@ -6,7 +6,7 @@ Usage: #example
 * meta.profile = Canonical(IDI-Patient)
 * meta.lastUpdated = "2020-07-07T13:26:22.0314215+00:00"
 * language = #en-US
-* id = "ExamplePatient1"
+* id = "ExamplePatient"
 * active = true
 
 * identifier[0].type.coding.code = #MB
@@ -23,7 +23,7 @@ Usage: #example
 
 * gender = #male
 
-* birthDate = "1986-01-01"
+* birthDate = "1986-05-01"
 
 * contact.telecom[0].system = #fax
 * contact.telecom[0].value = "555-555-5555"
@@ -39,15 +39,15 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: Patient-L1
-InstanceOf: IDIPatientL1
-Description: "Example of Patient used as input to $match operation meeting Level 1 compliance"
+Instance: Patient-L0
+InstanceOf: IDIPatientL0
+Description: "Example of Patient used as input to $match operation meeting Level 0 information conformance"
 Usage: #example
 
-* meta.profile = Canonical(IDI-Patient-L1)
+* meta.profile = Canonical(IDI-Patient-L0)
 * meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
-* id = "ExamplePatientL1"
+* id = "ExamplePatientL0"
 * active = true
 
 * identifier[0].type.coding.code = #MR
@@ -80,18 +80,18 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: Patient-L2
-InstanceOf: IDIPatientL2
-Description: "Example of Patient used as input to $match operation meeting Level 2 compliance"
+Instance: Patient-L1
+InstanceOf: IDIPatientL1
+Description: "Example of Patient used as input to $match operation meeting Level 1 information conformance"
 Usage: #example
 
-* meta.profile = Canonical(IDI-Patient-L2)
+* meta.profile = Canonical(IDI-Patient-L1)
 * meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
-* id = "ExamplePatientL2"
+* id = "ExamplePatientL1"
 * active = true
 
-* identifier[0].type.coding.code = #MR
+* identifier[0].type.coding.code = #DL
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "3902-16532901"
 * identifier[0].system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
