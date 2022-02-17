@@ -73,9 +73,11 @@ Patient Match is not expected to enforce the minimum included attributes listed 
 
 - For example, a bare name might theoretically match no candidates or an overwhelming number of candidates. In this case, Patient Match may return no candidates, even if matching data exists. A simple phone number may or may not be enough for Patient Match to find candidates - that is left up to the implementation.
 
-Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to [$match](https://www.hl7.org/fhir/patient-operation-match.html) to encourage entering more information.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
+Patient Match is expected to supply a Patient resource conforming to the Patient profile(s) defined within this Implementation Guide to [$match](https://www.hl7.org/fhir/patient-operation-match.html) and entering as much information as possible is encouraged.  More information helps find the right candidate and disambiguate cases where there are several candidates. This implies that Patient Match is not simply a matter of finding a candidate that exactly matches all the given demographics. That approach tends to discourage entering more information because the user cannot know exactly which demographics will appear in the existing Identities. 
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
+
+Patient Match **MUST** return only candidates which are an exact match on Name, allowing for at most a single character difference between the Name in the match request and the Identity or records in the responding system.
 
 Patient Match **SHOULD** be in terms of groups of records that have been partitioned prior to the Patient Match call into Identities -- groups of records that are thought to represent people. 
 
@@ -114,7 +116,7 @@ th {
 | 2          | Date of Birth       |
 
 &emsp;&emsp;  
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* (Base Level) profile be used (no element "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 1]*, *[IDI Patient 2]*, etc.)    
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. </font> 
 
