@@ -77,7 +77,7 @@ Patient Match is expected to supply a Patient resource conforming to the Patient
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
-Patient Match **SHALL** return only candidates which are an exact match on Name, allowing for at most a single character difference between the Name in the match request and the Identity or records in the responding system.
+Patient Match **SHOULD** return only match candidates which are an exact match on Name, where exact means there is at most a single character or two character (for example, a transposition error) difference between the Name in the match request and the name associated with the Identity(ies) or the set of records identified as matches in the responding system. Ideally the industry will work toward developing a reliable list of nickname associations that would support requiring such exact matches in future versions of this guide.
 
 Patient Match **SHOULD** be in terms of groups of records that have been partitioned prior to the Patient Match call into Identities -- groups of records that are thought to represent people. 
 
