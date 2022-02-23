@@ -33,8 +33,10 @@ The Identity Provider then validates this information using appropriate evidence
   - A US state-issued photo ID or nationally-issued photo ID was used to verify name and birth date.
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
 
+​    
+
 - **IAL1.5** requirements:
-  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique Digital Identifier; 2) insurance card; 3) medical record PLUS if claimed address cannot be verified using that evidence along with credit bureau type records,
+  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique Digital Identifier; 2) insurance card; 3) medical record; PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records,
   
     ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
 
