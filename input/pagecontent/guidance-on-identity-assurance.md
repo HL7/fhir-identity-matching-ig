@@ -33,11 +33,30 @@ The Identity Provider then validates this information using appropriate evidence
   - A US state-issued photo ID or nationally-issued photo ID was used to verify name and birth date.
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
 
+- **IAL1.5** requirements:
+  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique Digital Identifier; 2) insurance card; 3) medical record PLUS if claimed address cannot be verified using that evidence along with credit bureau type records,
+  
+    ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
+
+    ​	      **OR**
+
+    ​    verify the individual's control of a mobile number **OR** Fair or stronger evidence confirms the mobile number belongs to the individual 
+    
+    ​	      **OR**
+
+    ​    verify an Individual Profile Photo 
+    
+- Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
+ 
+IAL 1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for user access to data at a single health system.(5) 
+
+NOTE: Social Security Number does not have a role as evidence in levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
+
 ​    
 
 - **IAL1.6** requirements: 
 
-  - Gov’t issued photo ID confirmed by comparison to individual plus   
+  - Gov’t issued photo ID confirmed by comparison to individual PLUS   
 
     ​    mail notice to address of record 
 
@@ -45,10 +64,10 @@ The Identity Provider then validates this information using appropriate evidence
 
     ​    send equivalent notice via email address or phone number associated with the person in records 
 
-  - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
-  - Knowledge Based Verification (KBV) **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity  
+  - Knowledge Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at this level or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
  
-IAL 1.6 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for generating a patient portal account for user access to data at a single health system. The absence of multiple pieces of identity evidence is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
+The absence of multiple pieces of identity evidence in IAL 1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
 Identity verification at this level and higher always includes verifiation of the individual's physical residential Address of Record.
 
@@ -56,17 +75,16 @@ Identity verification at this level and higher always includes verifiation of th
 
 - **IAL1.8** requirements: 
 
-  2 Fair pieces of evidence--for example: 
+  2 Fair pieces of evidence were used to verify name, birth date, and home address--for example:  
 
-  - Two of:  state driver's license or other Fair photo ID confirmed by comparison to individual; medical record; or insurance card 
+  - Two of:  1) US state-issued driver's license or other Fair photo ID confirmed by comparison to individual; 2) medical record; or 3) insurance card 
 
     ​    **OR**
 
   - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
     
   
-  Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity(5)
-
+  Plus declaration of identity assertion by the individual indicating that all submitted information including name, birth date, and home address represents their own identity
 
 ​    
 
@@ -81,11 +99,11 @@ Identity verification at this level and higher always includes verifiation of th
   - Gov't issued passport, REAL ID, or Enhanced ID; this photo ID is confirmed by comparison to the individual 
     
   
-  Plus declaration of identity assertion by the individual indicating that submitted information represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
+  Plus declaration of identity assertion by the individual indicating that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
   
 In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and birth sex). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
 
-An Individual Profile Photo to be associated with an identity **SHALL** be confirmed during identity verification or during a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised etc. The photo can be used to prevent errors in matching or identity resolution
+An Individual Profile Photo to be associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution.
 
 NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make an interoperable consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
@@ -115,6 +133,6 @@ From 800-63-3:
 
 - NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements. 
 
-(5) See also: [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
+(5) See also: [Patient Records Electronic Access Playbook](https://www.ama-assn.org/system/files/2020-02/patient-records-playbook.pdf), [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
 
 {% include link-list.md %}
