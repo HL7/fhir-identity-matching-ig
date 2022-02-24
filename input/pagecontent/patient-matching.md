@@ -141,8 +141,15 @@ th {
 </style>
 
 
-| **Weight** | **Matching Element(s)**                  |
+| **TBD** | **Matching Element(s)**                  |
 | :----------: | ---------------------------- |
+|Superior           | Responder's MRN/MPI       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
+|High           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
+|           | Name PLUS Driver's License Number and Issuing US State |
 |           | Name PLUS Driver's License Number and Issuing US State |
 |           | SSN (complete) |
 |           | Passport Number (PPN) and issuing country |
@@ -151,7 +158,6 @@ th {
 |           | SSN (last 4) |
 |           | Address (including line and city (or zip) and state), Previous Address, telecom email, telecom phone, identifier (other than those specified elsewhere in this table) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
 |           | Address line, Zip and State       |
-|           | First Name & Last Name       |
 |           | First Name & Last Name       |
 |           | telecom email |
 |           | telecom phone (mobile) |
