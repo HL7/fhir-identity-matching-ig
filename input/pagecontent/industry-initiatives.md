@@ -14,6 +14,8 @@ OpenID for Identity Assurance https://openid.net/wg/ekyc-ida/
 
 [AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
 
+[ECRI Health IT Safe Practices: Toolkit for the Safe Use of Health IT for Patient Identification](https://www.ecri.org/Resources/HIT/Patient%20ID/Patient_Identification_Toolkit_final.pdf)
+
 Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy)
 
 ----
