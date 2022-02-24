@@ -112,7 +112,7 @@ th {
 | :----------: | ---------------------------- |
 | 10          | Passport Number (PPN) and issuing country (max weight of 10 for this category, even if multiple Passport Numbers included)      |
 | 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State (max weight of 10 for this category, even if multiple ID Numbers included) |
-| 4          | Address (including line and city), telecom email or phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
+| 4          | Address (including line and city), telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
 | 4          | First Name & Last Name       |
 | 2          | Date of Birth       |
 
