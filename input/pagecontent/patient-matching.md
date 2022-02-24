@@ -83,6 +83,7 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 
 - For example, a candidate Identity that has the right address in one record, the right name in another, and the right telephone in another could be a strong candidate, even though no single record contains all the given information.  
   
+To request a match on a patient with a single legal name, known as a mononamous individual, requestors **SHOULD** use that name in the Last name field and leave the First name NULL.
 
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
 
@@ -157,6 +158,7 @@ th {
 |           | telecom phone (other than mobile)|
 |           | SSN (last 5) |
 |           | SSN (last 4) |
+|           | Insurance Subscriber Identifier |
 |           | Previous First Name & Last Name       |
 |           | Nickname or Alias       |
 |           | Date of Birth       |
