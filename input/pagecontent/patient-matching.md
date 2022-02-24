@@ -116,7 +116,26 @@ th {
 | 4          | Address (including line and city), telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
 | 4          | First Name & Last Name       |
 | 2          | Date of Birth       |
-
+|TBD        | SSN (complete) |
+|           | Passport Number (PPN) and issuing country |
+|           | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
+|           | Insurance Member Identifier |
+|           | SSN (last 4) |
+|           | Address (including line and city (or zip) and state), Previous Address, telecom email, telecom phone, identifier (other than those specified elsewhere in this table) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
+|           | Address line, Zip and State       |
+|           | First Name & Last Name       |
+|           | telecom email |
+|           | telecom phone (mobile) |
+|           | telecom phone (other than mobile)|
+|           | SSN (last 5) |
+|           | SSN (last 4) |
+|           | Insurance Subscriber Identifier |
+|           | Previous First Name & Last Name       |
+|           | Nickname or Alias       |
+|           | Date of Birth       |
+|           | Address City and State       |
+|           | Address Zip and State       |
+|           | Sex (Assigned at Birth)       |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
@@ -141,9 +160,9 @@ th {
 </style>
 
 
-| **TBD** | **Matching Element(s)**                  |
+| **Quality** | **Matching Element(s) that Increase Uniqueness**                  |
 | :----------: | ---------------------------- |
-|           | Responder's MRN/MPI       |
+|Best       | Responder's MRN/MPI or known Digital Identifier       |
 |Superior   | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
@@ -154,28 +173,9 @@ th {
 |           | First Name & Last Name & Date of Birth       |
 |           | Name PLUS Driver's License Number and Issuing US State |
 |           | Name PLUS Passport Number and Issuing Country |
-|TBD        | SSN (complete) |
-|           | Passport Number (PPN) and issuing country |
-|           | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
-|           | Insurance Member Identifier |
-|           | SSN (last 4) |
-|           | Address (including line and city (or zip) and state), Previous Address, telecom email, telecom phone, identifier (other than those specified elsewhere in this table) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
-|           | Address line, Zip and State       |
-|           | First Name & Last Name       |
-|           | telecom email |
-|           | telecom phone (mobile) |
-|           | telecom phone (other than mobile)|
-|           | SSN (last 5) |
-|           | SSN (last 4) |
-|           | Insurance Subscriber Identifier |
-|           | Previous First Name & Last Name       |
-|           | Nickname or Alias       |
-|           | Date of Birth       |
-|           | Address City and State       |
-|           | Address Zip and State       |
-|           | Sex (Assigned at Birth)       |
 
 
+TBD: Include language about permitted transposition errors, edit distances.
 &emsp;   
 
 ### Golden Records
