@@ -182,7 +182,7 @@ Scores **SHOULD** be computed, not guessed, whenever possible.
 
 &emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
 
-The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that results are understandable across organizational boundaries.   
+The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.       
 
 <style>
 table, th, td 
@@ -201,20 +201,19 @@ th {
 |Deterministic       | Responder's MRN/MPI or known Digital Identifier       |
 |Best       | First Name & Last Name & Driver's License Number and Issuing US State |
 |           | First Name & Last Name & Passport Number and Issuing Country |
-|           | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
-|           | First Name & Last Name & Date of Birth & Address line & City & State       |
-|           | First Name & Last Name & Date of Birth & Social Security Number       |
-|           | First Name & Last Name & Date of Birth & Insurance Member Identifier       |
+|           | First Name & Last Name & Insurance Member Identifier       |
 |           | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
-|           | First Name & Last Name & Date of Birth & telecom email       |
-|           | First Name & Last Name & Date of Birth & telecom phone       |
 |           | First Name & Last Name & Social Security Number       |
 |           | First Name & Last Name & Insurance Member Identifier       |
 |Superior   | First Name & Last Name & Insurance Subscriber Identifier       |
+|           | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
+|           | First Name & Last Name & Date of Birth & Address line & City & State       |
+|           | First Name & Last Name & Date of Birth & email       |
 |Very Good  | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
+|           | First Name & Last Name & Date of Birth & phone       |
 |Good       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
 |           | First Name & Last Name & Date of Birth       |
