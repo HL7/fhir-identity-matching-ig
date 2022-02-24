@@ -148,7 +148,7 @@ th {
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
-|           | First Name & Last Name & Date of Birth & Verified Insurance Member Identifier       |
+|           | First Name & Last Name & Date of Birth & Insurance Member Identifier       |
 |High       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
 |           | First Name & Last Name & Date of Birth & Sex       |
 |           | First Name & Last Name & Date of Birth       |
