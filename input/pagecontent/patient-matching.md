@@ -140,15 +140,30 @@ th {
 </style>
 
 
-| **Weight** | **Element(s)**                  |
+| **Weight** | **Matching Element(s)**                  |
 | :----------: | ---------------------------- |
-| 10          | Passport Number (PPN) and issuing country |
-| 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
-| 4          | Address (including line and city), Previous Address, telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
-| 4          | First Name & Last Name       |
-| 4          | Previous First Name & Last Name       |
-| 2          | Date of Birth       |
-| 2          | Sex (Assigned at Birth)       |
+|           | Name PLUS Driver's License Number and Issuing US State |
+|           | SSN (complete) |
+|           | Passport Number (PPN) and issuing country |
+|           | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
+|           | Insurance Member Identifier |
+|           | SSN (last 4) |
+|           | Address (including line and city (or zip) and state), Previous Address, telecom email, telecom phone, identifier (other than those specified elsewhere in this table) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
+|           | Address line, Zip and State       |
+|           | First Name & Last Name       |
+|           | First Name & Last Name       |
+|           | telecom email |
+|           | telecom phone (mobile) |
+|           | telecom phone (other than mobile)|
+|           | SSN (last 5) |
+|           | SSN (last 4) |
+|           | Previous First Name & Last Name       |
+|           | Nickname or Alias       |
+|           | Date of Birth       |
+|           | Address City and State       |
+|           | Address Zip and State       |
+|           | Sex (Assigned at Birth)       |
+
 
 &emsp;   
 
