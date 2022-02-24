@@ -143,15 +143,18 @@ th {
 
 | **TBD** | **Matching Element(s)**                  |
 | :----------: | ---------------------------- |
-|Superior           | Responder's MRN/MPI       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
+|           | Responder's MRN/MPI       |
+|Superior   | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
 |           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
-|High           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
+|           | First Name & Last Name & Date of Birth & Verified Insurance Member Identifier       |
+|High       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
+|           | First Name & Last Name & Date of Birth & Sex       |
+|           | First Name & Last Name & Date of Birth       |
 |           | Name PLUS Driver's License Number and Issuing US State |
-|           | Name PLUS Driver's License Number and Issuing US State |
-|           | SSN (complete) |
+|           | Name PLUS Passport Number and Issuing Country |
+|TBD        | SSN (complete) |
 |           | Passport Number (PPN) and issuing country |
 |           | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
 |           | Insurance Member Identifier |
