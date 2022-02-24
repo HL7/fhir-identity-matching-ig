@@ -109,24 +109,15 @@ th {
 </style>
 
 
-| **Weight** | **Element(s)**                  |
+| **Weight** | **Match Input Element(s)**                  |
 | :----------: | ---------------------------- |
 | 10          | Passport Number (PPN) and issuing country (max weight of 10 for this category, even if multiple Passport Numbers included)      |
 | 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State (max weight of 10 for this category, even if multiple ID Numbers included) |
-| 4          | Address (including line and city), telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
+| 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
 | 4          | First Name & Last Name       |
 | 2          | Date of Birth       |
 |TBD        | SSN (complete) |
-|           | Passport Number (PPN) and issuing country |
-|           | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State |
 |           | Insurance Member Identifier |
-|           | SSN (last 4) |
-|           | Address (including line and city (or zip) and state), Previous Address, telecom email, telecom phone, identifier (other than those specified elsewhere in this table) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) |
-|           | Address line, Zip and State       |
-|           | First Name & Last Name       |
-|           | telecom email |
-|           | telecom phone (mobile) |
-|           | telecom phone (other than mobile)|
 |           | SSN (last 5) |
 |           | SSN (last 4) |
 |           | Insurance Subscriber Identifier |
@@ -134,49 +125,16 @@ th {
 |           | Nickname or Alias       |
 |           | Date of Birth       |
 |           | Address City and State       |
-|           | Address Zip and State       |
+|           | Address Zip        |
 |           | Sex (Assigned at Birth)       |
+|           | Sexual Orientation       |
+|           | Gender Identity       |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. </font> 
 
-### Patient Weighted Information for use in Match Success Rate
-
-&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
-
-Providing information to help grade the success of match results in a deterministic way that is understandable across organizational boundaries.   
-
-<style>
-table, th, td 
-{
-  border: 1px solid Silver; 
-  padding: 5px
-}
-th {
-  background: Azure; 
-}
-</style>
-
-
-| **Quality** | **Matching Element(s) that Increase Uniqueness**                  |
-| :----------: | ---------------------------- |
-|Best       | Responder's MRN/MPI or known Digital Identifier       |
-|Superior   | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
-|           | First Name & Last Name & Date of Birth & Insurance Member Identifier       |
-|High       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
-|           | First Name & Last Name & Date of Birth & Sex       |
-|           | First Name & Last Name & Date of Birth       |
-|           | Name PLUS Driver's License Number and Issuing US State |
-|           | Name PLUS Passport Number and Issuing Country |
-
-
-TBD: Include language about permitted transposition errors, edit distances.
-&emsp;   
 
 ### Golden Records
 
@@ -214,11 +172,58 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 ### Scoring Matches
 
-Scoring **SHOULD** be as probabilistic as possible
+Scoring **SHOULD** be as probabilistic as possible.
 
-Common correlations such has families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*
+Common correlations such as families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*.
 
-Scores **SHOULD** be computed, not guessed, whenever possible
+Scores **SHOULD** be computed, not guessed, whenever possible.
+
+### Responder's System Match Output Quality Score
+
+&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
+
+The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that results are understandable across organizational boundaries.   
+
+<style>
+table, th, td 
+{
+  border: 1px solid Silver; 
+  padding: 5px
+}
+th {
+  background: Azure; 
+}
+</style>
+
+
+| **Quality** | **Element(s) Matching in Responder's System**                  |
+| :----------: | ---------------------------- |
+|Deterministic       | Responder's MRN/MPI or known Digital Identifier       |
+|Best       | First Name & Last Name & Driver's License Number and Issuing US State |
+|           | First Name & Last Name & Passport Number and Issuing Country |
+|           | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
+|           | First Name & Last Name & Date of Birth & Address line & City & State       |
+|           | First Name & Last Name & Date of Birth & Social Security Number       |
+|           | First Name & Last Name & Date of Birth & Insurance Member Identifier       |
+|           | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
+|           | First Name & Last Name & Date of Birth & telecom email       |
+|           | First Name & Last Name & Date of Birth & telecom phone       |
+|           | First Name & Last Name & Social Security Number       |
+|           | First Name & Last Name & Insurance Member Identifier       |
+|Superior   | First Name & Last Name & Insurance Subscriber Identifier       |
+|Very Good  | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
+|Good       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
+|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
+|           | First Name & Last Name & Date of Birth       |
+
+
+
+
+TBD: Include language about permitted transposition errors, edit distances, soundex and special characters.
+&emsp;   
 
 &emsp;&emsp;  
 
