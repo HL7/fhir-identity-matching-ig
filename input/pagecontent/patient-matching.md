@@ -204,7 +204,6 @@ th {
 |           | First Name & Last Name & Insurance Member Identifier       |
 |           | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
 |           | First Name & Last Name & Social Security Number       |
-|           | First Name & Last Name & Insurance Member Identifier       |
 |Superior   | First Name & Last Name & Insurance Subscriber Identifier       |
 |           | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
 |           | First Name & Last Name & Date of Birth & Address line & City & State       |
