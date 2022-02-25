@@ -171,7 +171,9 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 &emsp;&emsp;  
 
-### Scoring Matches
+### Scoring Matches & Responder's System Match Output Quality Score
+
+&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized. Feedback is invited on both the quality levels themselves and on the mechanism with which any given quality score is returned in a match response.)*
 
 Scoring **SHOULD** be as probabilistic as possible.
 
@@ -179,11 +181,7 @@ Common correlations such as families **SHALL** be modeled *<u>(ONC recommendatio
 
 Scores **SHOULD** be computed, not guessed, whenever possible.
 
-### Responder's System Match Output Quality Score
-
-&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
-
-The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.       
+The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.        
 
 <style>
 table, th, td 
@@ -197,26 +195,26 @@ th {
 </style>
 
 
-| **Quality** | **Element(s) Matching in Responder's System**                  |
-| :----------: | ---------------------------- |
-|Deterministic       | Responder's MRN/MPI or known Digital Identifier       |
-|Best       | First Name & Last Name & Driver's License Number and Issuing US State |
-|           | First Name & Last Name & Passport Number and Issuing Country |
-|           | First Name & Last Name & Insurance Member Identifier       |
-|           | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
-|           | First Name & Last Name & Social Security Number       |
-|Superior   | First Name & Last Name & Insurance Subscriber Identifier       |
-|           | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
-|           | First Name & Last Name & Date of Birth & Address line & City & State       |
-|           | First Name & Last Name & Date of Birth & email       |
-|Very Good  | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
-|           | First Name & Last Name & Date of Birth & phone       |
-|Good       | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
-|           | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
-|           | First Name & Last Name & Date of Birth       |
+| **Quality** |  **Confidence Score** | **Element(s) Matching in Responder's System**                  |
+| :----------: | :----------: | ---------------------------- |
+|Best       |  .99       | Responder's MRN/MPI or known Digital Identifier       |
+|           |            | First Name & Last Name & Driver's License Number and Issuing US State |
+|           |            | First Name & Last Name & Passport Number and Issuing Country |
+|           |            | First Name & Last Name & Insurance Member Identifier       |
+|           |            | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
+|           |            | First Name & Last Name & Social Security Number       |
+|Superior   |  .8        | First Name & Last Name & Insurance Subscriber Identifier       |
+|           |            | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
+|           |            | First Name & Last Name & Date of Birth & Address line & City & State       |
+|           |            | First Name & Last Name & Date of Birth & email       |
+|Very Good  |  .7        | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
+|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
+|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
+|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
+|           |            | First Name & Last Name & Date of Birth & phone       |
+|Good       |    .6      | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
+|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
+|           |            | First Name & Last Name & Date of Birth       |
 
 
 
