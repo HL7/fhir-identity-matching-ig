@@ -95,7 +95,7 @@ The section below provides example weight values that a match requestor can use 
 
 &emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
 
-Providing an agreed upon value for matching (i.e., "weight") to specific Patient information elements allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
+Providing an agreed-upon value for matching (i.e., "weight") to specific Patient information elements included in a match request allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
 <style>
 table, th, td 
@@ -123,6 +123,7 @@ th {
 |           | Insurance Subscriber Identifier |
 |           | Previous First Name & Last Name       |
 |           | Nickname or Alias       |
+|           | Middle Name (Including initial)       |
 |           | Date of Birth       |
 |           | Address City and State       |
 |           | Address Zip        |
