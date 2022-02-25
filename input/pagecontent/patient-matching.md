@@ -123,13 +123,14 @@ th {
 |           | Insurance Subscriber Identifier |
 |           | Previous First Name & Last Name       |
 |           | Nickname or Alias       |
+|           | First Name       |
+|           | Last Name       |
 |           | Middle Name (Including initial)       |
 |           | Date of Birth       |
 |           | Address City and State       |
 |           | Address Zip        |
 |           | Sex (Assigned at Birth)       |
 |           | Sexual Orientation       |
-|           | Gender Identity       |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
@@ -173,15 +174,15 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 ### Scoring Matches & Responder's System Match Output Quality Score
 
-&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized. Feedback is invited on both the quality levels themselves and on the mechanism with which any given quality score is returned in a match response.)*
+&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves and on combinations of matching elements.)*
 
-Scoring **SHOULD** be as probabilistic as possible.
+Given that scoring **SHOULD** be as probabilistic as possible, the Confidence Score indicated below **SHALL** be used in results returned.
 
 Common correlations such as families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*.
 
 Scores **SHOULD** be computed, not guessed, whenever possible.
 
-The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.        
+The table below **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.  
 
 <style>
 table, th, td 
@@ -229,6 +230,8 @@ TBD: Include language about permitted transposition errors, edit distances, soun
 Recommended errors?
 
 If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only? Question for OCR about whether this is permitted &  additional text we might include along those lines.]</u>*.
+
+We appreciate feedback on this topic and the sections below.
 
 &emsp;&emsp;  
 
