@@ -83,6 +83,7 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 
 - For example, a candidate Identity that has the right address in one record, the right name in another, and the right telephone in another could be a strong candidate, even though no single record contains all the given information.  
   
+
 To request a match on a patient with a single legal name, known as a mononamous individual, requestors **SHOULD** use that name in the Last name field and leave the First name NULL.
 
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
@@ -107,6 +108,7 @@ th {
   background: Azure; 
 }
 </style>
+
 
 
 | **Weight** | **Match Input Element(s)**                  |
@@ -194,34 +196,89 @@ th {
   background: Azure; 
 }
 </style>
+<table class="tg">
+<col style="width:12%">
+<col style="width:9%">
+<col style="width:79%">
+<thead>
+ <tr>
+  <th style="text-align:center; vertical-align:middle">Quality</th>
+  <th style="text-align:center; vertical-align:middle">Confidence Score</th>
+  <th style= "vertical-align:middle">Element(s) Matching in Responder's System</th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+  <td rowspan="6" style="text-align:center; vertical-align:middle">Best</td>
+  <td rowspan="6" style="text-align:center; vertical-align:middle">.99</td>
+  <td >Responder's MRN/MPI or known Digital Identifier</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Driver's License Number and Issuing US State</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Passport Number and Issuing Country</td>
+ </tr>
+  <tr>
+  <td >First Name & Last Name & Insurance Member Identifier</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Insurance Subscriber Identifier</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Social Security Number</td>
+ </tr>
+<tr>
+  <td rowspan="4" style="text-align:center; vertical-align:middle">Superior</td>
+  <td rowspan="4" style="text-align:center; vertical-align:middle">.8</td>
+  <td >First Name & Last Name & Insurance Subscriber Identifier</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Address line & Zip (first 5)</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Address line & City & State</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & email</td>
+ </tr>
+<tr>
+  <td rowspan="5" style="text-align:center; vertical-align:middle">Very Good</td>
+  <td rowspan="5" style="text-align:center; vertical-align:middle">.7</td>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & phone</td>
+ </tr>
+<tr>
+  <td rowspan="5" style="text-align:center; vertical-align:middle">Good</td>
+  <td rowspan="5" style="text-align:center; vertical-align:middle">.6</td>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth & Sex (Assigned at Birth)</td>
+ </tr>
+ <tr>
+  <td >First Name & Last Name & Date of Birth</td>
+ </tr>
+</tbody>
+</table>
 
 
-| **Quality** |  **Confidence Score** | **Element(s) Matching in Responder's System**                  |
-| :----------: | :----------: | ---------------------------- |
-|Best       |  .99       | Responder's MRN/MPI or known Digital Identifier       |
-|           |            | First Name & Last Name & Driver's License Number and Issuing US State |
-|           |            | First Name & Last Name & Passport Number and Issuing Country |
-|           |            | First Name & Last Name & Insurance Member Identifier       |
-|           |            | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
-|           |            | First Name & Last Name & Social Security Number       |
-|Superior   |  .8        | First Name & Last Name & Insurance Subscriber Identifier       |
-|           |            | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
-|           |            | First Name & Last Name & Date of Birth & Address line & City & State       |
-|           |            | First Name & Last Name & Date of Birth & email       |
-|Very Good  |  .7        | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & SSN (last 4)       |
-|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Phone       |
-|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Zip (first 5)       |
-|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name      |
-|           |            | First Name & Last Name & Date of Birth & phone       |
-|Good       |    .6      | First Name & Last Name & Date of Birth & Sex (Assigned at Birth) & Middle Name (initial)      |
-|           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
-|           |            | First Name & Last Name & Date of Birth       |
 
 
 
+TBD: Include language about permitted transposition errors, edit distances, soundex and special characters.   
 
-TBD: Include language about permitted transposition errors, edit distances, soundex and special characters.
-&emsp;   
 
 &emsp;&emsp;  
 
