@@ -1,10 +1,10 @@
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63 except as specified otherwise. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63 except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
 
 ### Best Practices for Identity Verification
 
-The following intermediate identity assurance levels (IAL 1.2-1.8) are undergoing discussion in this group, though it should be noted that NIST has NOT endorsed these. (To do: we are in the process of inviting NIST representative(s) to a future meeting to collect their feedback).
+The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though feedback has been invited.
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 
@@ -24,7 +24,7 @@ The Identity Provider then validates this information using appropriate evidence
 ​       
 
 - **IAL1.2** requirements: 
-  - An unspecified ID was used to verify name and date of birth.
+  - An unspecified ID was used to verify name and birth date.
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
 
 ​    
@@ -36,7 +36,7 @@ The Identity Provider then validates this information using appropriate evidence
 ​    
 
 - **IAL1.5** requirements:
-  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique Digital Identifier; 2) insurance card; 3) medical record; PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records,
+  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html#requirements-for-digital-identifiers); 2) insurance card; 3) medical record; PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records,
   
     ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
 
@@ -48,9 +48,11 @@ The Identity Provider then validates this information using appropriate evidence
 
     ​    verify an Individual Profile Photo 
     
-- Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
  
 IAL 1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for user access to data at a single health system.(5) 
+
+NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
 NOTE: Social Security Number does not have a role as evidence in levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
 
@@ -86,7 +88,7 @@ Identity verification at this level and higher always includes verifiation of th
   - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
     
   
-  Plus declaration of identity assertion by the individual indicating that all submitted information including name, birth date, and home address represents their own identity
+  Plus declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
 
 ​    
 
@@ -101,7 +103,7 @@ Identity verification at this level and higher always includes verifiation of th
   - Gov't issued passport, REAL ID, or Enhanced ID; this photo ID is confirmed by comparison to the individual 
     
   
-  Plus declaration of identity assertion by the individual indicating that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
+  Plus declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
   
 In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and birth sex). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
 
@@ -110,7 +112,7 @@ An Individual Profile Photo to be associated with an identity **SHALL** be verif
 NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make an interoperable consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
 **Additional Examples of Fair Evidence:**
-(1) US State-issued regular driver's license or ID or military ID card
+(1) US State-issued regular driver's license or ID card, military ID card, or other ID card issued by a federal, state, or local government agency or entity
 (2) A copy of a utility bill (gas, electric, water, cable TV or internet, etc.) indicating the individual's name and home address
 (2) A mobile phone number billed to individual 
 (3) An individual NPI in individual's name (if they are a provider)
@@ -119,7 +121,7 @@ NOTE: The workgroup has considered whether it may be necessary to perform a Risk
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
 &nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63-3A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
-&nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/CodeSystem-identity-assurance-level-code-system.html)  
+&nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/CodeSystem-identity-assurance-level-code-system.html)  
 
 ​    
 
