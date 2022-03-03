@@ -22,7 +22,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 - The email address and mobile number provided **SHALL** be under the individual's exclusive control if used to secure the Identifier or an associated credential.
 
-- Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such an Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
+- Identifier **SHOULD** be 'FHIR-ready'. The identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
 
 ```json
 {
@@ -32,6 +32,11 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    "identifier":"123e4567-e89b-12d3-a456-426614174000a",
    "amr":"http://udap.org/code/auth/aal2",
    "acr":"http://udap.org/code/id/ial2",
+   "name": "Jane Doe",
+   "given_name": "Jane",
+   "family_name": "Doe",
+   "birthdate": "1979-01-01",
+   "email": "janedoe@example.com",
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
