@@ -114,9 +114,9 @@ NOTE: The workgroup has considered whether it may be necessary to perform a Risk
 **Additional Examples of Fair Evidence:**
 (1) US State-issued regular driver's license or ID card, military ID card, or other ID card issued by a federal, state, or local government agency or entity
 (2) A copy of a utility bill (gas, electric, water, cable TV or internet, etc.) indicating the individual's name and home address
-(2) A mobile phone number billed to individual 
-(3) An individual NPI in individual's name (if they are a provider)
-(4) A bank or credit card statement from a US-based financial institution indicating the individual's name and home address
+(3) A mobile phone number billed to individual 
+(4) An individual NPI in individual's name (if they are a provider)
+(5) A bank or credit card statement from a US-based financial institution indicating the individual's name and home address
 
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
