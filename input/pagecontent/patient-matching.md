@@ -40,7 +40,7 @@ Asking for at most 4 results to be returned in a match request may mean more tha
 
 1. In this case, only the requested number of identities should be returned and the requester can ask for all resources or some subset, as needed. 
 2. All applicable records are returned; a different threshold on number of records returned could be considered instead.
-    Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Use MatchGrade extension to help explain the entire story?*  
+    Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Feedback is welcome on the use of MatchGrade extension to help provide additional detail.*  
 
 > **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this implementation guide.
 
@@ -93,7 +93,7 @@ The section below provides example weight values that a match requestor can use 
 
 ### Patient Weighted Input Information
 
-&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized)*
+&emsp;&emsp;*(The information and values included here serve as an example for weights that may be adopted to achieve various threshold levels responders systems may choose to require.)*
 
 Providing an agreed-upon value for matching (i.e., "weight") to specific Patient information elements included in a match request allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
@@ -117,25 +117,25 @@ th {
 | 4          | First Name & Last Name       |
 | 2          | Date of Birth       |
 |TBD        | SSN (complete) |
-|           | Insurance Member Identifier |
-|           | SSN (last 5) |
-|           | SSN (last 4) |
-|           | Insurance Subscriber Identifier |
-|           | Previous First Name & Last Name       |
-|           | Nickname or Alias       |
-|           | First Name       |
-|           | Last Name       |
-|           | Middle Name (Including initial)       |
-|           | Date of Birth       |
-|           | Address City and State       |
-|           | Address Zip        |
-|           | Sex (Assigned at Birth)       |
-|           | Sexual Orientation       |
+|TBD        | Insurance Member Identifier |
+|TBD        | SSN (last 5) |
+|TBD        | SSN (last 4) |
+|TBD        | Insurance Subscriber Identifier |
+|TBD        | Previous First Name & Last Name       |
+|TBD        | Nickname or Alias       |
+|TBD        | First Name       |
+|TBD        | Last Name       |
+|TBD        | Middle Name (Including initial)       |
+|TBD        | Date of Birth       |
+|TBD        | Address City and State       |
+|TBD        | Address Zip        |
+|TBD        | Sex (Assigned at Birth)       |
+|TBD        | Sexual Orientation       |
 
 &emsp;&emsp;  
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
 
-> <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. </font> 
+> <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
 
 
 ### Golden Records
@@ -227,28 +227,39 @@ TBD: Include language about permitted transposition errors, edit distances, soun
 
 ### No Match Results
 
-Recommended errors?
+<div class="note-to-balloters" markdown="1">
 
-TBD: The group would like to provide a method for responders to indicate the certain demographic elements which would improve match results, in the case where no results are returned.
+The group requests feedback on any specific error conditions that might arise, resulting in no results returned, and should be communicated to requesters or responders predictably. One such example is to require specific informative errors when no matches are returned. Another example is to require that responders indicate the additional demographic elements that should be provided in a subsequent request to improve match results, for the case where no results are returned in an initial match request.
 
-If no results are returned, the workflow may result in a new patient record being established *<u>[in certain use cases only? Question for OCR about whether this is permitted &  additional text we might include along those lines.]</u>*.
+</div>
 
-We appreciate feedback on this topic and the sections below.
+If no results are returned, the workflow may result in a new patient record being established *<u>Continued research on this topic is ongoing and additional feedback is invited.</u>*.
 
 &emsp;&emsp;  
 
 ### Exception Handling
 
-To do
+<div class="note-to-balloters" markdown="1">
+
+The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," or other exception should be returned.
+
+</div>
 
 ### Privacy Considerations
+<div class="note-to-balloters" markdown="1">
 
-To do
+Realizing that federal and state laws, as well as any relevant community agreements which may exist, generally guide the group requests feedback on any specific privacy considerations that should be established in this Implementation Guide.
+
+</div>
 
 
 ### Benchmarking
 
-To do
+<div class="note-to-balloters" markdown="1">
+
+Benchmarking of patient matching has been a suggestion from stakeholders previously. The group requests specific suggestions related to industry-wide benchmarking of matching practices, including what stakeholders would like to see measured in such an activity and the resources such as synthesized or actual population data that may be used in the benchmarking initiative.
+
+</div>
 
 
 {% include link-list.md %}
