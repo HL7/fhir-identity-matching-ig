@@ -241,14 +241,14 @@ If no results are returned, the workflow may result in a new patient record bein
 
 <div class="note-to-balloters" markdown="1">
 
-The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," or other exception should be returned.
+The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," "ID expired or no longer valid," "ID elements inconsistent," or other exception should be returned.
 
 </div>
 
 ### Privacy Considerations
 <div class="note-to-balloters" markdown="1">
 
-Realizing that federal and state laws, as well as any relevant community agreements which may exist, generally guide the group requests feedback on any specific privacy considerations that should be established in this Implementation Guide.
+Realizing that applicable federal and state laws, as well as any relevant community agreements may exist and provide some guidance on this topic and the content that may be included in a match request and in the patient results or error messages returned by a responder, the authors request feedback on any additional privacy considerations that should be included in this Implementation Guide.
 
 </div>
 
