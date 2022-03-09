@@ -1,5 +1,5 @@
 <div class="note-to-balloters" markdown="1">
-This Identity FHIR IG has been established upon the recommendations of ONC's FHIR at Scale Task Force (FAST) Identity Tiger Team, and has been adapted from solution documents previously published by the team. The objective of this IG is to provide guidance on identity verification and patient matching as used in workflows pertinent to FHIR exchange, to facilitate cross-organizational and cross-network interoperability.
+This Identity-focused FHIR Implementation Guide has been established upon the recommendations of ONC's FHIR at Scale Task Force (FAST) Identity Tiger Team, and has been adapted from solution documents previously published by the team. The primary objective of this Implementation Guide is to provide guidance on identity verification and patient matching as used in workflows pertinent to FHIR exchange, to facilitate cross-organizational and cross-network interoperability.
 
 
 
@@ -28,11 +28,11 @@ This Guide is divided into several pages which are listed at the top of each pag
 &emsp;&emsp;  
 ### Executive Summary
 
-This Implementation Guide enhances current workflows that support patient matching and Digital Identity, while envisioning the path for incorporating emerging identity concepts over time. In addition to extending the patient $match operation for cross-organizational use by highlighting best practices in the use of matching attributes and their verification prior to making or answering a patient match request and for returning and interpreting match results, this specification will also offer guidance on identity assurance as it relates to attribute and evidence verification and to establishing Digital Identity. Implementation guidance for interoperable Digital Identity is another, longer-term objective for this project. 
+This Implementation Guide provides guidance that can be used to enhance current workflows that support patient matching and Digital Identity, and envisions a longer term path for both providing more specific guidance and incorporating emerging identity concepts over time. In addition to extending the patient $match operation for cross-organizational use by highlighting best practices in the use of matching attributes and their verification prior to responding to a patient match request or interpreting match results, this specification will also offer guidance on identity assurance best practices for attribute and evidence verification and on establishing Digital Identity which is another longer-term objective for this project. 
 
 This guide will address the two concepts of patient matching and Digital Identity with care to differentiate between the two distinct disciplines and the workflows that are usually unique to one concept or the other:  
 
-> **Identity.**  Digital health identity refers to the technology and processes that support personal identity as it pertains to electronic health information.  Digital health identity  includes not just identifiers, but also components such as matching, identity vetting, proofing, and verification, identity authentication, authorization and access control, as well as other technologies and processes. 
+> **Identity.**  Digital health identity refers to the technology and processes that support personal identity as it pertains to electronic health information.  Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes. 
 
 > **Patient Matching.**  Patient matching and record linkage help address interoperability by determining whether records - both those held within a single facility and those in different healthcare organizations – correctly refer to a specific individual.  Matching methods use demographic information, such as name and date of birth.
 
@@ -44,6 +44,7 @@ Research has shown that matching is improved with the strength of identity used 
 - Provider to Provider Health Information Exchange
 - Vaccine Credentials Initiative
 - Payer to Payer Exchange
+- Various Business to Consumer workflows
 
 **Patient Mediated.** Patient authorizes access to their data by a third party when it is under patient's management and not the data creator’s (e.g. an intermediary allows the patient to manage their own data).  
 
@@ -76,14 +77,14 @@ table, th, td
 |   |Jeff Brown  | MITRE Corporation        |
 |   |         |  |
 | <u><b>Contributors:</b></u>&emsp;  |Paul Vaughan  | Optum        |
-|   | Vijey Kris Sridharan | United Health Care |
-|   | Jim St Clair | Lumedic |
-|   | Catherine Schulten | Change Healthcare |
+|   | Vijey Kris Sridharan | United Healthcare |
+|   | Jim St Clair | Linux Foundation |
+|   | Catherine Schulten | Walmart |
 |   | Ryan Howells | Leavitt Partners |
 |   | Rita Torkzadeh | Independent Consultant |
 
 &emsp;&emsp;  
-This implementation guide was made possible by the thoughtful contributions and feedback of the following people and organizations:
+This implementation guide was made possible by the thoughtful contributions and feedback of the following additional people and organizations:
 
 The members of the ONC FHIR at Scale Taskforce (FAST) Identity Tiger Team
 
