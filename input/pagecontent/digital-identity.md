@@ -54,7 +54,7 @@ Patient completes an [IAL 1.6](https://build.fhir.org/ig/HL7/fhir-identity-match
 
 ### Requirements for Enterprise Identifiers
 
-Locally-established business identifiers used in cross-organizational matching SHALL correspond to unique identities in the real world. In other words, business identifiers used in cross-organizational matching **MUST NOT** be reassigned to a different person in the future, nor did they correspond to a different person at any time in the past. NOTE that these are examples of what we have in place today that can be used for matching and may not meet all the requirements we’d like to have of a Digital Identifier as defined in this Implementation Guide.
+Locally-established business identifiers used in cross-organizational matching SHALL correspond to unique identities in the real world. In other words, business identifiers used in cross-organizational matching **SHALL NOT** be reassigned to a different person in the future, nor did they correspond to a different person at any time in the past. NOTE that these are examples of what we have in place today that can be used for matching and may not meet all the requirements we’d like to have of a Digital Identifier as defined in this Implementation Guide.
 
 Requirements:
 
