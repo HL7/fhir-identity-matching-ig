@@ -9,10 +9,10 @@ name: DigitalIdentity
 title: "Interoperable Digital Identity and Patient Matching"
 status: draft
 license: "CC0-1.0"
-version: 0.1.0
+version: 1.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: ci-build
+releaseLabel: ballot
 date: 2021-10-26
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
