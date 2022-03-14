@@ -36,7 +36,13 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    "given_name": "Jane",
    "family_name": "Doe",
    "birthdate": "1979-01-01",
-   "email": "janedoe@example.com",
+   "address": {
+     "street_address": "1234 Hollywood Blvd.",
+     "locality": "Los Angeles",
+     "region": "CA",
+     "postal_code": "90210",
+     "country": "US"},
+    "email": "janedoe@example.com",
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
