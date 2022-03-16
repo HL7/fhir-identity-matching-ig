@@ -112,7 +112,7 @@ An Individual Profile Photo to be associated with an identity **SHALL** be verif
 NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make an interoperable consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
 **Additional Examples of Strong Evidence:**
-(1) US State- or territory-issued regular (not REAL ID) driver's license or ID card including a photograph
+(1) US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
 
 **Additional Examples of Fair Evidence:**
 (1) Other ID card including a photograph and issued by a federal, state, or local government agency or entity
