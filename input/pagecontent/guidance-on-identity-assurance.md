@@ -54,7 +54,7 @@ IAL 1.5 identity verification is the lowest level of identity assurance that can
 
 NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
-NOTE: Social Security Number does not have a role as evidence in levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
+NOTE: Social Security Number does not have a role as evidence in identity assurance levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
 
 ​    
 
@@ -100,7 +100,7 @@ Identity verification at this level and higher always includes verifiation of th
 
     ​    **OR**
 
-  - Gov't issued passport, REAL ID, or Enhanced ID; this photo ID is confirmed by comparison to the individual 
+  - Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual 
     
   
   Plus declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
@@ -111,12 +111,16 @@ An Individual Profile Photo to be associated with an identity **SHALL** be verif
 
 NOTE: The workgroup has considered whether it may be necessary to perform a Risk Analysis or have a similar discussion providing guidance on the Identity Level of Assurance that is appropriate for various use cases, for example a patient's access to their own data or to make an interoperable consent, covered entity access to health data for Treatment/Payment/Operations, verification of demographic attributes to flag as verified in the overall record/FHIR Patient resource or with Encounter context as is done in the SMART Health Cards spec.  
 
+**Additional Examples of Strong Evidence:**
+(1) US State- or territory-issued regular (not REAL ID) driver's license or ID card including a photograph
+
 **Additional Examples of Fair Evidence:**
-(1) US State-issued regular driver's license or ID card, military ID card, or other ID card issued by a federal, state, or local government agency or entity
+(1) Other ID card including a photograph and issued by a federal, state, or local government agency or entity
 (2) A copy of a utility bill (gas, electric, water, cable TV or internet, etc.) indicating the individual's name and home address
 (3) A mobile phone number billed to individual 
 (4) An individual NPI in individual's name (if they are a provider)
 (5) A bank or credit card statement from a US-based financial institution indicating the individual's name and home address
+(6) A state medical license (if they are a provider)
 
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
