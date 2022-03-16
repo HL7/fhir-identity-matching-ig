@@ -50,11 +50,11 @@ The Identity Provider then validates this information using appropriate evidence
     
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
  
-IAL 1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for user access to data at a single health system.(5) 
+IAL 1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(5) 
 
 NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
-NOTE: Social Security Number does not have a role as evidence in identity assurance levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
+NOTE: Social Security Number (on its own without presenting the card itself) does not have a role as evidence in identity assurance levels beyond IAL 1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
 
 ​    
 
@@ -121,6 +121,8 @@ NOTE: The workgroup has considered whether it may be necessary to perform a Risk
 (4) An individual NPI in individual's name (if they are a provider)
 (5) A bank or credit card statement from a US-based financial institution indicating the individual's name and home address
 (6) A state medical license (if they are a provider)
+(7) Original or certified copy of birth certificate
+(8) US Social Security Card
 
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
