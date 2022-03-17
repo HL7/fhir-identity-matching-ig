@@ -16,7 +16,7 @@ When transmitting identity attributes to third parties with whom that sharing of
 
 and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, at a minimum, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own identify, the identity of a unique person in the real world (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63 using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). 
 
-As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for end users of health IT systems and for an implementer's overall operations. 
+As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or LoA-3 for professionals who are end users of health IT systems and for an implementer's overall operations. 
 
 Individual Access (or if PHI or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow), is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **SHALL** authenticate the Individual before returning PHI or PII.
 
@@ -34,19 +34,18 @@ For sharing of immunization records only, patient matching **MAY** be performed 
 
 #### Match on Identities
 
-While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources, where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match SHOULD be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient should find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search should benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and MBI such that the $match input Patient
+While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources, where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match **should** be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient would find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and MBI such that the $match input Patient:
 
-•        name matches Patient 1 but is somewhat different from Patients 2-5
-•        birthdate matches all five of them
-•        telephone matches Patient 3 and is not present in Patients 1,2,4,5
-•        MBI matches Patient 5 and is absent in patients 1-4
+- name matches Patient 1 but is somewhat different from Patients 2-5
+- birthdate matches all five of them
+- telephone matches Patient 3 and is not present in Patients 1,2,4,5
+- MBI matches Patient 5 and is absent in patients 1-4
 
 Then the strength of the match for that single candidate should take into account all the matching information as opposed to either each record individually or some aggregation of the information in the records that tries to subset it to the “correct” information only (a “golden” record).
 
-
 Asking for at most 4 results to be returned in a match request may mean more than 4 actual Patient resources returned, if the responding system has not mapped one identity to one record. Two options:
 
-1. In this case, only the requested number of identities should be returned and the requester can ask for all resources or some subset, as needed. 
+1. In this case, only the requested number of identities are returned and the requester can ask for all resources or some subset, as needed. 
 2. All applicable records are returned; a different threshold on number of records returned could be considered instead.
     Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Feedback is welcome on the use of MatchGrade extension to help provide additional detail.*  
 
@@ -56,11 +55,15 @@ Asking for at most 4 results to be returned in a match request may mean more tha
 
 ### Verification
 
-It is helpful to know the date verification of attributes was performed, in the case of address and cell number since those attributes change. Future versions of this implementation guide will likely include a grammar for indicating this information in match transactions.
+It is helpful to know the date verification of attributes was performed, in the case of address and cell number since those attributes change. Future versions of this implementation guide will likely include a grammar for indicating verification date in match transactions, as well what evidence was used to verify individual demographic attributes or entire identities. This information may also be applied to Patient Weighted Input Information.
 
 The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html).
 
-When attributes like telephone number are verified as associated with a patient, that information helps to bootstrap new account creation. An API from USPS may be helpful in verifying individual street addresses in future versions of this implementation guide. NPI records can be used to verify provider addresses and telephone numbers today.
+When attributes like email address and telephone number are verified as associated with a patient, that information helps to bootstrap new portal account creation and (later) account recovery. 
+
+An API from USPS may be helpful in verifying individual street addresses in future versions of this implementation guide. 
+
+NPI records can be used to verify provider names, addresses and telephone numbers today.
 
 &emsp;&emsp;  
 
