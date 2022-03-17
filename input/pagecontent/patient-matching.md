@@ -34,7 +34,15 @@ For sharing of immunization records only, patient matching **MAY** be performed 
 
 #### Match on Identities
 
-A responder performing a patient match **SHOULD** attempt to match identity attributes included by the requestor against the subset of responder's patient records which include only unique identities. 
+While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources, where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match SHOULD be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient should find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search should benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and MBI such that the $match input Patient
+
+•        name matches Patient 1 but is somewhat different from Patients 2-5
+•        birthdate matches all five of them
+•        telephone matches Patient 3 and is not present in Patients 1,2,4,5
+•        MBI matches Patient 5 and is absent in patients 1-4
+
+Then the strength of the match for that single candidate should take into account all the matching information as opposed to either each record individually or some aggregation of the information in the records that tries to subset it to the “correct” information only (a “golden” record).
+
 
 Asking for at most 4 results to be returned in a match request may mean more than 4 actual Patient resources returned, if the responding system has not mapped one identity to one record. Two options:
 
@@ -77,7 +85,7 @@ Patient Match is expected to supply a Patient resource conforming to the Patient
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
-Patient Match **SHOULD** return only match candidates which are an exact match on Name, where exact means there is at most a single character or two character (for example, a transposition error) difference between the Name in the match request and the name associated with the Identity(ies) or the set of records identified as matches in the responding system. Ideally the industry will work toward developing a reliable list of nickname associations that would support requiring such exact matches in future versions of this guide.
+When onyCertainMatches are requested, responders **SHOULD** return only results which are an exact match on Given Name and First Name, where exact means there is at most a single character or two character (for example, a transposition error) difference between the Name in the match request and the name associated with the Identity(ies) or the set of records identified as matches in the responding system. Ideally the industry will work toward developing a reliable, publicly-available list of nickname associations and common misspellings that, combined with stepped up best practices in identity verification by both requesters and responders, would support requiring such exact matches in future versions of this implementation guide.
 
 Patient Match **SHOULD** be in terms of groups of records that have been partitioned prior to the Patient Match call into Identities -- groups of records that are thought to represent people. 
 
@@ -174,7 +182,9 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 ### Scoring Matches & Responder's System Match Output Quality Score
 
-&emsp;&emsp;*(The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves and on combinations of matching elements.)*
+<div class="note-to-balloters" markdown="1">
+The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a match quality score (not a match probability) should be returned by responders in lieu of their locally-computed match confidence.
+</div>
 
 Scoring **SHOULD** be as probabilistic as possible, however confidence scoring algorithms vary and stakeholders have expressed interest in better informing the confidence score shared across organizational boundaries in a $match response. The group therefore seeks feedback on $match implementers' interest in using either the new Confidence Score indicated below or a similar option which would include attribute-specific match result information from the $match responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource. 
 
@@ -220,7 +230,7 @@ th {
 
 
 
-TBD: Include language about permitted transposition errors, edit distances, soundex and special characters.
+Future versions of this implementation guide will include language about additional considerations regarding permitted transposition errors, edit distances, and the use of soundex and special characters.
 &emsp;   
 
 &emsp;&emsp;  
@@ -233,7 +243,7 @@ The group requests feedback on any specific error conditions that might arise, r
 
 </div>
 
-If no results are returned, the workflow may result in a new patient record being established *<u>Continued research on this topic is ongoing and additional feedback is invited.</u>*.
+NOTE: If no results are returned, some responding systems might create a new patient record from the attributes included in the match request.</u>*.
 
 &emsp;&emsp;  
 
