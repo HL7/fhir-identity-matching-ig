@@ -186,16 +186,16 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 ### Scoring Matches & Responder's System Match Output Quality Score
 
 <div class="note-to-balloters" markdown="1">
-The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a match quality score (not a match probability) should be returned by responders in lieu of their locally-computed match confidence.
+The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a search quality score (note that this is not intended to be a match probability) should be returned by responders in lieu of a locally-computed match confidence.
 </div>
 
-Scoring **SHOULD** be as probabilistic as possible, however confidence scoring algorithms vary and stakeholders have expressed interest in better informing the confidence score shared across organizational boundaries in a $match response. The group therefore seeks feedback on $match implementers' interest in using either the new Confidence Score indicated below or a similar option which would include attribute-specific match result information from the $match responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource. 
+Scoring **SHOULD** be as probabilistic as possible, however search scoring algorithms vary and stakeholders have expressed interest in better informing the score shared across organizational boundaries in a $match response. The group therefore seeks feedback on $match implementers' interest in using either the new Score indicated below or a similar option which would include attribute-specific match result information from the $match responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource. 
 
 Common correlations such as families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*.
 
 Scores **SHOULD** be computed, not guessed, whenever possible.
 
-The table below which designates a grading of match quality **SHOULD** be used to inform responder's quality scoring algorithm, so that the confidence score returned by a responder is meaningful to the requestor; feedback is requested on the ability of a responder to compute and return such a score, as well as the potential value of such a quality score to requesters. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.  
+The table below which designates a grading of match quality **SHOULD** be used to inform responder's search quality scoring algorithm, so that the search score returned by a responder is meaningful to the requestor; feedback is requested on the ability of a responder to compute and return such a score, as well as the potential value of such a quality score to requesters. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.  
 
 <style>
 table, th, td 
@@ -209,7 +209,7 @@ th {
 </style>
 
 
-| **Quality** |  **Confidence Score** | **Element(s) Matching in Responder's System**                  |
+| **Quality** |  **Score** | **Element(s) Matching in Responder's System**                  |
 | :----------: | :----------: | ---------------------------- |
 |Best       |  .99       | Responder's MRN/MPI or known Digital Identifier       |
 |           |            | First Name & Last Name & Driver's License Number and Issuing US State |
