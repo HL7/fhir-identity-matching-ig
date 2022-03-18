@@ -8,7 +8,7 @@ This section is an ongoing compilation of industry-wide (including international
 
 CARIN Digital Identity Tiger Team
 
-DirectTrust Consumer Credentials Workgroup 
+DirectTrust Guidance for Authentication of Individual Identity informs participants' published identity management policies  
 
 Finland and Germany SSI-based Collaboration in the EU
 
