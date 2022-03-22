@@ -17,6 +17,10 @@ Description: "The goal of this profile is to describe a data-minimized version o
 * meta.profile contains assertedProfile 1..1
 * meta.profile[assertedProfile] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient"
 
+* identifier.type 1..1
+* identifier.value 1..1
+* identifier.type from IdentityIdentifierValueSet (extensible)
+
 * name obeys idi-2
 
 //=================================================================================================================================
@@ -41,6 +45,10 @@ Description: "The goal of this profile is to describe a data-minimized version o
 * meta.profile contains assertedProfile 1..1
 * meta.profile[assertedProfile] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0"
 
+* identifier.type 1..1
+* identifier.value 1..1
+* identifier.type from IdentityIdentifierValueSet (extensible)
+
 * name obeys idi-2
 
 //=================================================================================================================================
@@ -64,5 +72,9 @@ Description: "The goal of this profile is to describe a data-minimized version o
 * meta.profile ^comment = "meta.profile is required as a matter of convenience of receiving systems. The meta.profile SHOULD be used by the Server to hint/assert/declare that this instance conforms to one (or more) stated profiles (with business versions). meta.profile does not capture any business logic, processing directives, or semantics (for example, inpatient or outpatient). "
 * meta.profile contains assertedProfile 1..1
 * meta.profile[assertedProfile] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1"
+
+* identifier.type 1..1
+* identifier.value 1..1
+* identifier.type from IdentityIdentifierValueSet (extensible)
 
 * name obeys idi-2
