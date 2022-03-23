@@ -144,7 +144,7 @@ th {
 |TBD        | Sexual Orientation       |
 
 &emsp;&emsp;  
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient 0]*, *[IDI Patient 1]*, etc.)    
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (e.g., *[IDI Patient L0]*, *[IDI Patient L1]*, etc.)    
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
 
