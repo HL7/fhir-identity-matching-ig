@@ -8,11 +8,11 @@ The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 
-- Full legal name
+- Full legal name (the name that the person was officially known by at the time of issuance of the supporting evidence; not permitted are pseudonyms, aliases, an initial for surname, or initials for all given names)
 - home address
 - date of birth
 - email address 
-- phone number (a mobile number is required unless the individual does not have a mobile number)
+- mobile number (preferred, and consider that there are free services to create one since having one facilitates matching and credential management; if a mobile number is not available, collect an alternative number for the individual)
 
 Unless explicitly required in certain levels, control of the email address **SHOULD** be verified at every level of assurance.
 
