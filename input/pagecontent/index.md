@@ -36,7 +36,7 @@ This guide will address the two concepts of patient matching and Digital Identit
 
 > **Patient Matching.**  Patient matching and record linkage help address interoperability by determining whether records - both those held within a single facility and those in different healthcare organizations – correctly refer to a specific individual.  Matching methods use demographic information, such as name and date of birth.
 
-Research has shown that matching is improved with the strength of identity used to process a match (1, 2, 3, 4). For this reason, this Implementation Guide will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching. 
+Research has shown that matching is improved with the strength of identity used to process a match (1, 2, 3, 4). For this reason, this Implementation Guide will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching.
 
 &emsp;&emsp;  
 ### Use Cases and Roles
