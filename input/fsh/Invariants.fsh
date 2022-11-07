@@ -26,14 +26,14 @@ Severity:   #error
 
 Invariant:  idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 10 (see Patient Weighted Elements table)"
-Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) +
-((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) +
-(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID')) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) + ((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 10"
+Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) + 
+((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) + 
+(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) +((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 10"
 Severity:   #error
 
 Invariant:  idi-L1
 Description: "Combined weighted values of included elements must have a minimum value of 20 (see Patient Weighted Elements table)"
-Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) +
-((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) +
-(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID')) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) + ((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 20"
+Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) + 
+((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) + 
+(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) +((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 20"
 Severity:   #error
