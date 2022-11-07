@@ -46,7 +46,7 @@ Research has shown that matching is improved with the strength of identity used 
 - Payer to Payer Exchange
 - Various Business to Consumer workflows
 
-**Patient Mediated.** Patient authorizes access to their data by a third party when it is under patient's management and not the data creator’s (e.g. an intermediary allows the patient to manage their own data).  
+**Patient Mediated.** Patient authorizes access to their data by a third party when it is under patient's management and not the data creator’s management (e.g. a consumer app enables the patient to manage their own data).  
 
 **Patient Directed.** Patient authorizes access to their data to a third party through an app as in SMART app launch workflow using the patient's credentials for authenticating themselves at the data holder organization which is the data creator.  
 

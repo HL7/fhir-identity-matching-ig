@@ -50,7 +50,7 @@ The Identity Provider then validates this information using appropriate evidence
     
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
  
-IAL 1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(5) 
+IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(5) 
 
 NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
@@ -68,10 +68,9 @@ NOTE: Social Security Number (on its own without presenting the card itself) doe
 
     ​    send equivalent notice via email address or phone number associated with the person in records 
 
-  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity  
-  - Knowledge Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at this level or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
  
-The absence of multiple pieces of identity evidence in IAL 1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
+The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
 Identity verification at this level and higher always includes verifiation of the individual's physical residential Address of Record.
 
@@ -135,13 +134,15 @@ NOTE: The workgroup has considered whether it may be necessary to perform a Risk
 
 From 800-63-3: 
 
-- KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification.
+- Knowledge Based Verification (KBV) **SHALL NOT** be used for in-person (physical or supervised remote) identity verification.
 
 - KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The CSP MAY use KBV to resolve to a unique, claimed identity.
 
-- KBV can be used to verify one Fair piece of evidence
+- KBV can be used to verify one Fair piece of evidence.
 
-- NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements. 
+- NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
+
+- KBV is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IAL1.6 or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity.
 
 (5) See also: [Patient Records Electronic Access Playbook](https://www.ama-assn.org/system/files/2020-02/patient-records-playbook.pdf), [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
 
