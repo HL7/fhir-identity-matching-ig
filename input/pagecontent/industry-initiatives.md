@@ -6,19 +6,21 @@ This section is an ongoing compilation of industry-wide (including international
 
 [Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
 
-CARIN Digital Identity Tiger Team
+[CARIN Digital Identity Tiger Team](https://www.carinalliance.com/our-work/digitalidentity/)
 
 DirectTrust Guidance for Authentication of Individual Identity informs participants' published identity management policies  
 
-Finland and Germany SSI-based Collaboration in the EU
+[Finland](https://vm.fi/en/digital-identity) and Germany SSI-based Collaboration in the EU
 
-OpenID for Identity Assurance https://openid.net/wg/ekyc-ida/ 
+[OpenID for Identity Assurance](https://openid.net/wg/ekyc-ida/) 
 
 [AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
 
 [ECRI Health IT Safe Practices: Toolkit for the Safe Use of Health IT for Patient Identification](https://www.ecri.org/Resources/HIT/Patient%20ID/Patient_Identification_Toolkit_final.pdf)
 
-Patient ID Now Coalition Framework for a National Strategy on Patient Identity  (The Framework identified nine areas for definition of a national patient identity strategy)
+[Patient ID Now Coalition Framework for a National Strategy on Patient Identity](https://patientidnow.org/)  (The Framework identified nine areas for definition of a national patient identity strategy)
+
+[Global Assured Identity Network (GAIN)](https://gainforum.org/)
 
 ----
 
