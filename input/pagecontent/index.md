@@ -50,9 +50,9 @@ Research has shown that matching is improved with the strength of identity used 
 
 **Patient Directed.** Patient authorizes access to their data to a third party through an app as in SMART app launch workflow using the patient's credentials for authenticating themselves at the data holder organization which is the data creator.  
 
-**App-Mediated B2C.** This type of individual access lets a patient use a patient-facing app, not necessarily operated by a Covered Entity or Business Associate, to exercise their HIPAA Right of Access. Such an app would verify identity using IAL mechanisms and restrict the information given to the patient in ways that are beyond the scope of this guide. In other words, the patient is attempting to access their health data without using a credential from the data creator or intermediary data holder.  
+**App-Mediated Business to Consumer (B2C).** This type of individual access lets a patient use a patient-facing app, not necessarily operated by a Covered Entity or Business Associate, to exercise their HIPAA Right of Access. Such an app would verify identity using IAL mechanisms and restrict the information given to the patient in ways that are beyond the scope of this guide. In other words, the patient is attempting to access their health data without using a credential from the data creator or intermediary data holder.  
 
-**B2B TPO**. This business-to-business workflow involves a Covered Entity with an exchange purpose of Treatment, Payment, or Operations.  
+**B2B TPO.** This business-to-business workflow involves a Covered Entity with an exchange purpose of Treatment, Payment, or Operations.  
 
 **B2B Coverage Determination.** This business-to-business workflow involves a non-Covered Entity with an exchange purpose of Coverage Determination.  
 
