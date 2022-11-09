@@ -50,7 +50,113 @@ Asking for at most 4 results to be returned in a match request may mean more tha
     Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Feedback is welcome on the use of MatchGrade extension to help provide additional detail.*  
 
 > **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this implementation guide.
+ 
+The expectation for the use of the "IDI" profiles is:
 
+The system making the call to $match ("the client") will assert their intent/ability to supply valuable input information to support the searching algorithm by specifying, and conforming to, a particular level of data inclusion identified by one of the profiles. An MPI (i.e., a "server" system providing the $match operation) would be able to leverage the client's assertion by validating conformance and providing a warning(s) or throwing a full exception if invariant level testing fails. In addition, the MPI may potentially direct the logical code flow for matching based on the verified assurance of data quality input, as well as possible assistance in internal match scoring processes. While any designs of the MPI are outside the scope of the IG, the profiles of the Patient resource are intended to contribute a possible communication of data quality between the client and MPI that may be utilized in a number of different ways.
+
+4.2.2 B2B with User Authorization Extension Object
+
+The B2B with User Authorization Extension Object is used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication JWT, as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
+
+Person Resource Profile for FAST ID:
+```json
+{
+    "resourceType": "StructureDefinition",
+    "id": "FASTIDPerson",
+    "url": "TBD",
+    "name": "FASTIDPerson",
+    "title": "FAST Identity UDAP Person",
+    "status": "active",
+    "description": "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG",
+    "fhirVersion": "4.0.1",
+    "kind": "resource",
+    "abstract": false,
+    "type": "Person",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Person",
+    "derivation": "constraint",
+    "differential": {
+        "element": [
+            {
+                "id": "Person.name.family",
+                "path": "Person.name.family",
+                "min": 1
+            },
+            {
+                "id": "Person.name.given",
+                "path": "Person.name.given",
+                "min": 2
+            },
+            {
+                "id": "Person.telecom",
+                "path": "Person.telecom",
+                "slicing": {
+                    "discriminator": [
+                        {
+                            "type": "pattern",
+                            "path": "system"
+                        }
+                    ],
+                    "rules": "open",
+                    "description": "Forcing both a phone and an email contact"
+                },
+                "min": 2
+            },
+            {
+                "id": "Person.telecom:tphone",
+                "path": "Person.telecom",
+                "sliceName": "tphone",
+                "min": 1,
+                "max": "*"
+            },
+            {
+                "id": "Person.telecom:tphone.system",
+                "path": "Person.telecom.system",
+                "min": 1,
+                "patternCode": "phone"
+            },
+            {
+                "id": "Person.telecom:email",
+                "path": "Person.telecom",
+                "sliceName": "email",
+                "min": 1,
+                "max": "*"
+            },
+            {
+                "id": "Person.telecom:email.system",
+                "path": "Person.telecom.system",
+                "min": 1,
+                "patternCode": "email"
+            },
+            {
+                "id": "Person.birthDate",
+                "path": "Person.birthDate",
+                "min": 1
+            },
+            {
+                "id": "Person.address.line",
+                "path": "Person.address.line",
+                "min": 1
+            },
+            {
+                "id": "Person.address.city",
+                "path": "Person.address.city",
+                "min": 1
+            },
+            {
+                "id": "Person.address.state",
+                "path": "Person.address.state",
+                "min": 1
+            },
+            {
+                "id": "Person.address.postalCode",
+                "path": "Person.address.postalCode",
+                "min": 1
+            }
+        ]
+    }
+}
+```
 &emsp;&emsp;  
 
 ### Verification
