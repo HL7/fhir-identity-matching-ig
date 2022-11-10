@@ -4,7 +4,7 @@ This section provides guidance that goes beyond NIST 800-63A for its practical a
 
 ### Best Practices for Identity Verification
 
-The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though feedback has been invited.
+This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. As the below initiatives are about solving identity and matching, note that the current NIST standard is a measure for evaluating identity verification and authentication assurance and therefore is not appropriate to list on this page. The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though feedback has been invited.
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 
