@@ -28,7 +28,7 @@ DirectTrust Guidance for Authentication of Individual Identity informs participa
 
 [Overview: IHE whitepaper on Document Sharing Health Information Exchanges](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management)
 
-Normative Trial IHE Implmentation Resources
+IHE Trial Implementation Profiles
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Demographics Query for Mobile (PDQm)](https://profiles.ihe.net/ITI/PDQm/index.html)  
 
@@ -36,7 +36,7 @@ Normative Trial IHE Implmentation Resources
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Master Identity Registry (PMIR)](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_PMIR.pdf)
 
-Normative Final IHE Implementation Resources
+IHE Final Text Profiles (normative)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Identifier Cross-Referencing (PIX)](https://profiles.ihe.net/ITI/TF/Volume1/ch-5.html)  
 
@@ -46,9 +46,9 @@ Normative Final IHE Implementation Resources
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Cross-Community Patient Discovery (XCPD)](https://profiles.ihe.net/ITI/TF/Volume1/ch-27.html)  
 
-&nbsp;&nbsp;&nbsp;&nbsp;[Direct Standard - Implementation Guide for Expressing Context in Direct Messaging](http://wiki.directproject.org/w/images/4/40/Implementation_Guide_for_Expressing_Context_in_Direct_Messaging_v1.1.pdf)  
+[Direct Standard - Implementation Guide for Expressing Context in Direct Messaging](http://wiki.directproject.org/w/images/4/40/Implementation_Guide_for_Expressing_Context_in_Direct_Messaging_v1.1.pdf)  
 
-&nbsp;&nbsp;&nbsp;&nbsp;[CARIN digital insurance card for member IDs](https://confluence.hl7.org/display/CAR/CARIN+IG+for+Digital+Insurance+Card)  
+[CARIN digital insurance card for member IDs](https://confluence.hl7.org/display/CAR/CARIN+IG+for+Digital+Insurance+Card)  
 
 {% include link-list.md %}
 
