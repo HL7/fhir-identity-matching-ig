@@ -275,6 +275,9 @@ If a match implementation supports creating a golden record to summarize the ide
 A match implementation **SHOULD** enable Manual Stewardship of the partitioning based on identity
 
 - This involves specifying not just the current state, but constraints on future states of the partitioning as records arrive or are updated
+- While this document does not describe the form or process for such manual stewardship, it is suggested that the output of $match should support such contribution by providing the information on the records such that the doctor (or other authenticated user trusted with PII for specific people of interest) might spot the problem.
+
+    Example: Suppose that a doctor at a clinic looks up a new patient in their regional HIE in order to get a more complete medical record and sees a surprising diagnosis. This could arise due to several possibilities: 1) the patient has a diagnosis that was unknown to the doctor, 2) the HIE has another patient’s record mixed into the identity of the patient of interest (an error in partitioning), 3) the clinician is simply looking at the wrong patient’s information. In all three cases, the patient’s care might be improved if the doctor reviews the set of records that constitute the identity. If the problem is the second case above, both the care of this patient and perhaps others might be improved if the doctor could contribute to how these records are partitioned.
 
 A match implementation **SHOULD** partition its records into identities in real time as they arrive. Doing so:
 
