@@ -1,6 +1,6 @@
 ### Overview
 
-This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and patients experiencing homelessness or housing instability, this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. Since many patients experiencing homelessness or housing instability have cell phones and may have e-mail addresses that are used for both identity verification and multi-factor authentication, these identifiers should be used for that population to enhance their healthcare experience and communication with healthcare providers. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63 except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated.
+This section provides guidance that goes beyond NIST 800-63A for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and patients experiencing homelessness or housing instability, this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. Since many patients experiencing homelessness or housing instability have cell phones and may have e-mail addresses that are used for both identity verification and multi-factor authentication, these identifiers should be used for that population to enhance their healthcare experience and communication with healthcare providers. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63A except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated.
 
 ### Best Practices for Identity Verification
 
@@ -125,7 +125,7 @@ NOTE: The workgroup has considered whether it may be necessary to perform a Risk
 
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
-&nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63-3A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
+&nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
 &nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/CodeSystem-identity-assurance-level-code-system.html)  
 
 ​    
@@ -140,7 +140,7 @@ From 800-63-3:
 
 - KBV can be used to verify one Fair piece of evidence.
 
-- NIST 800-63-3A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
+- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
 
 - KBV is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IAL1.6 or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity.
 
