@@ -305,7 +305,13 @@ Common correlations such as families **SHALL** be modeled *<u>(ONC recommendatio
 
 Scores **SHOULD** be computed, not guessed, whenever possible.
 
-The table below which designates a grading of match quality **SHOULD** be used to inform responder's search quality scoring algorithm, so that the search score returned by a responder is meaningful to the requestor (This grading score **SHOULD** be conveyed within the Bundle.entry.search.score element); feedback is requested on the ability of a responder to compute and return such a score, as well as the potential value of such a quality score to requesters. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.  
+The table below which designates a grading of match quality **SHOULD** be used to inform responder's search quality scoring algorithm, so that the search score returned by a responder is meaningful to the requestor (This grading score **SHOULD** be conveyed within the Bundle.entry.search.score element); feedback is requested on the ability of a responder to compute and return such a score, as well as the potential value of such a quality score to requesters. The Good level generally corresponds to traits the [Sequoia Initiative](https://sequoiaproject.org/resources/patient-matching/) estimates to be 95-98% unique, and Very Good corresponds to traits that are 98-99.7% unique. Superior matches include matching information that is even more likely to indicate a unique individual, while Best matches involve a match on a government- or industry-assigned identifier.
+
+Names are verified at a point in time and previous names are often useful in matching. However, best practices include periodic reverification, and it is generally expected that First and Last names reflect current names. Best practice data stewardship expects previous names to be designated as such within the Patient resource. Appropriate use of Patient.name.use and Patient.name.period are expected for use of previous names.
+
+The scoring system used may be validated by the organization using it to determine its accuracy so that the level of effort to manually close identity matching is known and scoring factors that are missing are added to the score based on experience to refine the score and reduce the level of manually matching that needs to be done-over time this process should result in minimal manual matching.
+
+This scoring system has not been widely implemented/tested. Implementers are encouraged to report suggestions to the Identity team via JIRA tickets on ways to improve the scoring methodology over time based on their experience. The team will consider such input for updating the scoring match system for the next version.
 
 <style>
 table, th, td 
@@ -342,12 +348,7 @@ th {
 
 
 
-
 Future versions of this implementation guide will include language about additional considerations regarding permitted transposition errors, edit distances, and the use of soundex and special characters.
-
-The scoring system used may be validated by the organization using it to determine its accuracy so that the level of effort to manually close identity matching is known and scoring factors that are missing are added to the score based on experience to refine the score and reduce the level of manually matching that needs to be done-over time this process should result in minimal manual matching.
-
-This scoring system has not been widely implemented/tested. Implementers are encouraged to report suggestions to the Identity team via JIRA tickets on ways to improve the scoring methodology over time based on their experience. The team will consider such input for updating the scoring match system for the next version.
 
 &emsp;   
 
