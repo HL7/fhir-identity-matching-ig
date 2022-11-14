@@ -380,7 +380,7 @@ Realizing that applicable federal and state laws, as well as any relevant commun
 
 <div class="note-to-balloters" markdown="1">
 
-Benchmarking of patient matching has been a suggestion made previously by stakeholders. The group requests specific suggestions related to industry-wide benchmarking of best practice matching, including what stakeholders find it relevant to measure in such an activity, how results are shared, and the resources such as synthesized or actual population data that may be used in benchmarking initiatives.
+Benchmarking of patient matching has been a suggestion made previously by stakeholders. The group requests specific suggestions related to industry-wide benchmarking of best practice matching, including what stakeholders find it relevant to measure in such an activity, how results are shared, and the resources such as synthesized or actual population data that may be used in benchmarking initiatives. Organizations benchmarking matching quality and who implement this IG to enhance their performance are encouraged to report their findings via JIRA Tickets. The team will consider such input for exception handling guidance in the next version.
 
 </div>
 
