@@ -355,9 +355,6 @@ Future versions of this implementation guide will include language about additio
 The group requests feedback on any specific error conditions that might arise, resulting in no results returned, that should be predictably communicated to requesters or responders. One such example is to require specific informative errors when no matches are returned. Another example is to require that responders indicate the additional demographic elements that should be provided in a subsequent request to improve match results, under the same condition or if match quality score is below a certain threshold.
 
 </div>
-
-NOTE: If no results are returned, some responding systems might create a new patient record from the attributes included in the match request.</u>*.
-
 &emsp;&emsp;  
 
 ### Exception Handling
@@ -368,6 +365,7 @@ The group requests feedback on any specific exception handling conditions that m
 
 </div>
 &emsp;&emsp;  
+
 ### Privacy Considerations
 <div class="note-to-balloters" markdown="1">
 
