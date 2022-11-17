@@ -48,9 +48,11 @@ The Identity Provider then validates this information using appropriate evidence
 
     ​    verify an Individual Profile Photo 
     
-  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity.  
  
 IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(5) 
+
+NOTE: In cases when an individual is unable to verify either a mobile phone number or an email address, identity assurance does not meet IAL1.5
 
 NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
