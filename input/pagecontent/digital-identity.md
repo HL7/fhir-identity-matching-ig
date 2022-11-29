@@ -29,7 +29,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    ...
    "iss":"https://generalhospital.example.com/as",
    "sub":"328473298643",
-   "identifier":"123e4567-e89b-12d3-a456-426614174000a",
+   "hl7_identifier":"123e4567-e89b-12d3-a456-426614174000a",
    "amr":"http://udap.org/code/auth/aal2",
    "acr":"http://udap.org/code/id/ial2",
    "name": "Jane Doe",
@@ -42,7 +42,8 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
      "region": "CA",
      "postal_code": "90210",
      "country": "US"},
-    "email": "janedoe@example.com",
+   "phone_number": "+1 (555) 777-1234",
+   "email": "janedoe@example.com",
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
