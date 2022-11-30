@@ -44,6 +44,8 @@ pages:
     title: Patient Matching
   digital-identity.md:
     title: Digital Identity
+  glossary.md:
+    title: Glossary
   downloads.md:
 
 
@@ -57,6 +59,7 @@ menu:
   Patient Matching: patient-matching.html
   Digital Identity: digital-identity.html
   Artifacts: artifacts.html
+  Glossary: glossary.html
   Downloads: downloads.html
 
   
