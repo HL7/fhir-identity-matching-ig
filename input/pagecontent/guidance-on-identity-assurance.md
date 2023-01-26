@@ -125,7 +125,7 @@ NOTE: Although implementers, lacking more specific requirements in network parti
 (8) US Social Security Card
 
 **References:**  
-&nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://docs.google.com/document/d/1IEbVY4nWOP013P_oSZkLtV3uHlpjLRQT1lURDE9wTFs/edit)  
+&nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://www.udap.org/udap-identity-assurance-levels)  
 &nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63-3A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
 &nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/CodeSystem-identity-assurance-level-code-system.html)  
 
