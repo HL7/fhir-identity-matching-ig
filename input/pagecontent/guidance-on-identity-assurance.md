@@ -12,7 +12,9 @@ To verify an individual’s identity at one of the levels below, the following i
 - home address
 - date of birth
 - email address 
-- mobile number (preferred, and consider that there are free services to create one since having one facilitates matching and credential management; if a mobile number is not available, collect an alternative number for the individual)
+- mobile number (preferred; if a mobile number is not available, collect an alternative number for the individual)
+
+NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
 
 Unless explicitly required in certain levels, control of the email address **SHOULD** be verified at every level of assurance.
 
