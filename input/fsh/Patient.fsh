@@ -30,7 +30,7 @@ Profile: IDIPatientL0
 Parent: Patient
 Id: IDI-Patient-L0
 Title: "IDI Patient L0"
-Description: "(Level 0 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 10"
+Description: "(Level 0 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 9"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 0 weighting of information"
 * . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level."
@@ -58,7 +58,7 @@ Profile: IDIPatientL1
 Parent: Patient
 Id: IDI-Patient-L1
 Title: "IDI Patient L1"
-Description: "(Level 1 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 20"
+Description: "(Level 1 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 10 and using attributes that are consistent with an identity that has been verified by the match requestor"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 1 weighting of information"
 * . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels."
