@@ -34,6 +34,10 @@ Security best practices, including transaction authorization, are generally out 
 
 For sharing of immunization records only, patient matching **MAY** be performed using identity attributes verified at IAL1.2 or higher by both requesting party and responder.
 
+The expectation for the use of the "IDI" profiles is:
+
+The system making the call to $match ("the client") will assert their intent/ability to supply valuable input information to support the searching algorithm by specifying, and conforming to, a particular level of data inclusion identified by one of the profiles. An MPI (i.e., a "server" system providing the $match operation) would be able to leverage the client's assertion by validating conformance and providing a warning(s) or throwing a full exception if invariant level testing fails. In addition, the MPI may potentially direct the logical code flow for matching based on the verified assurance of data quality input, as well as possible assistance in internal match scoring processes. While any designs of the MPI are outside the scope of the IG, the profiles of the Patient resource are intended to contribute a possible communication of data quality between the client and MPI that may be utilized in a number of different ways.
+
 #### Match on Identities
 
 While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources using [Patient.link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link), where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match **should** be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient would find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and MBI such that the $match input Patient:
@@ -54,6 +58,109 @@ Asking for at most 4 results to be returned in a match request may mean more tha
 > **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this implementation guide.
 
 &emsp;&emsp;  
+
+#### B2B with User Authorization Extension Object
+
+The B2B with User Authorization Extension Object is used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication JWT, as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
+
+Person Resource Profile for FAST ID:
+```json
+{
+    "resourceType": "StructureDefinition",
+    "id": "FASTIDPerson",
+    "url": "TBD",
+    "name": "FASTIDPerson",
+    "title": "FAST Identity UDAP Person",
+    "status": "active",
+    "description": "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG",
+    "fhirVersion": "4.0.1",
+    "kind": "resource",
+    "abstract": false,
+    "type": "Person",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Person",
+    "derivation": "constraint",
+    "differential": {
+        "element": [
+            {
+                "id": "Person.name.family",
+                "path": "Person.name.family",
+                "min": 1
+            },
+            {
+                "id": "Person.name.given",
+                "path": "Person.name.given",
+                "min": 2
+            },
+            {
+                "id": "Person.telecom",
+                "path": "Person.telecom",
+                "slicing": {
+                    "discriminator": [
+                        {
+                            "type": "pattern",
+                            "path": "system"
+                        }
+                    ],
+                    "rules": "open",
+                    "description": "Forcing both a phone and an email contact"
+                },
+                "min": 2
+            },
+            {
+                "id": "Person.telecom:tphone",
+                "path": "Person.telecom",
+                "sliceName": "tphone",
+                "min": 1,
+                "max": "*"
+            },
+            {
+                "id": "Person.telecom:tphone.system",
+                "path": "Person.telecom.system",
+                "min": 1,
+                "patternCode": "phone"
+            },
+            {
+                "id": "Person.telecom:email",
+                "path": "Person.telecom",
+                "sliceName": "email",
+                "min": 1,
+                "max": "*"
+            },
+            {
+                "id": "Person.telecom:email.system",
+                "path": "Person.telecom.system",
+                "min": 1,
+                "patternCode": "email"
+            },
+            {
+                "id": "Person.birthDate",
+                "path": "Person.birthDate",
+                "min": 1
+            },
+            {
+                "id": "Person.address.line",
+                "path": "Person.address.line",
+                "min": 1
+            },
+            {
+                "id": "Person.address.city",
+                "path": "Person.address.city",
+                "min": 1
+            },
+            {
+                "id": "Person.address.state",
+                "path": "Person.address.state",
+                "min": 1
+            },
+            {
+                "id": "Person.address.postalCode",
+                "path": "Person.address.postalCode",
+                "min": 1
+            }
+        ]
+    }
+}
+```
 
 ### Verification
 
@@ -150,7 +257,6 @@ th {
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion requirements and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (i.e., whereas *[IDI Patient L0]* may be suitable for use cases in which returning multiple match results is acceptable, *[IDI Patient L1]* indicates an input weight threshold that is expected to only result in matches on the individual whose identity was verified at the minimum level required by this Implementation Guide for match requests (IAL1.5) and that attributes provided in the match request are confirmed to be consistent with).    
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
-
 
 ### Golden Records
 
