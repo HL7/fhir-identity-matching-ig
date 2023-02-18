@@ -43,7 +43,7 @@ Research has shown that matching is improved with the strength of identity used 
 
 This Implementation Guide provides identity management and person matching guidance that has been focused on supporting the Use Cases listed below, with a focus on FHIR transactions but recoginzing that the guidance is appropriate for any transaction type. Roles such as Identity Provider, patient, authorized representative, application, data holder and intermediary are highlighted within the Use Case descriptions.
 
-**Patient-Mediated B2C:** Patient or their authorized representative authorizes access to their data by a third party when it is under patient's management and not the data creator’s (e.g. an intermediary allows the patient to manage their own data).  
+**Patient-Mediated B2C:** Patient or their authorized representative authorizes access to their data by a third party when it is under patient's management and not the data creator’s management (e.g. a consumer app enables the patient to manage their own data).  
 
 **Patient-Directed B2C:** Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in [UDAP Tiered OAuth for User Authentication](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/user.html) to authenticate the user.  
 
