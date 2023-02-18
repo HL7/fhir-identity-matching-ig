@@ -345,6 +345,9 @@ th {
 
 
 
+The scoring system used may be validated by the organization using it to determine its accuracy so that the level of effort to manually close identity matching is known and scoring factors that are missing are added to the score based on experience to refine the score and reduce the level of manually matching that needs to be done--over time this process should result in minimal manual matching.
+
+This scoring system has not been widely implemented/tested. Implementers are encouraged to report suggestions to the Identity team via JIRA tickets on ways to improve the scoring methodology over time based on their experience. The team will consider such input for updating the scoring match system for the next version.
 
 Future versions of this implementation guide will include language about additional considerations regarding permitted transposition errors, edit distances, and the use of soundex and special characters.
 &emsp;   
