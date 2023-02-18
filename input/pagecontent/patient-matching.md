@@ -359,8 +359,6 @@ The group requests feedback on any specific error conditions that might arise, r
 
 </div>
 
-NOTE: If no results are returned, some responding systems might create a new patient record from the attributes included in the match request.</u>*.
-
 &emsp;&emsp;  
 
 ### Exception Handling
