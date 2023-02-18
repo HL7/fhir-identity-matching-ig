@@ -2,7 +2,7 @@ Introduction
 
 ### Industry Initiatives
 
-This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects, with input from Digital Identity & Matching on cross-cutting capabilities and how various efforts may be leveraged in the healthcare setting. 
+This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. As the below initiatives are about solving identity and matching, note that the current NIST standard is a measure for evaluating identity verification and authentication assurance and therefore is not appropriate to list on this page. 
 
 [Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
 
