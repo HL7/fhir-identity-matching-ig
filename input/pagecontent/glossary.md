@@ -1,5 +1,3 @@
-### Glossary
-
 **Patient Matching**: Patient matching help address interoperability by determining whether records - both those held within a single facility and those in different healthcare organizations – correctly refer to a specific individual. Matching methods use demographic information, such as name and date of birth.
 
 **Digital Health Identity**: Digital health identity refers to the technology and processes that support personal identity as it pertains to electronic health information. Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes.
