@@ -8,7 +8,7 @@ This section is an ongoing compilation of industry-wide (including international
 
 [Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
 
-[CARIN Digital Identity Tiger Team]((https://www.carinalliance.com/our-work/digitalidentity/))
+[CARIN Digital Identity Tiger Team](https://www.carinalliance.com/our-work/digitalidentity/)
 
 DirectTrust Guidance for Authentication of Individual Identity informs participants' published identity management policies  
 
