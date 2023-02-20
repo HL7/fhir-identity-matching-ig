@@ -26,7 +26,8 @@ Severity:   #error
 Invariant:  idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 9 (see Patient Weighted Elements table)"
 Expression: "(
-               (identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10 +
+               ((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
+')) and identifier.value.exists()).toInteger()*10 +
                (min
                   (5,
                   (address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
@@ -43,7 +44,8 @@ Severity:   #error
 Invariant:  idi-L1
 Description: "Demographics are consistent with a verification event performed as part of a documented identity verification process and the combined weighted values of included elements must have a minimum value of 10 (see Patient Weighted Elements table)"
 Expression: "(
-               (identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10 +
+               ((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
+')) and identifier.value.exists()).toInteger()*10 +
                (min
                   (5,
                   (address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
