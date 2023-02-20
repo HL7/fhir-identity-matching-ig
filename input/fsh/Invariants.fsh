@@ -34,8 +34,8 @@ Expression: "(
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  )
-               )*4 + 
+                  )*4
+               ) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
              ) >= 9"
@@ -52,8 +52,8 @@ Expression: "(
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  )
-               )*4 + 
+                  )*4 
+               ) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
              ) >= 10"
