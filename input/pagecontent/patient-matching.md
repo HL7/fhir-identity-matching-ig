@@ -233,10 +233,9 @@ th {
 
 | **Weight** | **Match Input Element(s)**                  |
 | :----------: | ---------------------------- |
-| 10          | Passport Number (PPN) and issuing country (max weight of 10 for this category, even if multiple Passport Numbers included)      |
-| 10          | Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State (max weight of 10 for this category, even if multiple ID Numbers included) |
-| 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL or other State ID) OR [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 4 for inclusion of 1 or more of these) |
-| 4          | First Name & Last Name       |
+| 10          | Passport Number (PPN) and issuing country, Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State, or Digital Identifier (max weight of 10 for this category, even if multiple ID Numbers included) |
+| 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL, other State ID, or Digital Identifier--for example, last 4 of SSN, Insurance Member Identifier along with Payer Identifier, or Medical Record Number along with Assigner) or [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 5 for inclusion of 2 or more of these) |
+| 3          | First Name & Last Name       |
 | 2          | Date of Birth       |
 |TBD        | SSN (complete) |
 |TBD        | Insurance Member Identifier |
@@ -255,7 +254,9 @@ th {
 |TBD        | Sexual Orientation       |
 
 &emsp;&emsp;  
-This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion requirements and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (i.e., whereas *[IDI Patient L0]* may be suitable for use cases in which returning multiple match results is acceptable, *[IDI Patient L1]* indicates an input weight threshold that is expected to only result in matches on the individual whose identity was verified at the minimum level required by this Implementation Guide for match requests (IAL1.5) and that attributes provided in the match request are confirmed to be consistent with).    
+This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion requirements and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (i.e., whereas *[IDI Patient L0]* may be suitable for use cases in which returning multiple match results is acceptable, *[IDI Patient L1]* indicates an input weight threshold that is expected to only result in matches on the individual whose identity was verified at the minimum level required by this Implementation Guide for match requests (IAL1.5) and that attributes provided in the match request are confirmed to be consistent with).
+
+Trust communities may have specific requirements about minimum attributes, but in the absence of such requirements, the minimum attribute requirements of the L0 invariant are intended to reflect what may be appropriate for probabilistic searches in which requestors are HIPAA Covered Entities, and the minimum attribute requriements of the L1 invariant are intended to reflect what may be appropriate for deterministic searches in which requestors are potentially returning PHI to the consumer/patient who is the subject of a query (or their authorized representative).
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
 
