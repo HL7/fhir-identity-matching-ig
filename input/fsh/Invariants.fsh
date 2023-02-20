@@ -11,8 +11,8 @@ Severity:   #error
 //==========================================================================================================
 // Weighted values:
 // ----------------
-//    10	Passport Number (PPN) and issuing country, Driver’s License Number (DL) and Issuing US State, or other State ID Number and Issuing US State (max weight of 10 for this category, even if multiple Numbers included)
-//     4	Address (including line plus zip or city and state), telecom email or telecom phone, identifier (other than passport, DL or other state ID--for example, Digital Identifier or Insurance Member Identifier along with Payer Identifier) OR Individual Profile Photo (i.e. max weight of 5 for any combination of 2 or more of these)
+//    10	Digital Identifier, Passport Number (PPN) and issuing country, Driver’s License Number (DL) and Issuing US State, or other State ID Number and Issuing US State (max weight of 10 for this category, even if multiple Numbers included)
+//     4	Address (including line plus zip or city and state), telecom email or telecom phone, identifier (other than Digital Identifier, passport, DL or other state ID--for example, Insurance Member Identifier along with Payer Identifier, Medical Record Number and assigner, or SSN Last 5) OR Individual Profile Photo (i.e. max weight of 5 for any combination of 2 or more of these)
 //     3	First Name & Last Name
 //     2  Date of Birth
 // 
