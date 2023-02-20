@@ -2,7 +2,7 @@
 // Naming Systems
 //////////////////////////////
 
-Instance: Identity-hl7-identifier-ns
+Instance: Identity-HL7-Identifier
 InstanceOf: NamingSystem
 Usage: #definition
 * name = "HL7Identifier"
@@ -12,4 +12,4 @@ Usage: #definition
 * date = "2023-02-20"
 
 * uniqueId.type = #uri
-* uniqueId.value = "http://hl7.org/fhir/us/identity-matching/NamingSystem/HL7Identifier"
+* uniqueId.value = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
