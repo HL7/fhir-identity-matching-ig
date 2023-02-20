@@ -26,11 +26,11 @@ DirectTrust Guidance for Authentication of Individual Identity informs participa
 
 ### IHE Profiles & other standards for Patient Identity Management 
 
-[Overview: IHE whitepaper on Document Sharing Health Information Exchanges](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management)
-
 [CARIN digital insurance card for member IDs](https://confluence.hl7.org/display/CAR/CARIN+IG+for+Digital+Insurance+Card)  
 
 [Direct Standard - Implementation Guide for Expressing Context in Direct Messaging](http://wiki.directproject.org/w/images/4/40/Implementation_Guide_for_Expressing_Context_in_Direct_Messaging_v1.1.pdf)  
+
+[Overview: IHE whitepaper on Document Sharing Health Information Exchanges](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management)
 
 IHE Trial Implmentation Resources
 
