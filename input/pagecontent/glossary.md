@@ -25,6 +25,6 @@ NOTE: Golden Record to capture all the correct and current information for a Pat
 
 **Strengths of Identity Evidence**: The quality requirements (UNACCEPTABLE, WEAK, FAIR, STRONG, and SUPERIOR) for identity evidence collected during identity proofing.  See the [Table 5-1 Strengths of Identity Evidence](https://pages.nist.gov/800-63-3/sp800-63a.html#63aSec5-Table1)
 
-**Unified Data Access Profiles (UDAP)**: Published by [UDAP.org](UDAP.org) to increase confidence in open API transactions through the use of trusted identities and verified attributes. UDAP use cases support standards-based security, privacy and scalable interoperability through reusable identities, leveraging Dynamic Client Registration, JWT-based client authentication and Tiered OAuth. 
+**Unified Data Access Profiles (UDAP)**: Published by [UDAP.org](https://www.UDAP.org) to increase confidence in open API transactions through the use of trusted identities and verified attributes. UDAP use cases support standards-based security, privacy and scalable interoperability through reusable identities, leveraging Dynamic Client Registration, JWT-based client authentication and Tiered OAuth. 
 
 {% include link-list.md %}
