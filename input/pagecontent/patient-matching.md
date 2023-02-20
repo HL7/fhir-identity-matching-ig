@@ -240,23 +240,23 @@ th {
 |TBD        | SSN (complete) |
 |TBD        | Insurance Member Identifier |
 |TBD        | SSN (last 5) |
-|TBD        | SSN (last 4) |
 |TBD        | Insurance Subscriber Identifier |
 |TBD        | Previous First Name & Last Name       |
 |TBD        | Nickname or Alias       |
 |TBD        | First Name       |
 |TBD        | Last Name       |
 |TBD        | Middle Name (Including initial)       |
-|TBD        | Date of Birth       |
 |TBD        | Address City and State       |
 |TBD        | Address Zip        |
 |TBD        | Sex (Assigned at Birth)       |
 |TBD        | Sexual Orientation       |
 
 &emsp;&emsp;  
+In cases where Address is not a single family residence–for example an apartment building without unit number, hospital, or homeless shelter–the alternative inputs are particularly important.
+
 This guide provides multiple profiles of the Patient resource to support varying levels of information to be provided to the [$match](https://www.hl7.org/fhir/patient-operation-match.html) operation.  Patient Match **SHALL** support a minimum requirement that the *[IDI Patient]* profile be used (base level with no information "weighting" included).  More robust matching quality will necessitate stricter data inclusion requirements and, as such, Patient Match **SHOULD** utilize profiles supporting a higher level of data inclusion requirements (i.e., whereas *[IDI Patient L0]* may be suitable for use cases in which returning multiple match results is acceptable, *[IDI Patient L1]* indicates an input weight threshold that is expected to only result in matches on the individual whose identity was verified at the minimum level required by this Implementation Guide for match requests (IAL1.5) and that attributes provided in the match request are confirmed to be consistent with).
 
-Trust communities may have specific requirements about minimum attributes, but in the absence of such requirements, the minimum attribute requirements of the L0 invariant are intended to reflect what may be appropriate for probabilistic searches in which requestors are HIPAA Covered Entities, and the minimum attribute requriements of the L1 invariant are intended to reflect what may be appropriate for deterministic searches in which requestors are potentially returning PHI to the consumer/patient who is the subject of a query (or their authorized representative).
+Trust communities may have specific requirements about minimum attributes, but in the absence of such requirements, the minimum attribute requirements of the L0 invariant are intended to reflect what may be appropriate for probabilistic searches in which requestors are HIPAA Covered Entities, and the minimum attribute requriements of the L1 invariant are intended to reflect what may be appropriate for deterministic searches in which requestors are potentially returning PHI to the consumer/patient who is the subject of a query (or their authorized representative). 
 
 > <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
 
