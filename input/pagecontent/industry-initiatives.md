@@ -18,7 +18,7 @@ DirectTrust Guidance for Authentication of Individual Identity informs participa
 
 [Global Assured Identity Network (GAIN)](https://gainforum.org/)
 
-[OpenID for Identity Assurance] (https://openid.net/wg/ekyc-ida/) 
+[OpenID for Identity Assurance](https://openid.net/wg/ekyc-ida/) 
 
 [Patient ID Now Coalition Framework for a National Strategy on Patient Identity](https://patientidnow.org/)  (The Framework identified nine areas for definition of a national patient identity strategy)
 
