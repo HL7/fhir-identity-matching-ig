@@ -24,6 +24,7 @@ The Identity Provider then validates this information using appropriate evidence
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
+{:.bg-info}
 
 ​       
 
@@ -36,31 +37,29 @@ The Identity Provider then validates this information using appropriate evidence
 - **IAL1.4** requirements:
   - A US state-issued photo ID or nationally-issued photo ID was used to verify name and birth date.
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity  
+{:.bg-info}
 
 ​    
 
 - **IAL1.5** requirements:
   - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html#requirements-for-digital-identifiers); 2) insurance card; 3) medical record; PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records,
-  
+{:.bg-info}  
     ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
-
+{:.bg-info}
     ​	      **OR**
-
+{:.bg-info}
     ​    verify the individual's control of a mobile number **OR** Fair or stronger evidence confirms the mobile number belongs to the individual 
-    
+{:.bg-info}    
     ​	      **OR**
-
+{:.bg-info}
     ​    verify an Individual Profile Photo 
-    
+{:.bg-info}   
     ​    In cases when an individual is unable to verify either a mobile phone number or an email address, identity assurance does not meet IAL1.5.
-
+{:.bg-info}
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
- 
-IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(1) 
-
-NOTE: Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
-
-NOTE: Social Security Number (on its own without presenting the card itself) does not have a role as evidence in identity assurance levels beyond IAL1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
+{:.bg-info} 
+IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(1) Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
+{:.bg-info}
 
 ​    
 
@@ -76,45 +75,44 @@ NOTE: Social Security Number (on its own without presenting the card itself) doe
 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity  
  
-The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
+  - Verify the individual's physical residential Address of Record
 
-Identity verification at this level and higher always includes verifiation of the individual's physical residential Address of Record.
+  - The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
 
 ​    
 
 - **IAL1.8** requirements: 
-
-  2 Fair pieces of evidence were used to verify name, birth date, and home address--for example:  
-
-  - Two of:  1) US state-issued driver's license or other Fair photo ID confirmed by comparison to individual; 2) medical record; or 3) insurance card 
-
+{:.bg-info}
+  2 Fair or stronger pieces of evidence were used to verify name, birth date, and home address--for example:  
+{:.bg-info}
+  - Two of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual; 2) medical record; or 3) insurance card 
+{:.bg-info}
     ​    **OR**
-
+{:.bg-info}
   - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
-    
-  
-  Plus declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
+{:.bg-info}    
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
+{:.bg-info}
+  - Verify the individual's physical residential Address of Record
+{:.bg-info}
 
 ​    
 
 - **IAL2** requirements: 
 
-  1 Strong plus 2 Fair pieces of evidence OR 1 Superior/Very Strong piece of evidence--for example: 
+  1 Strong plus 2 Fair or stronger pieces of evidence OR 1 Superior/Very Strong piece of evidence--for example: 
 
-  - State driver's license confirmed by comparison to individiual plus two of:  another Fair photo ID confirmed by comparison to individual plus one other piece of Fair evidence verified 
+  - State driver's license confirmed by comparison to individiual plus two of:  a Fair or stronger photo ID confirmed by comparison to individual plus one other piece of Fair or stronger evidence verified 
 
     ​    **OR**
 
   - Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual 
     
-  
-  Plus declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
-  
-In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and sex assigned at birth). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
 
-An Individual Profile Photo to be associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution.
+  - Verify the individual's physical residential Address of Record
 
-NOTE: Although implementers, lacking more specific requirements in network participation agreements, likely want to perform their own risk analysis to determine the appropriate Identity Assurance Level for various use cases, for example a patient’s access to their own data or covered entity access to health data for Treatment/Payment/Operations, this Implementation Guide will provide example use cases in which certain input match invariant or identity assurance levels are deemed appropriate based on industry feedback received. The guide does also specifically cite recommended Identity Assurance Levels for professional users and administrators in section 4.2.  
+​     
 
 **Additional Examples of Strong Evidence:**
 (1) US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
@@ -131,9 +129,23 @@ NOTE: Although implementers, lacking more specific requirements in network parti
 
 ​    
 
-### Use of Knowledge-based verification (KBV)
+In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and sex assigned at birth). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
 
-Knowledge Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IAL1.6 or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
+NOTE: Although implementers, lacking more specific requirements in network participation agreements, likely want to perform their own risk analysis to determine the appropriate Identity Assurance Level for various use cases, for example a patient’s access to their own data or covered entity access to health data for Treatment/Payment/Operations, this Implementation Guide provides example use cases in which certain input match invariant or identity assurance levels are deemed appropriate based on industry feedback received. The guide does also specifically cite recommended Identity Assurance Levels for professional users and administrators in section 4.2. 
+
+​
+
+### Individual Profile Photo
+
+An Individual Profile Photo to be associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution.
+
+### Use of Social Security Number (SSN)
+
+Social Security Number (on its own without presenting the card itself) does not have a role as evidence in identity assurance levels beyond IAL1.5 except as may be needed for identity resolution above and beyond other requried evidence.  
+
+### Use of Knowledge-Based Verification (KBV)
+
+Knowledge-Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IAL1.6 or higher, and **MAY** only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity
 
 From 800-63: 
 
