@@ -12,7 +12,7 @@ Severity:   #error
 // Weighted values:
 // ----------------
 //    10	Digital Identifier, Passport Number (PPN) and issuing country, Driver’s License Number (DL) and Issuing US State, or other State ID Number and Issuing US State (max weight of 10 for this category, even if multiple Numbers included)
-//     4	Address (including line plus zip or city and state), telecom email or telecom phone, identifier (other than Digital Identifier, passport, DL or other state ID--for example, Insurance Member Identifier along with Payer Identifier, Medical Record Number and assigner, or SSN Last 5) OR Individual Profile Photo (i.e. max weight of 5 for any combination of 2 or more of these)
+//     4	Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Digital Identifier, passport, DL or other state ID--for example, Insurance Member Identifier along with Payer Identifier, Medical Record Number and assigner, or SSN Last 5) OR Individual Profile Photo (i.e. max weight of 5 for any combination of 2 or more of these)
 //     3	First Name & Last Name
 //     2  Date of Birth
 // 
@@ -25,16 +25,17 @@ Severity:   #error
 
 Invariant:  idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 9 (see Patient Weighted Elements table)"
-Expression: "(
-               ((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
+Expression: "(((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
-               (min
-                  (5,
-                  (address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+               iif((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  )*4
+                  =1,4,iff((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
+                  (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
+                  (photo.exists()).toInteger()
+                  >1,5,0
                ) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
@@ -46,13 +47,15 @@ Description: "Demographics are consistent with a verification event performed as
 Expression: "(
                ((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
-               (min
-                  (5,
-                  (address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+               iif((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  )*4 
+                  =1,4,iff((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
+                  (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
+                  (photo.exists()).toInteger()
+                  >1,5,0
                ) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
