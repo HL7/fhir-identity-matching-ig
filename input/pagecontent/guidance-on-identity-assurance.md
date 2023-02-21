@@ -9,18 +9,16 @@ NOTE: The IALs defined below are not currently specified in a code system or val
 The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though feedback has been invited.
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
-
-- Full legal name (the name that the person was officially known by at the time of issuance of the supporting evidence; not permitted are pseudonyms, aliases, an initial for surname, or initials for all given names)
-- home address
-- date of birth
-- email address 
-- mobile number (preferred; if a mobile number is not available, collect an alternative number for the individual)
-
+- Full Legal Name (the name that the person was officially known by at the time of issuance of the supporting evidence; not permitted are pseudonyms, aliases, an initial for surname, or initials for all given names)
+- Home Address
+- Date of Birth
+- Email Address 
+- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual)
 NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
-
 Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance.
+{:.bg-info}
 
-The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance:  
+The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance and completing other required steps as follows:  
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -76,8 +74,9 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
 - **IAL2** requirements: 
 
   - 1 Strong plus 2 Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individiual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR 1 Superior/Very Strong piece of evidence (for example: Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual) 
-  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
+  - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
   - Verify the individual's physical residential Address of Record
+  - Notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
 {:.bg-info}
 
 ​     
