@@ -42,75 +42,43 @@ The Identity Provider then validates this information using appropriate evidence
 ​    
 
 - **IAL1.5** requirements:
-  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html#requirements-for-digital-identifiers); 2) insurance card; 3) medical record; PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records,
-{:.bg-info}  
+  - Two of the following were used to verify name, birth date, and home address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html#requirements-for-digital-identifiers); 2) insurance card; 3) medical record
+  - PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records:
     ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
-{:.bg-info}
     ​	      **OR**
-{:.bg-info}
     ​    verify the individual's control of a mobile number **OR** Fair or stronger evidence confirms the mobile number belongs to the individual 
-{:.bg-info}    
     ​	      **OR**
-{:.bg-info}
-    ​    verify an Individual Profile Photo 
-{:.bg-info}   
-    ​    In cases when an individual is unable to verify either a mobile phone number or an email address, identity assurance does not meet IAL1.5.
-{:.bg-info}
+    ​    verify an Individual Profile Photo previously associated with the identity 
+  - In cases when an individual is unable to verify either a mobile phone number or an email address, identity assurance does not meet IAL1.5.
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
-{:.bg-info} 
+
 IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(1) Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
-{:.bg-info}
 
 ​    
 
 - **IAL1.6** requirements: 
-
-  - Gov’t issued photo ID confirmed by comparison to individual PLUS   
-
-    ​    mail notice to address of record 
-
-    ​	      **OR**
-
-    ​    send equivalent notice via email address or phone number associated with the person in records 
-
+  - Gov’t issued photo ID confirmed by comparison to individual PLUS mail notice to address of record or send equivalent notice via email address or phone number associated with the person in records; the absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity  
- 
   - Verify the individual's physical residential Address of Record
-
-  - The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name.  
+{:.bg-info}
 
 ​    
 
 - **IAL1.8** requirements: 
-{:.bg-info}
-  2 Fair or stronger pieces of evidence were used to verify name, birth date, and home address--for example:  
-{:.bg-info}
-  - Two of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual; 2) medical record; or 3) insurance card 
-{:.bg-info}
-    ​    **OR**
-{:.bg-info}
-  - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
-{:.bg-info}    
+  - 2 Fair or stronger pieces of evidence were used to verify name, birth date, and home address--for example: 
+      - 2 of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual; 2) medical record; or 3) insurance card OR
+      - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
-{:.bg-info}
   - Verify the individual's physical residential Address of Record
-{:.bg-info}
 
 ​    
 
 - **IAL2** requirements: 
 
-  1 Strong plus 2 Fair or stronger pieces of evidence OR 1 Superior/Very Strong piece of evidence--for example: 
-
-  - State driver's license confirmed by comparison to individiual plus two of:  a Fair or stronger photo ID confirmed by comparison to individual plus one other piece of Fair or stronger evidence verified 
-
-    ​    **OR**
-
-  - Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual 
-    
+  - 1 Strong plus 2 Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individiual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR 1 Superior/Very Strong piece of evidence (for example: Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual) 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity and notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
-
   - Verify the individual's physical residential Address of Record
+{:.bg-info}
 
 ​     
 
