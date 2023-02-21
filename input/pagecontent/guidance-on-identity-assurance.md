@@ -18,7 +18,7 @@ To verify an individual’s identity at one of the levels below, the following i
 
 NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
 
-Unless explicitly required in certain levels, control of the email address **SHOULD** be verified at every level of assurance.
+Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance.
 
 The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance:  
 
