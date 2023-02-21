@@ -264,7 +264,9 @@ Trust communities may have specific requirements about minimum attributes, but i
 
 The concept of matching Identities is best kept separate from the notion of a Golden Record. Many organizations use a Golden Record to capture all the correct and current information for a Patient while suppressing information that is thought to be out-of-date or incorrect. Often, such a Golden Record simply omits older inconsistent information such as an Address. While FHIR Patient can represent both current and old names, addresses and telecoms, its restriction on birthDate limits the representation to only one. A record partitioning system behind Patient Match may decide that two records with different birthDates represent the same person, but may not be able to know which of the birthDates is correct. Ideally, Patient Match would be able to find and appropriately evaluate such a candidate, regardless of which birthDate appears on the Golden Record.
 
-- Matching and searching **SHOULD** be Identity-to-Identity, not Record-to-Record.
+At this time we are not expecting match responders to organize identities according to the same standards match requestors are today, though in a future version of this IG we do expect responding systems to organize records on unique individual identities as established in the Guidance on Identity Assurance and Patient Matching sections of this guide.
+
+- Matching and searching **SHOULD** be identity-to-identity, not Record-to-Record.
 
 - Match output **SHOULD** contain every record of every candidate identity, subject to volume limits
 
