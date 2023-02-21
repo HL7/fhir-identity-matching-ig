@@ -23,9 +23,9 @@ Severity:   #error
 //     ((((address.exists(use = 'home') and address.line.exists() and address.city.exists()).toInteger() + (identifier.type.coding.exists(code != 'PPN' and code != 'DL')).toInteger() + ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())).toInteger() + (photo.exists()).toInteger()) > 1).toInteger() * 4) +
 //     ((name.family.exists() and name.given.exists()).toInteger()*4)
 
-Invariant:  idi-L0
+Invariant:   idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 9 (see Patient Weighted Elements table)"
-Expression: "(((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
+Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
                iif((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
@@ -35,17 +35,15 @@ Expression: "(((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  >1,5,0
-               ) + 
+                  >1,5,0) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
              ) >= 9"
-Severity:   #error
+Severity:    #error
 
-Invariant:  idi-L1
+Invariant:   idi-L1
 Description: "Demographics are consistent with a verification event performed as part of a documented identity verification process and the combined weighted values of included elements must have a minimum value of 10 (see Patient Weighted Elements table)"
-Expression: "(
-               ((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
+Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
                iif((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
@@ -55,9 +53,8 @@ Expression: "(
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger()
-                  >1,5,0
-               ) + 
+                  >1,5,0) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
              ) >= 10"
-Severity:   #error
+Severity:    #error
