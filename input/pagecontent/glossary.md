@@ -1,7 +1,7 @@
 **Authenticator Assurance Level (AAL)**:  A measure of the strength of an authentication mechanism and, therefore, the confidence in it, as defined in [NIST SP 800-63-3] in terms of three levels: AAL1 (Some confidence), AAL2 (High confidence), AAL3 (Very high confidence).
 
-**Credential**: An object or data structure that authoritatively binds an identity (and optionally, additional attributes) to a card or token possessed and controlled by a cardholder or subscriber.
-Source: NIST SP 800-63-3
+**Credential**: An object or data structure that authoritatively binds an identity, via an identifier or identifiers, and (optionally) additional attributes to at least one authenticator possessed and controlled by a cardholder or subscriber.
+Sources: NIST SP 800-63-3, NIST SP 1800-17c
 
 **Credential Service Provider (CSP)**: A trusted entity that issues or registers subscriber tokens and issues electronic credentials to subscribers. The CSP may encompass registration authorities (RAs) and verifiers that it operates. A CSP may be an independent third party, or may issue credentials for its own use.
 Source(s): CNSSI 4009-2015
