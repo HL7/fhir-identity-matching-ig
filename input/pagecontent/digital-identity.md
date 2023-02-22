@@ -14,11 +14,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 - Identifier **SHALL** be a globally unique UUID and unique for all time within the assigner’s system. 
 
-<<<<<<< HEAD
-- Each Digital Identifier **SHALL** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system: more than one Identifier cannot be generated within the assigner's system for the same individual, as that would lead to mismatches on individual identity and potential patient safety issues. In-person processes and remote equivalents exist for binding a strong credential to a Person record. As one example, a digital credential from a third-party Identity Provider can be associated with a record when IAL2-verified Full Name, Home Address, and Date of Birth exist in both places and can be matched within the record and a Declaration of Identity was made to both the Identity Provider and the managing organization responsible for the Person record. In the case of a professional credential associated with an organization, the individual also asserted their legal authority to act as a representative of that organization and the existence and uniqueness of the organization was verified by the Identity Provider at the same or a greater level of identity assurance. At a minimum, the organization name and state of existence are recorded and may be included with other verified demographics about the individual.
-=======
 - Each Digital Identifier **SHALL** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system: more than one Identifier **SHALL NOT** be generated within the assigner's system for the same individual, as that would lead to mismatches on individual identity and potential patient safety issues. In-person processes and remote equivalents exist for binding a strong credential to a Person record. As one example, a digital credential from a third-party Identity Provider can be associated with a record when IAL2-verified Full Name, Home Address, and Date of Birth exist in both places and can be matched within the record and a Declaration of Identity was made to both the Identity Provider and the managing organization responsible for the Person record. In the case of a professional credential associated with an organization, the individual also asserted their legal authority to act as a representative of that organization and the existence and uniqueness of the organization was verified by the Identity Provider at the same or a greater level of identity assurance. At a minimum, the organization name and state of existence are recorded and may be included with other verified demographics about the individual.
->>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
 
 - Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. 
 
@@ -33,11 +29,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    ...
    "iss":"https://generalhospital.example.com/as",
    "sub":"328473298643",
-<<<<<<< HEAD
-   "fast_id":"123e4567-e89b-12d3-a456-426614174000a",
-=======
    "hl7_identifier":"123e4567-e89b-12d3-a456-426614174000a",
->>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
    "amr":"http://udap.org/code/auth/aal2",
    "acr":"http://udap.org/code/id/ial2",
    "name": "Jane Doe",
@@ -50,13 +42,8 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
      "region": "CA",
      "postal_code": "90210",
      "country": "US"},
-<<<<<<< HEAD
-    "phone_number": "555-555-5555",     
-    "email": "janedoe@example.com",
-=======
    "phone_number": "+1 (555) 777-1234",
    "email": "janedoe@example.com",
->>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
