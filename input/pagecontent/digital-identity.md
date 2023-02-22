@@ -12,9 +12,13 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 - A documented Identity Proofing process, performed by the Identity Provider directly and not through a Trusted Agent, at a minimum **SHALL** establish that a unique individual is represented by each Identifier and includes a declaration of identity assertion by the individual (such that it is fraudulent to claim a false identity). This requires the Identity Provider to follow a process that is IAL1.5 or higher according to this [guidance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). As future guidance may require an indication of individual attribute verification status, for example, a flag indicating whether an address was verified, and the verification date, Identity Providers **SHOULD** capture sufficient detail in their Identity Proofing records that their systems can differentiate between verified and unverified identity attributes. 
 
-- Identifier **SHALL** be unique for all time within the assigner’s system. 
+- Identifier **SHALL** be a globally unique UUID and unique for all time within the assigner’s system. 
 
+<<<<<<< HEAD
 - Each Digital Identifier **SHALL** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system: more than one Identifier cannot be generated within the assigner's system for the same individual, as that would lead to mismatches on individual identity and potential patient safety issues. In-person processes and remote equivalents exist for binding a strong credential to a Person record. As one example, a digital credential from a third-party Identity Provider can be associated with a record when IAL2-verified Full Name, Home Address, and Date of Birth exist in both places and can be matched within the record and a Declaration of Identity was made to both the Identity Provider and the managing organization responsible for the Person record. In the case of a professional credential associated with an organization, the individual also asserted their legal authority to act as a representative of that organization and the existence and uniqueness of the organization was verified by the Identity Provider at the same or a greater level of identity assurance. At a minimum, the organization name and state of existence are recorded and may be included with other verified demographics about the individual.
+=======
+- Each Digital Identifier **SHALL** correspond 1:1 with a unique person on the Identity Provider's (assigner's) system: more than one Identifier **SHALL NOT** be generated within the assigner's system for the same individual, as that would lead to mismatches on individual identity and potential patient safety issues. In-person processes and remote equivalents exist for binding a strong credential to a Person record. As one example, a digital credential from a third-party Identity Provider can be associated with a record when IAL2-verified Full Name, Home Address, and Date of Birth exist in both places and can be matched within the record and a Declaration of Identity was made to both the Identity Provider and the managing organization responsible for the Person record. In the case of a professional credential associated with an organization, the individual also asserted their legal authority to act as a representative of that organization and the existence and uniqueness of the organization was verified by the Identity Provider at the same or a greater level of identity assurance. At a minimum, the organization name and state of existence are recorded and may be included with other verified demographics about the individual.
+>>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
 
 - Identifier **SHALL NOT** ever be reassigned to a different individual except in the case of name changes. 
 
@@ -22,14 +26,18 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 - The email address and mobile number provided **SHALL** be under the individual's exclusive control if used to secure the Identifier or an associated credential.
 
-- Identifier **SHOULD** be 'FHIR-ready'. The Identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such Identifiers when associated with a patient in their system as a Patient.identifier resource element and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
+- Identifier **SHOULD** be 'FHIR-ready': The Identifier can be associated with an OpenID Connect credential that is capable of OAuth 2.0 authentication via UDAP Tiered OAuth; assigners which manage patient health records **SHALL** recognize such Identifiers when associated with a patient in their system as a Patient.identifier resource element with Identifier.system = `"http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"`, corresonding to the [Identity-HL7-Identifier naming system](NamingSystem-Identity-HL7-Identifier.html), and respond to queries that use this Identifier as a search parameter or in a match request. For example, the Identifier **SHOULD** appear in OpenID Connect identity claims made to trusted healthcare relying parties and is different from the OpenID Connect subject identifier, for example:
 
 ```json
 {
    ...
    "iss":"https://generalhospital.example.com/as",
    "sub":"328473298643",
+<<<<<<< HEAD
    "fast_id":"123e4567-e89b-12d3-a456-426614174000a",
+=======
+   "hl7_identifier":"123e4567-e89b-12d3-a456-426614174000a",
+>>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
    "amr":"http://udap.org/code/auth/aal2",
    "acr":"http://udap.org/code/id/ial2",
    "name": "Jane Doe",
@@ -42,16 +50,21 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
      "region": "CA",
      "postal_code": "90210",
      "country": "US"},
+<<<<<<< HEAD
     "phone_number": "555-555-5555",     
     "email": "janedoe@example.com",
+=======
+   "phone_number": "+1 (555) 777-1234",
+   "email": "janedoe@example.com",
+>>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
-Alternatively, the assigner and identifier may be included as FHIR system and value data within a fhirUser identity claim as per 2015 Edition Cures Update requirements.
+Alternatively, the assigner (HL7 Identifier) and identifier may be included as FHIR system and value data within a fhirUser identity claim as per 2015 Edition Cures Update requirements.
 
-- The combination of Identifier plus Assigner cannot be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and **SHALL NOT** be programmatically derived or otherwise possible to deduce from the OpenID Connect identifier since the OpenID Connect identifier may need to be re-issued from time to time, and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings in which they do not wish to share personally identifiable information. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **SHALL** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or supplemental to the OpenID Connect 1.0 workflow.   
+- The combination of Identifier plus Assigner (if any) **SHALL NOT** be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and **SHALL NOT** be programmatically derived or otherwise possible to deduce from the OpenID Connect identifier since the OpenID Connect identifier may need to be re-issued from time to time, and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings in which they do not wish to share personally identifiable information. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **SHALL** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or supplemental to the OpenID Connect 1.0 workflow.   
 
-- The Identifier and any associated credentials **SHALL** be managed in alignment with [NIST 800-63-3 Digital Identity Guidelines](https://pages.nist.gov/800-63-3/) except as specified otherwise in this IG.
+- The Identifier and any associated credentials **SHALL** be managed in alignment with [NIST 800-63A Digital Identity Guidelines](https://pages.nist.gov/800-63-3/) except as specified otherwise in this IG.
 
 &emsp;&emsp;  
 
