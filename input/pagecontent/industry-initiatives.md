@@ -1,7 +1,5 @@
 This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. As the below initiatives are about solving identity and matching, note that the current NIST standard is a measure for evaluating identity verification and authentication assurance and therefore is not appropriate to list on this page.
 
-### Industry Initiatives 
-
 [AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
 
 [Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
