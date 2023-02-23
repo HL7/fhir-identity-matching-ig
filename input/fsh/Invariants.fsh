@@ -40,7 +40,7 @@ Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                   >1,5,0)) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
-             ) >= 9"
+             >= 9"
 Severity:    #error
 
 Invariant:   idi-L1
@@ -60,5 +60,5 @@ Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                   >1,5,0)) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
-             ) >= 10"
+             >= 10"
 Severity:    #error
