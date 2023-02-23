@@ -1,6 +1,6 @@
 ### Overview
 
-This section provides guidance that goes beyond [NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and unhoused persons, and this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63-3 Digital Identity Guidelines except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence as indicated. 
+This section provides guidance that goes beyond [NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and unhoused persons, and this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63-3 Digital Identity Guidelines except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence and procedural clarifications as indicated. 
 
 NOTE: The IALs defined below are not currently specified in a code system or value set within this IG.
 
@@ -13,10 +13,10 @@ To verify an individual’s identity at one of the levels below, the following i
 - Home Address
 - Date of Birth
 - Email Address 
-- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual) {:.bg-info}
+- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual) 
+{:.bg-info}
 
-NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
-Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6.
+Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6. NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
 {:.bg-info}
 
 The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance and completing other required steps as follows:  
