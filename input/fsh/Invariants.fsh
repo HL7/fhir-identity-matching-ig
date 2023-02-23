@@ -32,7 +32,7 @@ Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  =1,4,iff(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  =1,4,iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
@@ -52,7 +52,7 @@ Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  =1,4,iff(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  =1,4,iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
