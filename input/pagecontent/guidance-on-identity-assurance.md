@@ -13,7 +13,7 @@ To verify an individual’s identity at one of the levels below, the following i
 - Home Address
 - Date of Birth
 - Email Address 
-- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual)
+- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual) {:.bg-info}
 
 NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
 Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6.
@@ -56,9 +56,10 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
 ​    
 
 - **IAL1.6** requirements: 
-  - Gov’t issued photo ID confirmed by comparison to individual PLUS mail notice to address of record or send equivalent notice via email address or phone number associated with the person in records; the absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name 
+  - Gov’t issued photo ID confirmed by comparison to individual PLUS mail notice to address of record or send equivalent notice via email address or phone number associated with the person in records 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity  
   - Verify the individual's physical residential Address of Record
+  - The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by sending a notice of identity verification, including an email or telephone contact information for the Identity Provider, to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR is billed to their name
 {:.bg-info}
 
 ​    
