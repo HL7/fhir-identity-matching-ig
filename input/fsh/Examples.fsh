@@ -95,7 +95,7 @@ Usage: #example
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "3902-16532901"
 * identifier[0].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
-* identifier[0].assigner = "North Carolina Division of Motor Vehicles"
+* identifier[0].assigner = "North Carolina"
 
 * name[0].family = "Case"
 * name[0].given[0] = "Justin"
