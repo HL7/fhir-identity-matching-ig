@@ -14,8 +14,9 @@ To verify an individual’s identity at one of the levels below, the following i
 - Date of Birth
 - Email Address 
 - Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual)
+
 NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
-Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance.
+Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6.
 {:.bg-info}
 
 The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance and completing other required steps as follows:  
