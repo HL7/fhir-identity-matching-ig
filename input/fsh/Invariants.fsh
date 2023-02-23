@@ -43,19 +43,19 @@ Description: "Combined weighted values of included elements must have a minimum 
 Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
                iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
-                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
+                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  =1,4,iff(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
-                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
+                  =1,4,iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  >1,5,0) + 
+                  >1,5,0)) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
-             ) >= 9"
+             >= 9"
 Severity:    #error
 
 Invariant:   idi-L1
@@ -63,18 +63,18 @@ Description: "Requestors asserting compliance with this Invariant level are also
 Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
 ')) and identifier.value.exists()).toInteger()*10 +
                iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
-                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
+                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  =1,4,iff(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
-                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger()) +
+                  =1,4,iif(((address.exists(use = 'home') and address.line.exists() and (address.zip.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
+                  (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
                   (telecom.exists(system = 'phone') and telecom.value.exists()).toInteger() + 
                   (photo.exists()).toInteger())
-                  >1,5,0) + 
+                  >1,5,0)) + 
                (name.family.exists() and name.given.exists()).toInteger()*3 + 
                (birthDate.exists().toInteger()*2)
-             ) >= 10"
+             >= 10"
 Severity:    #error
 >>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
