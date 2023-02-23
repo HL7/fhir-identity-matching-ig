@@ -23,21 +23,6 @@ Severity:   #error
 //     ((((address.exists(use = 'home') and address.line.exists() and address.city.exists()).toInteger() + (identifier.type.coding.exists(code != 'PPN' and code != 'DL')).toInteger() + ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())).toInteger() + (photo.exists()).toInteger()) > 1).toInteger() * 4) +
 //     ((name.family.exists() and name.given.exists()).toInteger()*4)
 
-<<<<<<< HEAD
-Invariant:  idi-L0
-Description: "Combined weighted values of included elements must have a minimum value of 10 (see Patient Weighted Elements table)"
-Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) + 
-((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) + 
-(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) +((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 10"
-Severity:   #error
-
-Invariant:  idi-L1
-Description: "Combined weighted values of included elements must have a minimum value of 20 (see Patient Weighted Elements table)"
-Expression: "(((identifier.type.coding.exists(code = 'PPN') and identifier.value.exists()).toInteger()*10) + 
-((identifier.type.coding.exists(code = 'DL' or code = 'STID') and identifier.value.exists()).toInteger()*10) + 
-(((address.exists(use = 'home') and address.line.exists() and address.city.exists()) or (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()) or ((telecom.exists(system = 'email') and telecom.value.exists()) or (telecom.exists(system = 'phone') and telecom.value.exists())) or (photo.exists())).toInteger() * 4) +((name.family.exists() and name.given.exists()).toInteger()*4) + (birthDate.exists().toInteger()*2)) >= 20"
-Severity:   #error
-=======
 Invariant:   idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 9 (see Patient Weighted Elements table). Note that the logic for computing weights is somewhat imperfect, particularly considering that it does not confirm that exactly the expected coded type is the one that exists in a match request; this is acceptable because it will not in itself lead to mismatches, though it may give requestors an overly-optimistic sense of their input quality."
 Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier
@@ -77,4 +62,3 @@ Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or cod
                (birthDate.exists().toInteger()*2)
              >= 10"
 Severity:    #error
->>>>>>> adf5db74077d10c7ad4b3ce2a5e91f51129c18f5
