@@ -7,7 +7,7 @@ CodeSystem: IdentityIdentifierCodeSystem
 Id: Identity-Identifier-cs
 Title: "Identity Identifier Code System"
 Description: "Defining codes for describing specialized identifiers to be used in Patient resource for $match."
-* #STID "State Level Identifier" "Represents any appropriate identifier corresponding to a state-issued photo ID that is not a Driver's License"
+* #STID "State Level Identifier" "Represents any appropriate identifier corresponding to a state- or territory-issued photo ID that is not a Driver's License"
 * ^caseSensitive = true
 * ^experimental = false
 
