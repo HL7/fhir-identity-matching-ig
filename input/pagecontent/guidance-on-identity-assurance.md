@@ -1,6 +1,6 @@
 ### Overview
 
-This section provides guidance that goes beyond [NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and unhoused persons, and this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63-3 Digital Identity Guidelines except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence and procedural clarifications as indicated. 
+This section provides guidance that goes beyond [NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) for its practical application in healthcare settings. The following example procedures can be used to achieve IAL2 and other identity assurance levels between IAL1 and IAL2 in typical healthcare workflows and considering the identity evidence generally available across all patient populations. With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and persons experiencing housing insecurity, and this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. The levels articulated below and the systems of Identity Providers following this guidance **SHALL** be consistent with NIST 800-63-3 Digital Identity Guidelines except as specified otherwise in this guide. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however with different required identity evidence and procedural clarifications as indicated. 
 
 NOTE: The IALs defined below are not currently specified in a code system or value set within this IG.
 
@@ -10,13 +10,13 @@ The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT
 
 To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
 - Full Legal Name (the name that the person was officially known by at the time of issuance of the supporting evidence; not permitted are pseudonyms, aliases, an initial for surname, or initials for all given names)
-- Home Address
+- Home Address(1)
 - Date of Birth
 - Email Address 
 - Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual) 
 {:.bg-info}
 
-Unless explicitly required in certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6. NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management.
+In some cases, data collected for identity verification cannot be verified. For example, persons experiencing homelessness may provide any temporary address such as a shelter, hospital, community resource center, or other location, or may provide any portion of an address that is known (e.g., zip code). Unless explicitly required otherwise at certain levels, control of the email address and mobile number **SHOULD** be verified at every level of assurance through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6. NOTE: Consider that there are free mobile number services available, since having one facilitates matching and credential management, for anyone although particularly helpful for those facing housing insecurity or who may be too young to have established credit bureau type records.
 {:.bg-info}
 
 The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance and completing other required steps as follows:  
@@ -51,7 +51,7 @@ The Identity Provider then validates this information using appropriate evidence
   - In cases when an individual is unable to verify either a mobile phone number or an email address, identity assurance does not meet IAL1.5.
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity 
 
-IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(1) Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
+IAL1.5 identity verification is the lowest level of identity assurance that can be used to establish a unique identity that exists in the real world. It is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system.(2) Although this level of identity verification may be relevant to prevent duplicates in medical record systems, the lack of in person or virtual match of an individual to a photo in evidence or control of an authenticator associated with evidence generally does not provide high confidence in the identity of the individual.
 
 ​    
 
@@ -133,6 +133,7 @@ From 800-63:
 &nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
 &nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](http://hl7.org/fhir/uv/shc-vaccination/2021Sep/ValueSet-identity-assurance-level.html)  
 
-(1) [Patient Records Electronic Access Playbook](https://www.ama-assn.org/system/files/2020-02/patient-records-playbook.pdf), [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
+(1) This Implementation Guide provides a number of alternatives to Home Address since it may be difficult to verify or to match on the home address of a youth or of a person who is experiencing housing insecurity. This can also be an issue for multi-family dwellings when a unit number is not specified or cannot be verified.
+(2) [Patient Records Electronic Access Playbook](https://www.ama-assn.org/system/files/2020-02/patient-records-playbook.pdf), [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
 
 {% include link-list.md %}
