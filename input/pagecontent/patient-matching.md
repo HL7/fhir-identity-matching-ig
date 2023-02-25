@@ -25,11 +25,8 @@ Individual Access (or if PHI or PII will be returned, other than to a Covered En
 Security best practices, including transaction authorization, are generally out of scope for this Implementation Guide, however implementers also **SHALL NOT** allow patients to request a match directly. A trusted system may request a match on a patient’s behalf and use it to inform the patient, especially to: 
 
 - Recognize that the patient already has an account (when a record represents an account)
-
 - Recognize that a patient may have multiple identities within the system, leading to a fragmented medical record
-
 - Recognize that a patient’s identity might have spurious records from other people mixed in
-
 - Help remediate these situations without exposing PHI/PII
 
 For sharing of immunization records only, patient matching **MAY** be performed using identity attributes verified at IAL1.2 or higher by both requesting party and responder.
@@ -182,12 +179,12 @@ It is a best practice to include all known (required + optional) patient matchin
 
 | **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO  Workflow**               | **Attribute Verification in App-Mediated B2B with Patient User Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ((First Name + Last Name) or DOB) + unique  enterprise identifier | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below for specific IDs                              |
-| First, Last, DOB, full (normalized as a best practice) street address | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | Verifiable patient attributes within a match  request are consistent with IAL1.8 or greater identity verification  procedures performed for the patient |
+| ((First Name and Last Name) or DOB) and unique Enterprise Identifier | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below instead                              |
+| First, Last, DOB, full (normalized as a best practice) street address | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below instead |
 | First, Last, Digital Identifier      |                                                              | Identifier is established based on IAL1.8  requirements as above and First, Last are consistent with evidence |
-| First, Last, Date of Birth, Current Address,  City, State    |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
-| First, Last, Date of Birth, Insurance Member ID, Payer ID             |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
-| First, Last, DOB, (mobile number or email  address)          |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
+| First, Last, Date of Birth, Current Address, City, State, Medical Record Number and Assigner    |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
+| First, Last, Date of Birth, Current Address, Zip, Insurance Member ID, Payer ID             |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
+| First, Last, DOB, mobile number and email address          |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
 
 Patient Match is not expected to enforce the minimum included attributes listed above. However, when a minimum combination of attributes is supplied, Patient Match **SHOULD** be able to find matching candidates if they exist. Under the hood, this is a requirement on the indexing capability for Patient Match to locate candidates before evaluating them. When something less than the minimum is supplied, Patient Match **MAY** return no candidates, even if matching candidates exist. 
 
@@ -204,6 +201,8 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 - For example, a candidate Identity that has the right address in one record, the right name in another, and the right telephone in another could be a strong candidate, even though no single record contains all the given information.  
   
 Names are verified at a point in time and previous names are often useful in matching. However, best practices include periodic reverification, and it is generally expected that First and Last names reflect current names. Best practice data stewardship expects previous names to be designated as such within the Patient resource. Appropriate use of Patient.name.use and Patient.name.period are expected for use of previous names.
+
+Although it is possible to request a match with only First or only Last Name and still be compliant with this IG, the example [Invariants](artifacts.html) highlight minimum thresholds for the primary use cases where this is expected to occur.
 
 To request a match on a patient with a single legal name, known as a mononamous individual, requestors **SHOULD** use that name in the Last name field and leave the First name NULL.
 
@@ -237,7 +236,7 @@ th {
 | :----------: | ---------------------------- |
 | 10          | Passport Number (PPN) and issuing country, Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State or Territory, or Digital Identifier (max weight of 10 for this category, even if multiple ID Numbers included) |
 | 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL, other State ID, or Digital Identifier--for example, last 4 of SSN, Insurance Member Identifier along with Payer Identifier, or Medical Record Number along with Assigner) or [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 5 for inclusion of 2 or more of these) |
-| 3          | First Name & Last Name       |
+| 3          | First Name and Last Name       |
 | 2          | Date of Birth       |
 |TBD        | SSN (complete) |
 |TBD        | Insurance Member Identifier |
@@ -260,7 +259,9 @@ This guide provides multiple profiles of the Patient resource to support varying
 
 Trust communities may have specific requirements about minimum attributes, but in the absence of such requirements, the minimum attribute requirements of the L0 invariant are intended to reflect what may be appropriate for probabilistic searches in which requestors are HIPAA Covered Entities, and the minimum attribute requriements of the L1 invariant are intended to reflect what may be appropriate for deterministic searches in which requestors are potentially returning PHI to the consumer/patient who is the subject of a query (or their authorized representative). 
 
-> <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
+This Implementation Guide does not intend to set requirements on the use of HumanName.family and HumanName.given in lieu of HumanName.text, though for purposes of clarity we generally refer to First name and Last name (Surname) since some requirements depend on that level of granularity. Systems compliant with this Implementation Guide **SHALL** recognize that [HumanName.text](https://www.hl7.org/fhir/datatypes-definitions.html#HumanName.text) may be provided instead of or in lieu of HumanName.family and HumanName.given.
+
+<font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
 
 ### Golden Records
 
