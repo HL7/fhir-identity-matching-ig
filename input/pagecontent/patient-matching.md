@@ -180,14 +180,14 @@ NPI records can be used to verify provider names, addresses and telephone number
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases:
 
-| **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO  Workflow**               | **Attribute Verification in App-Mediated B2C  Workflow**      |
+| **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO  Workflow**               | **Attribute Verification in App-Mediated B2B with Patient User Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ((First Name + Last Name) or DOB) + unique  enterprise identifier | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below for specific IDs                              |
-| First, Last, DOB, full (normalized as a best  practice) street address, administrative gender and birth sex | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | Verifiable patient attributes within a match  request are consistent with IAL1.8 or greater identity verification  procedures performed for the patient |
-| First, Last, Interoperable Digital Identity  Identifier      |                                                              | Identifier is established based on IAL1.8  requirements as above and First, Last are consistent with evidence |
-| First, Last, Date of Birth, Current Address,  City, State    |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
-| First, Last, Date of Birth, Insurance Member  ID             |                                                              | Consistent with the IAL1.8 or greater  identity verification event |
-| First, Last, DOB, (mobile number or email  address)          |                                                              | Consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
+| First, Last, DOB, full (normalized as a best practice) street address | LoA-2; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | Verifiable patient attributes within a match  request are consistent with IAL1.8 or greater identity verification  procedures performed for the patient |
+| First, Last, Digital Identifier      |                                                              | Identifier is established based on IAL1.8  requirements as above and First, Last are consistent with evidence |
+| First, Last, Date of Birth, Current Address,  City, State    |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
+| First, Last, Date of Birth, Insurance Member ID, Payer ID             |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event |
+| First, Last, DOB, (mobile number or email  address)          |                                                              | Verifiable patient attributes within a match request are consistent with the IAL1.8 or greater  identity verification event except mobile number control may be used for  verification if mobile number was not one of the two Fair pieces of evidence |
 
 Patient Match is not expected to enforce the minimum included attributes listed above. However, when a minimum combination of attributes is supplied, Patient Match **SHOULD** be able to find matching candidates if they exist. Under the hood, this is a requirement on the indexing capability for Patient Match to locate candidates before evaluating them. When something less than the minimum is supplied, Patient Match **MAY** return no candidates, even if matching candidates exist. 
 
@@ -197,7 +197,7 @@ Patient Match is expected to supply a Patient resource conforming to the Patient
 
 - For example, a user should not be reticent to enter an address because he is worried that the patient has moved and the search will fail to find the patient at the old address.
 
-When onlyCertainMatches are requested, responders **SHOULD** return only results which are an exact match on Given Name and First Name, where exact means there is at most a single character or two character (for example, a transposition error) difference between the Name in the match request and the name associated with the Identity(ies) or the set of records identified as matches in the responding system. Ideally the industry will work toward developing a reliable, publicly-available list of nickname associations and common misspellings that, combined with stepped up best practices in identity verification by both requesters and responders, would support requiring such exact matches in future versions of this implementation guide.
+When onlyCertainMatches are requested, responders **SHOULD** return only results which are an exact match on Last Name and First Name, where exact means there is at most a single character or two character (for example, a transposition error) difference between the Name in the match request and the name associated with the Identity(ies) or the set of records identified as matches in the responding system. Ideally the industry will work toward developing a reliable, publicly-available list of nickname associations and common misspellings that, combined with stepped up best practices in identity verification by both requesters and responders, would support requiring such exact matches in future versions of this implementation guide.
 
 Patient Match **SHOULD** be in terms of groups of records that have been partitioned prior to the Patient Match call into Identities -- groups of records that are thought to represent people. 
 
@@ -206,6 +206,8 @@ Patient Match **SHOULD** be in terms of groups of records that have been partiti
 Names are verified at a point in time and previous names are often useful in matching. However, best practices include periodic reverification, and it is generally expected that First and Last names reflect current names. Best practice data stewardship expects previous names to be designated as such within the Patient resource. Appropriate use of Patient.name.use and Patient.name.period are expected for use of previous names.
 
 To request a match on a patient with a single legal name, known as a mononamous individual, requestors **SHOULD** use that name in the Last name field and leave the First name NULL.
+
+When it is permitted by $match or other match transaction types to take as input extensions to the Patient resource, and if the requestor is using a profile that includes it, current occupation data for health attributes from Resource Profile: Past Or Present Job as per the [Occupational Data for Health (ODH)](http://hl7.org/fhir/us/odh/) set of profiles on Observation resource, **SHOULD** be included by requestors since this information is useful to matching.
 
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
 
@@ -233,7 +235,7 @@ th {
 
 | **Weight** | **Match Input Element(s)**                  |
 | :----------: | ---------------------------- |
-| 10          | Passport Number (PPN) and issuing country, Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State, or Digital Identifier (max weight of 10 for this category, even if multiple ID Numbers included) |
+| 10          | Passport Number (PPN) and issuing country, Driver’s License Number (DL) or other State ID Number and (in either case) Issuing US State or Territory, or Digital Identifier (max weight of 10 for this category, even if multiple ID Numbers included) |
 | 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL, other State ID, or Digital Identifier--for example, last 4 of SSN, Insurance Member Identifier along with Payer Identifier, or Medical Record Number along with Assigner) or [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 5 for inclusion of 2 or more of these) |
 | 3          | First Name & Last Name       |
 | 2          | Date of Birth       |
@@ -267,21 +269,18 @@ The concept of matching Identities is best kept separate from the notion of a Go
 At this time we are not expecting match responders to organize identities according to the same standards match requestors are today, though in a future version of this IG we do expect responding systems to organize records on unique individual identities as established in the Guidance on Identity Assurance and Patient Matching sections of this guide.
 
 - Matching and searching **SHOULD** be identity-to-identity, not Record-to-Record.
-
 - Match output **SHOULD** contain every record of every candidate identity, subject to volume limits
-
 - Linkage between records **SHOULD** be indicated by the Patient.link field
 - Records **SHOULD** be ordered first by identity, then by score vs. the input
 - Identities (sets of records) **SHOULD** be ordered by score vs. the input as per: "The response from an 'mpi' query is a bundle containing patient records, ordered from most likely to least likely."  
 
-If a match implementation supports creating a golden record to summarize the identity, match output **SHOULD** contain that record as well
+If a match implementation supports creating a Golden Record to summarize the identity, match output **SHOULD** contain that record as well
 
 - For example, it may have an opinion on the patient's current address and consolidate demographics that were distributed across records
 
 A match implementation **SHOULD** enable Manual Stewardship of the partitioning based on identity
 
 - This involves specifying not just the current state, but constraints on future states of the partitioning as records arrive or are updated
-
 - While this document does not describe the form or process for such manual stewardship, it is suggested that the output of $match should support such contribution by providing the information on the records such that the doctor (or other authenticated user trusted with PII for specific people of interest) might spot the problem.
 
 Example: Suppose that a doctor at a clinic looks up a new patient in their regional HIE in order to get a more complete medical record and sees a surprising diagnosis. This could arise due to several possibilities: 1) the patient has a diagnosis that was unknown to the doctor, 2) the HIE has another patient’s record mixed into the identity of the patient of interest (an error in partitioning), 3) the clinician is simply looking at the wrong patient’s information. In all three cases, the patient’s care might be improved if the doctor reviews the set of records that constitute the identity. If the problem is the second case above, both the care of this patient and perhaps others might be improved if the doctor could contribute to how these records are partitioned.
@@ -295,8 +294,8 @@ A match implementation **SHOULD** partition its records into identities in real 
 
 A match output **SHOULD** reveal a presence or lack of manual stewardship
 
-- Currently this could be supported via extensions *<u>(add example?)</u>*, but we might want to at least suggest inclusion in future versions of FHIR *<u>(add example?)</u>*
-- The solution will need to consider how this works with a FHIR system that contains both records from many sources and perhaps golden records from the match implementation itself; i.e. are both types of matches accessible as Patient resources, *<u>or no?</u>*
+- Currently this could be supported via extensions
+- The IG authors request feedback from implementers regarding future guidance that may be needed in the case of a FHIR system that contains both records from many sources and Golden Records from the match implementation itself; i.e. are both types of matches returned?
 
 &emsp;&emsp;  
 
