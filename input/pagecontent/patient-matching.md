@@ -8,6 +8,8 @@ The best practices and suggested weights have been collated from this team's ori
 
 Except where its recommendations involve FHIR $match parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide also includes a Guidance on Identity Assurance section as a companion resource to this best practice patient matching. 
 
+&emsp;   
+
 ### Match Requirements
 
 When transmitting identity attributes to third parties with whom that sharing of personally identifiable information (PII) is permitted, such as: 
@@ -53,8 +55,6 @@ Asking for at most 4 results to be returned in a match request may mean more tha
     Note that a collection of records together can make them more valuable than one of the records may appear on its own.  *Feedback is welcome on the use of MatchGrade extension to help provide additional detail.*  
 
 > **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this implementation guide.
-
-&emsp;&emsp;  
 
 #### B2B with User Authorization Extension Object
 
@@ -158,6 +158,7 @@ Person Resource Profile for FAST ID:
     }
 }
 ```
+&emsp;   
 
 ### Verification
 
@@ -262,6 +263,8 @@ Trust communities may have specific requirements about minimum attributes, but i
 This Implementation Guide does not intend to set requirements on the use of HumanName.family and HumanName.given in lieu of HumanName.text, though for purposes of clarity we generally refer to First name and Last name (Surname) since some requirements depend on that level of granularity. Systems compliant with this Implementation Guide **SHALL** recognize that [HumanName.text](https://www.hl7.org/fhir/datatypes-definitions.html#HumanName.text) may be provided instead of or in lieu of HumanName.family and HumanName.given.
 
 <font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the patient resource instance that is provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font> 
+
+&emsp;   
 
 ### Golden Records
 
