@@ -176,7 +176,7 @@ NPI records can be used to verify provider names, addresses and telephone number
 
 ### Recommended Best Practices
 
-It is a best practice to include all known (required + optional) patient matching attributes in a match request (i.e. USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases:
+It is a best practice to include all known (required + optional) patient matching attributes in a match request (e.g. USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases:
 
 | **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO  Workflow**               | **Attribute Verification in App-Mediated B2B with Patient User Workflow**      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -207,7 +207,7 @@ Although it is possible to request a match with only First or only Last Name and
 
 To request a match on a patient with a single legal name, known as a mononamous individual, requestors **SHOULD** use that name in the Last name field and leave the First name NULL.
 
-When it is permitted by $match or other match transaction types to take as input extensions to the Patient resource, and if the requestor is using a profile that includes it, current occupation data for health attributes from Resource Profile: Past Or Present Job as per the [Occupational Data for Health (ODH)](http://hl7.org/fhir/us/odh/) set of profiles on Observation resource, **SHOULD** be included by requestors since this information is useful to matching.
+When it is permitted by $match or other match transaction types, and if the requestor is using a profile that includes these, additional matching information can be included as input extensions or contained resources within the Patient resource. For example, current occupation data for health attributes from Resource Profile: Past Or Present Job as per the [Occupational Data for Health (ODH)](http://hl7.org/fhir/us/odh/) set of profiles on Observation resource, **SHOULD** be included by requestors since this information is useful to matching.
 
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism.
 
