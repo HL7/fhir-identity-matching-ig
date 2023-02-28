@@ -10,6 +10,9 @@ Description: "Defining codes for describing specialized identifiers to be used i
 * #STID "State Level Identifier" "Represents any appropriate identifier corresponding to a state- or territory-issued photo ID that is not a Driver's License. This code will likely be migrated to THO at some point in the future."
 * ^caseSensitive = true
 * ^experimental = false
+* #SSN4 "SSN Last 4" "Represents the last four digits of US Social Security Number. This code may be migrated to THO at some point in the future."
+* ^caseSensitive = false
+* ^experimental = false
 
 ValueSet: IdentityIdentifierValueSet
 Id: Identity-Identifier-vs
