@@ -15,7 +15,7 @@ Except where its recommendations involve FHIR $match parameters, the guidance is
 When transmitting identity attributes to third parties with whom that sharing of personally identifiable information (PII) is permitted, such as: 
 
 - within an OpenID Connect user profile, another user information request to an Identity Provider, or the resultant assertion/claim, 
-- within a UDAP Authorization Extension Object, or 
+- within a UDAP HL7 B2B with User Authorization Extension Object, or 
 - as part of a match or search request,
 
 and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own identify, the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html#best-practices-for-identity-verification) (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). 
@@ -60,7 +60,85 @@ Asking for at most 4 results to be returned in a match request may mean more tha
 
 The B2B with User Authorization Extension Object is used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication JWT, as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
 
-Person Resource Profile for FAST ID:
+<table class="table">
+  <thead>
+    <th colspan="3">B2B with User Authorization Extension Object<br>Key Name: "hl7-b2b-user"</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>version</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        String with fixed value: <code>"1"</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>subject_name</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        String containing the human readable name of the human or non-human requestor; required if known.
+      </td>
+    </tr>
+    <tr>
+      <td><code>subject_id</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, the value <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for non-human requestors and for requestors who have not been assigned an NPI. See Section 5.2.1.2 below for the preferred format of the identifier value string.
+      </td>
+    </tr>
+    <tr>
+      <td><code>subject_role</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values and formats, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of the code value string.
+      </td>
+    </tr>
+    <tr>
+      <td><code>organization_name</code></td>
+      <td><span class="label label-warning">optional</span></td>
+      <td>
+        String containing the human readable name of the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject.
+      </td>
+    </tr>
+    <tr>
+      <td><code>organization_id</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        String containing a unique identifier for the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
+      </td>
+    </tr>
+    <tr>
+      <td><code>purpose_of_use</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant. See [UDAP Security 5.2.1.2](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#preferred-format-for-identifiers-and-codes) for the preferred format of each code value string array element.
+      </td>
+    </tr>
+    <tr>
+      <td><code>user_person</code></td>
+      <td><span class="label label-success">required</span></td>
+      <td>
+        FHIR Person resource with all required fields populated as per Person Resource Profile for FAST ID
+      </td>
+    </tr>
+    <tr>
+      <td><code>consent_policy</code></td>
+      <td><span class="label label-warning">optional</span></td>
+      <td>
+        An array of one or more strings, each containing a URI identifiying a privacy consent directive policy or other policy consistent with the value of the <code>purpose_of_use</code> parameter.
+      </td>
+    </tr>
+    <tr>
+      <td><code>consent_reference</code></td>
+      <td><span class="label label-warning">conditional</span></td>
+      <td>
+        An array of one or more strings, each containing an absolute URL consistent with a <a href="https://www.hl7.org/fhir/R4/references.html#literal">literal reference</a> to a FHIR <a href="https://www.hl7.org/fhir/R4/consent.html">Consent</a> or <a href="https://www.hl7.org/fhir/R4/documentreference.html">DocumentReference</a> resource containing or referencing a privacy consent directive relevant to a purpose identified by the <code>purpose_of_use</code> parameter and the policy or policies identified by the <code>consent_policy</code> parameter. The issuer of this Authorization Extension Object <strong>SHALL</strong> only include URLs that are resolvable by the receiving party. If a referenced resource does not include the raw document data inline in the resource or as a contained resource, then it <strong>SHALL</strong> include a URL to the attachment data that is resolvable by the receiving party. Omit if <code>consent_policy</code> is not present.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Example Person Resource Profile for FAST ID:
 ```json
 {
     "resourceType": "StructureDefinition",
@@ -86,7 +164,7 @@ Person Resource Profile for FAST ID:
             {
                 "id": "Person.name.given",
                 "path": "Person.name.given",
-                "min": 2
+                "min": 1
             },
             {
                 "id": "Person.telecom",
