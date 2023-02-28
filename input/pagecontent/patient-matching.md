@@ -268,7 +268,7 @@ This Implementation Guide does not intend to set requirements on the use of Huma
 
 ### Golden Records
 
-The concept of matching Identities is best kept separate from the notion of a Golden Record. Many organizations use a Golden Record to capture all the correct and current information for a Patient while suppressing information that is thought to be out-of-date or incorrect. Often, such a Golden Record simply omits older inconsistent information such as an Address. While FHIR Patient can represent both current and old names, addresses and telecoms, its restriction on birthDate limits the representation to only one. A record partitioning system behind Patient Match may decide that two records with different birthDates represent the same person, but may not be able to know which of the birthDates is correct. Ideally, Patient Match would be able to find and appropriately evaluate such a candidate, regardless of which birthDate appears on the Golden Record.
+The concept of matching Identities is best kept separate from the notion of a [Golden Record](glossary.html). Many organizations use a Golden Record to capture all the correct and current information for a Patient while suppressing information that is thought to be out-of-date or incorrect. Often, such a Golden Record simply omits older inconsistent information such as an Address. While FHIR Patient can represent both current and old names, addresses and telecoms, its restriction on birthDate limits the representation to only one. A record partitioning system behind Patient Match may decide that two records with different birthDates represent the same person, but may not be able to know which of the birthDates is correct. Ideally, Patient Match would be able to find and appropriately evaluate such a candidate, regardless of which birthDate appears on the Golden Record.
 
 At this time we are not expecting match responders to organize identities according to the same standards match requestors are today, though in a future version of this IG we do expect responding systems to organize records on unique individual identities as established in the Guidance on Identity Assurance and Patient Matching sections of this guide.
 
@@ -282,7 +282,7 @@ If a match implementation supports creating a Golden Record to summarize the ide
 
 - For example, it may have an opinion on the patient's current address and consolidate demographics that were distributed across records
 
-A match implementation **SHOULD** enable Manual Stewardship of the partitioning based on identity
+A match implementation **SHOULD** enable [Manual Stewardship](glossary.html) of the partitioning based on identity
 
 - This involves specifying not just the current state, but constraints on future states of the partitioning as records arrive or are updated
 - While this document does not describe the form or process for such manual stewardship, it is suggested that the output of $match should support such contribution by providing the information on the records such that the doctor (or other authenticated user trusted with PII for specific people of interest) might spot the problem.
