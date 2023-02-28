@@ -14,7 +14,7 @@ Except where its recommendations involve FHIR $match parameters, the guidance is
 
 When transmitting identity attributes to third parties with whom that sharing of personally identifiable information (PII) is permitted, such as: 
 
-- from an OpenID user profile or in another user information request to an Identity Provider, 
+- within an OpenID Connect user profile, another user information request to an Identity Provider, or the resultant assertion/claim, 
 - within a UDAP Authorization Extension Object, or 
 - as part of a match or search request,
 
