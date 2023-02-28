@@ -45,12 +45,12 @@ This Implementation Guide provides identity management and person matching guida
 
 **Patient-Mediated B2C:** Patient or their authorized representative authorizes access to their data by a third party when it is under patient's management and not the data creator’s management (e.g. a consumer app enables the patient to manage their own data).  
 
-**Patient-Directed B2C:** Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in [UDAP Tiered OAuth for User Authentication](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/user.html) to authenticate the user.  
+**Patient-Directed B2C:** Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles ([UDAP](glossary.html)) [Tiered OAuth for User Authentication](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/user.html) to authenticate the user.  
 
 Examples of this use case include
 
 1. a patient using an app of their choice along with FHIR APIs required by ONC or CMS
-2. TEFCA Individual Access requests via federated identity with UDAP Tiered OAuth, as outlined in the TEFCA FHIR Roadmap.
+2. TEFCA Individual Access or other Patient Request via federated identity with UDAP Tiered OAuth, as outlined in the TEFCA FHIR Roadmap.
 
 **App-Mediated B2B with Patient User:** This type of individual access lets a patient or their authorized representative use a patient-facing app, not necessarily operated by a Covered Entity or Business Associate, to exercise their HIPAA Right of Access. The user’s identity is verified according to this guide and the app appropriately restricts the information made available to the user, though the requirements on how data is restricted are beyond the scope of this guide. This use case which relies on [UDAP Business-to-Business](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/b2b.html) security model in FHIR transactions, may be limited to a match with or without endpoint lookup (record location) or may also include a health data request. In other words, the user is attempting to access patient id(s) corresponding to one or more endpoints and/or the patient’s health data at those endpoints without using a credential they obtained from the data creator or intermediary data holder. Note that this use case can be implemented for record location at one or more endpoints and a different use case employed for access to health data.  Ultimately this is a B2C transaction.
 
