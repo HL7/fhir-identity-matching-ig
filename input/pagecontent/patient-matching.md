@@ -15,7 +15,7 @@ Except where its recommendations involve FHIR $match parameters, the guidance is
 When transmitting identity attributes to third parties with whom that sharing of personally identifiable information (PII) is permitted, such as: 
 
 - within an OpenID Connect user profile, another user information request to an Identity Provider, or the resultant assertion/claim, 
-- within a UDAP HL7 B2B with User Authorization Extension Object, or 
+- within an HL7 B2B with User Authorization Extension Object, or 
 - as part of a match or search request,
 
 and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own identify, the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html#best-practices-for-identity-verification) (for example, a first name, last name, DOB and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier that is compliant with this Implementation Guide have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with this IG's [Guidance on Identity Assurance](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html). 
@@ -73,45 +73,10 @@ The B2B with User Authorization Extension Object is used by client apps followin
       </td>
     </tr>
     <tr>
-      <td><code>subject_name</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        String containing the human readable name of the human or non-human requestor; required if known.
-      </td>
-    </tr>
-    <tr>
-      <td><code>subject_id</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        String containing a unique identifier for the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, the value <strong>SHALL</strong> be the subject's individual National Provider Identifier (NPI); omit for non-human requestors and for requestors who have not been assigned an NPI. See Section 5.2.1.2 below for the preferred format of the identifier value string.
-      </td>
-    </tr>
-    <tr>
-      <td><code>subject_role</code></td>
-      <td><span class="label label-warning">conditional</span></td>
-      <td>
-        String containing a code identifying the role of the requestor; required if known for human requestors when the <code>subject_name</code> parameter is present. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values and formats, and are encouraged to draw from the National Uniform Claim Committee (NUCC) Provider Taxonomy Code Set, but are not required to do so to be considered conformant. See Section 5.2.1.2 below for the preferred format of the code value string.
-      </td>
-    </tr>
-    <tr>
-      <td><code>organization_name</code></td>
-      <td><span class="label label-warning">optional</span></td>
-      <td>
-        String containing the human readable name of the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject.
-      </td>
-    </tr>
-    <tr>
-      <td><code>organization_id</code></td>
-      <td><span class="label label-success">required</span></td>
-      <td>
-        String containing a unique identifier for the organizational requestor. If a subject is named, the organizational requestor is the organization represented by the subject. The identifier <strong>SHALL</strong> be a Uniform Resource Identifier (URI). Trust communities <strong>SHALL</strong> define the allowed URI scheme(s). If a URL is used, the issuer <strong>SHALL</strong> include a URL that is resolvable by the receiving party.
-      </td>
-    </tr>
-    <tr>
       <td><code>purpose_of_use</code></td>
       <td><span class="label label-success">required</span></td>
       <td>
-        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant. See [UDAP Security 5.2.1.2](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#preferred-format-for-identifiers-and-codes) for the preferred format of each code value string array element.
+        An array of one or more strings, each containing a code identifying a purpose for which the data is being requested. For US Realm, trust communities <strong>SHOULD</strong> constrain the allowed values, and are encouraged to draw from the HL7 <a href="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse">PurposeOfUse</a> value set, but are not required to do so to be considered conformant. See <a href="http://hl7.org/fhir/us/udap-security/STU1/b2b.html#preferred-format-for-identifiers-and-codes">UDAP Security 5.2.1.2</a> for the preferred format of each code value string array element.
       </td>
     </tr>
     <tr>
