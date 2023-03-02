@@ -6,6 +6,8 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 
 **Note:** digital identities involved in healthcare transactions may correspond to Patients, Providers, Payers, and other healthcare actors.
 
+&emsp;&emsp;  
+
 ### Requirements for Digital Identifiers 
 
 - Identifier **SHALL** be capable of a validation process. Acceptable validation methods include 1) the user authenticates themselves at a level of authentication assurance commensurate with that of the credential itself and the credential is confirmed to originate from a trusted Identity Provider -- authentication assurance **SHALL** be AAL2 or greater for any [identity assurance level](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) greater than IAL1; 2) relying party queries the Identity Provider's system to confirm demographics associated with the individual in a privacy preserving way, for example by presenting a cryptographic hash of first, last, date of birth and home street address including zip or city and state along with the Identifier; or 3) authenticated individual authorizes sharing of demographics with the relying party. Acceptable verification methods include: 1) Identifier matches an Identifier previously associated to the medical record; 2) the Individual Profile Photo associated with an OpenID Connect Credential bound to the Identifier is consistent with this Implementation Guide and NIST 800-63A requirements on the use of biometrics and is a visual match to the individual or to a government-issued photo ID previously associated with the individual during a documented Identity Proofing event and saved in their record.
@@ -47,7 +49,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
    "picture":"https://generalhospital.example.com/fhir/Patient?identifier=https://generalhospital.example.com/issuer1|123e4567-e89b-12d3-a456-426614174000a"
 }
 ```
-Alternatively, the assigner (HL7 Identifier) and identifier may be included as FHIR system and value data within a fhirUser identity claim as per 2015 Edition Cures Update requirements.
+Alternatively, the HL7 Identifier may be included as FHIR Identifier in the Resource referenced by the fhirUser OIDC claim using the [Identity-HL7-Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/NamingSystem-Identity-HL7-Identifier.html).
 
 - The combination of Identifier plus Assigner (if any) **SHALL NOT** be reassigned for an individual; therefore the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and **SHALL NOT** be programmatically derived or otherwise possible to deduce from the OpenID Connect identifier since the OpenID Connect identifier may need to be re-issued from time to time, and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings in which they do not wish to share personally identifiable information. Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organziation. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **SHALL** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or supplemental to the OpenID Connect 1.0 workflow.   
 
@@ -81,6 +83,7 @@ Can be stored as an identifier along with its assigner in FHIR Patient resource 
 Identifiers with date issued, expiration date, or other validity period will contain this metadata when available.
 
 Assigners **SHOULD** avoid the letters I and O in identifiers, as they are difficult to differentiate from 1 and 0.
+
 &emsp;&emsp;  
 
 ### Enterprise Identifier Workflow Example
@@ -102,6 +105,8 @@ Absent a Digital Identifier or Enterprise Identifier as described above, other g
 - Passport Numbers
 
 - Individual National Provider Identifier
+
+&emsp;&emsp;  
 
 ### Miscellaneous Identifier Workflow Example
 
