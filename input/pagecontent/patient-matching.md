@@ -377,10 +377,10 @@ th {
 |Best       |  .99       | Responder's MRN/MPI or known Digital Identifier       |
 |           |            | First Name & Last Name & Driver's License Number and Issuing US State |
 |           |            | First Name & Last Name & Passport Number and Issuing Country |
-|           |            | First Name & Last Name & Insurance Member Identifier       |
-|           |            | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier       |
+|           |            | First Name & Last Name & Insurance Member Identifier and Payer ID      |
+|           |            | First Name & Last Name & Date of Birth & Insurance Subscriber Identifier and Payer ID      |
 |           |            | First Name & Last Name & Date of Birth & Social Security Number       |
-|Superior   |  .8        | First Name & Last Name & Insurance Subscriber Identifier       |
+|Superior   |  .8        | First Name & Last Name & Insurance Subscriber Identifier and Payer ID       |
 |           |            | First Name & Last Name & Date of Birth & Address line & Zip (first 5)       |
 |           |            | First Name & Last Name & Date of Birth & Address line & City & State       |
 |           |            | First Name & Last Name & Date of Birth & email       |
