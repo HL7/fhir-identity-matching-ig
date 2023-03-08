@@ -21,6 +21,7 @@ In some cases, data collected for identity verification cannot be verified. For 
 {:.bg-info}
 
 The Identity Provider then validates this information using appropriate evidence from the list below, verifying any required evidence submitted, corresponding to the desired level of identity assurance and completing other required steps as follows:  
+{:.bg-info}
 
 - **IAL1** requirements:  
   - Declaration of identity assertion by the individual indicates that submitted information represents their own identity
@@ -97,9 +98,9 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
 (7) Original or certified copy of birth certificate
 (8) US Social Security Card
 
-​    
-
 In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender and sex assigned at birth). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
+
+**Organizational identity**, when relevant, is verified through an attestation by an individual, whose identity is also verified at a level of assurance commensurate with that of the credential desired, that they are an authorized representative of that unique legal organizational entity. The legal existence of the organization **SHALL** also be verified along with its street address that is asserted by the individual, through government records or equivalent, as well as the control of any hostname or other electronic endpoint presence that will be asserted in a credential or otherwise bound to the organizational identity. 
 
 NOTE: Although implementers, lacking more specific requirements in network participation agreements, likely want to perform their own risk analysis to determine the appropriate Identity Assurance Level for various use cases, for example a patient’s access to their own data or covered entity access to health data for Treatment/Payment/Operations, this Implementation Guide provides example use cases in which certain input match invariant or identity assurance levels are deemed appropriate based on industry feedback received. The guide does also specifically cite recommended Identity Assurance Levels for professional users and administrators in section 4.2. 
 
