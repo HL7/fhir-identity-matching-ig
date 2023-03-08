@@ -8,7 +8,8 @@ NOTE: The IALs defined below are not currently specified in a code system or val
 
 The intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though feedback has been invited.
 
-To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:{:.bg-info}
+To verify an individual’s identity at one of the levels below, the following information about the individual **SHALL** be collected:
+{:.bg-info}
 - Full Legal Name (the name that the person was officially known by at the time of issuance of the supporting evidence; not permitted are pseudonyms, aliases, an initial for surname, or initials for both First and Last names unless the actual First and/or Last name is in fact a single letter)
 - Home Address(1)
 - Date of Birth
@@ -75,7 +76,7 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
 
 - **IAL2** requirements: 
 
-  - 1 Strong plus 2 Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individiual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR 1 Superior/Very Strong piece of evidence (for example: Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID; this photo ID is confirmed by comparison to the individual) 
+  - 1 Strong plus 2 Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individiual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR 1 Superior/Very Strong piece of evidence (for example: Gov't-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
   - Verify the individual's physical residential Address of Record
   - Notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
