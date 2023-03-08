@@ -104,8 +104,6 @@ In healthcare settings, additional demographics may also be collected and used i
 
 NOTE: Although implementers, lacking more specific requirements in network participation agreements, likely want to perform their own risk analysis to determine the appropriate Identity Assurance Level for various use cases, for example a patient’s access to their own data or covered entity access to health data for Treatment/Payment/Operations, this Implementation Guide provides example use cases in which certain input match invariant or identity assurance levels are deemed appropriate based on industry feedback received. The guide does also specifically cite recommended Identity Assurance Levels for professional users and administrators in section 4.2. 
 
-​
-
 ### Individual Profile Photo
 
 An Individual Profile Photo to be associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution.
