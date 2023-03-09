@@ -39,7 +39,7 @@ The system making the call to $match ("the client") will assert their intent/abi
 
 #### Match on Identities
 
-While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources using [Patient.link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link), where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match **should** be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient would find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and MBI such that the $match input Patient:
+While FHIR systems often expect to have only one Patient Resource per actual patient in the usual case, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources using [Patient.link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link), where each set represents a specific patient in the opinion of the MPI system. In such a system the patient match **should** be performed against the sets of records as opposed to the individual records. For example, if 5 records are currently believed to represent the same patient, a search for that patient would find the set of 5 and consider that as one candidate as opposed to 5 candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of 5 linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and [MBI](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/glossary.html) such that the $match input Patient:
 
 - name matches Patient 1 but is somewhat different from Patients 2-5
 - birthdate matches all five of them
@@ -348,8 +348,8 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship
 
 ### Scoring Matches & Responder's System Match Output Quality Score
 
-<div class="note-to-balloters" markdown="1">
-The information and values included here are Draft state and have not been finalized. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a search quality score (note that this is not intended to be a match probability) should be returned by responders in lieu of a locally-computed match confidence.
+<div class="note-to-implementers" markdown="1">
+The information and values included here are a first published Standard for Trial Use. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a search quality score (note that this is not intended to be a match probability) should be returned by responders in lieu of a locally-computed match confidence.
 </div>
 
 Scoring **SHOULD** be as probabilistic as possible, however search scoring algorithms vary and stakeholders have expressed interest in better informing the score shared across organizational boundaries in a $match response. The group therefore seeks feedback on $match implementers' interest in using either the new Score indicated below or a similar option which would include attribute-specific match result information from the $match responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource. 
@@ -406,7 +406,7 @@ Future versions of this implementation guide will include language about additio
 
 ### No Match Results
 
-<div class="note-to-balloters" markdown="1">
+<div class="note-to-implementers" markdown="1">
 
 The group requests feedback on any specific error conditions that might arise, resulting in no results returned, that should be predictably communicated to requesters or responders. One such example is to require specific informative errors when no matches are returned. Another example is to require that responders indicate the additional demographic elements that should be provided in a subsequent request to improve match results, under the same condition or if match quality score is below a certain threshold.
 
@@ -416,14 +416,14 @@ The group requests feedback on any specific error conditions that might arise, r
 
 ### Exception Handling
 
-<div class="note-to-balloters" markdown="1">
+<div class="note-to-implementers" markdown="1">
 
-The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," "ID expired or no longer valid," "ID elements inconsistent," or other exception should be returned.
+The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," "ID expired or no longer valid," "ID elements inconsistent," or other exception MAY be used.
 
 </div>
 &emsp;&emsp;  
 ### Privacy Considerations
-<div class="note-to-balloters" markdown="1">
+<div class="note-to-implementers" markdown="1">
 
 Realizing that applicable federal and state laws, as well as any relevant community agreements may exist and provide some restrictions on the content that may be included in a match request and in the patient results or error messages returned by a responder, the authors request feedback on any additional privacy considerations that should be included in this Implementation Guide.
 
@@ -432,7 +432,7 @@ Realizing that applicable federal and state laws, as well as any relevant commun
 
 ### Benchmarking
 
-<div class="note-to-balloters" markdown="1">
+<div class="note-to-implementers" markdown="1">
 
 Benchmarking of patient matching has been a suggestion made previously by stakeholders. The group requests specific suggestions related to industry-wide benchmarking of best practice matching, including what stakeholders find it relevant to measure in such an activity, how results are shared, and the resources such as synthesized or actual population data that may be used in benchmarking initiatives. Organizations benchmarking matching quality and who implement this IG to enhance their performance are encouraged to report their findings via JIRA Tickets. The team will consider such input for exception handling guidance in the next version.
 

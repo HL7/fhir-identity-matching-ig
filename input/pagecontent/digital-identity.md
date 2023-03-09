@@ -59,11 +59,7 @@ Alternatively, the HL7 Identifier may be included as a FHIR Identifier in the Re
 
 Patient completes an [IAL 1.6](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) or greater identity verification process with a healthcare organization at registration and/or check-in, and the resultant Digital Identifier is then associated with the patient’s record in that organization's EHR. The process includes collection and verification of (at a minimum, verification of control) a personal mobile number and email address belonging to the patient. The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. The patient subsequently authenticates to their insurance company's system using this credential, after which the insurance company uses the Digital Identifier in a match request to the healthcare organization. Because this strong identity assurance credential has been used to authenticate the individual to both systems, and the patient authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, the healthcare organization can confidently share the correct patient data with the requesting party. If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification. 
 
-<div class="note-to-balloters" markdown="1">
 
-The authors request feedback on whether a specific level or levels of identity assurance should be specified for use in a Digital Identifier, along with workflow(s) in which each level of identity assurance might be appropriate. Additionally, is the recommendation of authentication assurance at AAL2 sufficient for any level of identity assurance between IAL1.6 and IAL2, or would specifying varying levels of authentication assurance be useful to implementers of Digital Identifiers?
-
-</div>
 &emsp;&emsp; 
 
 ### Requirements for Enterprise Identifiers
