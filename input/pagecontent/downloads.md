@@ -11,3 +11,20 @@ The following ZIP file contains a downloadable version of this IG that can be ho
 [Downloadable Copy](full-ig.zip)
   &emsp;&emsp;  
   &emsp;&emsp;    
+  
+  
+  #### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+#### Dependency Table
+
+{% include dependency-table-short.xhtml %}
+
+#### Globals Table
+
+{% include globals-table.xhtml %}
+
+#### IP Statements
+
+{% include ip-statements.xhtml %}

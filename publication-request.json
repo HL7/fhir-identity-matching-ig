@@ -1,0 +1,9 @@
+﻿{
+  "package-id": "hl7.fhir.us.identity-matching",
+  "version": "1.0.0",
+  "path": "http://hl7.org/fhir/us/identity-matching/STU1",
+  "milestone": true,
+  "status": "trial-use",
+  "sequence": "STU 1",
+  "desc": "FHIR STU Release 1"
+}

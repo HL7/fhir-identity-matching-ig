@@ -7,13 +7,13 @@ id: hl7.fhir.us.identity-matching
 canonical: http://hl7.org/fhir/us/identity-matching
 name: DigitalIdentity
 title: "Interoperable Digital Identity and Patient Matching"
-status: draft
+status: active
 license: "CC0-1.0"
-version: 1.0.0-ballot
+version: 1.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: CI Build US
-date: 2021-10-26
+releaseLabel: STU 1.0.0
+date: 2023-03-09
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International - Patient Administration WG
