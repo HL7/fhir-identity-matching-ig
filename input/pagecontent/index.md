@@ -1,4 +1,4 @@
-<div class="STU Update (Note to Implementers)" markdown="1">
+<div class="stu-note" markdown="1">
 This Identity-focused FHIR Implementation Guide has been established upon the recommendations of ONC's FHIR at Scale Task Force (FAST) Identity Tiger Team, and has been adapted from solution documents previously published by the team. The primary objective of this Implementation Guide is to provide guidance on identity verification and patient matching as used in workflows pertinent to FHIR exchange, to facilitate cross-organizational and cross-network interoperability.
 
 
