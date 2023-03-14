@@ -72,6 +72,7 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
       - Gov't issued photo ID confirmed by comparison to individual + mobile number billed to the individual; 
   - Declaration of identity assertion by the individual indicates that all submitted information including name, birth date, and home address represents their own identity
   - Verify the individual's physical residential Address of Record
+  - Notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual.
 
 ​    
 
