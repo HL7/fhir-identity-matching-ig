@@ -4,7 +4,7 @@
 Sources: NIST SP 800-63-3, NIST SP 1800-17c
 
 **Credential Service Provider (CSP)**: A trusted entity that issues or registers subscriber tokens and issues electronic credentials to subscribers. The CSP may encompass registration authorities (RAs) and verifiers that it operates. A CSP may be an independent third party, or may issue credentials for its own use.
-Source(s): CNSSI 4009-2015
+Source(s): NIST SP 800-63-3
 
 **Digital Health Identity**: Digital health identity refers to the technology and processes that support personal identity as it pertains to electronic health information. Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes.
 
