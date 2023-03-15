@@ -25,10 +25,6 @@ Usage: #example
 
 * birthDate = "1986-05-01"
 
-* contact.telecom[0].system = #fax
-* contact.telecom[0].value = "555-555-5555"
-* contact.telecom[0].use = #home
-
 * address[0].type = #physical
 * address[0].line[0] = "123 Main Street"
 * address[0].city = "Pittsburgh"
@@ -65,10 +61,6 @@ Usage: #example
 * gender = #female
 
 * birthDate = "1988-02-11"
-
-* contact.telecom[0].system = #fax
-* contact.telecom[0].value = "555-555-5555"
-* contact.telecom[0].use = #home
 
 * address[0].type = #physical
 * address[0].line[0] = "321 South Maple Street"
@@ -107,10 +99,6 @@ Usage: #example
 * gender = #female
 
 * birthDate = "1992-05-17"
-
-* contact.telecom[0].system = #fax
-* contact.telecom[0].value = "726-555-1094"
-* contact.telecom[0].use = #home
 
 * address[0].type = #physical
 * address[0].line[0] = "418 Teapot Lane"
