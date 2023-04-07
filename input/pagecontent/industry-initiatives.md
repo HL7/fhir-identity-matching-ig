@@ -1,16 +1,18 @@
-This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. As the below initiatives are about solving identity and matching, note that the current NIST standard is a measure for evaluating identity verification and authentication assurance and therefore is not appropriate to list on this page.
+This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page.
+
+### Digital Identity and Patient Matching Projects
 
 [AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
 
 [Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
 
-[CARIN Digital Identity Tiger Team](https://www.carinalliance.com/our-work/digitalidentity/)
+[CARIN Digital Identity](https://www.carinalliance.com/our-work/digitalidentity/)
 
-DirectTrust Guidance for Authentication of Individual Identity informs participants' published identity management policies  
+[DirectTrust Guidance for Authentication of Individual Identity](https://directtrust.app.box.com/s/wr4qa2pqbetxyp78sbtfci5jlzofis67/file/1025491591524)  
 
 [ECRI Health IT Safe Practices: Toolkit for the Safe Use of Health IT for Patient Identification](https://www.ecri.org/Resources/HIT/Patient%20ID/Patient_Identification_Toolkit_final.pdf)
 
-[Finland](https://vm.fi/en/digital-identity) and Germany SSI-based Collaboration in the EU
+[Finland](https://vm.fi/en/digital-identity) and Germany Self-sovereign Identity-based Collaboration in the EU
 
 [Global Assured Identity Network (GAIN)](https://gainforum.org/)
 
@@ -34,7 +36,7 @@ IHE Trial Implmentation Resources
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Identifier Cross-reference for Mobile (PIXm)](https://profiles.ihe.net/ITI/PIXm/index.html)  
 
-&nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Master Identity Registry (PMIR)](https://www.ihe.net/uploadedFiles/Documents/ITI/IHE_ITI_Suppl_PMIR.pdf)
+&nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Master Identity Registry (PMIR)](https://profiles.ihe.net/ITI/PMIR/index.html)
 
 IHE Final Text Profiles (normative)
 
