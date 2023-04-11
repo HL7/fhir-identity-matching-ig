@@ -30,10 +30,8 @@ parameters:
   apply-version: true
   usage-stats-opt-out: true
   excludexml: false
-  excludejsn: false
   excludettl: true
   excludemap: true
-  excludeexample: true
 
 pages:
   index.md:
