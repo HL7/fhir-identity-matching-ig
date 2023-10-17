@@ -20,8 +20,6 @@ The requirements described in this guide are intended to align with the proposed
 This guide is divided into several pages which are listed in the menu bar. 
 
 - [Home]\: The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide. 
-- [Industry Initiatives]\: This page includes a compilation of industry-wide digital identity and patient matching projects. 
-- [Guidance on Identity Assurance]\: This page describes best practices for patient identity verification in the most common workflows necessary to support healthcare-related transactions. 
 - [Patient Matching]\: This page describes the appropriate usage of the patient $match operation for cross-organizational exchange. 
 - [Digital Identity]\: This page provides best practices for individual identity management in a healthcare context. 
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources. 
