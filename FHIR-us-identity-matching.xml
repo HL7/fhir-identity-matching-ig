@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ballotUrl="http://hl7.org/fhir/us/identity-matching/2022May" ciUrl="http://build.fhir.org/ig/HL7/fhir-identity-matching-ig" defaultVersion="1.0.0" defaultWorkgroup="pa" gitUrl="https://github.com/HL7/fhir-identity-matching-ig" url="http://hl7.org/fhir/us/identity-matching">
 <version code="current" url="http://build.fhir.org/ig/HL7/fhir-identity-matching-ig"/>
+<version code="2.0.0-draft" url="http://hl7.org/fhir/us/identity-matching/STU2-draft"/>
 <version code="1.0.0" url="http://hl7.org/fhir/us/identity-matching/STU1"/>
 <version code="1.0.0-ballot" url="http://hl7.org/fhir/us/identity-matching/2022May"/>
 <artifactPageExtension value="-definitions"/>
@@ -21,9 +22,7 @@
 <page key="digital-identity" name="Digital Identity"/>
 <page key="downloads" name="Downloads"/>
 <page key="glossary" name="Glossary"/>
-<page key="guidance-on-identity-assurance" name="Guidance on Identity Assurance"/>
 <page key="index" name="Home"/>
-<page key="industry-initiatives" name="Industry Initiatives"/>
 <page key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
 </specification>
