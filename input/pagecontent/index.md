@@ -40,7 +40,13 @@ This guide will address the two concepts of patient matching and Digital Identit
 
  Research has shown that matching is improved when higher-quality demographics are provided in the match request; verifying the identity of an individual at a specific identity assurance level (IAL1, IAL2, etc.), and that any match input data is consistent with the identity verification event, helps measure the quality of data included in a match request. For this reason, this IG will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching. 
 
-&emsp;&emsp;   
+&emsp;&emsp; 
+### FAST Identity Companion Guides
+
+[FAST Identity Industry Initiatives](https://docs.google.com/document/d/1K42Vo7stZgtEr7BbholGEUZsywbufuU8n8OVbcywnZI/edit)
+[FAST Guidance On Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit)
+[FAST Patient Matching](https://docs.google.com/document/d/1WbuNFI5CnLbQLSbaemVUQMSwBa8Pi-HXxyG7d8xMQN8/edit)
+
 ### Use Cases and Roles 
 
 This IG provides identity management and person matching guidance to support the use cases listed below, with a focus on FHIR transactions. However, the guidance also applies to any transaction type. Roles such as Identity Provider, patient, authorized representative, application, data holder, and intermediary are highlighted within the use case descriptions. 
