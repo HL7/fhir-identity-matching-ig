@@ -9,11 +9,11 @@ name: DigitalIdentity
 title: "Interoperable Digital Identity and Patient Matching"
 status: active
 license: "CC0-1.0"
-version: 1.0.0
+version: 2.0.0-draft
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU 1.0.0
-date: 2023-03-09
+releaseLabel: STU 2.0.0-draft
+date: 2023-10-17
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International - Patient Administration WG
@@ -36,8 +36,6 @@ parameters:
 pages:
   index.md:
     title: Home
-  industry-initiatives.md:
-  guidance-on-identity-assurance.md:
   patient-matching.md:
     title: Patient Matching
   digital-identity.md:
@@ -52,8 +50,6 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Industry Initiatives: industry-initiatives.html
-  Guidance on Identity Assurance: guidance-on-identity-assurance.html
   Patient Matching: patient-matching.html
   Digital Identity: digital-identity.html
   Artifacts: artifacts.html

@@ -1,9 +1,9 @@
 ﻿{
   "package-id": "hl7.fhir.us.identity-matching",
-  "version": "1.0.0",
-  "path": "http://hl7.org/fhir/us/identity-matching/STU1",
+  "version": "2.0.0-draft",
+  "path": "http://hl7.org/fhir/us/identity-matching/STU2-draft",
   "mode" : "milestone",
   "status": "trial-use",
-  "sequence": "STU1",
+  "sequence": "STU2-draft",
   "desc": "HL7 FHIR Implementation Guide for Interoperable Digital Identity and Patient Matching"
 }
