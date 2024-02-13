@@ -20,8 +20,11 @@ The requirements described in this guide are intended to align with the proposed
 This guide is divided into several pages which are listed in the menu bar. 
 
 - [Home]\: The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide. 
+- [Industry Initiatives]\: This page includes a compilation of industry-wide digital identity and patient matching projects. 
+- [Guidance on Identity Assurance]\: This page describes best practices for patient identity verification in the most common workflows necessary to support healthcare-related transactions. 
 - [Patient Matching]\: This page describes the appropriate usage of the patient $match operation for cross-organizational exchange. 
 - [Digital Identity]\: This page provides best practices for individual identity management in a healthcare context. 
+- [Conformance]\: This page provides explicit guidelines for an implementer to be considered conformant with this IG. 
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources. 
 
 {% include link-list.md %} 
@@ -38,14 +41,15 @@ This guide will address the two concepts of patient matching and Digital Identit
 
 > **Patient Matching.**  Patient matching and record linkage help address interoperability by determining whether records—both those held within a single facility and those in different healthcare organizations—correctly refer to a specific individual. Matching methods use demographic information, such as name and date of birth. 
 
- Research has shown that matching is improved when higher-quality demographics are provided in the match request; verifying the identity of an individual at a specific identity assurance level (IAL1, IAL2, etc.), and that any match input data is consistent with the identity verification event, helps measure the quality of data included in a match request. For this reason, this IG will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching. 
+Research has shown that matching is improved when higher-quality demographics are provided in the match request; verifying the identity of an individual at a specific identity assurance level (IAL1, IAL2, etc.), and that any match input data is consistent with the identity verification event, helps measure the quality of data included in a match request. For this reason, this IG will provide both guidance on how to improve identity assurance and how to leverage identity assurance in matching. 
+
+When the identity of the person who is authenticated in a transaction is known with high confidence, this information can be used in an access decision, e.g., Patient-Directed Exchange. This allows implementers to rely on user authentication in this workflow instead of probabilistic matching, which becomes increasingly convenient as federated identity services proliferate. This also reduces the number of credentials an individual needs to maintain. 
+
+As a secondary effect, digital credentials with high confidence identity assurance and a globally unique identifier associated with the individual, even in Business to Business matching (where the patient is not authenticated as being present in the transaction), emulate the perfect matching described in the paragraph above. Attempting to match on such a unique identifier is a preferred best practice over matching with a combination of demographics. 
+
+When identity proofing has been completed for an individual, the process of verifying that demographic attributes are consistent with a unique individual in the real world makes the attributes more meaningful in match requests and improves match quality when probabilistic matching must be used.
 
 &emsp;&emsp; 
-### FAST Identity Companion Guides
-
-[FAST Identity Industry Initiatives](https://docs.google.com/document/d/1K42Vo7stZgtEr7BbholGEUZsywbufuU8n8OVbcywnZI/edit)
-[FAST Guidance On Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit)
-[FAST Patient Matching](https://docs.google.com/document/d/1WbuNFI5CnLbQLSbaemVUQMSwBa8Pi-HXxyG7d8xMQN8/edit)
 
 ### Use Cases and Roles 
 

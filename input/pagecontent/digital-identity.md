@@ -100,4 +100,32 @@ Absent a Digital Identifier or Enterprise Identifier as described above, other i
 
 As these Miscellaneous Identifiers are increasingly collected, they are useful on their own or along with Enterprise Identifiers in improving probabilistic [Patient Matching](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/patient-matching.html) as described elsewhere in this IG.  
 
+### Authorized Representatives
+
+There are two primary actors that engage in the process of requesting health data from an external source:
+
+- Patient – the subject of the data query being sent in the $match request
+- User – The individual who is being authenticated to initiate a $match request
+
+The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to, include:
+
+- B2B Use Cases – A physician accessing a patient’s health data through an HIE/QHIN query via the EMR
+- B2C Proxy User Use Cases – Instances where an authorized representative is allowed to access to a patient’s health record (e.g. a parent accessing their child’s records)
+
+An authorized representative must be authenticated and given the authority to access data on behalf of a patient prior to the query. 
+Provide links out to SMART App Launch IG to provide guidance on the technical workflow?
+
+ **I need a technical description and proofreading of the use case below:**
+
+Use Case Example – Mary Smith is an authorized representative of her daughter, Jill Smith. Jill received care at General Hospital, which uses an EMR that gives patients access to their records through an app. The hospital also uses an Identity Provider for identity proofing. Mary has not received care through General Hospital but has received care at another hospital that uses the same IdP. Mary would like to access Jill’s records at General Hospital. She logs into the hospital’s client portal, which redirects her to the IdP. Since she is already known by the IdP, she goes through the typical authentication process. The IdP is confident in Mary’s identity and knows she is an authorized representative of Jill. This is sent from the IdP to General Hospital, where the EMR gives Mary access to Jill’s record since there is trust established between the hospital and the IdP.
+
+### Organizational Identity
+
+Organzational Identity is important for resppoders to determine the source of an authentication token when initiated through a hub, such as with an HIE or a QHIN. The recommended information to be included in the token request are:
+
+- Organization Name
+- OID
+- Address
+
+
 {% include link-list.md %} 
