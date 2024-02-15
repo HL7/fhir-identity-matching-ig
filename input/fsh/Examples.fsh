@@ -107,3 +107,100 @@ Usage: #example
 * address[0].postalCode = "27513"
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
+
+//====================================================================================================
+
+Alias: $v3-TribalEntityUS = http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS
+Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+
+Instance: example2
+InstanceOf: Patient
+Usage: #example
+
+* meta.profile = Canonical(VerAtt-Patient)
+* extension[+].id = "va-birthsex"
+* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
+* extension[=].valueCode = #F
+* extension[+].id = "va-sex"
+* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex"
+* extension[=].valueCode = #248152002
+* extension[+].id = "vs-genderIdentity"
+* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity"
+
+* identifier.use = #usual
+* identifier.type = $v2-0203#MR "Medical Record Number"
+* identifier.type.text = "Medical Record Number"
+* identifier.system = "http://hospital.smarthealthit.org"
+
+* identifier.value = "1032702"
+* active = true
+* name[+].id = "va-name"
+* name[=].family = "Baxter"
+* name[=].given[0] = "Amy"
+* name[=].given[+] = "V."
+* name[=].suffix = "PharmD"
+* name[=].period.start = "2020-07-22"
+
+* telecom[0].system = #phone
+* telecom[=].value = "555-555-5555"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "amy.shaw@example.com"
+
+* gender = #female
+
+* birthDate = "1987-02-20"
+
+* address[0].use = #old
+* address[=].id = "va-address-old"
+* address[=].line = "49 Meadow St"
+* address[=].city = "Mounds"
+* address[=].state = "OK"
+* address[=].postalCode = "74047"
+* address[=].country = "US"
+* address[=].period.start = "2016-12-06"
+* address[=].period.end = "2020-07-22"
+* address[+].id = "va-address-new"
+* address[=].line = "183 Mountain View St"
+* address[=].city = "Mounds"
+* address[=].state = "OK"
+* address[=].postalCode = "74048"
+* address[=].country = "US"
+* address[=].period.start = "2020-07-22"
+
+//====================================================================================================
+
+Alias: $provenance-participant-type = http://terminology.hl7.org/CodeSystem/provenance-participant-type
+
+Instance: provenance-example
+InstanceOf: Provenance
+Usage: #example
+
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+
+* target = Reference(Patient/example2)
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-genderIdentity"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-birthsex"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-sex"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-name"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-gender"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-birthDate"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-address-old"
+* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
+* target.extension[=].valueUri = "va-address-new"
+
+* recorded = "2023-02-28T15:26:23.217+00:00"
+
+* agent.type = $provenance-participant-type#informant "Informant"
+* agent.who = Reference(Patient/example2)
+
+* entity.role = #source
+* entity.what.display = "My_Form"
