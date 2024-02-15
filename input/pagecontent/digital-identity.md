@@ -1,6 +1,6 @@
 ### Overview 
 
-Digital Identity is the unique representation of a subject engaged in an online transaction. Digital identities involved in healthcare transactions can correspond to Patients, Providers, Payers, and other healthcare actors. The combination of a legal, distinct, verified organization name and the state in which it is verified uniquely identifies an organization. A digital identity **SHALL** always be unique in the context of a digital service compliant with this IG, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that a human subject’s real-life identity is evident from the credential identifier on its own.  
+Digital Identity is the unique representation of a subject engaged in an online transaction. Digital identities involved in healthcare transactions can correspond to Patients, Providers, Payers, and other healthcare actors. The combination of a legal, distinct, verified organization name and the state in which it is verified uniquely establishes Organizational Identity as defined in this <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a>. A digital identity **SHALL** always be unique in the context of a digital service compliant with this IG, but does not necessarily need to uniquely identify the subject in all contexts. Specifically, such a digital service **SHALL NOT** require that a human subject’s real-life identity is evident from the credential identifier on its own.  
 
 In an effort to address matching errors by prioritizing the use of Digital Identifiers, this section of the IG defines what are likely to be new Digital Identifiers suitable for use in person matching where high confidence in the Digital Identity associated with such an Identifier is needed. Though there are benefits in having just one such credential, an individual's choice to use multiple such Digital Identifiers each from a different service, also referred to an Identity provider or Assigner, is also consistent with the IG’s requirements. This section of the IG also describes Enterprise Identifiers which are the next best option when a Digital Identifier is unavailable or has not yet been established. In this context, "Enterprise Identifiers" are identifiers issued by assigners who have not implemented the stricter requirements necessary for Digital Identifiers. For example, a clinic that leverages insurance member IDs for identifiers and therefore requires additional demographics to be provided during a match request to the insurance company because the identifier is not 1:1 with a unique identity. 
 
@@ -104,16 +104,15 @@ As these Miscellaneous Identifiers are increasingly collected, they are useful o
 
 There are two primary actors that engage in the process of requesting health data from an external source:
 
-- Patient – the subject of the data query being sent in the $match request
-- User – The individual who is being authenticated to initiate a $match request
+- Patient – the subject of the data query being sent in the $match request (or equivalent)
+- User – The individual who is being authenticated to initiate a $match request (or equivalent)
 
-The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to, include:
+The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to:
 
-- B2B Use Cases – A physician accessing a patient’s health data through an HIE/QHIN query via the EMR
-- B2C Proxy User Use Cases – Instances where an authorized representative is allowed to access to a patient’s health record (e.g. a parent accessing their child’s records)
+- B2B Use Cases – A physician accessing a patient’s health data through an HIE/QHIN query via their EMR
+- B2C Proxy User Use Case – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records)
 
-An authorized representative must be authenticated and given the authority to access data on behalf of a patient prior to the query. 
-Provide links out to SMART App Launch IG to provide guidance on the technical workflow?
+An authorized representative's identity MUST be verified according to <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a> and sufficient demographics MUST be collected if matching on the identity of the representative is to be performed. In all cases the representative is, when local policies are met, authorized to access data on behalf of a patient prior to the query and determining authorization is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already well-defined in <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
 
  **I need a technical description and proofreading of the use case below:**
 
@@ -121,11 +120,12 @@ Use Case Example – Mary Smith is an authorized representative of her daughter,
 
 ### Organizational Identity
 
-Organzational Identity is important for resppoders to determine the source of an authentication token when initiated through a hub, such as with an HIE or a QHIN. The recommended information to be included in the token request are:
+Organizational Identity as defined in this <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a> is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be included:
 
-- Organization Name
-- OID
-- Address
+- Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
+- OID assigned to that Organization (if any)
+- State where Organization was verified
+- Street Address verified for Organization (if information more granular than State is shared)
 
 
 {% include link-list.md %} 
