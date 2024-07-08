@@ -4,7 +4,13 @@ This section of the guide extends the existing HL7 FHIR patient [$match](https:/
 
 The best practices and suggested weights are based on this team's original research which included the sources cited on the [Home](index.html) tab as well as FAST webinar feedback, FAST subject matter expert (SME) sessions, HL7 FHIR Connectathon events, and FAST Identity team participants' additional suggestions made to the FAST Identity solution document; this work has been ongoing since spring 2018.  
 
-> **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization.    
+> **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization. 
+>  
+>  Examples:
+>
+>-   Patient authorizes access as in SMART App Launch with clicking a button to authorize the transaction as a mechanism for capturing and carrying consent in authorization code flow
+>-   Tiered OAuth Use Case - same as nominal SMART App Launch, except user profile data includes sufficiently high IAL1.8 identity assurance and AAL2 authorization assurance
+>-   B2B Patient User Use Case - include consent, IAL1.8 identity assurance, and AAL2 authentication assurance
 
 Except where its recommendations involve FHIR $match parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a  [Guidance on Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit) section as a companion resource to this best practice patient matching.  
 
@@ -26,7 +32,7 @@ Individual Access (or if protected health information [PHI] or PII will be retur
 
 Security best practices, including transaction authorization, are generally out of scope for this IG; however implementers also **SHALL NOT** allow patients to request a match directly. A trusted system may request a match on a patient’s behalf and use it to inform the patient, especially to:  
 
-- Recognize that the patient already has an account (when a record represents an account) 
+- Recognize that the patient already has an account (when a record represents an account) and allow them authenticate when the credentials are sufficiently strong (IAL1.8/AAL2) and the patient can be matched based on best-practice matching
 - Recognize that a patient may have multiple identities within the system, leading to a fragmented medical record 
 - Recognize that a patient’s identity might have spurious records from other people mixed in 
 - Help remediate these situations without exposing PHI/PII 
