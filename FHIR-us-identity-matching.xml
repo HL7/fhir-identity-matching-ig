@@ -16,9 +16,7 @@
 <artifact id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>
 <artifact id="Patient/ExamplePatientL1" key="Patient-ExamplePatientL1" name="Patient-L1"/>
 <artifact id="Patient/ExamplePatient" key="Patient-ExamplePatient" name="Patient1"/>
-<artifact id="StructureDefinition/VerAtt-Patient" key="StructureDefinition-VerAtt-Patient" name="VerAtt Patient"/>
-<artifact id="Patient/example2" key="Patient-example2" name="example2"/>
-<artifact id="Provenance/provenance-example" key="Provenance-provenance-example" name="provenance-example"/>
+<artifact id="Patient/example3" key="Patient-example3" name="example3"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
@@ -31,4 +29,6 @@
 <page key="industry-initiatives" name="Industry Initiatives"/>
 <page key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
+<page key="use-cases" name="Use Cases"/>
+<page key="weighting-and-scoring" name="Weighting &amp; Scoring"/>
 </specification>
