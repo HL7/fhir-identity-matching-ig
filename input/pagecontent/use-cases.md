@@ -9,6 +9,7 @@ Pre-Conditions: The individual is not known by the healthcare provider at the re
 7.	A Digital Identifier is created and associated with the individual and their health record within the EHR (if a health system is the identity provider) or after demonstrating control of the credential (if assigned by a third party identity service).
 Outcome: The individual has been successfully verified, a digital identifier is associated with the individual, and they may obtain a credential for use in authenticating themselves subsequently.
 
+
 ### $match workflow
 Pre-conditions: 
 Requesting system can generate a FHIR Patient resource conformant to one of the IDI profiles (Base, L0, L1) established in this guide.
@@ -23,19 +24,19 @@ Authentication and credentialling has already been established
 Outcome: Requesting system has obtained a valid FHIR Bundle containing either a matched FHIR Patient resource or resources or received a “No Match Found” response if the receiving system was unable to complete the request.
 
 
-
 ### Digital Identifier Creation
 Actors – patient (or authorized representative), Identity Provider
 1.	Patient completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
 2.	The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
 3.	The resultant Digital Identifier is then associated with the patient’s record in that organization’s electronic health record (EHR) (if healthcare organization is the identity provider) or after the patient authenticates themselves using the credential (if a third party identity provider). The process includes collection and verification of (at a minimum, verification of control) a personal mobile number and email address belonging to the patient. 
-Authentication Using Digital Identifier
+
+
+### Authentication Using Digital Identifier
 Actors – patient (or authorized representative), provider, Identity Provider
 1.	The patient authenticates to their insurance company’s system using the credential associated with their Digital Identifier
 2.	The insurance company uses the Digital Identifier in a match request to the healthcare organization.
 3.	Because this strong identity assurance credential has been used to authenticate the individual to both systems, and the patient authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, the healthcare organization can confidently share the correct patient data with the requesting party.
 4.	If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
-
 
 
 ### Patient-Mediated B2C
@@ -45,9 +46,9 @@ Workflow
 1.	Patient is seen by a provider in person or virtually. The provider’s office verifies the individual’s identity at IAL1.8. If an Authorized Representative is involved, they would need to be verified as well at IAL1.8
 2.	A Digital Identifier is created per steps 2 and 3 in “Creation of Digital Identifier and Authentication Using this Identifier” 
 3.	After being seen at the office, the patient or their authorized representative attempts to log into their patient portal via app.
-As written, this is not conveying that use case…just the existence of the Digital Identifier itself. One way to explain Patient-Mediated B2C would be: Patient uses a PHR that stores their health data from various health system sources. Patient knows their car insurance provider provides discounts if the patient lets the company review their health records. Patient authorizes the third party app to access their health data stored by the PHR as per SMART App Launch. If the patient does not have credentials to use this workflow, an alternative consumer-facing matching model compliant with this IG, in which the authorizing party performs the equivalent of creating an IAL1.8/AAL2 or higher Digital Identity is needed (and associated credential if they will return without repeating identity verification).
-The PHR in this case is akin to the one or more intermediaries that are inserted between a requesting party and the ultimate responding data source.
-Patient-Directed B2C
+
+
+### Patient-Directed B2C
 Actors – Authorized Representative (User) OR Patient, Patient Chosen App, Authorization Server, FHIR Server, Identity Provider
 Description - Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication to authenticate the user.)
 Workflow

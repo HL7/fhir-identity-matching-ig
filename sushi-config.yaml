@@ -19,7 +19,7 @@ publisher:
   name: HL7 International - Patient Administration WG
   url: http://www.hl7.org/Special/committees/pafm
 dependencies:
-  hl7.fhir.us.core: 3.1.1
+  hl7.fhir.us.core: 6.1.0
 
 parameters:
   show-inherited-invariants: false
