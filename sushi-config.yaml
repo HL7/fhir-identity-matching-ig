@@ -19,7 +19,7 @@ publisher:
   name: HL7 International - Patient Administration WG
   url: http://www.hl7.org/Special/committees/pafm
 dependencies:
-  hl7.fhir.us.core: 3.1.1
+  hl7.fhir.us.core: 6.1.0
 
 parameters:
   show-inherited-invariants: false
@@ -48,6 +48,10 @@ pages:
     title: Conformance
   glossary.md:
     title: Glossary
+  use-cases.md:
+    title: Use Cases
+  weighting-and-scoring.md:
+    title: Weighting & Scoring
   downloads.md:
 
 
@@ -59,12 +63,15 @@ menu:
   Policy Guidance:
     Industry Initiatives: industry-initiatives.html
     Guidance on Identity Assurance: guidance-on-identity-assurance.html
+    Weighting & Scoring: weighting-and-scoring.html
   Technical Guidance:
     Patient Matching: patient-matching.html
     Digital Identity: digital-identity.html
+  Implementation:
+    Artifacts: artifacts.html
+    Use Cases: use-cases.html
+    Conformance: conformance.html
     Downloads: downloads.html
-  Artifacts: artifacts.html
-  Conformance: conformance.html
   Glossary: glossary.html
 
   
