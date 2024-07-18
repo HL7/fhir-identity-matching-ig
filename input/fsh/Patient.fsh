@@ -79,36 +79,4 @@ Description: "(Level 1 weighting) The goal of this profile is to describe a data
 
 * name obeys idi-2
 
-//=================================================================================================================================
-// Verified Attributes - Patient
-//
-Profile: VerAttPatient
-Parent: Patient
-Id: VerAtt-Patient
-Title: "VerAtt Patient"
-Description: "The goal of this profile is to assist in determining the verification status of a demographic. ID tags are attached to each demographic element to be referenced in a parallel Provenance resource."
-
-* . ^short = "Patient information to be supplied to $match operation"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation."
-
-* name.id MS
-* name.id 0..1
-* name.id ^short = "Name ID to be used in attribute verification assertion"
-* name.id ^definition = "Name ID to be used in attribute verification assertion with an associated Provenance resource"
-* birthDate.id MS
-* birthDate.id 0..1
-* birthDate.id ^short = "Birth date ID to be used in attribute verification assertion"
-* birthDate.id ^definition = "Birth date ID to be used in attribute verification assertion with an associated Provenance resource"
-* gender.id MS
-* gender.id 0..1
-* gender.id ^short = "Gender ID to be used in attribute verification assertion"
-* gender.id ^definition = "Gender ID to be used in attribute verification assertion with an associated Provenance resource"
-* telecom.id MS
-* telecom.id 0..1
-* telecom.id ^short = "Contact Info ID to be used in attribute verification"
-* telecom.id ^definition = "Contact Info ID to be used in attribute verification assertion with an associated Provenance resource"
-* address.id MS
-* address.id 0..1
-* address.id ^short = "Address ID to be used in attribute verification"
-* address.id ^definition = "Address ID to be used in attribute verification assertion with an associated Provenance resource"
 

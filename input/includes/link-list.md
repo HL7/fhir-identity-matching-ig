@@ -10,5 +10,7 @@
 [IDI Patient]: StructureDefinition-IDI-Patient.html
 [IDI Patient L0]: StructureDefinition-IDI-Patient-L0.html
 [IDI Patient L1]: StructureDefinition-IDI-Patient-L1.html
+[Multiple Digital Identity Patient Example]: StructureDefinition-Multiple-Digital-Identity-Patient-Example.html
+
 [Verfified Attribute Example - Patient]: StructureDefinition-Verified-Attribute-Patient.html
 [Verfified Attribute Example - Provenance]: StructureDefinition-Verified-Attribute-Provenance.html
