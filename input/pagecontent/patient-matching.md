@@ -225,6 +225,7 @@ An API from USPS may be helpful in verifying individual street addresses in futu
 Currently, National Provider Identifier (NPI) records can be used to verify provider names, addresses, and telephone numbers. 
 
 &emsp;&emsp; 
+
 ### Recommended Best Practices 
 
 It is a best practice to include all known (required + optional) patient matching attributes in a match request (e.g., USCDI Patient Demographics); the table below indicates examples of attributes and levels of verification for consideration in different use cases: 
