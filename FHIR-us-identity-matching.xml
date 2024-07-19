@@ -18,7 +18,10 @@
 <artifact id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>
 <artifact id="Patient/ExamplePatientL1" key="Patient-ExamplePatientL1" name="Patient-L1"/>
 <artifact id="Patient/ExamplePatient" key="Patient-ExamplePatient" name="Patient1"/>
-<artifact id="Patient/example3" key="Patient-example3" name="example3"/>
+<artifact id="Organization/abc-hospital" key="Organization-abc-hospital" name="abc-hospital"/>
+<artifact id="Organization/def-idp" key="Organization-def-idp" name="def-idp"/>
+<artifact id="Patient/patient-multi-digital-identifier" key="Patient-patient-multi-digital-identifier" name="patient-multi-digital-identifier"/>
+<artifact id="Organization/xyz-payer" key="Organization-xyz-payer" name="xyz-payer"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
