@@ -16,10 +16,16 @@ releaseLabel: STU 2.0.0-draft
 date: 2023-10-17
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
-  name: HL7 International - Patient Administration WG
+  name: HL7 International / Patient Administration
   url: http://www.hl7.org/Special/committees/pafm
 dependencies:
-  hl7.fhir.us.core: 3.1.1
+  hl7.fhir.us.core: 6.1.0
+
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
+    valueCode: pa  # <<< The value must be the code for the workgroup
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
 
 parameters:
   show-inherited-invariants: false
@@ -44,10 +50,12 @@ pages:
     title: Patient Matching
   digital-identity.md:
     title: Digital Identity
-  conformance.md:
-    title: Conformance
   glossary.md:
     title: Glossary
+  use-cases.md:
+    title: Use Cases
+  user-authentication-matching.md:
+    title: User Authentication Matching
   downloads.md:
 
 
@@ -61,10 +69,12 @@ menu:
     Guidance on Identity Assurance: guidance-on-identity-assurance.html
   Technical Guidance:
     Patient Matching: patient-matching.html
+    User Authentication Matching: user-authentication-matching.html
     Digital Identity: digital-identity.html
+  Implementation:
+    Artifacts: artifacts.html
+    Use Cases: use-cases.html
     Downloads: downloads.html
-  Artifacts: artifacts.html
-  Conformance: conformance.html
   Glossary: glossary.html
 
   

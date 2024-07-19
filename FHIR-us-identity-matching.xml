@@ -7,6 +7,8 @@
 <artifactPageExtension value="-definitions"/>
 <artifactPageExtension value="-examples"/>
 <artifactPageExtension value="-mappings"/>
+<artifact id="OperationDefinition/IDI-match" key="OperationDefinition-IDI-match" name="Additional constraints for $match"/>
+<artifact id="StructureDefinition/idi-match-bundle" key="StructureDefinition-idi-match-bundle" name="IDI Match Bundle"/>
 <artifact id="StructureDefinition/IDI-Patient" key="StructureDefinition-IDI-Patient" name="IDI Patient"/>
 <artifact id="StructureDefinition/IDI-Patient-L0" key="StructureDefinition-IDI-Patient-L0" name="IDI Patient L0"/>
 <artifact id="StructureDefinition/IDI-Patient-L1" key="StructureDefinition-IDI-Patient-L1" name="IDI Patient L1"/>
@@ -16,13 +18,10 @@
 <artifact id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>
 <artifact id="Patient/ExamplePatientL1" key="Patient-ExamplePatientL1" name="Patient-L1"/>
 <artifact id="Patient/ExamplePatient" key="Patient-ExamplePatient" name="Patient1"/>
-<artifact id="StructureDefinition/VerAtt-Patient" key="StructureDefinition-VerAtt-Patient" name="VerAtt Patient"/>
-<artifact id="Patient/example2" key="Patient-example2" name="example2"/>
-<artifact id="Provenance/provenance-example" key="Provenance-provenance-example" name="provenance-example"/>
+<artifact id="Patient/example3" key="Patient-example3" name="example3"/>
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
-<page key="conformance" name="Conformance"/>
 <page key="digital-identity" name="Digital Identity"/>
 <page key="downloads" name="Downloads"/>
 <page key="glossary" name="Glossary"/>
@@ -31,4 +30,6 @@
 <page key="industry-initiatives" name="Industry Initiatives"/>
 <page key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
+<page key="use-cases" name="Use Cases"/>
+<page key="user-authentication-matching" name="User Authentication Matching"/>
 </specification>
