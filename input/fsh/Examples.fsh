@@ -106,19 +106,20 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: example3
+Instance: patient-multi-digital-identifier
 InstanceOf: Patient
+Description: "Example of Patient used as input to $match operation meeting Level 1 information conformance"
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * identifier[0].system = "http://hospital.abc.org"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
-* identifier[=].assigner = Reference(Organization/abc_hospital)
+* identifier[=].assigner = Reference(Organization/abc-hospital)
 * identifier[+].system = "http://payer.xyz.org"
 * identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
-* identifier[=].assigner = Reference(Organization/xyz_payer)
+* identifier[=].assigner = Reference(Organization/xyz-payer)
 * identifier[+].system = "http://idp.def.org"
 * identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
-* identifier[=].assigner = Reference(Organization/def_idp)
+* identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
 * name.family = "Huberdeau"
 * name.given = "Honk"
@@ -135,3 +136,65 @@ Usage: #example
 * address.postalCode = "43210"
 * address.country = "US"
 
+//====================================================================================================
+
+Instance: abc-hospital
+InstanceOf: Organization
+Usage: #example
+* identifier[0].use = #official
+* identifier[=].system = "urn:oid:2.16.528.1"
+* identifier[=].value = "91654"
+* identifier[+].use = #usual
+* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
+* identifier[=].value = "17-0112278"
+* name = "Burgers University Medical Center"
+* contact[0].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2300"
+* contact[=].telecom.use = #work
+* contact[+].address.use = #work
+* contact[=].address.line = "Galapagosweg 91"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9105 PZ"
+* contact[=].address.country = "NLD"
+* contact[+].address.use = #work
+* contact[=].address.line = "PO Box 2311"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9100 AA"
+* contact[=].address.country = "NLD"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2334"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2335"
+
+//====================================================================================================
+
+Instance: xyz-payer
+InstanceOf: Organization
+Description: "Example of Organization used as a payer for digital identifier meeting Level 1 information conformance"
+Usage: #example
+* identifier.system = "urn:oid:2.16.840.1.113883.3.19.2.3"
+* identifier.value = "666666"
+* name = "XYZ Insurance"
+* alias = "ABC Insurance"
+* contact.telecom[0].system = #phone
+* contact.telecom[=].value = "+1 555 234 3523"
+* contact.telecom[=].use = #work
+* contact.telecom[+].system = #email
+* contact.telecom[=].value = "info@xyz-payer.org"
+* contact.telecom[=].use = #work
+
+//====================================================================================================
+
+Instance: def-idp
+InstanceOf: Organization
+Description: "Example of Organization used as an identity provider for digital identifier meeting Level 1 information conformance"
+Usage: #example
+* identifier.system = "http://www.secureidp.com/units"
+* identifier.value = "SecureIdp"
+* name = "Secure Idp"
+* contact.telecom[0].system = #phone
+* contact.telecom[=].value = "+1 555 234 3523"
+* contact.telecom[=].use = #work
+* contact.telecom[+].system = #email
+* contact.telecom[=].value = "gastro@acme.org"
+* contact.telecom[=].use = #work
