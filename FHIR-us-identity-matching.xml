@@ -15,6 +15,7 @@
 <artifact id="CodeSystem/Identity-Identifier-cs" key="CodeSystem-Identity-Identifier-cs" name="Identity Identifier Code System"/>
 <artifact id="ValueSet/Identity-Identifier-vs" key="ValueSet-Identity-Identifier-vs" name="Identity Identifier Value Set"/>
 <artifact id="NamingSystem/Identity-HL7-Identifier" key="NamingSystem-Identity-HL7-Identifier" name="Identity-HL7-Identifier"/>
+<artifact id="Bundle/MATCHOperationResponse" key="Bundle-MATCHOperationResponse" name="MATCHOperationResponse"/>
 <artifact id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>
 <artifact id="Patient/ExamplePatientL1" key="Patient-ExamplePatientL1" name="Patient-L1"/>
 <artifact id="Patient/ExamplePatient" key="Patient-ExamplePatient" name="Patient1"/>
