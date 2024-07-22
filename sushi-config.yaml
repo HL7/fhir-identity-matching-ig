@@ -48,14 +48,14 @@ pages:
     title: Guidance on Identity Assurance
   patient-matching.md:
     title: Patient Matching
-  digital-identity.md:
-    title: Digital Identity
-  glossary.md:
-    title: Glossary
-  use-cases.md:
-    title: Use Cases
   user-authentication-matching.md:
     title: User Authentication Matching
+  digital-identity.md:
+    title: Digital Identity
+  use-cases.md:
+    title: Use Cases
+  glossary.md:
+    title: Glossary
   downloads.md:
 
 
