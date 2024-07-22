@@ -54,10 +54,6 @@ Usage: #example
 * name[0].family = "Paeshent"
 * name[0].given[0] = "Nancy"
 
-* telecom[0].system = #phone
-* telecom[0].value = "444-555-3939"
-* telecom[0].use = #mobile 
-
 * gender = #female
 
 * birthDate = "1988-02-11"
