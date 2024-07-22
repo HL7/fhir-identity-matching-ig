@@ -6,7 +6,7 @@ The best practices and suggested weights are based on this team's original resea
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization.    
 
-Except where its recommendations involve FHIR $match parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a  [Guidance on Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit) section as a companion resource to this best practice patient matching.  
+Except where its recommendations involve FHIR $match parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching.  
 
 &emsp;    
 
@@ -18,7 +18,7 @@ When transmitting identity attributes to third parties with whom sharing PII is 
 - within an HL7 B2B with User Authorization Extension Object, or  
 - as part of a match or search request, 
 
-and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own  resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit) (e.g., a first name, last name, date of birth [DOB], mobile number, and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with [Guidance on Identity Assurance](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit).  
+and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own  resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance] (e.g., a first name, last name, date of birth [DOB], mobile number, and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with [Guidance on Identity Assurance].  
 
 As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or  [LoA-3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-2.pdf) for professionals who are end users of health IT systems and for an implementer's overall operations.  
 
@@ -107,110 +107,14 @@ The B2B with User Authorization Extension Object is used by client apps followin
 </table>
 
 Example Person Resource Profile for FAST ID:
-```json
-{
-    "resourceType": "StructureDefinition",
-    "id": "FASTIDPerson",
-    "url": "TBD",
-    "name": "FASTIDPerson",
-    "title": "FAST Identity UDAP Person",
-    "status": "active",
-    "description": "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG",
-    "fhirVersion": "4.0.1",
-    "kind": "resource",
-    "abstract": false,
-    "type": "Person",
-    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Person",
-    "derivation": "constraint",
-    "differential": {
-        "element": [
-            {
-                "id": "Person.name.family",
-                "path": "Person.name.family",
-                "min": 1
-            },
-            {
-                "id": "Person.name.given",
-                "path": "Person.name.given",
-                "min": 1
-            },
-            {
-                "id": "Person.telecom",
-                "path": "Person.telecom",
-                "slicing": {
-                    "discriminator": [
-                        {
-                            "type": "pattern",
-                            "path": "system"
-                        }
-                    ],
-                    "rules": "open",
-                    "description": "Forcing both a phone and an email contact"
-                },
-                "min": 2
-            },
-            {
-                "id": "Person.telecom:tphone",
-                "path": "Person.telecom",
-                "sliceName": "tphone",
-                "min": 1,
-                "max": "*"
-            },
-            {
-                "id": "Person.telecom:tphone.system",
-                "path": "Person.telecom.system",
-                "min": 1,
-                "patternCode": "phone"
-            },
-            {
-                "id": "Person.telecom:email",
-                "path": "Person.telecom",
-                "sliceName": "email",
-                "min": 1,
-                "max": "*"
-            },
-            {
-                "id": "Person.telecom:email.system",
-                "path": "Person.telecom.system",
-                "min": 1,
-                "patternCode": "email"
-            },
-            {
-                "id": "Person.birthDate",
-                "path": "Person.birthDate",
-                "min": 1
-            },
-            {
-                "id": "Person.address.line",
-                "path": "Person.address.line",
-                "min": 1
-            },
-            {
-                "id": "Person.address.city",
-                "path": "Person.address.city",
-                "min": 1
-            },
-            {
-                "id": "Person.address.state",
-                "path": "Person.address.state",
-                "min": 1
-            },
-            {
-                "id": "Person.address.postalCode",
-                "path": "Person.address.postalCode",
-                "min": 1
-            }
-        ]
-    }
-}
-```
+
 &emsp;   
 
 ### Verification 
 
 It is helpful to know the date verification of attributes was performed, in the case of address and mobile number since those attributes change. Future versions of this IG will likely include a grammar for indicating verification date in match transactions, as well the evidence used to verify individual demographic attributes or entire identities. This information may also be applied to Patient Weighted Input Information. 
 
-The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html). 
+The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity]. 
 
 When attributes like email address and telephone number are verified as associated with a patient, that information helps to bootstrap new portal account creation and (later) account recovery.  
 

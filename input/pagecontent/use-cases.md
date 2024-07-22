@@ -1,3 +1,5 @@
+This section provides a detailed description on identity workflows outlined in this IG. We have divided these workflows into two groups: Core Identity workflows and Use Case workflows.
+
 ### Core Identity Workflows
 
 #### Identity Proofing Workflow
@@ -12,7 +14,6 @@ Pre-Conditions: The individual is not known by the healthcare provider at the re
 
 Outcome: The individual has been successfully verified, a digital identifier is associated with the individual, and they may obtain a credential for use in authenticating themselves subsequently.
 
-
 #### $match workflow
 Pre-conditions: 
 Requesting system can generate a FHIR Patient resource conformant to one of the IDI profiles (Base, L0, L1) established in this guide.
@@ -24,6 +25,7 @@ Authentication and credentialling has already been established
 2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow (slightly imperfect matching is permitted when data will be returned to a covered entity; consumer-facing matching requires a single high confidence match according to the increased match input requirements of this IG as well as authentication of the individual.
 3.	The receiving system intakes the $match request and runs their own matching algorithm against their patient database to determine if there are one or more matches. We may want to add identity assurance mention here, and a second case of single high confidence match if the $match is being invoked by a trusted B2B app for data sharing with a consumer.
 4.	The receiving system replies to the requesting system with the relevant Patient resource(s) in a FHIR Bundle.
+
 Outcome: Requesting system has obtained a valid FHIR Bundle containing either a matched FHIR Patient resource or resources or received a “No Match Found” response if the receiving system was unable to complete the request.
 
 
@@ -41,8 +43,9 @@ Actors – patient (or authorized representative), provider, Identity Provider
 3.	Because this strong identity assurance credential has been used to authenticate the individual to both systems, and the patient authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, the healthcare organization can confidently share the correct patient data with the requesting party.
 4.	If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
 
-### Use Case Workflows
+&emsp;&emsp;   
 
+### Use Case Workflows
 
 #### Patient-Mediated B2C
 Actors – User (third-party system), Patient, Patient PHR App, App’s Authorization Server, App’s FHIR Server
@@ -52,20 +55,27 @@ Workflow
 2.	A Digital Identifier is created per steps 2 and 3 in “Creation of Digital Identifier and Authentication Using this Identifier” 
 3.	After being seen at the office, the patient or their authorized representative attempts to log into their patient portal via app.
 
+![Patient-Mediated B2C Diagram](patient-mediated-b2c.png){:style="float: none;"}
+
+&emsp;&emsp;   
 
 #### Patient-Directed B2C
 Actors – Authorized Representative (User) OR Patient, Patient Chosen App, Authorization Server, FHIR Server, Identity Provider
 Description - Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication to authenticate the user.)
-Workflow
 Pre-Conditions:
-The patient (and user) has been registered and verified by a physician’s office (or other provider)
-The patient (and user) is known by the Identity Provider
-The Identity Provider is trusted by the physician’s office
+- The patient (and user) has been registered and verified by a physician’s office (or other provider)
+- The patient (and user) is known by the Identity Provider
+- The Identity Provider is trusted by the physician’s office
+
+Workflow:
 1.	A user wishes to access their accessible health information through an app of their choice
 2.	User authorizes data flow to their chosen app
 3.	User authenticates with credentials issued by the practice OR The user is prompted to log into the physician’s data source through authentication process of a different identity provider (SMART, etc.)
 4.	User completes necessary prompts, creating a credential with the identity Provider if it did not exist or resetting the credential if needed. This credential will be used with the physician’s EMR to all access into the patient app.
 
+![Patient-Directed B2C Diagram](patient-directed-b2c.png){:style="float: none;"}
+
+&emsp;&emsp;   
 
 #### App-Mediated B2B with Patient User (includes B2B Patient Request workflows)
 Actors – Authorized Representative (User) (optionally) Patient, B2B App, Authorization Server, FHIR Server
@@ -80,6 +90,9 @@ Workflow:
 6.	If sufficient, the responder will then run an MPI against their patient database
 7.	If a match results and responder’s internally-computed match confidence is not too low, the resultant Patient resource will be returned in a FHIR Bundle
 
+![B2B with Patient User Diagram](b2b-with-patient-user.png){:style="float: none;"}
+
+&emsp;&emsp;   
 
 #### B2B Treatment Payment Operations (TPO) / Coverage Determination / etc.
 Actors: B2B App, Authorization Server, FHIR Server
@@ -91,3 +104,6 @@ Pre-conditions: The requestor and the responder have established trust and are a
 2.	The requesting sends a $match per the $match workflow including L0 patient resource at minimum– Step 1
 3.	The responding system receives, matches, and returns a FHIR Bundle per the $match workflow – Steps 2-4
 
+![B2B Diagram](b2b.png){:style="float: none;"}
+
+&emsp;&emsp;   

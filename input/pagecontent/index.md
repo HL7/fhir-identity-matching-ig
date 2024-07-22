@@ -22,9 +22,10 @@ This guide is divided into several pages which are listed in the menu bar.
 - [Home]\: The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide. 
 - [Industry Initiatives]\: This page includes a compilation of industry-wide digital identity and patient matching projects. 
 - [Guidance on Identity Assurance]\: This page describes best practices for patient identity verification in the most common workflows necessary to support healthcare-related transactions. 
+- [User Authentication Matching]\: This page describes user matching guidance during authentication
 - [Patient Matching]\: This page describes the appropriate usage of the patient $match operation for cross-organizational exchange. 
 - [Digital Identity]\: This page provides best practices for individual identity management in a healthcare context. 
-- [Conformance]\: This page provides explicit guidelines for an implementer to be considered conformant with this IG. 
+- [Use Cases]\: This page provides workflows around core Identity concepts, as well as Use Case workflows. 
 - [FHIR Artifacts]\: This page provides additional conformance artifacts for FHIR resources. 
 
 {% include link-list.md %} 
@@ -50,6 +51,10 @@ As a secondary effect, digital credentials with high confidence identity assuran
 When identity proofing has been completed for an individual, the process of verifying that demographic attributes are consistent with a unique individual in the real world makes the attributes more meaningful in match requests and improves match quality when probabilistic matching must be used.
 
 &emsp;&emsp; 
+
+### Testing 
+
+For readers that are looking to test an implementation of this guide, additional testing resource can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.
 
 ### Use Cases and Roles 
 
@@ -94,6 +99,7 @@ table, th, td
 |  |    |    | 
 | <u><b>Primary Authors:</b></u>&emsp; |Julie Maas  | EMR Direct        | 
 |   |Carmen Smiley  | ONC        | 
+|   |Aaron Nusstein  | Lantana Consulting Group 
 |   |Jeff Brown  | Lantana Consulting Group 
 |   |         |  | 
 | <u><b>Contributors:</b></u>&emsp;  |Paul Vaughan  | Optum        | 
