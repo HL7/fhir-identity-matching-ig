@@ -123,9 +123,9 @@ Use Case Example with substitutable Identity Provider – Mary Smith is an autho
 Organizational Identity as defined in this <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a> is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be included:
 
 - Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
-- OID assigned to that Organization (if any)
 - State where Organization was verified
 - Street Address verified for Organization (if information more granular than State is shared)
+- Entity Type (Covered Entity, Business Associate, Healthcare Entity, Patient/Consumer, Non-Declared) (when the entity type is a covered entity, they should state that transparently in a transaction)
 
 
 {% include link-list.md %} 
