@@ -1,12 +1,8 @@
-### Overview 
+### Overview   
 
-This section of the guide extends the existing HL7 FHIR patient [$match](https://www.hl7.org/fhir/patient-operation-match.html) for cross-organizational use by authorized, trusted parties.  
-
-The best practices and suggested weights are based on this team's original research which included the sources cited on the [Home](index.html) tab as well as FAST webinar feedback, FAST subject matter expert (SME) sessions, HL7 FHIR Connectathon events, and FAST Identity team participants' additional suggestions made to the FAST Identity solution document; this work has been ongoing since spring 2018.  
+This guidance is intended to apply to other consumer matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching. 
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization.    
-
-Except where its recommendations involve FHIR $match parameters, the guidance is intended to also apply to other patient matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching.  
 
 &emsp;    
 
@@ -32,12 +28,6 @@ Security best practices, including transaction authorization, are generally out 
 - Help remediate these situations without exposing PHI/PII 
 
 For sharing immunization records only, patient matching **MAY** be performed using identity attributes verified at IAL1.2 or higher by both requesting party and responder. 
-
-The expectation for the use of the "IDI" profiles is: 
-
-The system making the call to $match ("the client") will assert their intent/ability to supply valuable input information to support the searching algorithm by specifying, and conforming to, a particular level of data inclusion identified by one of the profiles. An Master Patient Index (MPI) (i.e., a "server" system providing the $match operation) will leverage the client's assertion by validating conformance and providing a warning(s) or throwing a full exception if invariant level testing fails. In addition, the MPI may potentially direct the logical code flow for matching based on the verified assurance of data quality input, as well as possible assistance in internal match scoring processes. While any designs of the MPI are outside the scope of the IG, the profiles of the Patient resource are intended to contribute a possible communication of data quality between the client and MPI that may be used in different ways.
-
-Reminder: Historical demographics are held to the same requirements and guidance as current demographics.
 
 #### Match on Identities 
 
@@ -123,43 +113,6 @@ An API from USPS may be helpful in verifying individual street addresses in futu
 Currently, National Provider Identifier (NPI) records can be used to verify provider names, addresses, and telephone numbers. 
 
 &emsp;&emsp; 
-
-### No Match Results 
-
-<div class="stu-note" markdown="1"> 
-
-The group requests feedback on any specific error conditions that might arise, resulting in no results returned, that should be predictably communicated to requesters or responders. One such example is to require specific informative errors when no matches are returned. Another example is to require that responders indicate the additional demographic elements that should be provided in a subsequent request to improve match results, under the same condition or if match quality score is below a certain threshold. 
-
-</div> 
-
-&emsp;&emsp;   
-
-### Exception Handling 
-
-<div class="stu-note" markdown="1"> 
-
-The group requests feedback on any specific exception handling conditions that might arise and should be communicated to requesters or responders. For example, conditions under which a "Match request not sufficiently specific," "Match request not authorized," "ID expired or no longer valid," "ID elements inconsistent," or other exception MAY be used. 
-
-</div>
-
-&emsp;&emsp;
-
-### Privacy Considerations
-
-<div class="stu-note" markdown="1"> 
-
-Applicable federal and state laws, as well as any relevant community agreements, may exist and provide some restrictions on the content included in a match request and in the patient results or error messages returned by a responder. The authors request feedback on any additional privacy considerations that should be included in this IG. 
-
-</div> 
-&emsp;&emsp;   
-
-### Benchmarking 
-
-<div class="stu-note" markdown="1"> 
-
-Benchmarking of patient matching has been a suggestion made previously by stakeholders. The group requests specific suggestions related to industry-wide benchmarking of best practice matching, including what stakeholders find it relevant to measure in such an activity, how results are shared, and the resources such as synthesized or actual population data that may be used in benchmarking initiatives. Organizations benchmarking matching quality that implement this IG to enhance their performance are encouraged to report their findings via Jira tickets. The team will consider such input for exception handling guidance in the next version. 
-
-</div> 
 
  
 

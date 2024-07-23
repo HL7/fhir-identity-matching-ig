@@ -5,12 +5,23 @@
 [Guidance on Identity Assurance]: guidance-on-identity-assurance.html
 [Digital Identity]: digital-identity.html
 [Use Cases]: use-cases.html
-[User Authentication Matching]: user-authentication-matching.html
+[Guidance Matching]: guidance-matching.html
 [FHIR Artifacts]: artifacts.html
 [Glossary]: glossary.html
 [IDI Patient]: StructureDefinition-IDI-Patient.html
 [IDI Patient L0]: StructureDefinition-IDI-Patient-L0.html
 [IDI Patient L1]: StructureDefinition-IDI-Patient-L1.html
 [Multiple Digital Identity Patient Example]: StructureDefinition-Multiple-Digital-Identity-Patient-Example.html
+[$IDI-match]: StructureDefinition-idi-match-bundle.html
+[Patient-Directed B2C Diagram]: patient-directed-b2c.png
+{:style="float: none;"}
 
+[B2B Diagram]: b2b.png
+{:style="float: none;"}
+
+[B2B with Patient User Diagram]: b2b-with-patient-user.png
+{:style="float: none;"}
+
+[Patient-Mediated B2C Diagram]: patient-mediated-b2c.png
+{:style="float: none;"}
 

@@ -108,7 +108,7 @@ Usage: #example
 
 Instance: patient-multi-digital-identifier
 InstanceOf: Patient
-Description: "Example of Patient used as input to $match operation meeting Level 1 information conformance"
+Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * identifier[0].system = "http://hospital.abc.org"
@@ -140,6 +140,7 @@ Usage: #example
 
 Instance: abc-hospital
 InstanceOf: Organization
+Description: "Example of Organization used as a hospital for digital identifier"
 Usage: #example
 * identifier[0].use = #official
 * identifier[=].system = "urn:oid:2.16.528.1"
@@ -170,7 +171,7 @@ Usage: #example
 
 Instance: xyz-payer
 InstanceOf: Organization
-Description: "Example of Organization used as a payer for digital identifier meeting Level 1 information conformance"
+Description: "Example of Organization used as a payer for digital identifier"
 Usage: #example
 * identifier.system = "urn:oid:2.16.840.1.113883.3.19.2.3"
 * identifier.value = "666666"
@@ -187,7 +188,7 @@ Usage: #example
 
 Instance: def-idp
 InstanceOf: Organization
-Description: "Example of Organization used as an identity provider for digital identifier meeting Level 1 information conformance"
+Description: "Example of Organization used as an identity provider for digital identifier"
 Usage: #example
 * identifier.system = "http://www.secureidp.com/units"
 * identifier.value = "SecureIdp"
@@ -201,19 +202,26 @@ Usage: #example
 
 //====================================================================================================
 
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
 Instance: MATCHOperationResponse
-InstanceOf: Bundle
+InstanceOf: IDIMatchBundle
 Description: "Example of $MATCH operation response with patient and organization"
 Usage: #example
 * meta.lastUpdated = "2024-07-18T03:28:49Z"
-* type = #searchset
-* total = 2
-* entry[0].fullUrl = "http://server/path/Patient/MATCHOperationResponsePatient"
+* identifier.system = "urn:ietf:rfc:3986"
+* identifier.value = "urn:uuid:1eaddf4c-2ec0-4dc4-b26f-9586d7a777e9"
+* identifier.assigner = Reference(Organization/bumc-hospital)
+* type = #collection
+* entry[0].fullUrl = "https://example.com/base/Organization/bumc-hospital"
+* entry[=].resource = bumc-hospital
+* entry[+].fullUrl = "https://example.com/base/Patient/MATCHOperationResponsePatient"
 * entry[=].resource = MATCHOperationResponsePatient
-* entry[+].fullUrl = "http://server/path/Organization/abc-hospital"
-* entry[=].resource = abc-hospital
+
+
+//====================================================================================================
+
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+
 
 Instance: MATCHOperationResponsePatient
 InstanceOf: Patient
@@ -264,3 +272,34 @@ Usage: #inline
 * address.postalCode = "3999"
 * address.period.start = "1974-12-25"
 * managingOrganization = Reference(abc-hospital)
+
+//====================================================================================================
+
+
+Instance: bumc-hospital
+InstanceOf: Organization
+Usage: #inline
+* identifier[0].use = #official
+* identifier[=].system = "urn:oid:2.16.528.1"
+* identifier[=].value = "91654"
+* identifier[+].use = #usual
+* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
+* identifier[=].value = "17-0112278"
+* name = "Burgers University Medical Center"
+* contact[0].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2300"
+* contact[=].telecom.use = #work
+* contact[+].address.use = #work
+* contact[=].address.line = "Galapagosweg 91"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9105 PZ"
+* contact[=].address.country = "NLD"
+* contact[+].address.use = #work
+* contact[=].address.line = "PO Box 2311"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9100 AA"
+* contact[=].address.country = "NLD"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2334"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2335"

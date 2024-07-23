@@ -26,6 +26,7 @@
 <page key="NA" name="(NA)"/>
 <page key="many" name="(many)"/>
 <page key="artifacts" name="Artifacts Summary"/>
+<page key="consumer-matching" name="Consumer Matching"/>
 <page key="digital-identity" name="Digital Identity"/>
 <page key="downloads" name="Downloads"/>
 <page key="glossary" name="Glossary"/>
@@ -35,5 +36,4 @@
 <page key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
 <page key="use-cases" name="Use Cases"/>
-<page key="user-authentication-matching" name="User Authentication Matching"/>
 </specification>
