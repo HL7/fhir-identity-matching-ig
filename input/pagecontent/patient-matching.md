@@ -264,6 +264,11 @@ When it is permitted by $match or other match transaction types, and if the requ
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism. 
  
 The section below provides example weight values that a match requestor can use along with specialized patient resource profiles to indicate their intent to follow pre-defined minimum match input requirements.  
+
+<div class="stu-note" markdown="1"> 
+The workgroup invites suggestions from commenters regarding the use of Artificial Intelligence and Referential Matching in identity and matching. For example, should attributes not claimed by an individual be added to a record, match input request, and/or match result based on identity management resources when not part of a Declaration of Identity assertion by the individual? In what cases would this be acceptable? Is the guidance different when resources are authoritative or are derived from authoritative sources (such as credit bureau type records)? Are there other generative workflows in which guidance would be helpful?
+</div> 
+
 &emsp;    
 
 ### Patient Weighted Input Information 
