@@ -120,12 +120,12 @@ Use Case Example with substitutable Identity Provider – Mary Smith is an autho
 
 ### Organizational Identity
 
-Organizational Identity is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be included:
+Organizational Identity is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be asserted:
 
 - Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
-- State where Organization was verified
+- State where Organization was verified to exist
 - Street Address verified for Organization (if information more granular than State is shared)
-- Entity Type (Covered Entity, Business Associate, Healthcare Entity, Patient/Consumer, Non-Declared) (when the entity type is a covered entity, they should state that transparently in a transaction)
+- Entity Type specified in an attestation by the organization's representative (either HIPAA Covered Entity, Business Associate of a HIPAA Covered Entity, Healthcare Entity that agrees to protect patient information consistent with HIPAA but is not a Covered Entity or Business Associate, Patient/Consumer, or Non-Declared) (When the entity type is a Covered Entity or Business Associate, the correct type SHALL be stated transparently in a transaction. Additionally, if a Covered Entity is participating in a transaction they must obtain their own credentials and Business Associates MUST NOT use the credentials of Covered Entities.)
 
 
 {% include link-list.md %} 
