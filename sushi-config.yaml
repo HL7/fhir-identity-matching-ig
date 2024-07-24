@@ -48,8 +48,8 @@ pages:
     title: Guidance on Identity Assurance
   patient-matching.md:
     title: Patient Matching
-  consumer-matching.md:
-    title: Consumer Matching
+  # consumer-matching.md:
+  #   title: Consumer Matching
   digital-identity.md:
     title: Digital Identity
   use-cases.md:
@@ -69,7 +69,7 @@ menu:
     Guidance on Identity Assurance: guidance-on-identity-assurance.html
   Technical Guidance:
     Patient Matching: patient-matching.html
-    Consumer Matching: consumer-matching.html
+    # Consumer Matching: consumer-matching.html
     Digital Identity: digital-identity.html
   Implementation:
     Artifacts: artifacts.html
