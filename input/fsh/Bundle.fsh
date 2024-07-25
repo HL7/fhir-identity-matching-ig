@@ -2,7 +2,8 @@ Profile: IDIMatchBundle
 Parent: Bundle
 Id: idi-match-bundle
 Title: "IDI Match Bundle"
-Description: "Organization resources SHALL be included."
+Description: "Bundle requirements for responders of a $IDI-match request."
+
 * identifier 1..1 MS
 * identifier.assigner 1..1 MS
 * type = #collection (exactly)

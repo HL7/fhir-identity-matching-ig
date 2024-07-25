@@ -192,19 +192,19 @@ th {
 | 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL, other State ID, or Digital Identifier--for example, last 4 of SSN, Insurance Member Identifier along with Payer Identifier, or Medical Record Number along with Assigner) or [Individual Profile Photo](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/guidance-on-identity-assurance.html) (max weight of 5 for inclusion of 2 or more of these) |
 | 3          | First Name and Last Name       |
 | 2          | Date of Birth       |
-|TBD        | SSN (complete) |
-|TBD        | Insurance Member Identifier |
-|TBD        | SSN (last 5) |
-|TBD        | Insurance Subscriber Identifier |
-|TBD        | Previous First Name & Last Name       |
-|TBD        | Nickname or Alias       |
-|TBD        | First Name       |
-|TBD        | Last Name       |
-|TBD        | Middle Name (Including initial)       |
-|TBD        | Address City and State       |
-|TBD        | Address Zip        |
-|TBD        | Sex (Assigned at Birth)       |
-|TBD        | Sexual Orientation       |
+| 0        | SSN (complete) |
+| 0        | Insurance Member Identifier |
+| 0        | SSN (last 5) |
+| 0        | Insurance Subscriber Identifier |
+| 0        | Previous First Name & Last Name       |
+| 0        | Nickname or Alias       |
+| 0        | First Name       |
+| 0        | Last Name       |
+| 0        | Middle Name (Including initial)       |
+| 0        | Address City and State       |
+| 0        | Address Zip        |
+| 0        | Sex (Assigned at Birth)       |
+| 0        | Sexual Orientation       |
 
 &emsp;&emsp;
 

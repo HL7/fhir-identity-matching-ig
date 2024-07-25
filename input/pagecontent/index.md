@@ -22,7 +22,6 @@ This guide is divided into several pages which are listed in the menu bar.
 - [Home]\: The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide. 
 - [Industry Initiatives]\: This page includes a compilation of industry-wide digital identity and patient matching projects. 
 - [Guidance on Identity Assurance]\: This page describes best practices for patient identity verification in the most common workflows necessary to support healthcare-related transactions. 
-- [Consumer Matching]\: This page describes consumer matching guidance during authentication
 - [Patient Matching]\: This page describes the appropriate usage of the patient $match operation for cross-organizational exchange. 
 - [Digital Identity]\: This page provides best practices for individual identity management in a healthcare context. 
 - [Use Cases]\: This page provides workflows around core Identity concepts, as well as Use Case workflows. 
@@ -54,32 +53,10 @@ When identity proofing has been completed for an individual, the process of veri
 
 ### Testing 
 
-For readers that are looking to test an implementation of this guide, additional testing resource can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.
+For readers that are looking to test an implementation of this guide, additional testing resource can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.   
 
-### Use Cases and Roles 
+&emsp;&emsp; 
 
-This IG provides identity management and person matching guidance to support the use cases listed below, with a focus on FHIR transactions. However, the guidance also applies to any transaction type. Roles such as Identity Provider, patient, authorized representative, application, data holder, and intermediary are highlighted within the use case descriptions. 
-
-**Patient-Mediated B2C:** Patient or their authorized representative authorizes access to their data by a third party when the data are under the patient's management and not the data creator’s (e.g., a consumer app enables the patient to manage their own data).   
-
-**Patient-Directed B2C:** Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles ([UDAP](glossary.html)) [Tiered OAuth for User Authentication](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/user.html) to authenticate the user.   
-
-Examples of this use case include: 
-
-1. A patient using an app of their choice along with FHIR APIs required by ONC or CMS 
-2. TEFCA Individual Access or other Patient Request via federated identity with UDAP Tiered OAuth, as outlined in the TEFCA FHIR Roadmap. 
-
-**App-Mediated B2B with Patient User:** This type of individual access lets a patient or their authorized representative use a patient-facing app, not necessarily operated by a covered entity or business associate, to exercise their HIPAA Right of Access. The user’s identity is verified in accordance with this guide, and the app appropriately restricts the information made available to the user, verify the identity of the patient or their authorized rep at IAL1.8 and authenticate them at AAL2 prior to capturing the consent or allowing their access to data.. This use case which relies on [UDAP Business-to-Business](https://build.fhir.org/ig/HL7/fhir-udap-security-ig/branches/main/b2b.html) security model in FHIR transactions may be limited to a match with or without endpoint lookup (record location) or may also include a health data request. In other words, the user is attempting to access patient id(s) corresponding to one or more endpoints and/or the patient’s health data at those endpoints without using a credential they obtained from the data creator or intermediary data holder. Note that this use case can be implemented for record location at one or more endpoints and a different use case employed for access to health data. Ultimately this is a B2C transaction. 
-
-Along with additional stipulations, one example of the above use case is TEFCA Individual Access Services.  
-
-**B2B Treatment Payment Operations (TPO):** This business-to-business workflow involves a covered entity with an exchange purpose of treatment, healthcare payment, or healthcare operations.   
-
-**B2B Coverage Determination:** This business-to-business workflow involves a non-covered entity with an exchange purpose of eligibility determination.   
-
-**B2B Patient Request:** This business-to-business workflow involves an entity with an exchange purpose of patient requested (when patient may not have access to data).   
-
-Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point to point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services.  
 
 (1)  <a href="https://www.justassociates.com/application/files/1414/9134/1517/PIIWhitePaper.pdf">Patient Identity Integrity White Paper</a>  HIMSS, December 2009   
 (2)  <a href="https://www.gao.gov/assets/gao-19-197.pdf">Approaches and Challenges to Electronically Matching Patients’ Records across Providers</a>  GAO, January 2019   
