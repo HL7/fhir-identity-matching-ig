@@ -141,6 +141,8 @@ Workflow:
 <p></p>
 </div>
 
+&emsp;&emsp;
+
 #### Patient-Directed B2C Using Digital Identity
 
 Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of View, download, and transmit to 3rd party).
