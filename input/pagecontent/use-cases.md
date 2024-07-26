@@ -58,7 +58,13 @@ Workflow:
 4.	User completes necessary prompts, creating a credential with the identity Provider if it did not exist or resetting the credential if needed.
 5.	If a trusted, third-party Identity Provider is being used, the usual requirements for a Consumer Match exist and the responder must match the Digital Identifier asserted by the Identity Provider, or another combination of demographics with input weight score of 10 or greater consistent with this guidance, against the identities of individuals they manage. 
 
-{% include img-med.html img="patient-directed-b2c.png" %}
+<div>
+<figure class="figure">
+    <img src="patient-directed-b2c.png" alt="Patient-Directed B2C" title="Patient-Directed B2C" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Directed B2C</strong></figcaption>
+</figure>
+<p></p>
+</div>
 
 &emsp;&emsp;   
 
@@ -74,7 +80,13 @@ Workflow:
 3.	Whether the PHR App's own or a trusted, third-party Identity Provider’s assertions are used to authenticate the individual, the requirements for a Consumer Match apply and the responding PHR App matches either the Digital Identifier or a combination of demographics with input weight score of 10 or greater, consistent with this guidance, against the identities they manage. If a successful Consumer Match is found, the PHR App may provision a credential, reset an authenticator, or know which individual is being authenticated when relying on a trusted Identity Provider.
 4.	If an appropriate individual was authenticated and consents to information sharing, health data can be returned to the User.
 
-{% include img-med.html img="patient-mediated-b2c.png" %}
+<div>
+<figure class="figure">
+    <img src="patient-mediated-b2c.png" alt="Patient-Mediated B2C" title="Patient-Mediated B2C" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Mediated B2C</strong></figcaption>
+</figure>
+<p></p>
+</div>
 
 &emsp;&emsp;   
 
@@ -95,7 +107,13 @@ Workflow:
 6.	If sufficient, the responder will then run a match against their patient database
 7.	If a Consumer Match on the patient results, the resultant Patient resource will be returned in a FHIR Bundle
 
-{% include img-med.html img="b2b-with-patient-user.png" %}
+<div>
+<figure class="figure">
+    <img src="b2b-with-patient-user.png" alt="B2B with Patient User" title="B2B with Patient User" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>B2B with Patient User</strong></figcaption>
+</figure>
+<p></p>
+</div>
 
 &emsp;&emsp;   
 
@@ -115,7 +133,13 @@ Workflow:
 2.	The requesting sends a $match per the Match Workflow including L0 patient resource with attributes verified at IAL1.5 at minimum – Step 1
 3.	The responding system receives, matches, and returns a FHIR Bundle per the Match Workflow – Steps 2-4
 
-{% include img-med.html img="b2b.png" %}
+<div>
+<figure class="figure">
+    <img src="b2b.png" alt="B2B Treatment Payment Operations (TPO) / Coverage Determination / etc." title="B2B Treatment Payment Operations (TPO) / Coverage Determination / etc." class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>B2B Treatment Payment Operations (TPO) / Coverage Determination / etc.</strong></figcaption>
+</figure>
+<p></p>
+</div>
 
 #### Patient-Directed B2C Using Digital Identity
 
