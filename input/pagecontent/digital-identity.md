@@ -98,5 +98,4 @@ Absent a Digital Identifier or Enterprise Identifier as described above, other i
 
 As these Miscellaneous Identifiers are increasingly collected, they are useful on their own or along with Enterprise Identifiers in improving probabilistic [Patient Matching](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/patient-matching.html) as described elsewhere in this IG.  
 
-
 {% include link-list.md %} 

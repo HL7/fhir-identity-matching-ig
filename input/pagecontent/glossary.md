@@ -8,13 +8,13 @@ Sources: NIST SP 800-63-3, NIST SP 1800-17c
 
 Source(s): NIST SP 800-63-3 
 
-**Digital Health Identity**: Digital health identity refers to the technology and processes that support personal identity as it pertains to electronic health information. Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes. 
+**Digital Identity**: Digital Identity referred to in this guide means the technology and processes that support personal identity as it pertains to electronic health information. Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes. 
 
 **Golden Record**: The golden record encompasses all the data in every system of record within a particular organization. A system of record is an information storage and retrieval system that serves as the authoritative source for a particular data element in a system containing multiple sources of the same element. 
 
 NOTE: A Golden Record captures all the correct and current information for a Patient while suppressing information that is thought to be out-of-date or incorrect. Often, such a Golden Record simply omits older inconsistent information such as an address. 
 
-**Identity Assurance Level (IAL)**: A category that conveys the degree of confidence that the applicant’s claimed identity is their real identity. 
+**Identity Assurance Level (IAL)**: A category that conveys the degree of confidence that the applicant’s claimed identity is their real identity, more and more superseding LoA. 
 
 **Knowledge Based Verification (KBV)**:  A process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV SHALL NOT be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at this level or higher and MAY only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity. 
 

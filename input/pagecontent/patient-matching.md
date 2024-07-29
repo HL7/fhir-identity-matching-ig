@@ -57,9 +57,15 @@ Asking for at most four results to be returned in a match request may mean more 
 
 > **NOTE:** Although some systems may employ referential matching capabilities or other industry-established practices, methods for determining match and the use of any specific algorithms to produce results in which a responder is sufficiently confident to appropriately release are out of scope for this IG. 
 
-#### B2B with User Authorization Extension Object 
+#### Consumer Match 
 
-The B2B with User Authorization Extension Object is used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication  JSON Web Token (JWT), as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
+The term "match" used in this Implementation Guide always involves matching demographics and/or an identifier to a person; usually that person is the patient a transaction is about (the person whose data is being requested). In workflows where health data is not being released to a Covered Entity, we are matching on demographics for the user who is a requestor and/or is the patient, but is not a HIPAA Covered Entity. Under those conditions, the match confidence must meet a higher minimum bar and the additional requirements in this section apply. 
+
+The quality of the match, along with the user's consent, and identity and authentication assurance, informs the responder's decision about whether to authorize access to data and is based on verified attributes provided by the requestor who, for example via OIDC on the wire, SHALL also be trusted to have authenticated the individual corresponding to those demographics. 
+
+In an even more specific workflow, the patient whose data is being requested is distinct from the user who is the requestor; in that case a high-confidence match on the patient's demographics is required in addition to user-level matching on the authorized representative as described in the previous paragraph. This second Consumer Match SHALL meet the same recommended minimum bar as the match performed on the user's demographics--both match input weight of at least 10, L1, and IAL1.8/AAL2. 
+
+The B2B with User Authorization Extension Object SHALL be used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication  JSON Web Token (JWT), as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
 
 <table class="table">
   <thead>
