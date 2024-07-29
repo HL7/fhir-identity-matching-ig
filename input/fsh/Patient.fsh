@@ -79,4 +79,29 @@ Description: "(Level 1 weighting) The goal of this profile is to describe a data
 
 * name obeys idi-2
 
-
+//====================================================================================================
+// FAST Identity UDAP Person
+//
+Profile: FASTIDUDAPPerson
+Parent: Person
+Id: FASTIDUDAPPerson
+Title: "FAST Identity UDAP Person"
+Description: "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG"
+* name.family 1..
+* name.given 1..
+* telecom ^slicing.discriminator.type = #pattern
+* telecom ^slicing.discriminator.path = "system"
+* telecom ^slicing.rules = #open
+* telecom ^slicing.description = "Forcing both a phone and an email contact"
+* telecom contains
+    tphone 1..* and
+    email 1..*
+* telecom[tphone].system 1..
+* telecom[tphone].system = #phone
+* telecom[email].system 1..
+* telecom[email].system = #email
+* birthDate 1..
+* address.line 1..
+* address.city 1..
+* address.state 1..
+* address.postalCode 1..
