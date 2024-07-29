@@ -4,44 +4,52 @@ This section provides a detailed description on identity workflows outlined in t
 
 #### Identity Proofing Workflow
 
-Pre-Conditions: The individual is not known by an organization at the required level of assurance, the organization's documented identity verification process was not used, or the process was not completed by an individual in the organization's workforce.
+Pre-Conditions: The individual is not known by the healthcare provider at the required level of assurance, after having completed a documented process.
 
-1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a HIPAA Covered Entity engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with HIPAA Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with anyone who is not a HIPAA Covered Entity.
+Workflow:
+
+1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a provider engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with the patient or their authorized reprentative
 2.	Gather sufficient evidence to verify the identity of the individual.
 3.	Confirm that the provided evidence is genuine and accurate by validating the authenticity of identity documents using trusted sources or databases and information on the evidence.
 4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to this guidance and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance
-5.	Consider adding Digital Identity Creation, including generating an identifier and binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
+5.	Consider Digital Identity Creation, including binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
 Outcome: The individual has been successfully verified
 
 #### Match Workflow
 
-Pre-conditions: 
+Pre-conditions:
+
 - Requesting system can generate a FHIR Patient resource conformant to one of the IDI profiles (Base, L0, L1) established in this guide.
 - Requesting and receiving systems are capable of communication via FHIR API
 - Requester, either a human or a system, is authenticated and authorized to perform the action
 - Receiving system may run both weighting and scoring processes found on the [Patient Matching] page
 
+Workflow:
+
 1.	The requesting system initiates a $match request to the receiving system’s FHIR endpoint.
-2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow (imperfect matching with L0 invariant, input weight score of at least 9, and attributes verified at IAL1.5, is permitted when data will be returned to a HIPAA Covered Entity; when a single high confidence match is required, L1 invariant with input weight score of at least 10 and attributes verified at IAL1.8 and AAL2 authentication of the individual--claimed by a trusted requester and consistent with the Digital Identity guidance--may initiate a Consumer Match appropriate for access to health data when the requester is not a HIPAA Covered Entity).
-3.	The receiving system intakes the $match request and runs their own matching algorithm against the database of identities they manage to determine if there are one or more matches.
+2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow (imperfect matching with L0 invariant, input weight score of at least 9, and attributes verified at IAL1.5, is permitted when data will be returned to a HIPAA Covered Entity; when a single high confidence match is required, L1 invariant with input weight score of at least 10 and attributes verified at IAL1.8 may initiate a Consumer Match—consistent with the Digital Identity essential to securing individual health data from access other than between Covered Entities).
+3.	The receiving system intakes the $match request and runs their own matching algorithm against their patient database to determine if there are one or more matches.
 4.	The receiving system replies to the requesting system with the relevant Patient resource(s) in a FHIR Bundle.
 
 Outcome: Requesting system has obtained a valid FHIR Bundle containing either a matched FHIR Patient resource or resources or received a “No Match Found” response if the receiving system was unable to complete the request.
 
 
-#### Digital Identity Creation
+#### Digital Identify Creation
 Actors: patient (or authorized representative), Identity Provider
 
-1.	Individual completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
-2.	The Identity Provider generates and binds a Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
-3.	The resultant Digital Identifier can then be associated with the individual in that organization's system and shared, when authorized, with other systems able to validate an Identity Provider assertion and successfully perform a Consumer Match.
+Workflow:
+
+1.	Patient completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
+2.	The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
+3.	The resultant Digital Identifier can then be associated with the patient in health IT system able to validate an Identity Provider assertion and successfully perform a Consumer Match.
 
 &emsp;&emsp;
 
-### Use Case Workflows
+### Use Case Workflows  
 
 #### Patient-Directed B2C
+
 Actors: Authorized Representative (User) OR Patient, Patient Chosen App, Authorization Server, FHIR Server, Identity Provider
 
 Description: Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication to authenticate the user.)
@@ -87,6 +95,17 @@ Workflow:
 </figure>
 <p></p>
 </div>
+
+Patient-Directed B2C Using Digital Identity
+
+Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of View, download, and transmit to 3rd party).
+
+Actors: Patient or Authorized Representative, Third-Party Requestor (for example, Insurance Company), Healthcare Organization, Identity Provider
+
+1. The patient authenticates to their insurance company’s system using the credential associated with their Digital Identifier and authorizes the Identity Provider to share their identifier with the insurance company as representative of their identity.
+2. The insurance company uses the Digital Identifier in a match request to the healthcare organization.
+3. Because this strong identity assurance credential has been used to authenticate the individual to both systems, the individual authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, and authorization to share health data with the insurance company is obtained, the health system can confidently share the correct patient data with the requesting party.
+4. If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
 
 &emsp;&emsp;   
 
@@ -154,7 +173,8 @@ Actors: Patient or Authorized Representative, Third-Party Requestor (for example
 3.	Because this strong identity assurance credential has been used to authenticate the individual to both systems, the individual authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, and authorization to share health data with the insurance company is obtained, the health system can confidently share the correct patient data with the requesting party.
 4.	If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
 
-
 &emsp;&emsp;   
+
+Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point to point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services. 
 
 &emsp;&emsp;   

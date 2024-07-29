@@ -120,8 +120,31 @@ From 800-63:
 - KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification. 
 - KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The [CSP](glossary.html) MAY use KBV to resolve to a unique, claimed identity. 
 - KBV can be used to verify one Fair piece of evidence 
-- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements. 
+- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
 
+### Authorized Representatives
+
+There are two primary actors that engage in the process of requesting health data from an external source:
+
+- Patient – the subject of the data query being sent in the $match request (or equivalent)
+- User – The individual who is being authenticated to initiate a $match request (or equivalent)
+
+The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to:
+
+- B2B Use Cases – A physician accessing a patient’s health data through an HIE/QHIN query via their EMR
+- B2C Proxy User Use Case – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records)
+
+An authorized representative's identity MUST be verified and sufficient demographics MUST be collected if matching on the identity of the representative is to be performed, and at [IAL 1.8](guidance-on-identity-assurance.html) or higher if the match on identity will authorize access to data. In all cases the representative is, when local policies are met, authorized to access data on behalf of a patient prior to the query and determining authorization is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already well-defined in the <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
+
+
+### Organizational Identity
+
+Organizational Identity is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be included:
+
+- Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
+- State where Organization was verified
+- Street Address verified for Organization (if information more granular than State is shared)
+- Entity Type specified in an attestation by the organization’s representative (either HIPAA Covered Entity, Business Associate of a HIPAA Covered Entity, Healthcare Entity that agrees to protect patient information consistent with HIPAA but is not a Covered Entity or Business Associate, Patient/Consumer, or Non-Declared) (When the entity type is a Covered Entity or Business Associate, the correct type SHALL be stated transparently in a transaction. Additionally, if a Covered Entity is participating in a transaction they must obtain their own credentials and Business Associates MUST NOT use the credentials of Covered Entities.)
 
 
 **References:**  

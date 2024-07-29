@@ -1,28 +1,32 @@
 Instance: IDIMatchOperation
 InstanceOf: OperationDefinition
-Description: "This operation is used by an entity to submit one or multiple GFEs as a Bundle containing the GFE(s) and other referenced resources for processing. The only input parameter is the single Bundle resource with one or multiple GFE(s) - each of which is based on the Claim resource (along with other referenced resources). The only output is a url for subsequent polling per [async pattern](http://build.fhir.org/async-bundle.html). If after polling the response is complete, then the result will either be a single Bundle with the AEOB - which is based on the ExplanationOfBenefit resource, (and other referenced resources) or an OperationOutcome resource indicating the AEOB will be sent directly to the patient and not to the provider."
+Description: "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide ([IDI-Patient], [IDI-Patient-L0], [IDI-Patient-L1] SHALL be used as the input for the match request. An [IDI-Match-Bundle] will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 Usage: #definition
 
 * id = "IDI-match"
 * url = "http://hl7.org/fhir/us/identity-matching/OperationDefinition/IDI-match"
 * name = "IDIMatch"
-* title = "Additional constraints for $match"
+* title = "IDI Match Operation"
 * status = #draft
 * kind = #operation
-* description = "This operation is used by an entity to submit one or multiple GFEs as a Bundle containing the GFE(s) and other referenced resources for processing. The only input parameter is the single Bundle resource with one or multiple GFE(s) - each of which is based on the Claim resource (along with other referenced resources). The only output is a url for subsequent polling per [async pattern](http://build.fhir.org/async-bundle.html). If after polling the response is complete, then the result will either be a single Bundle with the AEOB - which is based on the ExplanationOfBenefit resource, (and other referenced resources) or an OperationOutcome resource indicating the AEOB will be sent directly to the patient."
+* description = "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide ([IDI-Patient], [IDI-Patient-L0], [IDI-Patient-L1] SHALL be used as the input for the match request. An [IDI-Match-Bundle] will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 * code = #idi-match
 * base = "http://hl7.org/fhir/us/identity-matching/OperationDefinition/IDI-match"
 * resource = #Patient
 * system = false
 * type = true
 * instance = false
-* parameter[0].name = #resource
+* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-input-parameters"
+* outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-output-parameters"
+
+* parameter[0].name = #IDIPatient
 * parameter[0].use = #in
 * parameter[0].min = 1
 * parameter[0].max = "1"
-* parameter[0].documentation = "A Patient resource that is being requested in a $match operation."
+* parameter[0].documentation = "A Patient resource that is being requested in the match operation. The requester must use one of the IDI Patient profiles for the resource in their submission."
 * parameter[0].type = #Patient
-* parameter[1].name = #return
+
+* parameter[1].name = #IDIMatchBundle
 * parameter[1].use = #out
 * parameter[1].min = 1
 * parameter[1].max = "1"
