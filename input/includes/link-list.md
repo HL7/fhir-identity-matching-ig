@@ -13,6 +13,8 @@
 [IDI Patient L1]: StructureDefinition-IDI-Patient-L1.html
 [Multiple Digital Identity Patient Example]: StructureDefinition-Multiple-Digital-Identity-Patient-Example.html
 [$IDI-match]: StructureDefinition-idi-match-bundle.html
+[Person Resource Profile for FAST ID]: StructureDefinition-FASTIDPerson.html
+
 [Patient-Directed B2C Diagram]: patient-directed-b2c.png
 {:style="float: none;"}
 
