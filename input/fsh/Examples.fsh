@@ -307,14 +307,8 @@ Usage: #inline
 
 Instance: FASTIDUDAPPerson-Example
 InstanceOf: FASTIDUDAPPerson
+Description: "Example of Person profile for use with the Interoperable Digital Identity and Patient Matching"
 Usage: #example
-* identifier.use = #usual
-* identifier.type = $v2-0203#MR
-* identifier.system = "urn:oid:1.2.36.146.595.217.0.1"
-* identifier.value = "12345"
-* identifier.period.start = "2001-05-06"
-* identifier.assigner.display = "Acme Healthcare"
-* active = true
 * name.use = #official
 * name.family = "Chalmers"
 * name.given[0] = "Peter"
