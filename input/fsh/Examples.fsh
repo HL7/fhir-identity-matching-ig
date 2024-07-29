@@ -305,28 +305,29 @@ Usage: #inline
 
 //====================================================================================================
 
-Profile: FASTIDPerson
-Parent: Person
-Id: FASTIDPerson
-Title: "FAST Identity UDAP Person"
-Description: "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG"
-* ^url = "TBD"
-* ^status = #active
-* name.family 1..
-* name.given 1..
-* telecom ^slicing.discriminator.type = #pattern
-* telecom ^slicing.discriminator.path = "system"
-* telecom ^slicing.rules = #open
-* telecom ^slicing.description = "Forcing both a phone and an email contact"
-* telecom contains
-    tphone 1..* and
-    email 1..*
-* telecom[tphone].system 1..
-* telecom[tphone].system = #phone
-* telecom[email].system 1..
-* telecom[email].system = #email
-* birthDate 1..
-* address.line 1..
-* address.city 1..
-* address.state 1..
-* address.postalCode 1..
+Instance: FASTIDUDAPPerson-Example
+InstanceOf: FASTIDUDAPPerson
+Usage: #example
+* identifier.use = #usual
+* identifier.type = $v2-0203#MR
+* identifier.system = "urn:oid:1.2.36.146.595.217.0.1"
+* identifier.value = "12345"
+* identifier.period.start = "2001-05-06"
+* identifier.assigner.display = "Acme Healthcare"
+* active = true
+* name.use = #official
+* name.family = "Chalmers"
+* name.given[0] = "Peter"
+* name.given[+] = "James"
+* telecom[0].system = #phone
+* telecom[=].value = "(03) 5555 6473"
+* telecom[=].use = #work
+* telecom[+].system = #email
+* telecom[=].value = "Jim@example.org"
+* telecom[=].use = #work
+* birthDate = "1974-12-25"
+* address.use = #work
+* address.line = "534 Erewhon St"
+* address.city = "PleasantVille"
+* address.state = "Vic"
+* address.postalCode = "3999"
