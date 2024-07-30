@@ -16,10 +16,8 @@ Usage: #definition
 * system = false
 * type = true
 * instance = false
-* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient"
-* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0"
-* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1"
-* outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
+* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-input-parameters"
+* outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-output-parameters"
 
 * parameter[0].name = #IDIPatient
 * parameter[0].use = #in

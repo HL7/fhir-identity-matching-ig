@@ -6,7 +6,7 @@
 [Digital Identity]: digital-identity.html
 [Use Cases]: use-cases.html
 [Guidance Matching]: guidance-matching.html
-[FHIR Artifacts]: artifacts.html
+[Artifacts]: artifacts.html
 [Glossary]: glossary.html
 [IDI Patient]: StructureDefinition-IDI-Patient.html
 [IDI Patient L0]: StructureDefinition-IDI-Patient-L0.html

@@ -80,7 +80,7 @@ Workflow:
 
 Actors: User (individual or third-party system), Patient or Authorized Representative, Patient PHR App, App’s Authorization Server, App’s FHIR Server, Identity Provider
 
-Description: A patient or their authorized representative authorizes access to their data by a third party when the data are under the patient’s management and not the data creator’s (e.g., a consumer app enables the patient to manage their own data). TEFCA Individual Access via federated identity with UDAP Tiered OAuth, as outlined in the TEFCA FHIR Roadmap 2.0, though TEFCA specifications do not layer on guidance beyond established Patient Access workflows.
+Description: A patient or their authorized representative authorizes access to their data by a third party when the data are under the patient’s management and not the data creator’s (e.g., a consumer app enables the patient to manage their own data).
 
 Workflow:
 1.	Digital Identity Creation is performed by the PHR App for the individual. In addition or instead, the individual may use a Digital Identity managed by a trusted Identity Provider to authenticate themselves to the PHR App.   
