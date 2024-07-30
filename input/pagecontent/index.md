@@ -53,7 +53,7 @@ When identity proofing has been completed for an individual, the process of veri
 
 ### Testing 
 
-For readers that are looking to test an implementation of this guide, additional testing resource can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.   
+For readers that are looking to test an implementation of this guide, additional testing resources can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.   
 
 &emsp;&emsp; 
 
