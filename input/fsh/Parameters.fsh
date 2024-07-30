@@ -2,7 +2,7 @@ Profile:        IDIMatchInputParameters
 Parent:         Parameters
 Id:             idi-match-input-parameters
 Title:          "IDI Match Input Parameters"
-Description:    "The Parameters profile used to define the inputs of the [$IDI-match] operation using an IDI-Patient profile for submission."
+Description:    "The Parameters profile used to define the inputs of the $IDI-match operation using an IDI-Patient profile for submission."
 
 * ^status = #active
 * parameter ^slicing.discriminator.type = #pattern
@@ -30,7 +30,7 @@ Profile:        IDIMatchOutputParameters
 Parent:         Parameters
 Id:             idi-match-output-parameters
 Title:          "IDI Match Output Parameters"
-Description:    "The Parameters profile used to define the outputs of the [$IDI-match] operation."
+Description:    "The Parameters profile used to define the outputs of the $IDI-match operation."
 
 * ^status = #active
 * parameter ^slicing.discriminator.type = #pattern
