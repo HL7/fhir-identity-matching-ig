@@ -96,16 +96,16 @@ Workflow:
 <p></p>
 </div>
 
-Patient-Directed B2C Using Digital Identity
+#### Patient-Directed B2C Using Digital Identity
 
 Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of View, download, and transmit to 3rd party).
 
-Actors: Patient or Authorized Representative, Third-Party Requestor (for example, Insurance Company), Healthcare Organization, Identity Provider
+Actors: Patient or Authorized Representative, Third-Party requester (for example, Insurance Company), Healthcare Organization, Identity Provider
 
-1. The patient authenticates to their insurance company’s system using the credential associated with their Digital Identifier and authorizes the Identity Provider to share their identifier with the insurance company as representative of their identity.
-2. The insurance company uses the Digital Identifier in a match request to the healthcare organization.
-3. Because this strong identity assurance credential has been used to authenticate the individual to both systems, the individual authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, and authorization to share health data with the insurance company is obtained, the health system can confidently share the correct patient data with the requesting party.
-4. If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
+1.	The patient authenticates to their insurance company’s system using the credential associated with their Digital Identifier and authorizes the Identity Provider to share their identifier with the insurance company as representative of their identity.
+2.	The insurance company uses the Digital Identifier in a match request to the healthcare organization.
+3.	Because this strong identity assurance credential has been used to authenticate the individual to both systems, the individual authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, and authorization to share health data with the insurance company is obtained, the health system can confidently share the correct patient data with the requesting party.
+4.	If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
 
 &emsp;&emsp;   
 
@@ -113,9 +113,9 @@ Actors: Patient or Authorized Representative, Third-Party Requestor (for example
 
 Actors: User (Authorized Representative or Patient), B2B App, Authorization Server, FHIR Server
 
-Description: In this use case, a patient or their authorized representative uses a patient-facing app, not necessarily operated by a HIPAA Covered Entity, to exercise their HIPAA Right of Access. The user’s identity is verified in accordance with this guide. This use case which relies on [UDAP Business-to-Business](https://hl7.org/fhir/us/udap-security/STU1/) security model in FHIR transactions may be limited to a match with or without endpoint lookup (record location) or may also include a health data request. In other words, the user is attempting to access patient id(s) corresponding to one or more endpoints and/or the patient’s health data at those endpoints without using a credential they obtained from the data creator or intermediary data holder. Note that this use case can be implemented for record location at one or more endpoints and a different use case employed for access to health data. Trust in the requesting party is essential to having confidence in the requestor's assertions, since ultimately this is a B2C transaction. When performed by a trusted participant under TEFCA, this use case is also referred to as an Individual Access Services.
+Description: In this use case, a patient or their authorized representative uses a patient-facing app, not necessarily operated by a HIPAA Covered Entity, to exercise their HIPAA Right of Access. The user’s identity is verified in accordance with this guide. This use case which relies on [UDAP Business-to-Business](https://hl7.org/fhir/us/udap-security/STU1/) security model in FHIR transactions may be limited to a match with or without endpoint lookup (record location) or may also include a health data request. In other words, the user is attempting to access patient id(s) corresponding to one or more endpoints and/or the patient’s health data at those endpoints without using a credential they obtained from the data creator or intermediary data holder. Note that this use case can be implemented for record location at one or more endpoints and a different use case employed for access to health data. Trust in the requesting party is essential to having confidence in the requester's assertions, since ultimately this is a B2C transaction. When performed by a trusted participant under TEFCA, this use case is also referred to as an Individual Access Services.
 
-Pre-conditions: Requestor can meet Consumer Match requirements for the Patient AND (if different individuals) the Authorized Representative--sufficient demographics with input weight score of 10 or greater are available for match input and were verified at IAL1.8 or greater; if the individual has a credential it is AAL2 or greater.
+Pre-conditions: requester can meet Consumer Match requirements for the Patient AND (if different individuals) the Authorized Representative--sufficient demographics with input weight score of 10 or greater are available for match input and were verified at IAL1.8 or greater; if the individual has a credential it is AAL2 or greater.
 
 Workflow:
 1.	A user would like to access a patient’s records via an app that is trusted by the responder. The user logs into the application to do so, with a Digital Identity or equivalent (IAL1.8/AAL2) credentials.
@@ -145,7 +145,9 @@ Note: The workflow between these use cases is similar, except for the purpose of
 -	a covered entity with an exchange purpose of treatment, healthcare payment, or healthcare operations
 -	a covered entity with an exchange purpose of eligibility determination
 
-Pre-conditions: The requestor and the responder have established trust and are able to exchange information. Requestor and Responder have patient demographics for use in matching that were verified at IAL1.5 or higher. Requestor has sufficient verified demographics (input weight score of 9 or greater).
+Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point to point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services.
+
+Pre-conditions: The requester and the responder have established trust and are able to exchange information. Requester and Responder have patient demographics for use in matching that were verified at IAL1.5 or higher. requester has sufficient verified demographics (input weight score of 9 or greater).
 
 Workflow:
 1.	The requesting system authenticates itself to the responding system via UDAP B2B Authentication and Authorization steps.
@@ -159,22 +161,5 @@ Workflow:
 </figure>
 <p></p>
 </div>
-
-&emsp;&emsp;
-
-#### Patient-Directed B2C Using Digital Identity
-
-Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of View, download, and transmit to 3rd party).
-
-Actors: Patient or Authorized Representative, Third-Party Requestor (for example, Insurance Company), Healthcare Organization, Identity Provider
-
-1.	The patient authenticates to their insurance company’s system using the credential associated with their Digital Identifier and authorizes the Identity Provider to share their identifier with the insurance company as representative of their identity.
-2.	The insurance company uses the Digital Identifier in a match request to the healthcare organization.
-3.	Because this strong identity assurance credential has been used to authenticate the individual to both systems, the individual authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, and authorization to share health data with the insurance company is obtained, the health system can confidently share the correct patient data with the requesting party.
-4.	If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification if the Digital Identity is not yet known to them.
-
-&emsp;&emsp;   
-
-Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point to point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services. 
 
 &emsp;&emsp;   
