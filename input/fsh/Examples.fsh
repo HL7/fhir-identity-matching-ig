@@ -54,10 +54,6 @@ Usage: #example
 * name[0].family = "Paeshent"
 * name[0].given[0] = "Nancy"
 
-* telecom[0].system = #phone
-* telecom[0].value = "444-555-3939"
-* telecom[0].use = #mobile 
-
 * gender = #female
 
 * birthDate = "1988-02-11"
@@ -110,97 +106,222 @@ Usage: #example
 
 //====================================================================================================
 
-Alias: $v3-TribalEntityUS = http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS
-Alias: $v3-NullFlavor = http://terminology.hl7.org/CodeSystem/v3-NullFlavor
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-
-Instance: example2
+Instance: patient-multi-digital-identifier
 InstanceOf: Patient
+Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
-
-* meta.profile = Canonical(VerAtt-Patient)
-* extension[+].id = "va-birthsex"
-* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
-* extension[=].valueCode = #F
-* extension[+].id = "va-sex"
-* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex"
-* extension[=].valueCode = #248152002
-* extension[+].id = "vs-genderIdentity"
-* extension[=].url = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity"
-
-* identifier.use = #usual
-* identifier.type = $v2-0203#MR "Medical Record Number"
-* identifier.type.text = "Medical Record Number"
-* identifier.system = "http://hospital.smarthealthit.org"
-
-* identifier.value = "1032702"
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* identifier[0].system = "http://hospital.abc.org"
+* identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
+* identifier[=].assigner = Reference(Organization/abc-hospital)
+* identifier[+].system = "http://payer.xyz.org"
+* identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
+* identifier[=].assigner = Reference(Organization/xyz-payer)
+* identifier[+].system = "http://idp.def.org"
+* identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
+* identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
-* name[+].id = "va-name"
-* name[=].family = "Baxter"
-* name[=].given[0] = "Amy"
-* name[=].given[+] = "V."
-* name[=].suffix = "PharmD"
-* name[=].period.start = "2020-07-22"
-
+* name.family = "Huberdeau"
+* name.given = "Honk"
 * telecom[0].system = #phone
 * telecom[=].value = "555-555-5555"
 * telecom[=].use = #home
 * telecom[+].system = #email
-* telecom[=].value = "amy.shaw@example.com"
-
-* gender = #female
-
-* birthDate = "1987-02-20"
-
-* address[0].use = #old
-* address[=].id = "va-address-old"
-* address[=].line = "49 Meadow St"
-* address[=].city = "Mounds"
-* address[=].state = "OK"
-* address[=].postalCode = "74047"
-* address[=].country = "US"
-* address[=].period.start = "2016-12-06"
-* address[=].period.end = "2020-07-22"
-* address[+].id = "va-address-new"
-* address[=].line = "183 Mountain View St"
-* address[=].city = "Mounds"
-* address[=].state = "OK"
-* address[=].postalCode = "74048"
-* address[=].country = "US"
-* address[=].period.start = "2020-07-22"
+* telecom[=].value = "honk.huberdeau@example.com"
+* gender = #male
+* birthDate = "1980-01-10"
+* address.line = "999 Not Real Street"
+* address.city = "Columbus"
+* address.state = "OH"
+* address.postalCode = "43210"
+* address.country = "US"
 
 //====================================================================================================
 
-Alias: $provenance-participant-type = http://terminology.hl7.org/CodeSystem/provenance-participant-type
-
-Instance: provenance-example
-InstanceOf: Provenance
+Instance: abc-hospital
+InstanceOf: Organization
+Description: "Example of Organization used as a hospital for digital identifier"
 Usage: #example
+* identifier[0].use = #official
+* identifier[=].system = "urn:oid:2.16.528.1"
+* identifier[=].value = "91654"
+* identifier[+].use = #usual
+* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
+* identifier[=].value = "17-0112278"
+* name = "Burgers University Medical Center"
+* contact[0].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2300"
+* contact[=].telecom.use = #work
+* contact[+].address.use = #work
+* contact[=].address.line = "Galapagosweg 91"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9105 PZ"
+* contact[=].address.country = "NLD"
+* contact[+].address.use = #work
+* contact[=].address.line = "PO Box 2311"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9100 AA"
+* contact[=].address.country = "NLD"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2334"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2335"
 
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+//====================================================================================================
 
-* target = Reference(Patient/example2)
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-genderIdentity"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-birthsex"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-sex"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-name"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-gender"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-birthDate"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-address-old"
-* target.extension[+].url = "http://hl7.org/fhir/StructureDefinition/targetElement"
-* target.extension[=].valueUri = "va-address-new"
+Instance: xyz-payer
+InstanceOf: Organization
+Description: "Example of Organization used as a payer for digital identifier"
+Usage: #example
+* identifier.system = "urn:oid:2.16.840.1.113883.3.19.2.3"
+* identifier.value = "666666"
+* name = "XYZ Insurance"
+* alias = "ABC Insurance"
+* contact.telecom[0].system = #phone
+* contact.telecom[=].value = "+1 555 234 3523"
+* contact.telecom[=].use = #work
+* contact.telecom[+].system = #email
+* contact.telecom[=].value = "info@xyz-payer.org"
+* contact.telecom[=].use = #work
 
-* recorded = "2023-02-28T15:26:23.217+00:00"
+//====================================================================================================
 
-* agent.type = $provenance-participant-type#informant "Informant"
-* agent.who = Reference(Patient/example2)
+Instance: def-idp
+InstanceOf: Organization
+Description: "Example of Organization used as an identity provider for digital identifier"
+Usage: #example
+* identifier.system = "http://www.secureidp.com/units"
+* identifier.value = "SecureIdp"
+* name = "Secure Idp"
+* contact.telecom[0].system = #phone
+* contact.telecom[=].value = "+1 555 234 3523"
+* contact.telecom[=].use = #work
+* contact.telecom[+].system = #email
+* contact.telecom[=].value = "gastro@acme.org"
+* contact.telecom[=].use = #work
 
-* entity.role = #source
-* entity.what.display = "My_Form"
+//====================================================================================================
+
+
+Instance: MATCHOperationResponse
+InstanceOf: IDIMatchBundle
+Description: "Example of $MATCH operation response with patient and organization"
+Usage: #example
+* meta.lastUpdated = "2024-07-18T03:28:49Z"
+* identifier.system = "urn:ietf:rfc:3986"
+* identifier.value = "urn:uuid:1eaddf4c-2ec0-4dc4-b26f-9586d7a777e9"
+* identifier.assigner = Reference(Organization/bumc-hospital)
+* type = #collection
+* entry[0].fullUrl = "https://example.com/base/Organization/bumc-hospital"
+* entry[=].resource = bumc-hospital
+* entry[+].fullUrl = "https://example.com/base/Patient/MATCHOperationResponsePatient"
+* entry[=].resource = MATCHOperationResponsePatient
+
+
+//====================================================================================================
+
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+
+
+Instance: MATCHOperationResponsePatient
+InstanceOf: Patient
+Usage: #inline
+* identifier.use = #usual
+* identifier.type = $v2-0203#MR
+* identifier.system = "urn:oid:1.2.36.146.595.217.0.1"
+* identifier.value = "12345"
+* identifier.period.start = "2001-05-06"
+* identifier.assigner.display = "Acme Healthcare"
+* active = true
+* name[0].use = #official
+* name[=].family = "Chalmers"
+* name[=].given[0] = "Peter"
+* name[=].given[+] = "James"
+* name[+].use = #usual
+* name[=].given = "Jim"
+* name[+].use = #maiden
+* name[=].family = "Windsor"
+* name[=].given[0] = "Peter"
+* name[=].given[+] = "James"
+* name[=].period.end = "2002"
+* telecom[0].use = #home
+* telecom[+].system = #phone
+* telecom[=].value = "(03) 5555 6473"
+* telecom[=].use = #work
+* telecom[=].rank = 1
+* telecom[+].system = #phone
+* telecom[=].value = "(03) 3410 5613"
+* telecom[=].use = #mobile
+* telecom[=].rank = 2
+* telecom[+].system = #phone
+* telecom[=].value = "(03) 5555 8834"
+* telecom[=].use = #old
+* telecom[=].period.end = "2014"
+* gender = #male
+* birthDate = "1974-12-25"
+* birthDate.extension.url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
+* birthDate.extension.valueDateTime = "1974-12-25T14:35:45-05:00"
+* deceasedBoolean = false
+* address.use = #home
+* address.type = #both
+* address.text = "534 Erewhon St PeasantVille, Rainbow, Vic  3999"
+* address.line = "534 Erewhon St"
+* address.city = "PleasantVille"
+* address.district = "Rainbow"
+* address.state = "Vic"
+* address.postalCode = "3999"
+* address.period.start = "1974-12-25"
+* managingOrganization = Reference(abc-hospital)
+
+//====================================================================================================
+
+Instance: bumc-hospital
+InstanceOf: Organization
+Usage: #inline
+* identifier[0].use = #official
+* identifier[=].system = "urn:oid:2.16.528.1"
+* identifier[=].value = "91654"
+* identifier[+].use = #usual
+* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
+* identifier[=].value = "17-0112278"
+* name = "Burgers University Medical Center"
+* contact[0].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2300"
+* contact[=].telecom.use = #work
+* contact[+].address.use = #work
+* contact[=].address.line = "Galapagosweg 91"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9105 PZ"
+* contact[=].address.country = "NLD"
+* contact[+].address.use = #work
+* contact[=].address.line = "PO Box 2311"
+* contact[=].address.city = "Den Burg"
+* contact[=].address.postalCode = "9100 AA"
+* contact[=].address.country = "NLD"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2334"
+* contact[+].telecom.system = #phone
+* contact[=].telecom.value = "022-655 2335"
+
+//====================================================================================================
+
+Instance: FASTIDUDAPPerson-Example
+InstanceOf: FASTIDUDAPPerson
+Description: "Example of Person profile for use with the Interoperable Digital Identity and Patient Matching"
+Usage: #example
+* name.use = #official
+* name.family = "Chalmers"
+* name.given[0] = "Peter"
+* name.given[+] = "James"
+* telecom[0].system = #phone
+* telecom[=].value = "(03) 5555 6473"
+* telecom[=].use = #work
+* telecom[+].system = #email
+* telecom[=].value = "Jim@example.org"
+* telecom[=].use = #work
+* birthDate = "1974-12-25"
+* address.use = #work
+* address.line = "534 Erewhon St"
+* address.city = "PleasantVille"
+* address.state = "Vic"
+* address.postalCode = "3999"

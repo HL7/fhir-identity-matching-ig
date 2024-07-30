@@ -48,7 +48,7 @@ In an effort to address matching errors by prioritizing the use of Digital Ident
 } 
 ``` 
 
-Alternatively, the HL7 Identifier may be included as a FHIR Identifier in the Resource referenced by the  [SMART fhirUser claim](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html) using the [Identity-HL7-Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/NamingSystem-Identity-HL7-Identifier.html). 
+Alternatively, the HL7 Identifier may be included as a FHIR Identifier in the Resource referenced by the  [SMART fhirUser claim](https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html) using the [Identity-HL7-Identifier](NamingSystem-Identity-HL7-Identifier.html). 
 
 - The combination of Identifier plus Assigner (if any) **SHALL NOT** be reassigned for an individual; therefore, the Identifier **SHALL** be protected like a Social Security Number and **SHALL NOT** be shared other than for patient matching purposes in a healthcare setting. The Identifier itself **SHALL NOT** be used as an OpenID Connect identifier and **SHALL NOT** be programmatically derived or otherwise possible to deduce from the OpenID Connect identifier since the OpenID Connect identifier may need to be re-issued from time to time, and individuals may want to use their OpenID Connect credential to authenticate themselves in other settings in which they do not wish to share personally identifiable information (PII). Identity Providers **SHALL NOT** enable an individual to authorize sharing of the Identifier with an endpoint that is not a trusted healthcare organization. For Identifiers assigned at any identity assurance level greater than IAL1, Identity Providers which establish a mechanism for proof of control of the credential **SHALL** associate with the Identifier an [authenticator meeting NIST AAL2 or higher authentication assurance](https://pages.nist.gov/800-63-3/sp800-63b.html) and that can be reset, in lieu of or supplemental to the OpenID Connect 1.0 workflow.    
 
@@ -58,9 +58,7 @@ Alternatively, the HL7 Identifier may be included as a FHIR Identifier in the Re
 
 ### Digital Identifier Workflow Example 
 
-Patient completes an [IAL 1.8](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit) or greater identity verification process with a healthcare organization at registration and/or check-in, and the resultant Digital Identifier is then associated with the patient’s record in that organization's electronic health record (EHR). The process includes collection and verification of (at a minimum, verification of control) a personal mobile number and email address belonging to the patient. The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. The patient subsequently authenticates to their insurance company's system using this credential, after which the insurance company uses the Digital Identifier in a match request to the healthcare organization. Because this strong identity assurance credential has been used to authenticate the individual to both systems, and the patient authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, the healthcare organization can confidently share the correct patient data with the requesting party. If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification.  
-
- 
+Patient completes an [IAL 1.8](guidance-on-identity-assurance.html) or greater identity verification process with a healthcare organization at registration and/or check-in, and the resultant Digital Identifier is then associated with the patient’s record in that organization's electronic health record (EHR). The process includes collection and verification of (at a minimum, verification of control) a personal mobile number and email address belonging to the patient. The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. The patient subsequently authenticates to their insurance company's system using this credential, after which the insurance company uses the Digital Identifier in a match request to the healthcare organization. Because this strong identity assurance credential has been used to authenticate the individual to both systems, and the patient authorizes sharing of PII from the Identity Provider to the healthcare organization for identity resolution, the healthcare organization can confidently share the correct patient data with the requesting party. If needed, the health system can contact the account holder out of band for additional information or can request real-time identity verification.  
 
 &emsp;&emsp;  
 
@@ -99,33 +97,5 @@ Absent a Digital Identifier or Enterprise Identifier as described above, other i
 ### Miscellaneous Identifier Workflow Example 
 
 As these Miscellaneous Identifiers are increasingly collected, they are useful on their own or along with Enterprise Identifiers in improving probabilistic [Patient Matching](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/patient-matching.html) as described elsewhere in this IG.  
-
-### Authorized Representatives
-
-There are two primary actors that engage in the process of requesting health data from an external source:
-
-- Patient – the subject of the data query being sent in the $match request (or equivalent)
-- User – The individual who is being authenticated to initiate a $match request (or equivalent)
-
-The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to:
-
-- B2B Use Cases – A physician accessing a patient’s health data through an HIE/QHIN query via their EMR
-- B2C Proxy User Use Case – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records)
-
-An authorized representative's identity MUST be verified according to <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a> and sufficient demographics MUST be collected if matching on the identity of the representative is to be performed, and at [IAL 1.8](https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit) or higher if the match on identity will authorize access to data. In all cases the representative is, when local policies are met, authorized to access data on behalf of a patient prior to the query and determining authorization is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already well-defined in the <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
-
- **Need a technical description and proofreading of the use case below:**
-
-Use Case Example with substitutable Identity Provider – Mary Smith is an authorized representative of her daughter, Jill Smith. Jill received care at General Hospital, which uses an EMR that gives patients access to their records through an app of their choice with FHIR. The hospital also uses an Identity Provider (IdP) for identity proofing and user authentication. Mary has not received care through General Hospital but has received care at another hospital that uses the same IdP. Mary would like to access Jill’s records at General Hospital. She requests Jill's health data at the hospital’s FHIR endpoint using a registered app, which offers a variety of IdP options for authentication with trusted IdPs, including the IdP she already uses. Jill chooses this IdP and the hospital sends her to that IdP for authentication. Since she is already known by the IdP, she signs in; had she needed a new account, she could go through an authentication process to create the account. Once the IdP authenticates Mary, user profile information and authentication status is sent from the IdP to General Hospital, and the hospital can use a previously-recorded HL7 Identifier or demographics meeting [patient matching](patient-matching.html) requirements (matching on demograpics previously stored for Mary as a representative, in this case), to match on Mary's identity as an authorized representative of Jill. If successful, the EMR gives Mary access to Jill's data as Jill has authorized.
-
-### Organizational Identity
-
-Organizational Identity as defined in this <a href="https://docs.google.com/document/d/1IY8m_bEz-4gwsu9_Ctig78lP9FG74Dc36fDOPDZy0kc/edit">guidance</a> is important for relying parties such as responders to use when considering the source of a data request (for example in an authentication token when initiated through a hub such as an HIE or a QHIN) to determine authorization, or to know the identity of a server or identity service--especially for the purpose of audit logging. When a transaction includes a claim of Organizational Identity in the digital certificate used to sign the claim or within another assertion such as a token request, the following details MUST be included:
-
-- Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
-- OID assigned to that Organization (if any)
-- State where Organization was verified
-- Street Address verified for Organization (if information more granular than State is shared)
-
 
 {% include link-list.md %} 

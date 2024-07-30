@@ -33,7 +33,7 @@ Title: "IDI Patient L0"
 Description: "(Level 0 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 9"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 0 weighting of information"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level."
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.5 or greater, which meet a combined ‘weighted level’ of at least 9"
 * obeys idi-L0
 
 * meta.profile ^slicing.discriminator.type = #pattern
@@ -61,7 +61,7 @@ Title: "IDI Patient L1"
 Description: "(Level 1 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 10 and using attributes that are consistent with an identity that has been verified by the match requestor"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 1 weighting of information"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels."
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.8 or greater, which meet a combined ‘weighted level’ of at least 10"
 * obeys idi-L1
 
 * meta.profile ^slicing.discriminator.type = #pattern
@@ -79,36 +79,29 @@ Description: "(Level 1 weighting) The goal of this profile is to describe a data
 
 * name obeys idi-2
 
-//=================================================================================================================================
-// Verified Attributes - Patient
+//====================================================================================================
+// FAST Identity UDAP Person
 //
-Profile: VerAttPatient
-Parent: Patient
-Id: VerAtt-Patient
-Title: "VerAtt Patient"
-Description: "The goal of this profile is to assist in determining the verification status of a demographic. ID tags are attached to each demographic element to be referenced in a parallel Provenance resource."
-
-* . ^short = "Patient information to be supplied to $match operation"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation."
-
-* name.id MS
-* name.id 0..1
-* name.id ^short = "Name ID to be used in attribute verification assertion"
-* name.id ^definition = "Name ID to be used in attribute verification assertion with an associated Provenance resource"
-* birthDate.id MS
-* birthDate.id 0..1
-* birthDate.id ^short = "Birth date ID to be used in attribute verification assertion"
-* birthDate.id ^definition = "Birth date ID to be used in attribute verification assertion with an associated Provenance resource"
-* gender.id MS
-* gender.id 0..1
-* gender.id ^short = "Gender ID to be used in attribute verification assertion"
-* gender.id ^definition = "Gender ID to be used in attribute verification assertion with an associated Provenance resource"
-* telecom.id MS
-* telecom.id 0..1
-* telecom.id ^short = "Contact Info ID to be used in attribute verification"
-* telecom.id ^definition = "Contact Info ID to be used in attribute verification assertion with an associated Provenance resource"
-* address.id MS
-* address.id 0..1
-* address.id ^short = "Address ID to be used in attribute verification"
-* address.id ^definition = "Address ID to be used in attribute verification assertion with an associated Provenance resource"
-
+Profile: FASTIDUDAPPerson
+Parent: Person
+Id: FASTIDUDAPPerson
+Title: "FAST Identity UDAP Person"
+Description: "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG"
+* name.family 1..
+* name.given 1..
+* telecom ^slicing.discriminator.type = #pattern
+* telecom ^slicing.discriminator.path = "system"
+* telecom ^slicing.rules = #open
+* telecom ^slicing.description = "Forcing both a phone and an email contact"
+* telecom contains
+    tphone 1..* and
+    email 1..*
+* telecom[tphone].system 1..
+* telecom[tphone].system = #phone
+* telecom[email].system 1..
+* telecom[email].system = #email
+* birthDate 1..
+* address.line 1..
+* address.city 1..
+* address.state 1..
+* address.postalCode 1..

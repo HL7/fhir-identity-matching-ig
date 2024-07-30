@@ -16,10 +16,16 @@ releaseLabel: STU 2.0.0-draft
 date: 2023-10-17
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
-  name: HL7 International - Patient Administration WG
+  name: HL7 International / Patient Administration
   url: http://www.hl7.org/Special/committees/pafm
 dependencies:
-  hl7.fhir.us.core: 3.1.1
+  hl7.fhir.us.core: 6.1.0
+
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
+    valueCode: pa  # <<< The value must be the code for the workgroup
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
 
 parameters:
   show-inherited-invariants: false
@@ -36,19 +42,19 @@ parameters:
 pages:
   index.md:
     title: Home
-  industry-initiatives.md:
-    title: Industry Initiatives
   guidance-on-identity-assurance.md:
     title: Guidance on Identity Assurance
   patient-matching.md:
     title: Patient Matching
   digital-identity.md:
     title: Digital Identity
-  conformance.md:
-    title: Conformance
+  use-cases.md:
+    title: Use Cases
+  industry-initiatives.md:
+    title: Industry Initiatives
+  downloads.md:
   glossary.md:
     title: Glossary
-  downloads.md:
 
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
@@ -56,15 +62,14 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Policy Guidance:
+  Guidance on Identity Assurance: guidance-on-identity-assurance.html
+  Patient Matching: patient-matching.html
+  Digital Identity: digital-identity.html
+  Implementation:
+    Artifacts: artifacts.html
+    Use Cases: use-cases.html
     Industry Initiatives: industry-initiatives.html
-    Guidance on Identity Assurance: guidance-on-identity-assurance.html
-  Technical Guidance:
-    Patient Matching: patient-matching.html
-    Digital Identity: digital-identity.html
     Downloads: downloads.html
-  Artifacts: artifacts.html
-  Conformance: conformance.html
   Glossary: glossary.html
 
   
