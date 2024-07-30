@@ -4,7 +4,7 @@ This section of the guide extends the existing HL7 FHIR patient [$match](https:/
 
 The best practices and suggested weights are based on this team's original research which included the sources cited on the [Home](index.html) tab as well as FAST webinar feedback, FAST subject matter expert (SME) sessions, HL7 FHIR Connectathon events, and FAST Identity team participants' additional suggestions made to the FAST Identity solution document; this work has been ongoing since spring 2018.   
 
-This guidance is intended to apply to other consumer matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching. 
+This guidance is also applies to other consumer matching workflows including non-FHIR transactions. Use of other (non-FHIR, non $match) matching methods (implementations) that result in comparable or higher matching rates is not precluded by this guidance. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching. 
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization. 
 
@@ -16,9 +16,9 @@ When transmitting identity attributes to third parties with whom sharing PII is 
 - within an HL7 B2B with User Authorization Extension Object, or  
 - as part of a match or search request, 
 
-and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own  resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance] (e.g., a first name, last name, date of birth [DOB], mobile number, and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with [Guidance on Identity Assurance].  
+and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in the identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance] (e.g., a first name, last name, date of birth [DOB], mobile number, email address, and home street address have been verified as belonging to the individual OR a first name, last name, and Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with the [Guidance on Identity Assurance].  
 
-As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or  [LoA-3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-2.pdf) for professionals who are end users of health IT systems and for an implementer's overall operations.  
+As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or [LoA-3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-2.pdf) for professionals who are end users of health IT systems and for an implementer's overall operations.  
 
 Individual Access (or if protected health information [PHI] or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow) is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **SHALL** authenticate the individual before returning PHI or PII. 
 
@@ -33,16 +33,16 @@ For sharing immunization records only, patient matching **MAY** be performed usi
 
 The expectation for the use of the "IDI" profiles is:
 
-The system making the call to [$IDI-match] ("the client") will assert their intent/ability to supply valuable input information to support the searching algorithm by specifying, and conforming to, a particular level of data inclusion identified by one of the profiles. An Master Patient Index (MPI) (i.e., a "server" system providing the $match operation) will leverage the client's assertion by validating conformance and providing a warning(s) or throwing a full exception if invariant level testing fails. In addition, the MPI may potentially direct the logical code flow for matching based on the verified assurance of data quality input, as well as possible assistance in internal match scoring processes. While any designs of the MPI are outside the scope of the IG, the profiles of the Patient resource are intended to contribute a possible communication of data quality between the client and MPI that may be used in different ways.
+The system making the call to [$IDI-match] ("the client") will assert their intent/ability to supply valuable input information to support the searching algorithm by specifying, and conforming to, a particular level of data inclusion identified by one of the profiles. A Master Patient Index (MPI) (i.e., a "server" system providing the $match operation) will leverage the client's assertion by validating conformance and providing a warning(s) or throwing a full exception if invariant-level testing fails. In addition, the server may potentially direct the logical code flow for matching based on the verified assurance of data quality input, as well as possible assistance in internal match scoring processes. While any designs of the server are outside the scope of the IG, the profiles of the Patient resource are intended to contribute a possible communication of data quality between the client and server that may be used in different ways.
 
-Reminder: Historical demographics are held to the same requirements and guidance as current demographics.
+The same requirements and guidance for current demographics **SHALL** apply to historical demographics.
 
 #### Match on Identities 
 
-While FHIR systems often expect to have only one Patient Resource per actual patient, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources using [Patient.link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link), where each set represents a specific patient in the opinion of the MPI system. In such a system, the patient match **should** be performed against the sets of records as opposed to the individual records. For example, if five records are currently believed to represent the same patient, a search for that patient would find the set of five and consider that as one candidate as opposed to five candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of five linked Patient records currently in the system and a Patient input to a $match operation that includes a name, birthdate, telephone and [MBI](glossary.html) such that the $match input Patient: 
+While FHIR systems often expect to have only one Patient Resource per actual patient, some systems may normally have many records for the same patient, typically originating from many disparate systems such as clinics, insurance companies, labs, etc. In this scenario, the Patient resources are typically already linked via automatic matching into sets of Patient Resources using [Patient.link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link), where each set represents a specific patient in the opinion of the MPI system. In such a system, the patient match **SHOULD** be performed against the sets of records as opposed to the individual records. For example, if five records are currently believed to represent the same patient, a search for that patient would find the set of five and consider that as one candidate as opposed to five candidates. Moreover, that search would benefit from all of the information in the set. For example, consider a set of five linked Patient records currently in the system and a Patient input to a $match operation that includes a name, date of birth, telephone and [MBI](glossary.html) such that the $match input Patient: 
 
 - name matches Patient 1 but is somewhat different from Patients 2-5 
-- birthdate matches all five of them 
+- date of birth matches all five of them 
 - telephone matches Patient 3 and is not present in Patients 1,2,4,5 
 - MBI matches Patient 5 and is absent in patients 1-4 
 
@@ -61,11 +61,11 @@ Asking for at most four results to be returned in a match request may mean more 
 
 The term "match" used in this Implementation Guide always involves matching demographics and/or an identifier to a person; usually that person is the patient a transaction is about (the person whose data is being requested). In workflows where health data is not being released to a Covered Entity, we are matching on demographics for the user who is a requestor and/or is the patient, but is not a HIPAA Covered Entity. Under those conditions, the match confidence must meet a higher minimum bar and the additional requirements in this section apply. 
 
-The quality of the match, along with the user's consent, and identity and authentication assurance, informs the responder's decision about whether to authorize access to data and is based on verified attributes provided by the requestor who, for example via OIDC on the wire, SHALL also be trusted to have authenticated the individual corresponding to those demographics. 
+The quality of the match, along with the user's consent, and identity and authentication assurance, informs the responder's decision about whether to authorize access to data and is based on verified attributes provided by the requestor who, for example via OIDC on the wire, **SHALL** also be evaluated by the responder to confirm it is trusted to have authenticated the individual corresponding to those demographics. 
 
-In an even more specific workflow, the patient whose data is being requested is distinct from the user who is the requestor; in that case a high-confidence match on the patient's demographics is required in addition to user-level matching on the authorized representative as described in the previous paragraph. This second Consumer Match SHALL meet the same recommended minimum bar as the match performed on the user's demographics--both match input weight of at least 10, L1, and IAL1.8/AAL2. 
+In an even more specific workflow, the patient whose data is being requested is different from the user who is the requestor; in that case a high-confidence match on the patient's demographics is required in addition to user-level matching on the authorized representative as described in the previous paragraph. This second Consumer Match **SHALL** meet the same recommended minimum bar as the match performed on the user's demographics--both match input weight of at least 10, including L1 invariant data (or equivalent), and at IAL1.8/AAL2 identity and authentication assurance. 
 
-The B2B with User Authorization Extension Object SHALL be used by client apps following the client_credentials flow to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication  JSON Web Token (JWT), as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
+The B2B with User Authorization Extension Object **SHALL** be used by client apps following client credentials grant to provide additional information regarding the context under which the request for data is authorized. The client app constructs a JSON object containing the following keys and values and includes this object in the extensions object of the Authentication JSON Web Token (JWT), as per [UDAP Security 5.2.1.1](http://hl7.org/fhir/us/udap-security/STU1/b2b.html#b2b-authorization-extension-object), as the value associated with the key name hl7-b2b-user. The same requirements for use of hl7-b2b apply in the use of hl7-b2b-user.
 
 <table class="table">
   <thead>
@@ -120,7 +120,7 @@ It is helpful to know the date verification of attributes was performed, in the 
 
 The identity verification level performed to establish matching attributes is another meaningful piece of information to convey in a transaction; for an example of how to include level of identity and authentication assurance in an OpenID Connect user profile, see the section on [Digital Identity]. 
 
-When attributes like email address and telephone number are verified as associated with a patient, that information helps to bootstrap new portal account creation and (later) account recovery.  
+When attributes like email address and telephone number are verified as associated with a patient, that information helps to bootstrap new account creation and (if needed) account recovery.  
 
 An API from USPS may be helpful in verifying individual street addresses in future versions of this IG.  
 
@@ -168,7 +168,7 @@ Patient Match need not support wildcards, unlike the usual FHIR search mechanism
 The section below provides example weight values that a match requestor can use along with specialized patient resource profiles to indicate their intent to follow pre-defined minimum match input requirements.  
 
 <div class="stu-note" markdown="1"> 
-The workgroup invites suggestions from commenters regarding the use of Artificial Intelligence and Referential Matching in identity and matching. For example, should attributes not claimed by an individual be added to a record, match input request, and/or match result based on identity management resources when not part of a Declaration of Identity assertion by the individual? In what cases would this be acceptable? Is the guidance different when resources are authoritative or are derived from authoritative sources (such as credit bureau type records)? Are there other generative workflows in which guidance would be helpful?
+The workgroup invites suggestions from commenters regarding the use of Artificial Intelligence and Referential Matching in identity and matching. For example, should attributes not claimed by an individual be added to a record, match input request, and/or match result based on identity management resources even if those attributes were not part of a Declaration of Identity assertion by the individual? In what cases would this be acceptable? Is the guidance different when resources are authoritative or are derived from authoritative sources (such as credit bureau type records)? Are there other generative workflows or types of intelligent systems for which guidance would be helpful?
 </div> 
 
 &emsp; 
@@ -176,7 +176,7 @@ The workgroup invites suggestions from commenters regarding the use of Artificia
 
 ### Patient Weighted Input Information 
 
-&emsp;&emsp;*(The information and values included here serve as an example for weights that may be adopted to achieve various threshold levels responders systems may choose to require.)* 
+&emsp;&emsp;*(The information and values included here serve as an example of weights that may be adopted to achieve various threshold levels responders' systems may choose to require when performing person matching with a desired degree of certainty.)* 
 
 Providing an agreed-upon value for matching (i.e., "weight") to specific Patient information elements included in a match request allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
@@ -198,19 +198,19 @@ th {
 | 4          | Address (including line plus zip or city and state), telecom email, telecom phone, identifier (other than Passport Number, DL, other State ID, or Digital Identifier--for example, last 4 of SSN, Insurance Member Identifier along with Payer Identifier, or Medical Record Number along with Assigner) or [Individual Profile Photo](guidance-on-identity-assurance.html#individual-profile-photo) (max weight of 5 for inclusion of 2 or more of these) |
 | 3          | First Name and Last Name       |
 | 2          | Date of Birth       |
-|TBD        | SSN (complete) |
-|TBD        | Insurance Member Identifier |
-|TBD        | SSN (last 5) |
-|TBD        | Insurance Subscriber Identifier |
-|TBD        | Previous First Name & Last Name       |
-|TBD        | Nickname or Alias       |
-|TBD        | First Name       |
-|TBD        | Last Name       |
-|TBD        | Middle Name (Including initial)       |
-|TBD        | Address City and State       |
-|TBD        | Address Zip        |
-|TBD        | Sex (Assigned at Birth)       |
-|TBD        | Sexual Orientation       |
+|0          | SSN (complete) |
+|0          | Insurance Member Identifier |
+|0          | SSN (last 5) |
+|0          | Insurance Subscriber Identifier |
+|0          | Previous First Name & Last Name       |
+|0          | Nickname or Alias       |
+|0          | First Name       |
+|0          | Last Name       |
+|0          | Middle Name (Including initial)       |
+|0          | Address City and State       |
+|0          | Address Zip        |
+|0          | Sex (Assigned at Birth)       |
+|0          | Sexual Orientation       |
 
 &emsp;&emsp;
 
@@ -222,7 +222,7 @@ Trust communities may have specific requirements about minimum attributes, but i
 
 This IG does not intend to set requirements on the use of HumanName.family and HumanName.given in lieu of HumanName.text, though for purposes of clarity we generally refer to First name and Last name (Surname) since some requirements depend on that level of granularity. Systems compliant with this IG **SHALL** recognize that [HumanName.text](https://www.hl7.org/fhir/datatypes-definitions.html#HumanName.text) may be provided instead of or in lieu of HumanName.family and HumanName.given. 
 
-<font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the Patient resource instance provided as input to the $match operation and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "TBD" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font>  
+<font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the Patient resource instance provided as input to a match request and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "0" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font>  
 
 &emsp;    
 
@@ -272,7 +272,7 @@ The information and values included here are a first published Standard for Tria
 
 Scoring **SHOULD** be as probabilistic as possible; however search scoring algorithms vary and stakeholders have expressed interest in better informing the score shared across organizational boundaries in a [$IDI-match] response. The group, therefore, seeks feedback on [$IDI-match] implementers' interest in using either the new Score indicated below or a similar option which would include attribute-specific match result information from the [$IDI-match] responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource.  
 
-Common correlations such as families **SHALL** be modeled *<u>(ONC recommendation reference?)</u>*. 
+Common correlations such as families **SHALL** be modeled (specific recommendations are invited). 
 
 Scores **SHOULD** be computed, not guessed, whenever possible. 
 
