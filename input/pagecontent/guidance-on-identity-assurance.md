@@ -6,7 +6,7 @@ This section provides best practices that **SHALL** be used in addition to NIST 
 
 Any system of an Identity Provider conforming to this IG **SHALL** also conform to the NIST 800-63-3 Digital Identity Guidelines except as adapted in this guide and **SHALL** publicly post their identity verification (and authentication, if authentication is offered) policy in a manner that is easily discoverable online, additionally referencing this IG if attesting to be compliant with it. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however, with different required identity evidence, data collection, and other procedural clarifications as indicated in the IG.
 
-The identity verification policy **SHALL** describe the practices, consistent with this guide, used by employees or agents of Identity Provider's organization to verify and manage identities, along with whether and how those employees and agents may perform as Trusted Referees, through others **SHALL NOT** do so, and how personal information is managed by the Identity Provider. 
+The identity verification policy **SHALL** describe the practices, consistent with this guide, used by employees or agents of Identity Provider's organization to verify and manage identities, along with whether and how those employees and agents may perform as Trusted Referees, though others **SHALL NOT** do so, and how personal information is managed by the Identity Provider. 
 
 Identity Providers **SHALL NOT** rely on third parties as Trusted Referees or Trusted Agents, to vouch for individuals, or to perform identity verification including on behalf of another person as is generally permitted under NIST 800-63-3 Digital Identity Guidelines. 
 
@@ -30,24 +30,24 @@ Unless explicitly required otherwise at certain levels, at a minimum, control of
 NOTE: Implementers are encouraged to promote the availability of free mobile number services that support long term use, since these may facilitate [patient matching](glossary.html) and [credential](glossary.html) management; these services may be particularly helpful for those facing housing insecurity or who may be too young to have established credit bureau type records.
 {:.bg-info}
 
-The Identity Provider **SHALL** also verify the First Name, Last Name, Home Street Address, Date of Birth, and any other verifiable demographics for which they will claim have been verified, using the required evidence listed below and corresponding to the desired level of identity assurance, and completing other required steps as follows:  
+The Identity Provider **SHALL** also verify the First Name, Last Name, Home Street Address, Date of Birth, and any other verifiable demographics which they will claim have been verified, using the required evidence listed below and corresponding to the desired level of identity assurance, and completing other required steps as follows:  
 {:.bg-info}
 
 - **IAL1** requirements:  
-  - Declaration of identity attestation by the individual indicates that submitted information represents their own identity.
+  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 {:.bg-info}
 
 ​       
 
 - **IAL1.2** requirements: 
   - An unspecified ID was used to verify name and birth date.
-  - Declaration of identity attestation by the individual indicates that submitted information represents their own identity.  
+  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.  
 
 ​    
 
 - **IAL1.4** requirements:
   - A US state-issued photo ID or nationally-issued photo ID was used to verify first name, last name, and date of birth.
-  - Declaration of identity attestation by the individual indicates that submitted information represents their own identity  
+  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity  
 {:.bg-info}
 
 ​    
@@ -61,17 +61,17 @@ The Identity Provider **SHALL** also verify the First Name, Last Name, Home Stre
     ​	      **OR**
     ​    verify an Individual Profile Photo previously associated with the identity 
   - In cases when an Identity Provider is unable to verify their control of either a mobile phone number or an email address that an individual claims to be associated with their identity, identity assurance does not meet IAL1.5
-  - Declaration of identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity 
+  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity 
 
-IAL1.5 identity verification is the lowest level of identity assurance that can establish a unique human identity that exists in the real world. IAL1.5 is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system (2). Although this level of identity verification may be relevant to prevent duplicates in medical record systems and has a role in verifying demographic information used in patient matching between HIPAA Covered Entities, the lack of in-person or virtual match of an individual to a photo on identity evidence or their control of an authenticator associated with evidence or Digital Identity generally does not provide high confidence in the identity of the individual.
+IAL1.5 identity verification is the lowest level of identity assurance that can establish a unique human identity that exists in the real world. IAL1.5 is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system (2). Although this level of identity verification may be relevant to prevent duplicates in medical record systems and has a role in verifying demographic information used in patient matching between HIPAA Covered Entities, the lack of in-person or virtual match of an individual to a photo on identity evidence or of their control of an authenticator associated with evidence or Digital Identity generally does not provide high confidence in the identity of the individual.
 
 ​    
 
 - **IAL1.6** requirements: 
-  - US state- or nationally-issued photo ID confirmed by comparison to individual PLUS mail notice to address of record or send equivalent notice via email address or phone number associated with the person in records  
-  - Declaration of identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity   
+  - US state- or nationally-issued photo ID confirmed by comparison to individual   
+  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity   
   - Verify the individual's physical residential Address of Record 
-  - Send a notice of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill to their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by this notice.
+  - Send a notice of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by this notice.
 {:.bg-info}
 
 ​    
@@ -80,18 +80,18 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
   - Two Fair or stronger pieces of evidence were used to verify first name, last name, date of birth, and home street address--for example: 
       - Two of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual and consistent with other demographics submitted by the individual; 2) medical record number (and the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual) OR 
       - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual 
-  - Declaration of identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
+  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
   - Verify the individual's physical residential Address of Record 
-  - Notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
+  - Notice, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
 
 ​    
 
 - **IAL2** requirements: 
 
   - One Strong plus two Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR one Superior/Very Strong piece of evidence (for example: Government-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual.  
-  - Declaration of identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
+  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
   - Verify the individual's physical residential Address of Record. 
-  - Notice, including an email or telephone contact information for the Identity Provider, is either mailed to the home Address of Record or sent via SMS to the mobile number verified as billed to the individual. 
+  - Notice, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual. 
 {:.bg-info}
 
 ​     
@@ -160,7 +160,7 @@ Organizational Identity is important for relying parties such as responders to u
 
 When the Entity Type is a Covered Entity or Business Associate, the correct type **SHALL** be stated transparently in a transaction. Additionally, if a Covered Entity is participating in a transaction they must obtain their own credentials and a Business Associate **SHALL NOT** use the credentials of a Covered Entity.
 
-When the requirements above are also met, the individual identity verification of the organization's representative **SHALL** be used to eestablish the identity assurance level for the Organizational Identity.
+When the requirements above are also met, the individual identity verification of the organization's representative **SHALL** be used to establish the identity assurance level for the Organizational Identity.
 
 
 **References:**  
