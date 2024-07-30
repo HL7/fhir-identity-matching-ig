@@ -10,9 +10,7 @@
 <artifact id="StructureDefinition/FASTIDUDAPPerson" key="StructureDefinition-FASTIDUDAPPerson" name="FAST Identity UDAP Person"/>
 <artifact id="Person/FASTIDUDAPPerson-Example" key="Person-FASTIDUDAPPerson-Example" name="FASTIDUDAPPerson-Example"/>
 <artifact id="StructureDefinition/idi-match-bundle" key="StructureDefinition-idi-match-bundle" name="IDI Match Bundle"/>
-<artifact id="StructureDefinition/idi-match-input-parameters" key="StructureDefinition-idi-match-input-parameters" name="IDI Match Input Parameters"/>
 <artifact id="OperationDefinition/IDI-match" key="OperationDefinition-IDI-match" name="IDI Match Operation"/>
-<artifact id="StructureDefinition/idi-match-output-parameters" key="StructureDefinition-idi-match-output-parameters" name="IDI Match Output Parameters"/>
 <artifact id="StructureDefinition/IDI-Patient" key="StructureDefinition-IDI-Patient" name="IDI Patient"/>
 <artifact id="StructureDefinition/IDI-Patient-L0" key="StructureDefinition-IDI-Patient-L0" name="IDI Patient L0"/>
 <artifact id="StructureDefinition/IDI-Patient-L1" key="StructureDefinition-IDI-Patient-L1" name="IDI Patient L1"/>

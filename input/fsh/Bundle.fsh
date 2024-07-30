@@ -18,12 +18,12 @@ Description: "Bundle requirements for responders of a $IDI-match request."
     patient 0..* MS
 
 * entry[organization] ^short = "Entry in the bundle - will have the payer organization and may have provider organization(s)"
-  * resource 1..1 MS
-  * resource only Organization
-    * ^short = "Bundle entry for responding organization"
+* entry[organization].resource 1..1 MS
+* entry[organization].resource only Organization
+* entry[organization].resource ^short = "Bundle entry for responding organization"
 
 * entry[patient] ^short = "Entry in the bundle - will have the patient subject of care and may be a separate subscriber"
-  * resource 1..1 MS
-  * resource only Patient
-    * ^short = "Bundle entry for matched Patient"
+* entry[patient].resource 1..1 MS
+* entry[patient].resource only IDIPatient or IDIPatientL0 or IDIPatientL1
+* entry[patient].resource ^short = "Bundle entry for matched Patient"
 
