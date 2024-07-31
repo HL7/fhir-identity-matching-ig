@@ -4,15 +4,15 @@ This section provides a detailed description on identity workflows outlined in t
 
 #### Identity Proofing Workflow
 
-Pre-Conditions: The individual is not known by the healthcare provider at the required level of assurance, after having completed a documented process.
+Pre-Conditions: The individual is not known by an organization at the required level of assurance, the organization's documented identity verification process was not used, or the process was not completed by an individual in the organization's workforce.
 
 Workflow:
 
-1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a provider engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with the patient or their authorized reprentative
+1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a HIPAA Covered Entity engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with HIPAA Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with anyone who is not a HIPAA Covered Entity
 2.	Gather sufficient evidence to verify the identity of the individual.
 3.	Confirm that the provided evidence is genuine and accurate by validating the authenticity of identity documents using trusted sources or databases and information on the evidence.
 4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to this guidance and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance
-5.	Consider Digital Identity Creation, including binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
+5.	Consider Digital Identity Creation, including generating an identifier and binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
 Outcome: The individual has been successfully verified
 
@@ -27,22 +27,22 @@ Pre-conditions:
 
 Workflow:
 
-1.	The requesting system initiates a $match request to the receiving system’s FHIR endpoint.
-2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow (imperfect matching with L0 invariant, input weight score of at least 9, and attributes verified at IAL1.5, is permitted when data will be returned to a HIPAA Covered Entity; when a single high confidence match is required, L1 invariant with input weight score of at least 10 and attributes verified at IAL1.8 may initiate a Consumer Match—consistent with the Digital Identity essential to securing individual health data from access other than between Covered Entities).
-3.	The receiving system intakes the $match request and runs their own matching algorithm against their patient database to determine if there are one or more matches.
+1.	The requesting system initiates a match request to the receiving system’s FHIR endpoint.
+2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow (imperfect matching with L0 invariant, input weight score of at least 9, and attributes verified at IAL1.5, is permitted when data will be returned to a HIPAA Covered Entity; when a single high confidence match is required, L1 invariant with input weight score of at least 10 and attributes verified at IAL1.8 and AAL2 authentication of the individual--claimed by a trusted requester and consistent with the Digital Identity guidance--may initiate a Consumer Match appropriate for access to health data when the requester is not a HIPAA Covered Entity).
+3.	The receiving system intakes the match request and runs their own matching algorithm against the database of identities they manage to determine if there are one or more matches.
 4.	The receiving system replies to the requesting system with the relevant Patient resource(s) in a FHIR Bundle.
 
 Outcome: Requesting system has obtained a valid FHIR Bundle containing either a matched FHIR Patient resource or resources or received a “No Match Found” response if the receiving system was unable to complete the request.
 
 
-#### Digital Identify Creation
+#### Digital Identity Creation
 Actors: patient (or authorized representative), Identity Provider
 
 Workflow:
 
-1.	Patient completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
-2.	The Identity Provider binds the Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
-3.	The resultant Digital Identifier can then be associated with the patient in health IT system able to validate an Identity Provider assertion and successfully perform a Consumer Match.
+1.	Individual completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
+2.	The Identity Provider generates and binds a Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
+3.	The resultant Digital Identifier can then be associated with the individual in that organization's system and shared, when authorized, with other systems able to validate an Identity Provider assertion and successfully perform a Consumer Match.
 
 &emsp;&emsp;
 
@@ -121,7 +121,7 @@ Workflow:
 1.	A user would like to access a patient’s records via an app that is trusted by the responder. The user logs into the application to do so, with a Digital Identity or equivalent (IAL1.8/AAL2) credentials.
 2.	When the user initiates the query, the application undergoes a UDAP B2B with User Authentication process, using a B2B credential to establish trust with the responder.
 3.	The identity of the user is evaluated by the Authorization Server against their database of patients and authorized representatives to determine, if a Consumer Match exists, which patients’ data this individual may access. 
-4.	When authentication is complete, the application creates a $match request with the demographics available for the patient in the query, again meeting Consumer Match requirements--match input weight score of 10 or greater, IAL1.8 and L1.
+4.	When authentication is complete, the application creates a match request with the demographics available for the patient in the query, again meeting Consumer Match requirements--match input weight score of 10 or greater, IAL1.8 and L1.
 5.	The responder will undergo a weighting adjudication to determine the strength of the match request.
 6.	If sufficient, the responder will then run a match against their patient database
 7.	If a Consumer Match on the patient results, the resultant Patient resource will be returned in a FHIR Bundle
@@ -151,7 +151,7 @@ Pre-conditions: The requester and the responder have established trust and are a
 
 Workflow:
 1.	The requesting system authenticates itself to the responding system via UDAP B2B Authentication and Authorization steps.
-2.	The requesting sends a $match per the Match Workflow including L0 patient resource with attributes verified at IAL1.5 at minimum – Step 1
+2.	The requesting sends a match request per the Match Workflow including L0 patient resource with attributes verified at IAL1.5 at minimum – Step 1
 3.	The responding system receives, matches, and returns a FHIR Bundle per the Match Workflow – Steps 2-4
 
 <div>
