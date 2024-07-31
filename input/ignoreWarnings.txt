@@ -1,5 +1,12 @@
 == Suppressed Messages ==
-# Approved by Cross Group Projects WG:3/24/2022 https://confluence.hl7.org/pages/viewpage.action?pageId=94637403 
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
+
+# Reference to Draft items
+The resource status 'draft' and the standards status 'trial-use' may not be consistent and should be reviewed
+
+# Variance Request from CGP for the profiles that are not derived from US Core - https://jira.hl7.org/browse/FHIR-46489
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
+
+# THO Update
+Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
