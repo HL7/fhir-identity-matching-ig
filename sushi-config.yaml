@@ -21,12 +21,6 @@ publisher:
 dependencies:
   hl7.fhir.us.core: 6.1.0
 
-extension:
-  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
-    valueCode: pa  # <<< The value must be the code for the workgroup
-  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-    valueCode: trial-use
-
 parameters:
   show-inherited-invariants: false
   apply-jurisdiction: true
@@ -45,10 +39,7 @@ pages:
   guidance-on-identity-assurance.md:
     title: Guidance on Identity Assurance
   patient-matching.md:
-    title: Patient Matching
-    extension:
-          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-            valueCode: trial-use       
+    title: Patient Matching   
   digital-identity.md:
     title: Digital Identity
   use-cases.md:
