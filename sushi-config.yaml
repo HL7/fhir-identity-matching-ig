@@ -46,6 +46,9 @@ pages:
     title: Guidance on Identity Assurance
   patient-matching.md:
     title: Patient Matching
+    extension:
+          - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+            valueCode: trial-use       
   digital-identity.md:
     title: Digital Identity
   use-cases.md:
