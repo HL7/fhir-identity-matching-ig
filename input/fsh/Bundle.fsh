@@ -15,15 +15,14 @@ Description: "Bundle requirements for responders of a $IDI-match request."
 * entry ^slicing.description = "Slice different resources included in the bundle"
 * entry contains
     organization 1..1 MS and
-    patient 0..* MS
+    patient 0..* MS 
 
 * entry[organization] ^short = "Entry in the bundle - will have the payer organization and may have provider organization(s)"
 * entry[organization].resource 1..1 MS
-* entry[organization].resource only Organization
+* entry[organization].resource only USCoreOrganizationProfile
 * entry[organization].resource ^short = "Bundle entry for responding organization"
 
 * entry[patient] ^short = "Entry in the bundle - will have the patient subject of care and may be a separate subscriber"
 * entry[patient].resource 1..1 MS
-* entry[patient].resource only IDIPatient or IDIPatientL0 or IDIPatientL1
+* entry[patient].resource only USCorePatientProfile
 * entry[patient].resource ^short = "Bundle entry for matched Patient"
-

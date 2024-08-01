@@ -16,6 +16,8 @@
 <artifact id="StructureDefinition/IDI-Patient" key="StructureDefinition-IDI-Patient" name="IDI Patient"/>
 <artifact id="StructureDefinition/IDI-Patient-L0" key="StructureDefinition-IDI-Patient-L0" name="IDI Patient L0"/>
 <artifact id="StructureDefinition/IDI-Patient-L1" key="StructureDefinition-IDI-Patient-L1" name="IDI Patient L1"/>
+<artifact id="Parameters/IDIMatchInputParameters" key="Parameters-IDIMatchInputParameters" name="IDIMatchInputParameters"/>
+<artifact id="Parameters/IDIMatchOutputParameters" key="Parameters-IDIMatchOutputParameters" name="IDIMatchOutputParameters"/>
 <artifact id="CodeSystem/Identity-Identifier-cs" key="CodeSystem-Identity-Identifier-cs" name="Identity Identifier Code System"/>
 <artifact id="ValueSet/Identity-Identifier-vs" key="ValueSet-Identity-Identifier-vs" name="Identity Identifier Value Set"/>
 <artifact id="NamingSystem/Identity-HL7-Identifier" key="NamingSystem-Identity-HL7-Identifier" name="Identity-HL7-Identifier"/>
