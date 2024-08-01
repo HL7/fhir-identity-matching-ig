@@ -202,26 +202,61 @@ Usage: #example
 
 //====================================================================================================
 
+Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
 Instance: MATCHOperationResponse
 InstanceOf: IDIMatchBundle
 Description: "Example of $MATCH operation response with patient and organization"
 Usage: #example
-* meta.lastUpdated = "2024-07-18T03:28:49Z"
-* identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "urn:uuid:1eaddf4c-2ec0-4dc4-b26f-9586d7a777e9"
-* identifier.assigner = Reference(Organization/bumc-hospital)
+* meta.profile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
+* identifier.assigner = Reference(http://example.org/Organization/OrgExample)
 * type = #collection
-* entry[0].fullUrl = "https://example.com/base/Organization/bumc-hospital"
-* entry[=].resource = bumc-hospital
-* entry[+].fullUrl = "https://example.com/base/Patient/MATCHOperationResponsePatient"
-* entry[=].resource = MATCHOperationResponsePatient
 
+* entry[0].fullUrl = "https://example.com/base/Organization/OrgExample"
+* entry[=].resource = OrgExample
+* entry[+].fullUrl = "https://example.com/base/Patient/PatExample"
+* entry[=].resource = PatExample
+
+Instance: OrgExample
+InstanceOf: Organization
+Usage: #inline
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* active = true
+* type = $organization-type#pay "Payer"
+* name = "Insurance Company"
+* telecom.system = #phone
+* telecom.value = "860-547-5001"
+* telecom.use = #work
+* address.line = "688 Asylum Street"
+* address.city = "Hartford"
+* address.state = "CT"
+* address.postalCode = "06155"
+* address.country = "US"
+
+Instance: PatExample
+InstanceOf: Patient
+Usage: #inline
+* meta.lastUpdated = "2020-07-07T13:26:22.0314215+00:00"
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* language = #en-US
+* identifier.type = $v2-0203#MB
+* identifier.system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
+* identifier.value = "1234-234-1243-12345678901"
+* active = true
+* name.family = "Beegood"
+* name.given = "Johnny"
+* gender = #male
+* birthDate = "1986-05-01"
+* address.type = #physical
+* address.line = "123 Main Street"
+* address.city = "Pittsburgh"
+* address.state = "PA"
+* address.postalCode = "12519"
 
 //====================================================================================================
 
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-
 
 Instance: MATCHOperationResponsePatient
 InstanceOf: Patient
@@ -325,3 +360,35 @@ Usage: #example
 * address.city = "PleasantVille"
 * address.state = "Vic"
 * address.postalCode = "3999"
+
+//====================================================================================================
+
+Instance: IDIMatchInputParameters
+InstanceOf: Parameters
+Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
+Usage: #example
+* parameter[0].name = "exact"
+* parameter[=].valueBoolean = true
+* parameter[+].name = "property"
+* parameter[=].part[0].name = "code"
+* parameter[=].part[=].valueCode = #focus
+* parameter[=].part[+].name = "value"
+* parameter[=].part[=].valueCode = #top
+* parameter[+].name = "patient-parameter"
+* parameter[=].resource = Patient1
+
+//====================================================================================================
+
+Instance: IDIMatchOutputParameters
+InstanceOf: Parameters
+Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
+Usage: #example
+* parameter[0].name = "exact"
+* parameter[=].valueBoolean = true
+* parameter[+].name = "property"
+* parameter[=].part[0].name = "code"
+* parameter[=].part[=].valueCode = #focus
+* parameter[=].part[+].name = "value"
+* parameter[=].part[=].valueCode = #top
+* parameter[+].name = "output-parameter"
+* parameter[=].resource = MATCHOperationResponse
