@@ -2,7 +2,7 @@
 
 ## View the IG
 
-### [Current build](https://build.fhir.org/ig/HL7/fhir-identity-matching/branches/main/)
+### [Current build](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/branches/master/)
 
 ## Scope
 
