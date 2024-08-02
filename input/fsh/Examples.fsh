@@ -219,9 +219,11 @@ Usage: #example
 * entry[=].resource = PatExample
 
 Instance: OrgExample
-InstanceOf: Organization
+InstanceOf: USCoreOrganizationProfile
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization Insurance Company</b></p><a name=\"OrgExample\"> </a><p><b>name</b>: Insurance Compaany</p><p><b>address</b>: 688 Asylum Street Hartford CT 06155</p></div>"
 * active = true
 * type = $organization-type#pay "Payer"
 * name = "Insurance Company"
@@ -235,11 +237,12 @@ Usage: #inline
 * address.country = "US"
 
 Instance: PatExample
-InstanceOf: Patient
+InstanceOf: USCorePatientProfile
 Usage: #inline
 * meta.lastUpdated = "2020-07-07T13:26:22.0314215+00:00"
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* language = #en-US
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Person PatExample</b></p><a name=\"PatExample\"> </a><p><b>name</b>: Johnny Beegood (Official)</p><p><b>birthDate</b>: 1986-05-01</p><p><b>address</b>: 123 Main Street Pittsburgh PA 12519 (physical)</p></div>"
 * identifier.type = $v2-0203#MB
 * identifier.system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
 * identifier.value = "1234-234-1243-12345678901"
@@ -375,7 +378,7 @@ Usage: #example
 * parameter[=].part[+].name = "value"
 * parameter[=].part[=].valueCode = #top
 * parameter[+].name = "patient-parameter"
-* parameter[=].resource = Patient1
+* parameter[=].resource = PatExample
 
 //====================================================================================================
 
