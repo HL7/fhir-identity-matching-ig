@@ -257,89 +257,8 @@ Usage: #inline
 * address.state = "PA"
 * address.postalCode = "12519"
 
-//====================================================================================================
 
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
-Instance: MATCHOperationResponsePatient
-InstanceOf: Patient
-Usage: #inline
-* identifier.use = #usual
-* identifier.type = $v2-0203#MR
-* identifier.system = "urn:oid:1.2.36.146.595.217.0.1"
-* identifier.value = "12345"
-* identifier.period.start = "2001-05-06"
-* identifier.assigner.display = "Acme Healthcare"
-* active = true
-* name[0].use = #official
-* name[=].family = "Chalmers"
-* name[=].given[0] = "Peter"
-* name[=].given[+] = "James"
-* name[+].use = #usual
-* name[=].given = "Jim"
-* name[+].use = #maiden
-* name[=].family = "Windsor"
-* name[=].given[0] = "Peter"
-* name[=].given[+] = "James"
-* name[=].period.end = "2002"
-* telecom[0].use = #home
-* telecom[+].system = #phone
-* telecom[=].value = "(03) 5555 6473"
-* telecom[=].use = #work
-* telecom[=].rank = 1
-* telecom[+].system = #phone
-* telecom[=].value = "(03) 3410 5613"
-* telecom[=].use = #mobile
-* telecom[=].rank = 2
-* telecom[+].system = #phone
-* telecom[=].value = "(03) 5555 8834"
-* telecom[=].use = #old
-* telecom[=].period.end = "2014"
-* gender = #male
-* birthDate = "1974-12-25"
-* birthDate.extension.url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime"
-* birthDate.extension.valueDateTime = "1974-12-25T14:35:45-05:00"
-* deceasedBoolean = false
-* address.use = #home
-* address.type = #both
-* address.text = "534 Erewhon St PeasantVille, Rainbow, Vic  3999"
-* address.line = "534 Erewhon St"
-* address.city = "PleasantVille"
-* address.district = "Rainbow"
-* address.state = "Vic"
-* address.postalCode = "3999"
-* address.period.start = "1974-12-25"
-* managingOrganization = Reference(abc-hospital)
-
-//====================================================================================================
-
-Instance: bumc-hospital
-InstanceOf: Organization
-Usage: #inline
-* identifier[0].use = #official
-* identifier[=].system = "urn:oid:2.16.528.1"
-* identifier[=].value = "91654"
-* identifier[+].use = #usual
-* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
-* identifier[=].value = "17-0112278"
-* name = "Burgers University Medical Center"
-* contact[0].telecom.system = #phone
-* contact[=].telecom.value = "022-655 2300"
-* contact[=].telecom.use = #work
-* contact[+].address.use = #work
-* contact[=].address.line = "Galapagosweg 91"
-* contact[=].address.city = "Den Burg"
-* contact[=].address.postalCode = "9105 PZ"
-* contact[=].address.country = "NLD"
-* contact[+].address.use = #work
-* contact[=].address.line = "PO Box 2311"
-* contact[=].address.city = "Den Burg"
-* contact[=].address.postalCode = "9100 AA"
-* contact[=].address.country = "NLD"
-* contact[+].telecom.system = #phone
-* contact[=].telecom.value = "022-655 2334"
-* contact[+].telecom.system = #phone
-* contact[=].telecom.value = "022-655 2335"
 
 //====================================================================================================
 
@@ -366,32 +285,26 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: IDIMatchInputParameters
-InstanceOf: Parameters
+Instance: IDIMatchInputParameters-Example
+InstanceOf: IDIMatchInputParameters
 Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
 Usage: #example
-* parameter[0].name = "exact"
-* parameter[=].valueBoolean = true
-* parameter[+].name = "property"
-* parameter[=].part[0].name = "code"
-* parameter[=].part[=].valueCode = #focus
-* parameter[=].part[+].name = "value"
-* parameter[=].part[=].valueCode = #top
-* parameter[+].name = "patient-parameter"
-* parameter[=].resource = PatExample
+* parameter[0].name = "patient"
+* parameter[=].resource.resourceType = "Patient"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Example Patient</b></p><a name=\"ExamplePatient\"> </a><p><b>name</b>: ExamplePatient</p><p><b>address</b>: Peter Chalmers</p></div>"
+* parameter[=].resource.id = "ExamplePatient"
+* parameter[=].resource.name.use = #official
+* parameter[=].resource.name.family = "Chalmers"
+* parameter[=].resource.name.given[0] = "Peter"
+* parameter[=].resource.name.given[+] = "James"
+
 
 //====================================================================================================
 
-Instance: IDIMatchOutputParameters
-InstanceOf: Parameters
+Instance: IDIMatchOutputParameters-Example
+InstanceOf: IDIMatchOutputParameters
 Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
 Usage: #example
-* parameter[0].name = "exact"
-* parameter[=].valueBoolean = true
-* parameter[+].name = "property"
-* parameter[=].part[0].name = "code"
-* parameter[=].part[=].valueCode = #focus
-* parameter[=].part[+].name = "value"
-* parameter[=].part[=].valueCode = #top
-* parameter[+].name = "output-parameter"
+* parameter[0].name = "bundle"
 * parameter[=].resource = MATCHOperationResponse

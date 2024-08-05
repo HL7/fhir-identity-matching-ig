@@ -31,6 +31,6 @@ Description:    "The Parameters profile used to define the outputs of the $IDI-m
 * parameter 1..1 MS
 * parameter contains 
 	  IDIMatchBundle 1..1 MS
-* parameter[IDIMatchBundle].name = "coverage"
+* parameter[IDIMatchBundle].name = "bundle"
 * parameter[IDIMatchBundle].resource 1..1 MS
 * parameter[IDIMatchBundle].resource only idi-match-bundle
