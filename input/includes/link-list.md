@@ -14,6 +14,7 @@
 [Multiple Digital Identity Patient Example]: StructureDefinition-Multiple-Digital-Identity-Patient-Example.html
 [$IDI-match]: StructureDefinition-idi-match-bundle.html
 [Person Resource Profile for FAST ID]: StructureDefinition-FASTIDPerson.html
+[NIST 800-63]: https://pages.nist.gov/800-63-3/
 
 [Patient-Directed B2C Diagram]: patient-directed-b2c.png
 {:style="float: none;"}
