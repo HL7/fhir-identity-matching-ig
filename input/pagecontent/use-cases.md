@@ -14,7 +14,7 @@ Workflow:
 4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to this guidance and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance
 5.	Consider Digital Identity Creation, including generating an identifier and binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
-Outcome: The individual has been successfully verified
+Outcome: The individual's identity has been successfully verified.
 
 #### Match Workflow
 
