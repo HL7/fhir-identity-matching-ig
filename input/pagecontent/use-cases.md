@@ -32,8 +32,7 @@ Workflow:
 3.	The receiving system intakes the match request and runs their own matching algorithm against the database of identities they manage to determine if there are one or more matches.
 4.	The receiving system replies to the requesting system with the relevant Patient resource(s) in a FHIR Bundle.
 
-Outcome: Requesting system has obtained a valid FHIR Bundle containing either a matched FHIR Patient resource or resources or received a “No Match Found” response if the receiving system was unable to complete the request.
-
+Outcome: Requesting system has obtained a valid FHIR Bundle containing either matched FHIR Patient resource(s) or a “No Match Found” response if the receiving system was unable to locate any matching Patient resources.
 
 #### Digital Identity Creation
 Actors: patient (or authorized representative), Identity Provider
