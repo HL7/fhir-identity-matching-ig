@@ -8,10 +8,10 @@ Pre-Conditions: The individual is not known by an organization at the required l
 
 Workflow:
 
-1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a HIPAA Covered Entity engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with HIPAA Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with anyone who is not a HIPAA Covered Entity
+1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a HIPAA Covered Entity engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with HIPAA Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with anyone who is not a HIPAA Covered Entity).
 2.	Gather sufficient evidence to verify the identity of the individual.
 3.	Confirm that the provided evidence is genuine and accurate by validating the authenticity of identity documents using trusted sources or databases and information on the evidence.
-4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to [this guidance](guidance-on-identity-assurance.html#best-practices-for-identity-verification) and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance
+4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to [this guidance](guidance-on-identity-assurance.html#best-practices-for-identity-verification) and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance.
 5.	Consider Digital Identity Creation, including generating an identifier and binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
 Outcome: The individual's identity has been successfully verified.
@@ -21,9 +21,9 @@ Outcome: The individual's identity has been successfully verified.
 Pre-conditions:
 
 - Requesting system can generate a FHIR Patient resource conformant to one of the IDI profiles (Base, L0, L1) established in this guide.
-- Requesting and receiving systems are capable of communication via FHIR API
-- Requester, either a human or a system, is authenticated and authorized to perform the action
-- Receiving system can run both weighting and scoring processes found on the [Patient Matching] page
+- Requesting and receiving systems are capable of communication via FHIR API.
+- Requester, either a human or a system, is authenticated and authorized to perform the action.
+- Receiving system can run both weighting and scoring processes found on the [Patient Matching](patient-matching.html) page.
 
 Workflow:
 
@@ -39,7 +39,7 @@ Actors: patient (or authorized representative), Identity Provider
 
 Workflow:
 
-1.	Individual completes an IAL1.8 or greater identity verification process per Identity Proofing workflow
+1.	Individual completes an IAL1.8 or greater identity verification process per Identity Proofing workflow.
 2.	The Identity Provider generates and binds a Digital Identifier to an OpenID Connect credential with AAL2 authentication assurance. 
 3.	The resultant Digital Identifier can then be associated with the individual in that organization's system and shared, when authorized, with other systems able to validate an Identity Provider assertion and successfully perform a Consumer Match.
 
@@ -51,17 +51,17 @@ Workflow:
 
 Actors: Authorized Representative (User) OR Patient, Patient Chosen App, Authorization Server, FHIR Server, Identity Provider
 
-Description: Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication to authenticate the user.)
+Description: Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication) to authenticate the user.
 
 Pre-Conditions:
-- The patient (and user) has been registered and verified by a physician’s office (or other provider)
-- The patient (and user) is known by the Identity Provider
-- The Identity Provider is trusted by the physician’s office (if a third party is used)
+- The patient (and user) has been registered and verified by a physician’s office (or other provider).
+- The patient (and user) is known by the Identity Provider.
+- The Identity Provider is trusted by the physician’s office (if a third party is used).
 
 Workflow:
-1.	A user wishes to access their accessible health information through an app of their choice
-2.	User authorizes data flow to their chosen app
-3.	User authenticates with credentials issued by the practice OR the user is prompted to log into the physician’s data source through the authentication process of a different Identity Provider’s compliant Digital Identity (in either case following SMART, etc. as usual)
+1.	A user wishes to access their accessible health information through an app of their choice.
+2.	User authorizes data flow to their chosen app.
+3.	User authenticates with credentials issued by the practice OR the user is prompted to log into the physician’s data source through the authentication process of a different Identity Provider’s compliant Digital Identity (in either case following SMART, etc. as usual).
 4.	User completes necessary prompts, creating a credential with the identity Provider if it did not exist or resetting the credential if needed.
 5.	If a trusted, third-party Identity Provider is being used, the usual requirements for a Consumer Match exist and the responder must match the Digital Identifier asserted by the Identity Provider, or another combination of demographics with input weight score of 10 or greater consistent with this guidance, against the identities of individuals they manage. 
 
@@ -83,7 +83,7 @@ Description: A patient or their authorized representative authorizes access to t
 
 Workflow:
 1.	Digital Identity Creation is performed by the PHR App for the individual. In addition or instead, the individual may use a Digital Identity managed by a trusted Identity Provider to authenticate themselves to the PHR App.   
-2.	When the individual attempts to authorize User's ccess to the patient’s health data, they do so using SMART App Launch, including an explicit authorization, and either a Digital Identity managed by a trusted Identity Provider or credentials of equivalent identity and authentication assurance managed by the PHR App itself 
+2.	When the individual attempts to authorize User's access to the patient’s health data, they do so using SMART App Launch, including an explicit authorization, and either a Digital Identity managed by a trusted Identity Provider or credentials of equivalent identity and authentication assurance managed by the PHR App itself.
 3.	Whether the PHR App's own or a trusted, third-party Identity Provider’s assertions are used to authenticate the individual, the requirements for a Consumer Match apply and the responding PHR App matches either the Digital Identifier or a combination of demographics with input weight score of 10 or greater, consistent with this guidance, against the identities they manage. If a successful Consumer Match is found, the PHR App may provision a credential, reset an authenticator, or know which individual is being authenticated when relying on a trusted Identity Provider.
 4.	If an appropriate individual was authenticated and consents to information sharing, health data can be returned to the User.
 
@@ -97,7 +97,7 @@ Workflow:
 
 #### Patient-Directed B2C Using Digital Identity
 
-Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of View, download, and transmit to 3rd party).
+Description: This is a special case of Patient-Directed exchange in which a third-party Identity Provider is used. The use case involves health data access such as in TEFCA Individual Access Services, but could also be used in different cases where patient authentication is required, such as consent management or request for restrictions (part of view, download, and transmit to 3rd party).
 
 Actors: Patient or Authorized Representative, Third-Party requester (for example, Insurance Company), Healthcare Organization, Identity Provider
 
@@ -122,7 +122,7 @@ Workflow:
 3.	The identity of the user is evaluated by the Authorization Server against their database of patients and authorized representatives to determine, if a Consumer Match exists, which patients’ data this individual may access. 
 4.	When authentication is complete, the application creates a match request with the demographics available for the patient in the query, again meeting Consumer Match requirements--match input weight score of 10 or greater, IAL1.8 and L1.
 5.	The responder will undergo a weighting adjudication to determine the strength of the match request.
-6.	If sufficient, the responder will then run a match against their patient database
+6.	If sufficient, the responder will then run a match against their patient database.
 7.	If a Consumer Match on the patient results, the resultant Patient resource will be returned in a FHIR Bundle
 
 <div>
@@ -144,9 +144,9 @@ Note: The workflow between these use cases is similar, except for the purpose of
 -	a covered entity with an exchange purpose of treatment, healthcare payment, or healthcare operations
 -	a covered entity with an exchange purpose of eligibility determination
 
-Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point to point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services.
+Examples of B2B exchange relevant to this IG include record location and other patient matching use cases for queries and messaging enabled for trusted organizations by community or point-to-point access. Relevant B2B exchanges also include TEFCA Facilitated FHIR, TEFCA Brokered FHIR, TEFCA Broadcast Query, TEFCA Targeted Query, TEFCA Message Delivery, TEFCA Population-Level Data Exchange, and associated patient discovery and matching services.
 
-Pre-conditions: The requester and the responder have established trust and are able to exchange information. Requester and Responder have patient demographics for use in matching that were verified at IAL1.5 or higher. requester has sufficient verified demographics (input weight score of 9 or greater).
+Pre-conditions: The requester and the responder have established trust and are able to exchange information. Requester and Responder have patient demographics for use in matching that were verified at IAL1.5 or higher. Requester has sufficient verified demographics (input weight score of 9 or greater).
 
 Workflow:
 1.	The requesting system authenticates itself to the responding system via UDAP B2B Authentication and Authorization steps.
