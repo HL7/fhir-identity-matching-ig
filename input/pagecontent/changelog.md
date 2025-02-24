@@ -7,6 +7,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49853](https://jira.hl7.org/browse/FHIR-49853)|No changelog page for Digital Identity and Patient Matching IG|
 |[FHIR-39349](https://jira.hl7.org/browse/FHIR-39349)|We omit a method for verifying mobile number|
 |[FHIR-40548](https://jira.hl7.org/browse/FHIR-40548)|Update to OpenID section to include responses|
+|[FHIR-47699](https://jira.hl7.org/browse/FHIR-47699)|Update "Notice" to "Notification" in IG|
 
 <style>
 table, th, td 

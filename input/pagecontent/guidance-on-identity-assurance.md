@@ -71,7 +71,7 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
   - US state- or nationally-issued photo ID confirmed by comparison to individual   
   - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity   
   - Verify the individual's physical residential Address of Record 
-  - Send a notice of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by this notice.
+  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by this notification.
 {:.bg-info}
 
 ​    
@@ -82,7 +82,7 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
       - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual 
   - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
   - Verify the individual's physical residential Address of Record 
-  - Notice, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
+  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
 
 ​    
 
@@ -91,7 +91,7 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
   - One Strong plus two Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR one Superior/Very Strong piece of evidence (for example: Government-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual.  
   - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
   - Verify the individual's physical residential Address of Record. 
-  - Notice, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual. 
+  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual. 
 {:.bg-info}
 
 ​     
