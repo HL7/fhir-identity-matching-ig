@@ -55,7 +55,8 @@ pages:
   downloads.md:
   glossary.md:
     title: Glossary
-
+  changelog.md:
+    title: Change Log
 
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │  To control the menu.xml using this config, uncomment and set the "menu" property.             │
@@ -71,5 +72,6 @@ menu:
     Industry Initiatives: industry-initiatives.html
     Downloads: downloads.html
   Glossary: glossary.html
+  Change Log: changelog.html
 
   
