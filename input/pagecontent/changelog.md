@@ -8,6 +8,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-39349](https://jira.hl7.org/browse/FHIR-39349)|We omit a method for verifying mobile number|
 |[FHIR-40548](https://jira.hl7.org/browse/FHIR-40548)|Update to OpenID section to include responses|
 |[FHIR-47699](https://jira.hl7.org/browse/FHIR-47699)|Update "Notice" to "Notification" in IG|
+|[FHIR-47698](https://jira.hl7.org/browse/FHIR-47698)|Additional strong/fair evidence format updates|
 
 <style>
 table, th, td 
