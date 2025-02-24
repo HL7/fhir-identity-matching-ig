@@ -12,7 +12,7 @@ This section is an ongoing compilation of industry-wide (including international
 
 [ECRI Health IT Safe Practices: Toolkit for the Safe Use of Health IT for Patient Identification](https://www.ecri.org/Resources/HIT/Patient%20ID/Patient_Identification_Toolkit_final.pdf)
 
-[Finland](https://vm.fi/en/digital-identity) and Germany Self-sovereign Identity-based Collaboration in the EU
+[Finland](https://oikeusministerio.fi/en/-/10623/finland-and-germany-intensify-cooperation-to-promote-digital-identification) and Germany Self-sovereign Identity-based Collaboration in the EU
 
 [Global Assured Identity Network (GAIN)](https://gainforum.org/)
 
