@@ -97,17 +97,17 @@ IAL1.5 identity verification is the lowest level of identity assurance that can 
 ​     
 
 **Additional Examples of Strong Evidence:** 
-(1) US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
+1. US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
 
 **Additional Examples of Fair Evidence:** 
-(1) Other ID card including a photograph and issued by a federal, state, or local government agency or entity 
-(2) A copy of a utility bill (gas, electric, water, cable TV, or internet, etc.) indicating the individual's name and home address 
-(3) A mobile phone number billed to individual (a copy of the bill is one way to verify this)  
-(4) An individual National Provider Identifier (NPI) in individual's name (if they are a provider) 
-(5) A bank or credit card statement from a US-based financial institution indicating the individual's name and home address 
-(6) A state medical license (if they are a provider) 
-(7) Original or certified copy of birth certificate 
-(8) US Social Security Card 
+1. Other ID card including a photograph and issued by a federal, state, or local government agency or entity
+2. A copy of a utility bill (gas, electric, water, cable TV, or internet, etc.) indicating the individual's name and home address
+3. A mobile phone number billed to individual (a copy of the bill is one way to verify this)
+4. An individual National Provider Identifier (NPI) in individual's name (if they are a provider)
+5. A bank or credit card statement from a US-based financial institution indicating the individual's name and home address
+6. A state medical license (if they are a provider)
+7. Original or certified copy of birth certificate
+8. US Social Security Card
 
 In healthcare settings, additional demographics may also be collected and used in matching (for example, ethnicity, administrative gender, and sex assigned at birth). Refer to the Patient Matching section for any additional verification steps or assertions that may be required before including such attributes in a match request, or using them to process such a request on the responder's side.  
 
