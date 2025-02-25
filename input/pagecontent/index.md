@@ -85,6 +85,7 @@ table, th, td
 |   | Catherine Schulten | Walmart | 
 |   | Ryan Howells | Leavitt Partners | 
 |   | Rita Torkzadeh | Independent Consultant | 
+|   | Ari Kermaier | Oracle |
 
 &emsp;&emsp;   
 This IG was made possible by the thoughtful contributions and feedback of the following additional people and organizations: 
