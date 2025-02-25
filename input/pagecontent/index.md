@@ -72,14 +72,14 @@ table, th, td
   padding: 2px 
 } 
 </style> 
-|  |    |    | 
-| <u><b>Primary Authors:</b></u>&emsp; |Julie Maas  | EMR Direct        | 
-|   |Carmen Smiley  | HRSA        | 
-|   |Humberto Lee  | Lantana Consulting Group 
-|   |Aaron Nusstein  | Lantana Consulting Group 
-|   |Jeff Brown  | Lantana Consulting Group 
-|   |         |  | 
-| <u><b>Contributors:</b></u>&emsp;  |Paul Vaughan  | Optum        | 
+|   |   |   | 
+| <u><b>Primary Authors:</b></u>&emsp; |Julie Maas | EMR Direct | 
+|   | Carmen Smiley | HRSA | 
+|   | Humberto Lee | Lantana Consulting Group | 
+|   | Aaron Nusstein | Lantana Consulting Group | 
+|   | Jeff Brown | Lantana Consulting Group |  | 
+|   |   |   | 
+| <u><b>Contributors:</b></u>&emsp; | Paul Vaughan | Optum | 
 |   | Vijey Kris Sridharan | United Healthcare | 
 |   | Jim St. Clair | MyLigo | 
 |   | Catherine Schulten | Walmart | 
