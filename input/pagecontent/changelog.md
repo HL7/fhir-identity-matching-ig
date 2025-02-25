@@ -9,6 +9,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-40548](https://jira.hl7.org/browse/FHIR-40548)|Update to OpenID section to include responses|
 |[FHIR-47699](https://jira.hl7.org/browse/FHIR-47699)|Update "Notice" to "Notification" in IG|
 |[FHIR-47698](https://jira.hl7.org/browse/FHIR-47698)|Additional strong/fair evidence format updates|
+|[FHIR-47554](https://jira.hl7.org/browse/FHIR-47554)|Update credits list|
 
 <style>
 table, th, td 

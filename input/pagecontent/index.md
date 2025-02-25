@@ -74,7 +74,8 @@ table, th, td
 </style> 
 |  |    |    | 
 | <u><b>Primary Authors:</b></u>&emsp; |Julie Maas  | EMR Direct        | 
-|   |Carmen Smiley  | ONC        | 
+|   |Carmen Smiley  | HRSA        | 
+|   |Humberto Lee  | Lantana Consulting Group 
 |   |Aaron Nusstein  | Lantana Consulting Group 
 |   |Jeff Brown  | Lantana Consulting Group 
 |   |         |  | 
