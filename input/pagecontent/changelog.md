@@ -17,6 +17,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48027](https://jira.hl7.org/browse/48027)|Clarify levels lacking explicit photo ID comparison requirement|
 |[FHIR-48287](https://jira.hl7.org/browse/48287)|Reorder language around note in 2.2 and clarify separate IdP systems|
 |[FHIR-48033](https://jira.hl7.org/browse/48033)|Improve precision of wording in 5.1.1 Identity Proofing Workflow|
+|[FHIR-47663](https://jira.hl7.org/browse/47663)|Create additional example demonstrating incomplete information and weighted match input score too low|
 
 <style>
 table, th, td 
