@@ -73,7 +73,7 @@ Additionally, the following **SHALL** also be required for Enterprise Identifier
 - Capble of being stored as an identifier along with its assigner in FHIR Patient resource and therefore used in matching or other transactions  
 - Identifiers with date issued, expiration date, or other validity period will contain this metadata when available. 
 
-Assigners **SHOULD** avoid the letters I and O in identifiers, as they are difficult to differentiate from numbers 1 and 0. 
+Enterprise Identifiers SHOULD be restricted to combinations of uppercase letters and numbers to reduce manual transcription errors.  Assigners **SHOULD** avoid the letters I and O in identifiers, as they are difficult to differentiate from numbers 1 and 0. 
 
 &emsp;&emsp;   
 
