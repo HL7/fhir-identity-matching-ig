@@ -121,10 +121,8 @@ Usage: #example
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "3902-16532901"
 * identifier[0].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
-* identifier[0].assigner[0].display[0] = ""
 
 * name[0].family = "Case"
-* name[0].given[0] = ""
 
 * telecom[0].system = #phone
 * telecom[0].value = "726-555-2900"
@@ -136,9 +134,6 @@ Usage: #example
 
 * address[0].type = #physical
 * address[0].line[0] = "418 Teapot Lane"
-* address[0].city = ""
-* address[0].state = ""
-* address[0].postalCode = ""
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
 
