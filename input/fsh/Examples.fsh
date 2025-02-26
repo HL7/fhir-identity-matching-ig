@@ -1,6 +1,6 @@
 Instance: Patient1
 InstanceOf: IDIPatient
-Description: "Example of Patient used as input to $match operation"
+Description: "Example of Patient used as input to $IDI-match operation"
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient)
@@ -37,7 +37,7 @@ Usage: #example
 
 Instance: Patient-L0
 InstanceOf: IDIPatientL0
-Description: "Example of Patient used as input to $match operation meeting Level 0 information conformance"
+Description: "Example of Patient used as input to $IDI-match operation meeting Level 0 information conformance"
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L0)
@@ -70,7 +70,7 @@ Usage: #example
 
 Instance: Patient-L1
 InstanceOf: IDIPatientL1
-Description: "Example of Patient used as input to $match operation meeting Level 1 information conformance"
+Description: "Example of Patient used as input to $IDI-match operation meeting Level 1 information conformance"
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L1)
@@ -101,6 +101,44 @@ Usage: #example
 * address[0].city = "Raleigh"
 * address[0].state = "NC"
 * address[0].postalCode = "27513"
+
+* maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
+
+//====================================================================================================
+
+Instance: Patient-INCOMPLETE
+InstanceOf: IDIPatientL1
+Description: "Example of Patient used as input to $IDI-match operation but NOT meeting Level 0 OR 1 information conformance; due to partial street address, missing DL assigner, and missing first name, this example incorrectly asserts L1 and would have a match input score of only 6, amounting to insufficient data for even a B2B match"
+Usage: #example
+
+* meta.profile = Canonical(IDI-Patient-L1)
+* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
+* language = #en-US
+* id = "ExamplePatientINCOMPLETE"
+* active = true
+
+* identifier[0].type.coding.code = #DL
+* identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[0].value = "3902-16532901"
+* identifier[0].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
+* identifier[0].assigner[0].display[0] = ""
+
+* name[0].family = "Case"
+* name[0].given[0] = ""
+
+* telecom[0].system = #phone
+* telecom[0].value = "726-555-2900"
+* telecom[0].use = #mobile 
+
+* gender = #female
+
+* birthDate = "1992-05-17"
+
+* address[0].type = #physical
+* address[0].line[0] = "418 Teapot Lane"
+* address[0].city = ""
+* address[0].state = ""
+* address[0].postalCode = ""
 
 * maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
 
@@ -207,7 +245,7 @@ Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
 Instance: MATCHOperationResponse
 InstanceOf: IDIMatchBundle
-Description: "Example of $MATCH operation response with patient and organization"
+Description: "Example of $IDI-match operation response with patient and organization"
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
 * identifier.assigner = Reference(http://example.org/Organization/OrgExample)
