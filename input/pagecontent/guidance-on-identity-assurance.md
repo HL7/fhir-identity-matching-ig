@@ -83,6 +83,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >
 > **Additional Examples of Strong Evidence:**
 >1. US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
+>   
 > **Additional Examples of Fair Evidence:**
 >
 >1. Other ID card including a photograph and issued by a federal, state, or local government agency or entity
