@@ -2,7 +2,7 @@ Profile: IDIMatchBundle
 Parent: Bundle
 Id: idi-match-bundle
 Title: "IDI Match Bundle"
-Description: "Bundle requirements for responders of a $IDI-match request."
+Description: "Bundle requirements for responders to an $IDI-match request. Responders SHALL include only absolute URL FHIR server addresses, and SHALL NOT include URIs for UUIDs or OIDs, in the fulLURL returned. This additional constraint on a response to $IDI-match is intended to help recipients understand the source of the response, particularly when a patient match is invoked as part of record location--such that the URL would be needed for additional health data requests performed subsequent to matching."
 
 * identifier 1..1 MS
 * identifier.assigner 1..1 MS
