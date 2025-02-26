@@ -1,5 +1,7 @@
 This section provides a detailed description on identity workflows outlined in this IG. We have divided these workflows into two groups: Core Identity workflows and Use Case workflows. 
 
+Although some use cases focus on scenarios where the Identity Provider is unrelated to the FHIR client or server, it is true in every one of these use cases that the Identity Provider role can be performed by an organziation or system that is distinct from that of the client, FHIR server and Authorization Server common to these transactions.
+
 ### Core Identity Workflows
 
 #### Identity Proofing Workflow
@@ -51,7 +53,7 @@ Workflow:
 
 Actors: Authorized Representative (User) OR Patient, Patient Chosen App, Authorization Server, FHIR Server, Identity Provider
 
-Description: Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication) to authenticate the user.
+Description: Patient or their authorized representative authorizes a third-party application to access patient’s data as in the SMART App Launch workflow (or equivalent) using their credentials at the data holder organization or other trusted credentials from a third-party Identity Provider (for example, as in Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication) to authenticate the user. 
 
 Pre-Conditions:
 - The patient (and user) has been registered and verified by a physician’s office (or other provider).
