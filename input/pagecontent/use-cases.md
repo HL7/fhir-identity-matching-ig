@@ -13,7 +13,7 @@ Workflow:
 1.	Establish the level of assurance required based on risk assessment and the sensitivity of the resources being accessed. (IAL2 if this individual is a HIPAA Covered Entity engaging in B2B transactions, IAL1.5 if the individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with HIPAA Covered Entity organizations, or IAL1.8 if this individual is a patient or authorized representative of a patient whose demographics will be matched for sharing with anyone who is not a HIPAA Covered Entity).
 2.	Gather sufficient evidence to verify the identity of the individual.
 3.	Confirm that the provided evidence is genuine and accurate by validating the authenticity of identity documents using trusted sources or databases and information on the evidence.
-4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to [this guidance](guidance-on-identity-assurance.html#best-practices-for-identity-verification) and [NIST 800-63] Digital Identity Guidelines, and the intended level of assurance.
+4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to [this guidance](guidance-on-identity-assurance.html#best-practices-for-identity-verification) and [NIST 800-63](https://pages.nist.gov/800-63-3/) Digital Identity Guidelines, and the intended level of assurance
 5.	Consider Digital Identity Creation, including generating an identifier and binding the identity to a credential, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
 Outcome: The individual's identity has been successfully verified.
