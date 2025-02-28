@@ -23,9 +23,9 @@ Outcome: The individual's identity has been successfully verified.
 Pre-conditions:
 
 - Requesting system can generate a FHIR Patient resource conformant to one of the IDI profiles (Base, L0, L1) established in this guide.
-- Requesting and receiving systems are capable of communication via FHIR API.
-- Requester, either a human or a system, is authenticated and authorized to perform the action.
-- Receiving system can run both weighting and scoring processes found on the [Patient Matching](patient-matching.html) page.
+- Requesting and receiving systems are capable of communication via FHIR API
+- Requester, either a human or a system, is authenticated and authorized to perform the action
+- Receiving system is able to run both weighting and scoring processes found on the [Patient Matching] page
 
 Workflow:
 
