@@ -24,6 +24,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48049](https://jira.hl7.org/browse/FHIR-48049)|Clarify rationale for avoiding I and O in enterprise identifiers|
 |[FHIR-48034](https://jira.hl7.org/browse/FHIR-48034)|Clarify match workflow pre-conditions 5.1.2|
 |[FHIR-48035](https://jira.hl7.org/browse/FHIR-48035)|Clarify natch workflow outcome in 5.1.2|
+|[FHIR-48050](https://jira.hl7.org/browse/FHIR-48050)|Added links to supporting guidance in 5.1.1, paragraph 4|
 
 <style>
 table, th, td 
