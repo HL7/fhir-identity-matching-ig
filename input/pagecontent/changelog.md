@@ -22,7 +22,8 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-47663](https://jira.hl7.org/browse/FHIR-47663)|Create additional example demonstrating incomplete information and weighted match input score too low|
 |[FHIR-48045](https://jira.hl7.org/browse/FHIR-48045)|Clarify authoritative source used|
 |[FHIR-48049](https://jira.hl7.org/browse/FHIR-48049)|Clarify rationale for avoiding I and O in enterprise identifiers|
-|[FHIR-48034](https://jira.hl7.org/browse/FHIR-48034)|Clarify match workflow pre-conditions|
+|[FHIR-48034](https://jira.hl7.org/browse/FHIR-48034)|Clarify match workflow pre-conditions 5.1.2|
+|[FHIR-48035](https://jira.hl7.org/browse/FHIR-48035)|Clarify natch workflow outcome in 5.1.2|
 
 <style>
 table, th, td 
