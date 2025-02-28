@@ -20,11 +20,12 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48287](https://jira.hl7.org/browse/FHIR-48287)|Reorder language around note in 2.2 and clarify separate IdP systems|
 |[FHIR-48033](https://jira.hl7.org/browse/FHIR-48033)|Improve precision of wording in 5.1.1 Identity Proofing Workflow|
 |[FHIR-47663](https://jira.hl7.org/browse/FHIR-47663)|Create additional example demonstrating incomplete information and weighted match input score too low|
-|[FHIR-48045](https://jira.hl7.org/browse/FHIR-48045)|Clarify authoritative source used|
+|[FHIR-48045](https://jira.hl7.org/browse/FHIR-48045)|Add link to verified attributes in glossary, correction to clarify IAL1.8 for internal consistency with Consumer Match section|
 |[FHIR-48049](https://jira.hl7.org/browse/FHIR-48049)|Clarify rationale for avoiding I and O in enterprise identifiers|
 |[FHIR-48034](https://jira.hl7.org/browse/FHIR-48034)|Clarify match workflow pre-conditions 5.1.2|
 |[FHIR-48035](https://jira.hl7.org/browse/FHIR-48035)|Clarify natch workflow outcome in 5.1.2|
 |[FHIR-48050](https://jira.hl7.org/browse/FHIR-48050)|Added links to supporting guidance in 5.1.1, paragraph 4|
+|[FHIR-48051](https://jira.hl7.org/browse/FHIR-48051)|Added verified attribute details to Glossary|
 
 <style>
 table, th, td 
