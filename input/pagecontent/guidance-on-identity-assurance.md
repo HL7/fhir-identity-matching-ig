@@ -41,7 +41,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 >      
 > **IAL1.2** requirements: 
->  - An unspecified ID was used to verify name and birth date.
+>  - An unspecified identity evidence was used to verify name and birth date.
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.  
 >    
 > **IAL1.4** requirements:
