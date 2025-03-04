@@ -27,6 +27,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48050](https://jira.hl7.org/browse/FHIR-48050)|Added links to supporting guidance in 5.1.1, paragraph 4|
 |[FHIR-48051](https://jira.hl7.org/browse/FHIR-48051)|Added verified attribute details to Glossary|
 |[FHIR-47044](https://jira.hl7.org/browse/FHIR-47044)|Clafiry mDL guidance in Identity Assurance page|
+|[FHIR-48026](https://jira.hl7.org/browse/FHIR-48026)|Use terms defined in cited NIST publications for added precision|
 
 <style>
 table, th, td 
