@@ -49,15 +49,13 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 >    
 > **IAL1.5** requirements:
->  - Two of the following were used to verify first name, last name, date of birth, and home street address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/digital-identity.html#requirements-for-digital-identifiers); 2) insurance card; 3) medical record.
->  - PLUS if claimed address cannot be verified using those two pieces of evidence along with credit bureau type records:
-    ​    verify the individual's control of an email address **OR** Fair or stronger evidence confirms the email address belongs to the individual 
-    ​	      **OR**
-    ​    verify the individual's control of a mobile number **OR** Fair or stronger evidence confirms the mobile number belongs to the individual
-    ​	      **OR**
-    ​    verify an Individual Profile Photo previously associated with the identity 
->  - In cases when an Identity Provider is unable to verify their control of either a mobile phone number or an email address that an individual claims to be associated with their identity, identity assurance does not meet IAL1.5
->  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity 
+>  - Two of the following were used to verify first name, last name, date of birth, and home street address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals); 2) medical record number (and the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual).
+>  - If the claimed home street address cannot be verified using the presented two pieces of evidence, in conjunction with credit bureau type records, then at least one of the following SHALL be performed: 
+>      - Verify that Fair or stronger evidence confirms the individual's ownership of an email address. 
+>      - Verify that Fair or stronger evidence confirms the individual's ownership of a mobile number.
+>      - Verify an Individual Profile Photo previously associated with the claimed identity.
+>  -  Verify the individual's control of either a mobile phone number or an email address that the individual claims to be associated with their identity.  
+>  -  Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity.
 >
 >> IAL1.5 identity verification is the lowest level of identity assurance that can establish a unique human identity that exists in the real world. IAL1.5 is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system (2). Although this level of identity verification may be relevant to prevent duplicates in medical record systems and has a role in verifying demographic information used in patient matching between HIPAA Covered Entities, the lack of in-person or virtual match of an individual to a photo on identity evidence at this level or lower, or of their control of an authenticator associated with evidence or Digital Identity, generally does not provide high confidence in the identity of the individual.
 >
