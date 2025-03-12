@@ -323,18 +323,19 @@ Future versions of this IG will include language about additional considerations
 &emsp;&emsp;   
 
 ### Attribute Examples
-The table below provides detailed guidance on what data to use in evaluating match input and output, when attribute values are described with FHIR code systems. These per-field matches directly influence the scoring rubrics outlined in the this IG.
+The table below provides guidance that can be used to determine whether attributes from a requestor or responder are applicable to requirements of this IG, for example, as may be designated using FHIR code systems. These attribute types and per-field matches directly influence the scoring rubrics outlined in the this IG.
 
-During testing, implementers may need to compare the values in a requestor's Patient resource (or other match input attributes) with those in responder's system to evaluate whether the specific conditions for [match output scoring](patient-matching.html#scoring-matches--responders-system-match-output-quality-score) and [match input weight](patient-matching.html#patient-weighted-input-information) are met. 
+Implementers evaluate the information in a requestor's Patient resource (or other match input attributes) and/or in responder's system to determine whether the specific conditions for [match output scoring](patient-matching.html#scoring-matches--responders-system-match-output-quality-score) or [match input weight](patient-matching.html#patient-weighted-input-information) are met. This table is not intended to constitute a complete list; some additional attributes can be found in the [artifacts](artifacts.html) section of this IG.
 
 | **Attribute** | **FHIR Representation** |
 | :----------: | ---------------------------- |
 | MRN | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'MR' |
-| MPI | Patient.identifier.system == 'http://hl7.org/fhir/sid/us-npi' |
-| Known Digital Identifier | ??? |
-| Driver's License Number and Issuing US State | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'DL' and both identifiers have the same Patient.identifier.system, which would specify the Issuing US State, e.g. urn:oid:2.16.840.1.113883.4.3.12 ([more information in Identifier Registry](https://hl7.org/fhir/R4/identifier-registry.html)) |
-| Passport Number and Issuing Country | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'PPN' AND both identifiers have the same Patient.identifier.system, which would specify the Issuing Country, e.g. http://hl7.org/fhir/sid/passport-AUS, from [External Identifier System](https://terminology.hl7.org/identifiers.html) |
-| SSN (last 4) | ??? |
+| MBI | Patient.identifier.system == 'http://hl7.org/fhir/sid/us-mbi' |
+| Digital Identifier (HL7Identifier) | Patient.identifier.system == 'http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier' |
+| Driver's License Number and Issuing US State | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'DL' and both identifiers have the same Patient.identifier.system, which specifies the Issuing US State, e.g. urn:oid:2.16.840.1.113883.4.3.12 ([more information in Identifier Registry](https://hl7.org/fhir/R4/identifier-registry.html)) |
+| Other State ID and Issuing US State | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'STID' |
+| Passport Number and Issuing Country | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'PPN' AND both identifiers have the same Patient.identifier.system, which specifies the Issuing Country, e.g. http://hl7.org/fhir/sid/passport-USA, from [External Identifier System](https://terminology.hl7.org/identifiers.html) |
+| SSN (last 4) | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'SSN4' OR the final four digits of a value with type Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'SS' |
 
 &emsp;&emsp;   
 
