@@ -322,6 +322,27 @@ Future versions of this IG will include language about additional considerations
 
 &emsp;&emsp;   
 
+### Attribute Applicability
+The table below provides guidance to assist in determining whether attributes from a requestor or responder are applicable to requirements of this IG, for example, as may be designated using FHIR code systems. These attribute types and per-field matches directly influence the scoring rubrics outlined in this IG.
+
+Responders evaluate the information in a requestor's Patient resource (or other match input attributes) and/or in responder's system to determine whether the specific conditions for [match output scoring](patient-matching.html#scoring-matches--responders-system-match-output-quality-score) or [match input weight](patient-matching.html#patient-weighted-input-information) are met. This table is not intended to constitute a complete or exclusive list, for example, a responder may understand a given identifier.system as an MRN, even if the identifier does not have a type of 'MR'.
+
+| **Attribute** | **FHIR Representation** |
+| :----------: | ---------------------------- |
+| MRN | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'MR' AND both identifiers have the same Patient.identifier.system |
+| MBI | Patient.identifier.system == 'http://hl7.org/fhir/sid/us-mbi' |
+| Digital Identifier (HL7Identifier) | Patient.identifier.system == 'http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier' |
+| Driver's License Number and Issuing US State | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'DL' and both identifiers have the same Patient.identifier.system, which specifies the Issuing US State, e.g. urn:oid:2.16.840.1.113883.4.3.12 ([more information in Identifier Registry](https://hl7.org/fhir/R4/identifier-registry.html)) |
+| Other State ID and Issuing US State | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'STID'  AND both identifiers have the same Patient.identifier.system |
+| Passport Number and Issuing Country | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'PPN' AND both identifiers have the same Patient.identifier.system, which specifies the Issuing Country, e.g. http://hl7.org/fhir/sid/passport-USA, from [External Identifier System](https://terminology.hl7.org/identifiers.html) |
+| SSN | Patient.identifier.system == 'http://hl7.org/fhir/sid/us-ssn' |
+| SSN (last 4) | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'SSN4' |
+| NPI | Organization.identifier.system == 'http://hl7.org/fhir/sid/us-npi' |
+| Insurance Member ID | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'MB' AND both identifiers have the same Patient.identifier.system |
+| Insurance Subscriber ID | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'SN' AND both identifiers have the same Patient.identifier.system |
+
+&emsp;&emsp;   
+
 ### Exception Handling 
 
 <div class="stu-note" markdown="1"> 
