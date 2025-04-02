@@ -325,7 +325,7 @@ Future versions of this IG will include language about additional considerations
 ### Attribute Applicability
 The table below provides guidance to assist in determining whether attributes from a requestor or responder are applicable to requirements of this IG, for example, as may be designated using FHIR code systems. These attribute types and per-field matches directly influence the scoring rubrics outlined in this IG.
 
-Responders evaluate the information in a requestor's Patient resource (or other match input attributes) and/or in responder's system to determine whether the specific conditions for [match output scoring](patient-matching.html#scoring-matches--responders-system-match-output-quality-score) or [match input weight](patient-matching.html#patient-weighted-input-information) are met. This table is not intended to constitute a complete or exclusive list, for example, a responder may understand a given identifier.system as an MRN, even if the identifier does not have a type of 'MR'.
+Responders evaluate the information in a requestor's Patient resource (or other match input attributes) and/or in responder's system to determine whether the specific conditions for [match output scoring](patient-matching.html#scoring-matches--responders-system-match-output-quality-score) or [match input weight](patient-matching.html#patient-weighted-input-information) are met. This table is not intended to constitute a complete or exclusive list--for example, a responder may understand a given identifier.system as an MRN, even if the identifier does not have a type of 'MR'.
 
 | **Attribute** | **FHIR Representation** |
 | :----------: | ---------------------------- |
