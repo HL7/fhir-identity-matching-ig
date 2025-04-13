@@ -1,4 +1,4 @@
-This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page.
+This section is an ongoing compilation of industry-wide, including international, digital identity and patient matching projects, with input from [Digital Identity](digital-identity.html) & [Patient Matching](patient-matching.html) on cross-cutting capabilities and how various efforts may be leveraged in the healthcare setting. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page. 
 
 ### Digital Identity and Patient Matching Projects
 
