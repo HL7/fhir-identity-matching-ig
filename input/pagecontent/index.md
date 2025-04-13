@@ -54,14 +54,6 @@ When identity verification has been completed for an individual, the process of 
 
 For readers that are looking to test an implementation of this guide, additional testing resources can be found on the [Implementer Support page](https://confluence.hl7.org/display/FAST/FAST+Implementer+Support) of the HL7 FAST Confluence site.   
 
-&emsp;&emsp; 
-
-
-(1)  <a href="https://www.justassociates.com/application/files/1414/9134/1517/PIIWhitePaper.pdf">Patient Identity Integrity White Paper</a>  HIMSS, December 2009   
-(2)  <a href="https://www.gao.gov/assets/gao-19-197.pdf">Approaches and Challenges to Electronically Matching Patients’ Records across Providers</a>  GAO, January 2019   
-(3)  <a href="https://sequoiaproject.org/resources/patient-matching/">The Sequoia Project</a>     
-(4)  <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RR2200/RR2275/RAND_RR2275.pdf">Defining and Evaluating Patient-Empowered Approaches to Improving Record Matching</a>  RAND, 2018 
-
 &emsp;&emsp;   
 
 ### Credits   
@@ -94,7 +86,12 @@ The members of the ONC FHIR at Scale Taskforce (FAST) Identity Team
 
 The members of the HL7 Patient Administration Work Group 
 
- 
+&emsp;&emsp; 
+
+(1)  <a href="https://www.justassociates.com/application/files/1414/9134/1517/PIIWhitePaper.pdf">Patient Identity Integrity White Paper</a>  HIMSS, December 2009   
+(2)  <a href="https://www.gao.gov/assets/gao-19-197.pdf">Approaches and Challenges to Electronically Matching Patients’ Records across Providers</a>  GAO, January 2019   
+(3)  <a href="https://sequoiaproject.org/resources/patient-matching/">The Sequoia Project</a>     
+(4)  <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RR2200/RR2275/RAND_RR2275.pdf">Defining and Evaluating Patient-Empowered Approaches to Improving Record Matching</a>  RAND, 2018  
 
  
 
