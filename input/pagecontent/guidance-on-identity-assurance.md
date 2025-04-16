@@ -63,7 +63,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  - US state- or nationally-issued photo ID confirmed by comparison to individual   
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity   
 >  - Verify the individual's physical residential Address of Record 
->  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is mitigated by this notification.
+>  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is deemed acceptable given that there is some nominal fraud protection introduced by requiring this notification.
 >    
 > **IAL1.8** requirements: 
 >  - Two Fair or stronger pieces of evidence were used to verify first name, last name, date of birth, and home street address--for example: 
