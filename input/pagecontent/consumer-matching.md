@@ -14,9 +14,9 @@ When transmitting identity attributes to third parties with whom sharing PII is 
 - within an HL7 B2B with User Authorization Extension Object, or  
 - as part of a match or search request, 
 
-and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own  resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance] (e.g., a first name, last name, date of birth [DOB], mobile number, and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with [Guidance on Identity Assurance].  
+and a level of identity assurance is indicated, each included identity attribute **SHALL** either have been verified at the identity level of assurance asserted by the transmitting party (for example, the match requestor) or be consistent with other evidence used in that identity verification process completed by that party. If a level of assurance is not explicitly asserted, the combination of identity attributes submitted **SHOULD** be consistent with, and sufficient to on their own  resolve to the identity of a unique person in the real world. Specifically, identity verification **SHALL** be performed at IDIAL1.5 or higher level of identity assurance per this IG's [Guidance on Identity Assurance] (e.g., a first name, last name, date of birth [DOB], mobile number, and home street address have been verified as belonging to the individual OR a first name, last name, and a Digital Identifier compliant with this IG have been verified as belonging to the individual), consistent with the practices of NIST 800-63A using Fair or stronger evidence and/or credit bureau type records (or equivalent), and consistent with [Guidance on Identity Assurance].  
 
-As a best practice, identity verification **SHOULD** be at a minimum of IAL2 or  [LoA-3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-2.pdf) for professionals who are end users of health IT systems and for an implementer's overall operations.  
+As a best practice, identity verification **SHOULD** be at a minimum of IDIAL2 or  [LoA-3](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-2.pdf) for professionals who are end users of health IT systems and for an implementer's overall operations.  
 
 Individual Access (or if protected health information [PHI] or PII will be returned, other than to a Covered Entity in a Treatment, Payment, or Operations workflow) is outside the scope of this IG's Patient Matching requirements. Instead, responders to such queries **SHALL** authenticate the individual before returning PHI or PII. 
 
@@ -27,7 +27,7 @@ Security best practices, including transaction authorization, are generally out 
 - Recognize that a patient’s identity might have spurious records from other people mixed in 
 - Help remediate these situations without exposing PHI/PII 
 
-For sharing immunization records only, patient matching **MAY** be performed using identity attributes verified at IAL1.2 or higher by both requesting party and responder. 
+For sharing immunization records only, patient matching **MAY** be performed using identity attributes verified at IDIAL1.2 or higher by both requesting party and responder. 
 
 #### Match on Identities 
 
