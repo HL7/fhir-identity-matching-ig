@@ -31,7 +31,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48030](https://jira.hl7.org/browse/FHIR-48030)|Clarify requirements for section 2.2 for IAL1.5|
 |[FHIR-45206](https://jira.hl7.org/browse/FHIR-45206)|Add attribute applicability section 3.8 with criteria for field matches based on codes|
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
-|[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify validation and verification terminology used in section 4.2|
+|[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
 
 <style>
 table, th, td 
