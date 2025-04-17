@@ -138,7 +138,7 @@ When a transaction includes a claim of Organizational Identity in a digital cert
 - Verified Legal Name of Organization responsible for data in the aspect of the transaction they are performing
 - State where Organization was verified
 - Street Address verified for Organization (if information more granular than State is shared)
-- Entity Type specified in an attestation by the organization’s representative (either HIPAA Covered Entity, Business Associate of a HIPAA Covered Entity, Healthcare Entity that agrees to protect patient information consistent with HIPAA but is not a Covered Entity or Business Associate, Public Health Entity, Patient/Consumer, or Non-Declared)
+- Entity Type specified in an attestation by the organization’s representative (either HIPAA Covered Entity, Business Associate of a HIPAA Covered Entity, Healthcare Entity that agrees to protect patient information consistent with HIPAA but is not a Covered Entity or Business Associate, Public Health, Patient/Consumer, or Non-Declared)
 
 When the Entity Type is a Covered Entity or Business Associate, the correct type **SHALL** be stated transparently in a transaction. Additionally, if a Covered Entity is participating in a transaction they **SHALL** obtain their own credentials and a Business Associate **SHALL NOT** use the credentials of a Covered Entity.
 
