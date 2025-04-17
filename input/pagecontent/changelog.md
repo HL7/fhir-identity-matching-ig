@@ -32,6 +32,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-45206](https://jira.hl7.org/browse/FHIR-45206)|Add attribute applicability section 3.8 with criteria for field matches based on codes|
 |[FHIR-47700](https://jira.hl7.org/browse/FHIR-47700)|Add Public Health as Entity Type in section 2.7|
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
+|[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
 
 <style>
 table, th, td 
