@@ -75,31 +75,11 @@ Workflow:
 <p></p>
 </div>
 
-&emsp;&emsp;   
 
-#### Patient-Mediated B2C
-
-Actors: User (individual or third-party system), Patient or Authorized Representative, Patient PHR App, App’s Authorization Server, App’s FHIR Server, Identity Provider
-
-Description: A patient or their authorized representative authorizes access to their data by a third party when the data are under the patient’s management and not the data creator’s (e.g., a consumer app enables the patient to manage their own data).
-
-Workflow:
-1.	Digital Identity Creation is performed by the PHR App for the individual. In addition or instead, the individual may use a Digital Identity managed by a trusted Identity Provider to authenticate themselves to the PHR App.   
-2.	When the individual attempts to authorize User's access to the patient’s health data, they do so using SMART App Launch, including an explicit authorization, and either a Digital Identity managed by a trusted Identity Provider or credentials of equivalent identity and authentication assurance managed by the PHR App itself.
-3.	Whether the PHR App's own or a trusted, third-party Identity Provider’s assertions are used to authenticate the individual, the requirements for a Consumer Match apply and the responding PHR App matches either the Digital Identifier or a combination of demographics with input weight score of 10 or greater, consistent with this guidance, against the identities they manage. If a successful Consumer Match is found, the PHR App may provision a credential, reset an authenticator, or know which individual is being authenticated when relying on a trusted Identity Provider.
-4.	If an appropriate individual was authenticated and consents to information sharing, health data can be returned to the User.
-
-<div>
-<figure class="figure">
-    <img src="patient-mediated-b2c.png" alt="Patient-Mediated B2C" title="Patient-Mediated B2C" class="img-responsive img-rounded center-block" width="75%">
-    <figcaption class="figure-caption"><strong>Patient-Mediated B2C</strong></figcaption>
-</figure>
-<p></p>
-</div>
 
 #### Patient-Directed B2C Using Digital Identity from External Identity Provider and Optional HL7 Person Identifier
 
-Description: This is a special case of Patient-Directed exchange that is also based on SMART App Launch workflow (or equivalent) in which a Digital Identifier assigned by a third-party Identity Provider is optionally used along with credentials from that Identity Provider (for example, as in HL7 UDAP FAST Tiered OAuth for User Authentication, publicly-available standards-based identity APIs such as OpenID Connect or authenticator APIs such as FIDO, or a NIST NCCoE-supported mDL workflow, as appropriate). The use case involves health data access such as in TEFCA Individual Access Services or other Patient Access workflow, but applies where authentication of an individual within the transaction is required, such as consent management, credential step-up, or request for restrictions (part of view, download, and transmit to 3rd party).
+Description: This is a special case of Patient-Directed exchange that is also based on SMART App Launch workflow (or equivalent) in which a Digital Identifier assigned by a third-party Identity Provider is optionally used along with credentials from that Identity Provider (for example, as in HL7 UDAP FAST Tiered OAuth for User Authentication, publicly-available standards-based identity APIs such as OpenID Connect or authenticator APIs such as FIDO, or a NIST NCCoE-supported mDL workflow, as appropriate). The use case involves health data access such as in TEFCA Individual Access Services or other Patient Access workflow, but applies where authentication of an individual within the transaction is required, such as individual data access, consent management, credential step-up, or request for restrictions (part of view, download, and transmit to 3rd party).
 
 Actors: Patient (User), Patient Chosen App (for example, FHIR client application operated by Insurance Company), Authorization Server and FHIR Server (Healthcare Organization), Identity Provider
 
@@ -171,6 +151,28 @@ Workflow:
 <figure class="figure">
     <img src="b2b.png" alt="B2B Treatment Payment Operations (TPO) / Coverage Determination / etc." title="B2B Treatment Payment Operations (TPO) / Coverage Determination / etc." class="img-responsive img-rounded center-block" width="75%">
     <figcaption class="figure-caption"><strong>B2B Treatment Payment Operations (TPO) / Coverage Determination / etc.</strong></figcaption>
+</figure>
+<p></p>
+</div>
+
+&emsp;&emsp;   
+
+#### Patient-Mediated B2C
+
+Actors: User (individual or third-party system), Patient or Authorized Representative, Patient PHR App, App’s Authorization Server, App’s FHIR Server, Identity Provider
+
+Description: A patient or their authorized representative authorizes access to their data by a third party when the data are under the patient’s management and not the data creator’s (e.g., a consumer app enables the patient to manage their own data).
+
+Workflow:
+1.	Digital Identity Creation is performed by the PHR App for the individual. In addition or instead, the individual may use a Digital Identity managed by a trusted Identity Provider to authenticate themselves to the PHR App.   
+2.	When the individual attempts to authorize User's access to the patient’s health data, they do so using SMART App Launch, including an explicit authorization, and either a Digital Identity managed by a trusted Identity Provider or credentials of equivalent identity and authentication assurance managed by the PHR App itself.
+3.	Whether the PHR App's own or a trusted, third-party Identity Provider’s assertions are used to authenticate the individual, the requirements for a Consumer Match apply and the responding PHR App matches either the Digital Identifier or a combination of demographics with input weight score of 10 or greater, consistent with this guidance, against the identities they manage. If a successful Consumer Match is found, the PHR App may provision a credential, reset an authenticator, or know which individual is being authenticated when relying on a trusted Identity Provider.
+4.	If an appropriate individual was authenticated and consents to information sharing, health data can be returned to the User.
+
+<div>
+<figure class="figure">
+    <img src="patient-mediated-b2c.png" alt="Patient-Mediated B2C" title="Patient-Mediated B2C" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Mediated B2C</strong></figcaption>
 </figure>
 <p></p>
 </div>
