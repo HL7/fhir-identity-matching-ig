@@ -99,7 +99,7 @@ Workflow:
 
 #### Patient-Directed B2C Using Digital Identity from External Identity Provider and Optional HL7 Person Identifier
 
-Description: This is a special case of Patient-Directed exchange that is also based on SMART App Launch workflow (or equivalent) in which a Digital Identifier assigned by a third-party Identity Provider is optionally used along iwth credentials from that Identity Provider (for example, as in HL7 UDAP FAST Tiered OAuth for User Authentication, publicly-available standards-based identity APIs such as OpenID Connect or authenticator APIs such as FIDO, or a NIST NCCoE-supported mDL workflow, as appropriate). The use case involves health data access such as in TEFCA Individual Access Services or other Patient Access workflow, but applies where authentication of an individual is required, such as consent management or request for restrictions (part of view, download, and transmit to 3rd party).
+Description: This is a special case of Patient-Directed exchange that is also based on SMART App Launch workflow (or equivalent) in which a Digital Identifier assigned by a third-party Identity Provider is optionally used along with credentials from that Identity Provider (for example, as in HL7 UDAP FAST Tiered OAuth for User Authentication, publicly-available standards-based identity APIs such as OpenID Connect or authenticator APIs such as FIDO, or a NIST NCCoE-supported mDL workflow, as appropriate). The use case involves health data access such as in TEFCA Individual Access Services or other Patient Access workflow, but applies where authentication of an individual within the transaction is required, such as consent management, credential step-up, or request for restrictions (part of view, download, and transmit to 3rd party).
 
 Actors: Patient (User), Patient Chosen App (for example, FHIR client application operated by Insurance Company), Authorization Server and FHIR Server (Healthcare Organization), Identity Provider
 
@@ -110,11 +110,11 @@ Pre-Conditions:
 
 Workflow:
 
-1.	The patient, a user of Insurance Company’s app, authenticates to Healthcare Organization with the credential assigned by Identity Provider and bound to their Digital Identity, and authorizes Identity Provider to share identity claims about them--conformant with this IG and optionally including their HL7 Person Identifier--with Healthcare Organization, and authorizes Healthcare Organization to share their health data with Insurance Company.
+1.	The patient, a user of Insurance Company’s app, authenticates to Healthcare Organization with the credential assigned by Identity Provider and bound to their Digital Identity, authorizes Identity Provider to share identity claims about them--conformant with this IG and optionally including their HL7 Person Identifier--with Healthcare Organization, and authorizes Healthcare Organization to share their health data with Insurance Company.
 2.	If needed (because the HL7 Person Identifier is not yet known to Healthcare Organization and/or insufficient demographics are included in the Identity Provider’s claims), Healthcare Organization can contact the patient out of band for additional information or can request information, including real-time identity verification, through their intrinsic OAuth authentication prompt or equivalent.
 3.	Because this strong identity assurance credential has been used to authenticate the individual, so long as sufficient demographics are included in the Identity Provider’s claims and based on its trust of Identity Provider, Healthcare Organization can confidently share the correct patient data with Insurance Company.
 
-In another variation of this use case, the User is an Authorized Representatives of the Patient.
+In another variation of this use case, the User is an Authorized Representative of the Patient.
 
 &emsp;&emsp;   
 
