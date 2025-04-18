@@ -33,6 +33,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-47700](https://jira.hl7.org/browse/FHIR-47700)|Add Public Health as Entity Type in section 2.7|
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
 |[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
+|[FHIR-48052](https://jira.hl7.org/browse/FHIR-48052)|Clarifications to Use Cases to make it clearer how entities come to shared consensus about identity of user|
 
 <style>
 table, th, td 
