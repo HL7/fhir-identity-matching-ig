@@ -12,7 +12,7 @@ Usage: #example
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
-* identifier[0].system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
+* identifier[0].system = "http://example.org/fhir/endpoint/"
 
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
@@ -49,7 +49,7 @@ Usage: #example
 * identifier[0].type.coding.code = #MR
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "4004-202-9999-12345678901"
-* identifier[0].system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
+* identifier[0].system = "http://example.org/fhir/endpoint/"
 
 * name[0].family = "Paeshent"
 * name[0].given[0] = "Nancy"
@@ -144,13 +144,13 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* identifier[0].system = "http://hospital.abc.org"
+* identifier[0].system = "http://example.org/fhir/endpoint"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
-* identifier[+].system = "http://payer.xyz.org"
+* identifier[+].system = "http://example.org/fhir/endpoint/1"
 * identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
 * identifier[=].assigner = Reference(Organization/xyz-payer)
-* identifier[+].system = "http://idp.def.org"
+* identifier[+].system = "http://example.org/fhir/endpoint/1"
 * identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
 * identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
@@ -176,10 +176,10 @@ InstanceOf: Organization
 Description: "Example of Organization used as a hospital for digital identifier"
 Usage: #example
 * identifier[0].use = #official
-* identifier[=].system = "urn:oid:2.16.528.1"
+* identifier[=].system = "http://example.org/fhir/endpoint/"
 * identifier[=].value = "91654"
 * identifier[+].use = #usual
-* identifier[=].system = "urn:oid:2.16.840.1.113883.2.4.6.1"
+* identifier[=].system = "http://example.org/fhir/endpoint/"
 * identifier[=].value = "17-0112278"
 * name = "Burgers University Medical Center"
 * contact[0].telecom.system = #phone
@@ -206,7 +206,7 @@ Instance: xyz-payer
 InstanceOf: Organization
 Description: "Example of Organization used as a payer for digital identifier"
 Usage: #example
-* identifier.system = "urn:oid:2.16.840.1.113883.3.19.2.3"
+* identifier.system = "http://example.org/fhir/endpoint/"
 * identifier.value = "666666"
 * name = "XYZ Insurance"
 * alias = "ABC Insurance"
@@ -223,7 +223,7 @@ Instance: def-idp
 InstanceOf: Organization
 Description: "Example of Organization used as an identity provider for digital identifier"
 Usage: #example
-* identifier.system = "http://www.secureidp.com/units"
+* identifier.system = "http://example.org/fhir/endpoint/"
 * identifier.value = "SecureIdp"
 * name = "Secure Idp"
 * contact.telecom[0].system = #phone
@@ -277,7 +277,7 @@ Usage: #inline
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Person PatExample</b></p><a name=\"PatExample\"> </a><p><b>name</b>: Johnny Beegood (Official)</p><p><b>birthDate</b>: 1986-05-01</p><p><b>address</b>: 123 Main Street Pittsburgh PA 12519 (physical)</p></div>"
 * identifier.type = $v2-0203#MB
-* identifier.system = "https://www.xyzhealthplan.com/fhir/memberidentifier"
+* identifier.system = "http://example.org/fhir/endpoint/"
 * identifier.value = "1234-234-1243-12345678901"
 * active = true
 * name.family = "Beegood"
