@@ -123,7 +123,7 @@ There are two primary actors that engage in the process of requesting health dat
 
 The Patient and the User may not be the same individual in a transaction. An individual who has been authorized to access another individual's health data is called an Authorized Representative. Instances where an Authorized Representative is present include, but are not limited to:
 
-- B2C Proxy User – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records in a special case of [Patient-Directed B2C](use-cases.html#patient-directed-b2c)).
+- B2C Proxy User – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records in a special case of [Patient-Directed B2C](use-cases.html#patient-directed-b2c-intrinsic-oauth-service)).
 - See the [Use Cases](use-cases.html) tab for additional examples.
 
 An authorized representative's identity **SHALL** be verified and sufficient demographics **SHALL** be collected if matching on the identity of the representative is to be performed, and at [IAL 1.8](guidance-on-identity-assurance.html) or higher if the match on identity will, if confidence in authentication exists, ultimately authorize access to data. In all cases whether the representative is, if any local policies are also met, authorized to access data on behalf of a patient is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already broadly used as per the <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
