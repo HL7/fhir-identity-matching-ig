@@ -7,6 +7,12 @@ The best practices and suggested weights are based on this team's original resea
 This guidance also applies to other matching workflows and to non-FHIR transactions. This guidance does not intend to prohibit the use of matching methods that produce comparable or higher matching rates. Realizing that a better-formed match request produces the most reliable results, this implementation guide (IG) also includes a [Guidance on Identity Assurance] section as a companion resource to this best practice patient matching. 
 
 > **NOTE:** As security is generally out of scope for this guide, the conditions required to share personally identifiable information (PII) or to authorize an organization's or an individual’s, including the patient’s own, access to the results of a match request are not specified completely in this guide, nor should they be inferred.  However, patient-initiated workflows (for example, "patient request" purpose of use) **SHALL** always include explicit end-user authorization.
+>
+> Examples:
+>
+> -Patient authorizes access, as in SMART App Launch, such that clicking a button to authorize the transaction is the mechanism for capturing and carrying consent in an OAuth authorization code flow transaction
+> -Tiered OAuth Use Case - similar to the nominal SMART App Launch described above, except that OIDC user profile data includes demographics with sufficiently strong (IDIAL1.8 or higher) identity assurance and AAL2 or higher authentication assurance, that the demographics from the trusted identity service can be used to match on the user in real time and make an authorization decision
+> -B2B with Individual User Use Case - include consent as in the [Consumer Match](patient-matching.html#consumer-match) section, and demographics in the FHIR Person resource consistent with IDIAL1.8 or higher identity verification, and the user is authenticated at AAL2 or higher authentication assurance
 
 With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and patients experiencing homelessness or housing instability; this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. Since many patients experiencing homelessness or housing instability have cell phones and may have email addresses that are used in both identity verification and multi-factor authentication, these identifiers should be used for that population to enhance their healthcare experience and communication with healthcare providers.
 
@@ -26,7 +32,7 @@ Individual Access (or if protected health information [PHI] or PII will be share
 
 Security best practices, including transaction authorization, are generally out of scope for this IG; however implementers also **SHALL NOT** allow patients to request a match directly. A trusted system may request a match on a patient’s behalf and use it to inform the patient, especially to:  
 
-- Recognize that the patient already has an account (when a record represents an account) 
+- Recognize that the patient already has an account (when a record represents an account) and allow them to authenticate when the credentials are sufficiently strong (at least IDIAL1.8/AAL2) and the patient can be matched based on best-practice matching
 - Recognize that a patient may have multiple identities within the system, leading to a fragmented medical record 
 - Recognize that a patient’s identity might have spurious records from other people mixed in 
 - Help remediate these situations without exposing PHI/PII. 
@@ -294,7 +300,7 @@ th {
 
 | **Quality** |  **Score** | **Element(s) Matching in Responder's System**                  |
 | :----------: | :----------: | ---------------------------- |
-|Best       |  .99       | Responder's MRN/MPI or known Digital Identifier       |
+|Best       |  .99       | (First name & Last Name OR Date of Birth) & (Responder's MRN/MPI or known Digital Identifier)       |
 |           |            | First Name & Last Name & Driver's License Number and Issuing US State |
 |           |            | First Name & Last Name & Passport Number and Issuing Country |
 |           |            | First Name & Last Name & Insurance Member Identifier and Payer ID      |
