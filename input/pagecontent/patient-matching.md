@@ -11,7 +11,9 @@ This guidance also applies to other matching workflows and to non-FHIR transacti
 > Examples:
 >
 > -Patient authorizes access, as in SMART App Launch, such that clicking a button to authorize the transaction is the mechanism for capturing and carrying consent in an OAuth authorization code flow transaction
+> 
 > -Tiered OAuth Use Case - similar to the nominal SMART App Launch described above, except that OIDC user profile data includes demographics with sufficiently strong (IDIAL1.8 or higher) identity assurance and AAL2 or higher authentication assurance, that the demographics from the trusted identity service can be used to match on the user in real time and make an authorization decision
+> 
 > -B2B with Individual User Use Case - include consent as in the [Consumer Match](patient-matching.html#consumer-match) section, and demographics in the FHIR Person resource consistent with IDIAL1.8 or higher identity verification, and the user is authenticated at AAL2 or higher authentication assurance
 
 With a desire to address this guidance in a way that is mindful of health equity considerations, the group has spent a substantial amount of time contemplating sensitive populations such as pediatric patients and patients experiencing homelessness or housing instability; this guidance therefore reflects an understanding of the prevalence of shared home addresses (when shelters and last known hospitalization are used for this) and other cases where identity evidence typically needed for IAL2 remote may not be available. Since many patients experiencing homelessness or housing instability have cell phones and may have email addresses that are used in both identity verification and multi-factor authentication, these identifiers should be used for that population to enhance their healthcare experience and communication with healthcare providers.
