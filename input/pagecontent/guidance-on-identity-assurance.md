@@ -6,7 +6,7 @@ The authors have been mindful of health equity considerations and have considere
 
 ### Best Practices for Identity Verification
 
-Any system of an Identity Provider conforming to this IG **SHALL** also conform to the NIST 800-63-3 Digital Identity Guidelines except as adapted in this guide and **SHALL** publicly post their identity verification (and authentication, if authentication is offered) policy in a manner that is easily discoverable online, additionally referencing this IG if attesting to be compliant with it. Specifically, IAL1.6 and IAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however, with different required identity evidence, data collection, and other procedural clarifications as indicated in the IG.
+Any system of an Identity Provider conforming to this IG **SHALL** also conform to the NIST 800-63-3 Digital Identity Guidelines except as adapted in this guide and **SHALL** publicly post their identity verification (and authentication, if authentication is offered) policy in a manner that is easily discoverable online, additionally referencing this IG if attesting to be compliant with it. Specifically, IDIAL1.6 and IDIAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however, with different required identity evidence, data collection, and other procedural clarifications as indicated in the IG.
 
 The identity verification policy **SHALL** describe the practices, consistent with this guide, used by employees or agents of Identity Provider's organization to verify and manage identities, along with whether and how those employees and agents may perform as Trusted Referees, and how personal information is managed by the Identity Provider. 
 
@@ -20,7 +20,7 @@ Identity verification consistent with this IG is valid for 3 years, at which poi
 
 Attaining a higher level of identity assurance than was performed in an initial identity verification event, also referred to as a "step up", **SHALL** entail repeating the identity verifiation process from the beginning according to the requirements of the higher level. 
 
-NOTE: Although implementers, lacking more specific requirements that may exist in network participation agreements, likely want to perform their own risk analyses to determine the appropriate IAL for various use cases (for example, a patient’s access to their own data or a HIPAA Covered Entity's access to health data for Treatment, Payment, or Operations), this IG provides example [use cases](use-cases.html) in which certain input match invariants, match input data, and IALs are deemed appropriate based on industry feedback received. The guide also specifically cites recommended IALs for professional users and administrators in section 3.2. The IALs defined below are not currently specified in a code system or value set within this implementation guide (IG). Additionally, the intermediate identity assurance levels (IAL1.2-1.8) described below have NOT been endorsed by NIST in any capacity, though the team has requested their feedback. 
+NOTE: Although implementers, lacking more specific requirements that may exist in network participation agreements, likely want to perform their own risk analyses to determine the appropriate IAL for various use cases (for example, a patient’s access to their own data or a HIPAA Covered Entity's access to health data for Treatment, Payment, or Operations), this IG provides example [use cases](use-cases.html) in which certain input match invariants, match input data, and IALs are deemed appropriate based on industry feedback received. The guide also specifically cites recommended IALs for professional users and administrators in section 3.2. The IALs defined below are not currently specified in a code system or value set within this implementation guide (IG). Additionally, the intermediate identity assurance levels (IDIAL1.2-IDIAL1.8) described below have NOT been endorsed by NIST in any capacity, though the team has briefed NIST on our approach, and we will likely collaborate with them in the future to profile NIST 800-63-4 for use in healthcare settings. 
 
 >**Individual Identity Verification** 
 >
@@ -37,18 +37,18 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >
 >The Identity Provider **SHALL** also verify the First Name, Last Name, Home Street Address, Date of Birth, and any other verifiable demographics which they will claim have been verified, using the required evidence listed below and corresponding to the desired level of identity assurance, and completing other required steps as follows:  
 >
-> **IAL1** requirements:  
+> **IAL1/IDIAL1** requirements:  
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 >      
-> **IAL1.2** requirements: 
+> **IDIAL1.2** requirements: 
 >  - Unspecified identity evidence was used to verify name and birth date.
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.  
 >    
-> **IAL1.4** requirements:
+> **IDIAL1.4** requirements:
 >  - A US state-issued photo ID or nationally-issued photo ID was used to verify first name, last name, and date of birth.
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 >    
-> **IAL1.5** requirements:
+> **IDIAL1.5** requirements:
 >  - Two of the following were used to verify first name, last name, date of birth, and home street address: 1) US state-issued photo ID, nationally-issued photo ID, or unique [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals); 2) medical record number (and the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual).
 >  - If the claimed home street address cannot be verified using the presented two pieces of evidence, in conjunction with credit bureau type records, then at least one of the following SHALL be performed: 
 >      - Verify that Fair or stronger evidence confirms the individual's ownership of an email address. 
@@ -57,15 +57,15 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  -  Verify the individual's control of either a mobile phone number or an email address that the individual claims to be associated with their identity.  
 >  -  Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity.
 >
->> IAL1.5 identity verification is the lowest level of identity assurance that can establish a unique human identity that exists in the real world. IAL1.5 is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system (2). Although this level of identity verification may be relevant to prevent duplicates in medical record systems and has a role in verifying demographic information used in patient matching between HIPAA Covered Entities, the lack of in-person or virtual match of an individual to a photo on identity evidence at this level or lower, or of their control of an authenticator associated with evidence or Digital Identity, generally does not provide high confidence in the identity of the individual.
+>> IDIAL1.5 identity verification is the lowest level of identity assurance that can establish a unique human identity that exists in the real world. IDIAL1.5 is expected to map to many existing systems’ procedures for enabling patient electronic access to data at a single health system (2). Although this level of identity verification may be relevant to prevent duplicates in medical record systems and has a role in verifying demographic information used in patient matching between HIPAA Covered Entities, the lack of in-person or virtual match of an individual to a photo on identity evidence at this level or lower, or of their control of an authenticator associated with evidence or Digital Identity, generally does not provide high confidence in the identity of the individual.
 >
-> ​**IAL1.6** requirements: 
+> ​**IDIAL1.6** requirements: 
 >  - US state- or nationally-issued photo ID confirmed by comparison to individual   
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity   
 >  - Verify the individual's physical residential Address of Record 
->  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IAL1.6 is deemed acceptable given that there is some nominal fraud protection introduced by requiring this notification.
+>  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IDIAL1.6 is deemed acceptable given that there is some nominal fraud protection introduced by requiring this notification.
 >    
-> **IAL1.8** requirements: 
+> **IDIAL1.8** requirements: 
 >  - Two Fair or stronger pieces of evidence were used to verify first name, last name, date of birth, and home street address--for example: 
 >      - Two of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual and consistent with other demographics submitted by the individual; 2) medical record number (and the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual) OR 
 >      - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual 
@@ -73,7 +73,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  - Verify the individual's physical residential Address of Record 
 >  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
 >
-> **IAL2** requirements: 
+> **IAL2/IDIAL2** requirements: 
 >  - One Strong plus two Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR one Superior/Very Strong piece of evidence (for example: Government-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual.  
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
 >  - Verify the individual's physical residential Address of Record. 
@@ -97,22 +97,22 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 
 ### Individual Profile Photo
 
-An Individual Profile Photo associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution. 
+An Individual Profile Photo associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2/IDIAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution. 
 
 ### Use of Social Security Number (SSN)
 
-Social Security Number (on its own without presenting the card itself) does not have a role as evidence in IALs beyond IAL1.5 except as may be needed for identity resolution above and beyond other required evidence.  
+Social Security Number (on its own without presenting the card itself) does not have a role as evidence in IALs beyond IDIAL1.5 except as may be needed for identity resolution above and beyond other required evidence.  
 
 ### Use of Knowledge-Based Verification (KBV)
 
-Knowledge-Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IAL1.6 or higher, and **SHALL** only be used as an addition to a photo ID comparison process, when required to resolve to a unique identity.
+Knowledge-Based Verification (KBV) is a process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV **SHALL NOT** be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at IDIAL1.6 or higher, and **SHALL** only be used as an addition to a photo ID comparison process, when required to resolve to a unique identity.
 
 From 800-63: 
 
 - KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification. 
 - KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The [CSP](glossary.html) (referred to in this IG as an Identity Provider) MAY use KBV to resolve to a unique, claimed identity. 
 - KBV can be used to verify one Fair piece of evidence 
-- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
+- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2/IDIAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
 
 ### Authorized Representatives
 
@@ -126,7 +126,7 @@ The Patient and the User may not be the same individual in a transaction. An ind
 - B2C Proxy User – An authorized representative is allowed to access a patient’s health record (e.g. a parent accessing their child’s records in a special case of [Patient-Directed B2C](use-cases.html#patient-directed-b2c-intrinsic-oauth-service)).
 - See the [Use Cases](use-cases.html) tab for additional examples.
 
-An authorized representative's identity **SHALL** be verified and sufficient demographics **SHALL** be collected if matching on the identity of the representative is to be performed, and at [IAL 1.8](guidance-on-identity-assurance.html) or higher if the match on identity will, if confidence in authentication exists, ultimately authorize access to data. In all cases whether the representative is, if any local policies are also met, authorized to access data on behalf of a patient is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already broadly used as per the <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
+An authorized representative's identity **SHALL** be verified and sufficient demographics **SHALL** be collected if matching on the identity of the representative is to be performed, and at [IDIAL1.8](guidance-on-identity-assurance.html) or higher if the match on identity will, if confidence in authentication exists, ultimately authorize access to data. In all cases whether the representative is, if any local policies are also met, authorized to access data on behalf of a patient is outside the scope of this IG. The B2C workflow with credentials at the responding organization is already broadly used as per the <a href="http://hl7.org/fhir/smart-app-launch/history.html">HL7 SMART App Launch IG</a>.
 
 
 ### Organizational Identity
@@ -148,7 +148,7 @@ When the requirements above are also met, the individual identity verification o
 **References:**  
 &nbsp;&nbsp;&nbsp;&nbsp;[UDAP Levels of Assurance](https://www.udap.org/udap-identity-assurance-levels)  
 &nbsp;&nbsp;&nbsp;&nbsp;[NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63-3.html)  
-&nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IAL1.2 and IAL1.4](http://hl7.org/fhir/uv/shc-vaccination/2021Sep/ValueSet-identity-assurance-level.html)  
+&nbsp;&nbsp;&nbsp;&nbsp;[SMART candidate Code System for existing NIST levels plus IDIAL1.2 and IDIAL1.4](http://hl7.org/fhir/uv/shc-vaccination/2021Sep/ValueSet-identity-assurance-level.html)  
 
 (1) This IG provides a number of alternatives to Home Address verification since it may be difficult to verify or to match on the home address of a youth or of a person who is experiencing housing insecurity. This can also be an issue for multi-family dwellings when a unit number is not specified or cannot be verified. 
 (2) [Patient Records Electronic Access Playbook](https://www.ama-assn.org/system/files/2020-02/patient-records-playbook.pdf), [Patient IAL2 as in TEFCA](https://www.healthit.gov/sites/default/files/page/2019-04/FINALTEFCAQTF41719508version.pdf) and [Kantara "IAL2 Light" proposal to NIST (1 STRONG or 3 FAIR)](https://github.com/usnistgov/800-63-4/files/6481076/IAL.1.Update.-.Kantara.comments.docx). 
