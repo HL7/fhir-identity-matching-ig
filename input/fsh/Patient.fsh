@@ -30,10 +30,10 @@ Profile: IDIPatientL0
 Parent: Patient
 Id: IDI-Patient-L0
 Title: "IDI Patient L0"
-Description: "(Level 0 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 9"
+Description: "(Level 0 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which, when consistent with an identity verification event performed at IDIAL1.5 or higher, meet a combined 'weighted level' of at least 9"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 0 weighting of information"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.5 or greater, which meet a combined ‘weighted level’ of at least 9"
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at ID.5 or greater, which meet a combined ‘weighted level’ of at least 9"
 * obeys idi-L0
 
 * meta.profile ^slicing.discriminator.type = #value
@@ -58,10 +58,10 @@ Profile: IDIPatientL1
 Parent: Patient
 Id: IDI-Patient-L1
 Title: "IDI Patient L1"
-Description: "(Level 1 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which meet a combined 'weighted level' of at least 10 and using attributes that are consistent with an identity that has been verified by the match requestor"
+Description: "(Level 1 weighting) The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements which, when consistent with an identity verification event performed at IDIAL1.8 or higher, meet a combined 'weighted level' of at least 10"
 
 * . ^short = "Patient information to be supplied to $match operation conforming to Level 1 weighting of information"
-* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.8 or greater, which meet a combined ‘weighted level’ of at least 10"
+* . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IDIAL1.8 or greater, which meet a combined ‘weighted level’ of at least 10"
 * obeys idi-L1
 
 * meta.profile ^slicing.discriminator.type = #value
