@@ -8,7 +8,7 @@ Description: "(Base Level) The goal of this profile is to describe a data-minimi
 * . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation."
 * obeys idi-1
 
-* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.type = #value
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.description = "Slice based on pattern"
 * meta.profile ^slicing.ordered = false
@@ -36,7 +36,7 @@ Description: "(Level 0 weighting) The goal of this profile is to describe a data
 * . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting a step above the base level. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.5 or greater, which meet a combined ‘weighted level’ of at least 9"
 * obeys idi-L0
 
-* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.type = #value
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.description = "Slice based on pattern"
 * meta.profile ^slicing.ordered = false
@@ -64,7 +64,7 @@ Description: "(Level 1 weighting) The goal of this profile is to describe a data
 * . ^definition = "Demographics and other administrative information about an individual which can be utilized within the $match operation meeting a minimum combined weighting higher than previous levels. The goal of this profile is to describe a data-minimized version of Patient used to convey information about the patient for Identity Matching utilizing the $match operation, and prescribe a minimum set of data elements, when consistent with identity verification performed at IAL1.8 or greater, which meet a combined ‘weighted level’ of at least 10"
 * obeys idi-L1
 
-* meta.profile ^slicing.discriminator.type = #pattern
+* meta.profile ^slicing.discriminator.type = #value
 * meta.profile ^slicing.discriminator.path = "$this"
 * meta.profile ^slicing.description = "Slice based on pattern"
 * meta.profile ^slicing.ordered = false
@@ -89,7 +89,7 @@ Title: "FAST Identity UDAP Person"
 Description: "Profile on Person for use with the Interoperable Digital Identity and Patient Matching IG"
 * name.family 1..
 * name.given 1..
-* telecom ^slicing.discriminator.type = #pattern
+* telecom ^slicing.discriminator.type = #value
 * telecom ^slicing.discriminator.path = "system"
 * telecom ^slicing.rules = #open
 * telecom ^slicing.description = "Forcing both a phone and an email contact"
