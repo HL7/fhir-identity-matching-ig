@@ -108,7 +108,7 @@ Usage: #example
 
 Instance: Patient-INCOMPLETE
 InstanceOf: IDIPatientL1
-Description: "Example of Patient used as input to $IDI-match operation but NOT meeting Level 0 OR 1 information conformance; due to partial street address, missing DL assigner, and missing first name, this example incorrectly asserts L1 and would have a match input score of only 6, amounting to insufficient data for even a B2B match"
+Description: "Example of Patient used as input to $IDI-match operation but NOT meeting Level 0, 1, OR 2 information conformance; due to partial street address, missing DL assigner, and missing first name, this example incorrectly asserts L1 and would have a match input score of only 6, amounting to insufficient data for even a B2B match"
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L1)
