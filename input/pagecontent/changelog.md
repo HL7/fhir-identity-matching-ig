@@ -39,6 +39,8 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-45449](https://jira.hl7.org/browse/FHIR-45449)|Include Level 2 invariant at IAL2/IDIAL2|
 |[FHIR-50257](https://jira.hl7.org/browse/FHIR-50257)|Clarifying minimum level of identity assurance for responder records management (B2B matches)|
 |[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Adding ID before our IAL levels where they differ from NIST|
+|[FHIR-48298](https://jira.hl7.org/browse/FHIR-48298)|Rules for comparing SSN (last 4) to SSN|
+|[FHIR-48677](https://jira.hl7.org/browse/FHIR-48677)|Adding push and other patient-facing workflows to examples|
 
 
 <style>
