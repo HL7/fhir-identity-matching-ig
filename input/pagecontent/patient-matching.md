@@ -346,7 +346,7 @@ Implementers evaluate the information in a requestor's Patient resource (or othe
 | Other State ID and Issuing US State | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'STID'  AND both identifiers have the same Patient.identifier.system |
 | Passport Number and Issuing Country | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'PPN' AND both identifiers have the same Patient.identifier.system, which specifies the Issuing Country, e.g. http://hl7.org/fhir/sid/passport-USA, from [External Identifier System](https://terminology.hl7.org/identifiers.html) |
 | SSN | Patient.identifier.system == 'http://hl7.org/fhir/sid/us-ssn' |
-| SSN (last 4) | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'SSN4' |
+| SSN (last 4) | Patient.identifier.type.coding.system == 'http://hl7.org/fhir/us/identity-matching/CodeSystem/Identity-Identifier-cs' and Patient.identifier.type.coding.code == 'SSN4' (this type of attribute can be compared either to another SSN (last 4) OR to the last 4 digits of an SSN when determining a match) |
 | Organization's NPI | Organization.identifier.system == 'http://hl7.org/fhir/sid/us-npi' |
 | Practitioner's NPI | Practitioner.identifier.system == 'http://hl7.org/fhir/sid/us-npi' |
 | Insurance Member ID | Patient.identifier.type.coding.system == 'http://terminology.hl7.org/CodeSystem/v2-0203' and Patient.identifier.type.coding.code == 'MB' AND both identifiers have the same Patient.identifier.system |
