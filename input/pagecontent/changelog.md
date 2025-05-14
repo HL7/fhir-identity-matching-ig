@@ -34,6 +34,12 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
 |[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
 |[FHIR-48052](https://jira.hl7.org/browse/FHIR-48052)|Clarifications to Use Cases to make it clearer how entities come to shared consensus about identity of user|
+|[FHIR-45199](https://jira.hl7.org/browse/FHIR-45199)|Requirements to clarify when an individual has been authenticated or when sufficient demographics plus sufficiently high authentication by a trusted IdP are equivalent to local authentication|
+|[FHIR-45312](https://jira.hl7.org/browse/FHIR-45312)|Include minimum identity verification levels in invariant definitions|
+|[FHIR-45449](https://jira.hl7.org/browse/FHIR-45449)|Include Level 2 invariant at IAL2/IDIAL2|
+|[FHIR-50257](https://jira.hl7.org/browse/FHIR-50257)|Clarifying minimum level of identity assurance for responder records management (B2B matches)|
+|[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Adding ID before our IAL levels where they differ from NIST|
+
 
 <style>
 table, th, td 
