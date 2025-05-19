@@ -244,7 +244,7 @@ Description: "Example of $IDI-match operation response with patient and organiza
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
 * identifier.assigner = Reference(http://example.org/Organization/OrgExample)
-* type = #collection
+* type = #searchset
 
 * entry[0].fullUrl = "https://example.com/base/Organization/OrgExample"
 * entry[=].resource = OrgExample
