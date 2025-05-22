@@ -41,6 +41,9 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Adding ID before our IAL levels where they differ from NIST|
 |[FHIR-48298](https://jira.hl7.org/browse/FHIR-48298)|Rules for comparing SSN (last 4) to SSN|
 |[FHIR-48677](https://jira.hl7.org/browse/FHIR-48677)|Adding push and other patient-facing workflows to examples|
+|[FHIR-49054](https://jira.hl7.org/browse/FHIR-49054)|Clarified that IDIAL1.5 is not the minimum bar for Digital Identifier; rather, it is IDIAL1.8; additional technical corrections related to FHIR-48032|
+|[FHIR-48282](https://jira.hl7.org/browse/FHIR-48282)|Clarify requirements for how IAL intersects with workflows|
+|[FHIR-50930](https://jira.hl7.org/browse/FHIR-50930)|Clarify that alternative numbers are verified as with mobile numbers|
 
 
 <style>
