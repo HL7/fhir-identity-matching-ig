@@ -12,7 +12,7 @@ Usage: #example
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
-* identifier[0].system = "http://example.org/fhir/endpoint/"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
 
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
@@ -144,13 +144,13 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* identifier[0].system = "http://example.org/fhir/endpoint"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
-* identifier[+].system = "http://example.org/fhir/endpoint/1"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
 * identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
 * identifier[=].assigner = Reference(Organization/xyz-payer)
-* identifier[+].system = "http://example.org/fhir/endpoint/1"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
 * identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
 * identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
