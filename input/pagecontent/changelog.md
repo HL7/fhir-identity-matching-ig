@@ -44,6 +44,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49054](https://jira.hl7.org/browse/FHIR-49054)|Clarified that IDIAL1.5 is not the minimum bar for Digital Identifier; rather, it is IDIAL1.8; additional technical corrections related to FHIR-48032|
 |[FHIR-48282](https://jira.hl7.org/browse/FHIR-48282)|Clarify requirements for how IAL intersects with workflows|
 |[FHIR-50930](https://jira.hl7.org/browse/FHIR-50930)|Clarify that alternative numbers are verified as with mobile numbers|
+|[FHIR-49647](https://jire.hl7.org/browse/FHIR-49647)|Identifier must have been issued by IdP to be shared (technical correction)|
 
 
 <style>
