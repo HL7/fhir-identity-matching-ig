@@ -46,6 +46,8 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-50930](https://jira.hl7.org/browse/FHIR-50930)|Clarify that alternative numbers are verified as with mobile numbers|
 |[FHIR-49647](https://jira.hl7.org/browse/FHIR-49647)|Identifier must have been issued by IdP to be shared (technical correction portion of ticket)|
 |[FHIR-51016](https://jira.hl7.org/browse/FHIR-51016)|Digital Identifier section erroneously states IDIAL1.5 can be used|
+|[FHIR-46410](https://jira.hl7.org/browse/FHIR-46410)|Guidance on including explicit authorization and token expiration time frame|
+
 
 
 <style>
