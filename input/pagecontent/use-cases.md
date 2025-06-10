@@ -20,7 +20,7 @@ Workflow (refer to the [Guidance on Identity Assurance](guidance-on-identity-ass
 4.	Ensure the person presenting the identity evidence is the legitimate owner of that identity, according to [this guidance](guidance-on-identity-assurance.html#best-practices-for-identity-verification) and [NIST 800-63](https://pages.nist.gov/800-63-3/) Digital Identity Guidelines, and the intended level of assurance
 5.	Consider [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals) creation, including generating an HL7 Person Identifier and binding the identity to a credential that includes an authenticator, as part of this same encounter--this allows the individual to authenticate themselves without repeating the entire identity verification process.
 
-Outcome: The individual's identity has been successfully verified.
+Outcome: The individual's identity has been successfully verified. If Digital Identifier creation was performed, an HL7 Person Identifer now exists for the individual.
 
 #### Digital Identifier Creation
 
@@ -32,7 +32,7 @@ Workflow:
 
 1.	Identity Provider **SHALL** work with Individual to complete an IDIAL1.8 or greater identity verification process per Identity Proofing Workflow.
 2.	Identity Provider **SHALL** generate and bind Individual's Digital Identifier to an OpenID Connect credential (or equivalent) with AAL2 authentication assurance. 
-3.	The resultant Digital Identifier **SHALL** then be associated with Individual in the Identity Provider's system, and if the Identitiy Provider's system is a medical record the HL7 Person Identifier is persisted as a FHIR Patient.identifier with "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier" as its Identifier.system. The Digital Identifier **SHALL** be shared, when authorized by the individual, with other systems as the Individual's hl7_identifier when included as part of a Match Workflow.
+3.	The resultant Digital Identifier **SHALL** then be associated with Individual in the Identity Provider's system as an HL7 Person Identifier; if the Identitiy Provider's system is a medical record the HL7 Person Identifier is persisted as a FHIR Patient.identifier with "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier" as its Identifier.system. The Digital Identifier **SHALL** be shared, when authorized by the individual, with other systems as the Individual's hl7_identifier when included as part of a Match Workflow.
 
 #### Match Workflow
 
@@ -49,7 +49,7 @@ Pre-conditions:
 
 Workflow:
 
-1.	The requesting system initiates a match request to the receiving system’s FHIR endpoint (or equivalent). When data will be returned to a HIPAA Covered Entity, the L0 invariant, input weight score of at least 9, and attributes verified at IDIAL1.5, or higher quality match request **SHALL** be made. When the requester is not a HIPAA Covered Entity or a single high confidence match is otherwise required (because the system user is a Patient or their Authorized Representative), the L1 invariant with input weight score of at least 10, attributes verified at IDIAL1.8, and AAL2 authentication of the individual or higher quality match request **SHALL** be made (optimally the L2 invariant with input weight score of at least 10, attributes verified at IAL2/IDIAL2 and AAL2 authentication of the individual **SHOULD** be used for such a Consumer Match.)
+1.	The requesting system initiates a match request to the receiving system’s FHIR endpoint (or equivalent). When data will be returned to a HIPAA Covered Entity, the L0 invariant, input weight score of at least 9, and attributes verified at IDIAL1.5, or higher quality match request **SHALL** be made. When the requester is not a HIPAA Covered Entity or a single high confidence match is otherwise required (because the system user is a Patient or their Authorized Representative), the L1 invariant with input weight score of at least 10, attributes verified at IDIAL1.8, and AAL2 authentication of the individual or higher quality match request **SHALL** be made (optimally the L2 invariant with input weight score of at least 10, attributes verified at IAL2/IDIAL2, matching on the HL7 Person Identifier as one of these attributes, and AAL2 authentication of the individual **SHOULD** be used for such a Consumer Match.)
 2.	The receiving system runs a weighting algorithm to determine if the Patient resource found in the request meets the minimum value asserted in the IDI profile and required for the workflow .
 3.	The receiving system takes the match request and runs their own matching algorithm against the database of identities they manage to determine if there are one or more matches.
 4.	The receiving system responds (if appropriate) to the requesting system with the relevant Patient resource(s) in a FHIR Bundle, or otherwise as per the match transaction specifics (whether FHIR or non-FHIR).
@@ -70,13 +70,14 @@ Actors: Patient or Authorized Representative (User), Patient Chosen App, Authori
 Pre-Conditions:
 - The Patient (or Authorized Representative User) registered for an account and their identity was verified by a physician’s office (or their software system, or another organization sharing a system and identity management practices) as per the Core Identity Workflows.
 - The Patient (or Authorized Representative User) identity is known to the Identity Provider.
+- The patient’s HL7 Person Identifier (optional) was assigned by the Identity Provider
 
 Workflow:
 1.	A user wishes to access their health information through an app of their choice (Patient Chosen App).
 2.	HL7 UDAP JWT-Based Authentication B2C is used to register and authenticate the Patient Chosen App in a way that is securely scaled (optional).
 3.	User authorizes data flow to Patient Chosen App.
 4.	User authenticates with their credentials issued by the Identity Provider for practice's system (following SMART, etc. as usual).
-5.	User completes necessary prompts, creating a credential with the Identity Provider associated with the health record if it did not yet exist or resetting the authenticator(s) associated with the credential if needed as per Identity Proofing Workflow, Match Workflow, and Digital Identity Creation Use Cases, as applicable.
+5.	User completes necessary prompts, creating a credential with the Identity Provider associated with the health record if it did not yet exist or resetting the authenticator(s) associated with the credential if needed and invoking the Identity Proofing Workflow, Match Workflow, and Digital Identity Creation Use Cases, as applicable.
 6.	The usual requirements for a Consumer Match apply to establishing or reestablishing the authenticator for the account and assigning an HL7 Person Identifier to the identity of the patient and/or authorized representative by the system of record with which the FHIR server is associated. 
 
 <div>
@@ -96,7 +97,7 @@ Description: This is a special case of Patient-Directed exchange that is also ba
 Actors: Patient (User), Patient Chosen App (for example, FHIR client application operated by Insurance Company), Authorization Server and FHIR Server (Healthcare Organization), Identity Provider
 
 Pre-Conditions:
-- The patient registered for an account and their identity was verified by the Identity Provider at IDIAL1.8 or greater.
+- The patient registered for an account and their identity was verified by the Identity Provider at IDIAL1.8 or higher.
 - The patient’s HL7 Person Identifier (optional) was assigned by the Identity Provider.
 - The Identity Provider **SHALL** make publicly available their standards-based APIs, a conformant identity verification policy (for example, a Registration Practices Statement), and a Relying Party Agreement (such that private contracting with the Identity Provider is not required).
 - The Identity Provider is trusted by any additional policies required by Healthcare Organization’s system.
