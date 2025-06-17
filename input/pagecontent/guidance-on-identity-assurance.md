@@ -1,6 +1,6 @@
 ### Overview
 
-This section provides best practices to be used in addition to NIST 800-63-3 Digital Identity Guidelines for practical application in healthcare settings. These procedures can be used to achieve Identity Assurance Level 2 (IAL2) and other [identity assurance levels](glossary.html) between IAL1 and IAL2 in typical healthcare settings, considering the [identity evidence](glossary.html) generally available across patient populations and for others having a role in managing or exchanging health information and personally identifiable information.
+This section provides best practices to be used in addition to NIST 800-63-3 Digital Identity Guidelines for practical application in healthcare settings. These procedures can be used to achieve Identity Assurance Level 2, referred to as IDIAL2 when conformant with this IG, and other [identity assurance levels](glossary.html) between IAL1 and IAL2 in typical healthcare settings, considering the [identity evidence](glossary.html) generally available across patient populations and for others having a role in managing or exchanging health information and personally identifiable information.
 
 The authors have been mindful of health equity considerations and have considered in the development of this guidance sensitive populations such as pediatric patients and persons experiencing housing insecurity. As a result, the guidance reflects an understanding of the prevalence of shared addresses (when shelters and last known hospitalization are used as a home street address) and other cases where identity evidence typically needed for IAL2 may not be available. 
 
@@ -37,7 +37,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >
 >The Identity Provider **SHALL** also verify the First Name, Last Name, Home Street Address, Date of Birth, and any other verifiable demographics which they will claim have been verified, using the required evidence listed below and corresponding to the desired level of identity assurance, and completing other required steps as follows:  
 >
-> **IAL1/IDIAL1** requirements:  
+> **IDIAL1** requirements:  
 >  - Declaration of Identity attestation by the individual indicates that submitted information represents their own identity.
 >      
 > **IDIAL1.2** requirements: 
@@ -66,18 +66,18 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >  - Send a notification of identity verification, including an email or telephone contact information for the Identity Provider, by postal mail to the verified Address of Record, or to an email address or mobile or alternative number that had already been registered to the person in the Identity Provider’s system OR that appears on a utility bill in their name that is additionally submitted as identity evidence and is consistent with other evidence. The absence of multiple pieces of identity evidence in IDIAL1.6 is deemed acceptable given that there is some nominal fraud protection introduced by requiring this notification.
 >    
 > **IDIAL1.8** requirements: 
->  - Two Fair or stronger pieces of evidence were used to verify first name, last name, date of birth, and home street address--for example: 
->      - Two of:  1) US state-issued driver's license or other Fair or stronger photo ID confirmed by comparison to individual and consistent with other demographics submitted by the individual; 2) medical record number (and the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual) OR 
->      - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual 
+>  - One Strong plus one Fair or stronger piece of evidence were used to verify first name, last name, date of birth, and home street address--for example: 
+>      - Two of:  1) US state-issued driver's license or other Strong photo ID confirmed by comparison to individual and consistent with other demographics submitted by the individual; 2) medical record number (consistent with [DirectTrust Guidance for Authentication of Individual Identity](https://directtrust.app.box.com/s/wr4qa2pqbetxyp78sbtfci5jlzofis67/file/1025491591524) when using a medical record as evidence, plus the medical record number issuer can verify that the number is consistent with other demographics submitted by the individual); or 3) insurance card (and information on card is consistent with other demographics submitted by the individual) OR 
+>      - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual (The mobile number appears on a bill including the individual's name that is submitted as identity evidence and is consistent with other evidence.) 
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
 >  - Verify the individual's physical residential Address of Record 
->  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. (The mobile number appears on a bill including the individual's name that is submitted as identity evidence and is consistent with other evidence.)
+>  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. 
 >
-> **IAL2/IDIAL2** requirements: 
+> **IDIAL2** requirements: 
 >  - One Strong plus two Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR one Superior/Very Strong piece of evidence (for example: Government-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual.  
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
 >  - Verify the individual's physical residential Address of Record. 
->  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. (The mobile number appears on a bill including the individual's name that is submitted as identity evidence and is consistent with other evidence.)
+>  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. (Mobile number verification means the number appeared on a bill including the individual's name that was submitted as identity evidence and was consistent with other evidence.)
 >
 > **Additional Examples of Strong Evidence:**
 >1. US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
@@ -97,7 +97,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 
 ### Individual Profile Photo
 
-An Individual Profile Photo associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IAL2/IDIAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution. 
+An Individual Profile Photo associated with an identity **SHALL** be verified during identity verification or a subsequent, authenticated event that confirms the match between the photo and the individual, i.e., as in 800-63 where the photo taken during a proofing event is confirmed as matching with the photo on the individual's identity evidence for IDIAL2 remote unsupervised or is confirmed to match the individual when identity verification is performed in person. The photo can be used to prevent errors in matching or in identity resolution. 
 
 ### Use of Social Security Number (SSN)
 
@@ -112,7 +112,7 @@ From 800-63:
 - KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification. 
 - KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The [CSP](glossary.html) (referred to in this IG as an Identity Provider) MAY use KBV to resolve to a unique, claimed identity. 
 - KBV can be used to verify one Fair piece of evidence 
-- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2/IDIAL2 in section 5.3.2 Knowledge-Based Verification Requirements.
+- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2, which **SHALL** also apply to IDIAL2, in section 5.3.2 Knowledge-Based Verification Requirements.
 
 ### Authorized Representatives
 
