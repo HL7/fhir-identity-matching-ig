@@ -47,6 +47,16 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-49647](https://jira.hl7.org/browse/FHIR-49647)|Identifier must have been issued by IdP to be shared (technical correction portion of ticket)|
 |[FHIR-51016](https://jira.hl7.org/browse/FHIR-51016)|Digital Identifier section erroneously states IDIAL1.5 can be used|
 |[FHIR-46410](https://jira.hl7.org/browse/FHIR-46410)|Guidance on including explicit authorization and token expiration time frame|
+|[FHIR-47661](https://jira.hl7.org/browse/FHIR-47661)|n-tuple or n-combination of PII attributes|
+|[FHIR-46755](https://jira.hl7.org/browse/FHIR-46755)|Need normative requirements linking (or not linking) this IG to Patient $match|
+|[FHIR-48294](https://jira.hl7.org/browse/FHIR-48294)|Clarify how HL7 Identifier works|
+|[FHIR-50088](https://jira.hl7.org/browse/FHIR-50088)|Clarify requirements for IAL2|
+|[FHIR-50086](https://jira.hl7.org/browse/FHIR-50086)|Clarify how Trusted Referees or Trusted Agents can vouch for individuals|
+|[FHIR-45307](https://jira.hl7.org/browse/FHIR-45307)|Include mDL as a Valid Identification Source|
+|[FHIR-48047](https://jira.hl7.org/browse/FHIR-48047)|Hashing is not effective for preserving privacy or facilitating matches for many UTF-8 characters.|
+|[FHIR-50085](https://jira.hl7.org/browse/FHIR-50085)|Add "Trusted Referee" to glossary|
+|[FHIR-47555](https://jira.hl7.org/browse/FHIR-47555)|Plain Language Summary about HL7 and this Guide to the home page|
+|[FHIR-48042](https://jira.hl7.org/browse/FHIR-48042)|NIST 800-63-3 guidelines for address confirmation has additional requirements not explicitly mentioned|
 
 
 
