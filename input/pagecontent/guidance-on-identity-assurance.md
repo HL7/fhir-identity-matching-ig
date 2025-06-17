@@ -71,13 +71,13 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >      - US state- or nationally-issued photo ID confirmed by comparison to individual plus mobile number billed to the individual 
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
 >  - Verify the individual's physical residential Address of Record 
->  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
+>  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. (The mobile number appears on a bill including the individual's name that is submitted as identity evidence and is consistent with other evidence.)
 >
 > **IAL2/IDIAL2** requirements: 
 >  - One Strong plus two Fair or stronger pieces of evidence (for example: State driver's license confirmed by comparison to individual, a Fair or stronger photo ID confirmed by comparison to individual, and one other piece of Fair or stronger evidence verified) OR one Superior/Very Strong piece of evidence (for example: Government-issued passport, REAL ID, Enhanced ID, or US Military ID); this photo ID is confirmed by comparison to the individual.  
 >  - Declaration of Identity attestation by the individual indicates that all submitted information including first name, last name, date of birth, and home street address represents their own identity. 
 >  - Verify the individual's physical residential Address of Record. 
->  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name.
+>  - Notification, including an email or telephone contact information for the Identity Provider, is either sent by postal mail to the verified Address of Record or sent via SMS to the mobile number verified as billed to the individual by name. (The mobile number appears on a bill including the individual's name that is submitted as identity evidence and is consistent with other evidence.)
 >
 > **Additional Examples of Strong Evidence:**
 >1. US State- or territory-issued regular (not REAL ID or Enhanced ID) driver's license or ID card including a photograph
