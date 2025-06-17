@@ -12,7 +12,7 @@ The identity verification policy **SHALL** describe the practices, consistent wi
 
 Identity Providers **SHALL** only rely on their trained employees to perform as Trusted Referees, consistent with their published identity verification policy.
 
-Identity Providers **SHALL NOT** rely on third parties as Trusted Referees or Trusted Agents, to vouch for individuals, or to perform identity verification including on behalf of another person as is generally permitted under NIST 800-63-3 Digital Identity Guidelines. 
+Identity Providers **SHALL NOT** rely on third parties as Trusted Referees or Trusted Agents, to vouch for individuals, or to perform identity verification including on behalf of another person. 
 
 Additionally, the IG aims to align with NIST guidelines for using Mobile Driver's Licenses (mDLs) as a means for authentication and/or identity verification of individuals. Note that as of this time, it is known that the evidence strength of mDLs may vary from state to state.
 
