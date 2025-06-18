@@ -6,13 +6,11 @@ The authors have been mindful of health equity considerations and have considere
 
 ### Best Practices for Identity Verification
 
-Any system of an Identity Provider conforming to this IG **SHALL** also conform to the NIST 800-63-3 Digital Identity Guidelines except as adapted in this guide and **SHALL** publicly post their identity verification (and authentication, if authentication is offered) policy in a manner that is easily discoverable online, additionally referencing this IG if attesting to be compliant with it. Specifically, IDIAL1.6 and IDIAL1.8 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however, with different required identity evidence, data collection, and other procedural clarifications as indicated in the IG.
+Any system of an Identity Provider conforming to this IG **SHALL** also conform to the NIST 800-63-3 Digital Identity Guidelines except as adapted in this guide and **SHALL** publicly post their identity verification (and authentication, if authentication is offered) policy in a manner that is easily discoverable online, additionally referencing this IG if attesting to be compliant with it. Specifically, IDIAL1.6, IDIAL1.8, and IDIAL2 requirements are intended to be consistent with NIST 800-63A identity verification procedures for IAL2 identity assurance, however, with different required identity evidence, data collection, and other procedural clarifications as indicated in the IG.
 
 The identity verification policy **SHALL** describe the practices, consistent with this guide, used by employees or agents of Identity Provider's organization to verify and manage identities, along with whether and how those employees and agents may perform as Trusted Referees, and how personal information is managed by the Identity Provider. 
 
-Identity Providers **SHALL** only rely on their trained employees to perform as Trusted Referees, consistent with their published identity verification policy.
-
-Identity Providers **SHALL NOT** rely on third parties as Trusted Referees or Trusted Agents, to vouch for individuals, or to perform identity verification including on behalf of another person (this language is not intended to prohibit the use of documents processed by Notaries, which is generally an aspect of broader identity verification procedures that is broadly utilized by the industry today). 
+Identity Providers **SHALL** only rely on their trained employees to perform as Trusted Referees, consistent with their published identity verification policy. Identity Providers **SHALL NOT** rely on third parties as Trusted Referees or Trusted Agents, to vouch for individuals, or to perform identity verification including on behalf of another person (this language is not intended to prohibit the use of documents processed by Notaries, which is generally an aspect of broader identity verification procedures that is broadly utilized by the industry today). 
 
 Additionally, the IG aims to align with NIST guidelines for using Mobile Driver's Licenses (mDLs) as a means for authentication and/or identity verification of individuals. Note that as of this time, it is known that the evidence strength of mDLs may vary from state to state.
 
@@ -31,7 +29,7 @@ NOTE: Although implementers, lacking more specific requirements that may exist i
 >- Email Address  
 >- Mobile Number (preferred; if a mobile number is not available, collect an alternative number for the individual) 
 >
->In some cases, data collected for identity verification cannot be verified in the typical ways. For example, persons experiencing homelessness may provide any temporary address such as a shelter, hospital, community resource center, or other location, or may provide any portion of an address that is known (e.g., zip code).
+>In some cases, data collected for identity verification cannot be verified in the typical ways. For example, persons experiencing housing insecurity may provide any temporary address such as a shelter, hospital, community resource center, or other location, or may provide any portion of an address that is known (e.g., zip code).
 >Unless explicitly required otherwise at certain levels, at a minimum, control of the email address and mobile or alternative number **SHOULD** be verified at every level of assurance listed below through the use of an Enrollment Code as per [NIST SP 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html) section 4.6.
 >NOTE: Implementers are encouraged to promote the availability of free mobile number services that support long term use, since these may facilitate [patient matching](glossary.html) and [credential](glossary.html) management; these services may be particularly helpful for those facing housing insecurity or who may be too young to have established credit bureau type records.
 >
