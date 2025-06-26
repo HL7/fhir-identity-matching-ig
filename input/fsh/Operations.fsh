@@ -1,6 +1,6 @@
 Instance: IDIMatchOperation
 InstanceOf: OperationDefinition
-Description: "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
+Description: "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 Usage: #definition
 
 * id = "IDI-match"
@@ -9,7 +9,7 @@ Usage: #definition
 * title = "IDI Match Operation"
 * status = #draft
 * kind = #operation
-* description = "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
+* description = "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 * code = #idi-match
 * base = "http://hl7.org/fhir/us/identity-matching/OperationDefinition/IDI-match"
 * resource = #Patient

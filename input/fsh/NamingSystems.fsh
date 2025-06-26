@@ -7,7 +7,7 @@ InstanceOf: NamingSystem
 Usage: #definition
 * name = "HL7Identifier"
 * description = "Digital Identifier to assist in patient matching."
-* status = #draft
+* status = #active
 * kind = #identifier
 * date = "2023-02-20"
 

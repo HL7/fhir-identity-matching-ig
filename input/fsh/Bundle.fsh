@@ -6,7 +6,7 @@ Description: "Bundle requirements for responders to an $IDI-match request. Respo
 
 * identifier 1..1 MS
 * identifier.assigner 1..1 MS
-* type = #collection (exactly)
+* type = #searchset (exactly)
 * entry 1..* MS
 * entry.fullUrl 1..1 MS
 * entry ^slicing.discriminator.type = #profile

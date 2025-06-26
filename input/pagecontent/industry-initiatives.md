@@ -1,10 +1,10 @@
-This section is an ongoing compilation of industry-wide (including international) digital identity and patient matching projects. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page.
+This section is an ongoing compilation of industry-wide, including international, digital identity and patient matching projects, with input from [Digital Identity](digital-identity.html) & [Patient Matching](patient-matching.html) on cross-cutting capabilities and how various efforts may be leveraged in the healthcare setting. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page. 
 
 ### Digital Identity and Patient Matching Projects
 
 [AHIMA Naming Policy Recommendations white paper](https://ahima.org/media/blfdriqj/326_21_namingpolicywhitepaper_final.pdf?oid=302787)
 
-[Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s [Digital Trust And Identity](https://ciostrategycouncil.com/standards/103_1_2020/) and National Technical Specification for digital credentials and digital trust services
+[Canadian Digital Identity Ecosystem](https://diacc.ca/trust-framework/)'s Digital Trust And Identity and National Technical Specification for digital credentials and digital trust services
 
 [CARIN Digital Identity](https://www.carinalliance.com/our-work/digitalidentity/)
 
@@ -26,7 +26,7 @@ This section is an ongoing compilation of industry-wide (including international
 
 [CARIN digital insurance card for member IDs](https://confluence.hl7.org/display/CAR/CARIN+IG+for+Digital+Insurance+Card)  
 
-[Direct Standard - Implementation Guide for Expressing Context in Direct Messaging](http://wiki.directproject.org/w/images/4/40/Implementation_Guide_for_Expressing_Context_in_Direct_Messaging_v1.1.pdf)  
+[Direct Standard - Implementation Guide for Expressing Context in Direct Messaging](https://wiki.directproject.org/wiki/File:Implementation_Guide_for_Expressing_Context_in_Direct_Messaging_v1.1.pdf)  
 
 [Overview: IHE whitepaper on Document Sharing Health Information Exchanges](https://profiles.ihe.net/ITI/HIE-Whitepaper/index.html#5-patient-identity-management)
 
