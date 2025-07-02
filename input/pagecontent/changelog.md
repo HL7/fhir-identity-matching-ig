@@ -57,7 +57,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-50085](https://jira.hl7.org/browse/FHIR-50085)|Add "Trusted Referee" to glossary|
 |[FHIR-47555](https://jira.hl7.org/browse/FHIR-47555)|Plain Language Summary about HL7 and this Guide to the home page|
 |[FHIR-48042](https://jira.hl7.org/browse/FHIR-48042)|NIST 800-63-3 guidelines for address confirmation has additional requirements not explicitly mentioned|
-
+|[FHIR-51424](https://jira.hl7.org/browse/FHIR-51424)|State IG Status Explicitly|
 
 
 <style>

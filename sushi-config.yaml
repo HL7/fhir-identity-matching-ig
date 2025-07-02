@@ -24,8 +24,8 @@ dependencies:
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg  #<<< must include a http://hl7.org/fhir/StructureDefinition/structuredefinition-wg extension that identifies the workgroup responsible for the IG. This is the authoritative element.
     valueCode: pa  # <<< The value must be the code for the workgroup
-  # - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
-  #   valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
 
 parameters:
   show-inherited-invariants: false
