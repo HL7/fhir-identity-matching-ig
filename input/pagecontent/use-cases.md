@@ -63,9 +63,9 @@ Outcome: Requesting system has obtained a valid FHIR Bundle (or equivalent) cont
 
 #### Patient-Directed B2C (intrinsic OAuth service)
 
-Description: Patient or their authorized representative authorizes action such as third-party application's access to a patient’s data as in the SMART App Launch Patient Access workflow (or equivalent) using their credentials issued by the data holder organization (or its tightly-coupled Identity Identity Provider) to authenticate the user.  The use case is relevant in some TEFCA Individual Access Services contexts, but applies broadly when authentication of an individual is required, such as a request for restrictions (part of view, download, and transmit to 3rd party) or another transaction needing digital consent.
+Actors: Patient or Authorized Representative (User), Patient-Chosen App, Authorization Server, FHIR Server, FHIR Server's Identity Provider (native to the system or contracted such that the system takes responsibility for the services of Identity Provider)
 
-Actors: Patient or Authorized Representative (User), Patient Chosen App, Authorization Server, FHIR Server, FHIR Server's Identity Provider (native to the system or contracted such that the system takes responsibility for the services of Identity Provider)
+Description: Patient or their authorized representative authorizes action such as third-party application's access to a patient’s data as in the SMART App Launch Patient Access workflow (or equivalent) using their credentials issued by the data holder organization (or its tightly-coupled Identity Provider) to authenticate the user.  The use case is relevant in some TEFCA Individual Access Services contexts, but applies broadly when authentication of an individual is required, such as a request for restrictions (part of view, download, and transmit to 3rd party) or another transaction needing digital consent.
 
 Pre-Conditions:
 - The Patient (or Authorized Representative User) registered for an account and their identity was verified by a physician’s office (or their software system, or another organization sharing a system and identity management practices) as per the Core Identity Workflows.
@@ -89,6 +89,51 @@ Workflow:
 </div>
 
 
+
+##### Patient-Directed B2C with Tiered OAuth
+
+Actors: Authorized Representative (User) OR Patient, Patient-Chosen App, Authorization Server, FHIR Server, FHIR Server's Identity Provider, Additional Third-Party Identity Provider
+
+Description: Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using trusted credentials from a third-party Identity Provider (in this example, as per Unified Data Access Profiles (UDAP) Tiered OAuth for User Authentication) to authenticate the user.
+
+Pre-Conditions:
+- The Patient (or Authorized Representative User) registered for an account and their identity was verified by a physician’s office (or their software system, or another organization sharing a system and identity management practices) AND by a third-party Identity Provider as per the Core Identity Workflows
+- The Patient (or Authorized Representative User) identity is known to both Identity Providers
+- The patient’s HL7 Person Identifier (optional) was assigned by either or both Identity Providers
+
+Workflow:
+1.	A user wishes to access their health information through an app of their choice (Patient-Chosen App).
+2.	HL7 UDAP JWT-Based Authentication B2C is used to register and authenticate the Patient-Chosen App in a way that is securely scaled (optional).
+3.	User authorizes data flow to Patient-Chosen App.
+4.	User authenticates with their credentials issued by the third-party Identity Provider (following SMART, etc. as usual).
+5.	User completes necessary prompts, creating a credential with the thrid-party Identity Provider if it did not yet exist or resetting the authenticator(s) associated with the credential if needed and invoking the Identity Proofing Workflow, Match Workflow, and Digital Identity Creation Use Cases, as applicable.
+6.	The usual requirements for a Consumer Match apply to establishing or reestablishing the authenticator for the account, assigning an HL7 Person Identifier to the identity of the patient and/or authorized representative by the third-party Identity Provider AND the system of record with which the FHIR server is associated (optional), and confirming that the user authenticated by the third-party Identity Provider is the expected authorized representative or patient according to identity management practices of the system of record that conform with this IG. 
+
+<div>
+<figure class="figure">
+    <img src="patient-directed-b2c.png" alt="Patient-Directed B2C" title="Patient-Directed B2C" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Directed B2C</strong></figcaption>
+</figure>
+<p></p>
+</div>
+
+##### Patient-Directed B2C with mDL
+
+Actors: Authorized Representative (User) OR Patient, Patient-Chosen App, Authorization Server, FHIR Server, Identity Provider supporting OpenID4VP and WebauthN
+
+Description: Patient or their authorized representative authorizes a third-party application to access patient's data as in the SMART App Launch workflow (or equivalent) using their mDL to authenticate themselves. This use case leverages mDLs along with OpenID4VP and WebauthN, consistent with current NIST NCCoE Mobile Driver's License Project Draft Use Case Criteria (https://pages.nist.gov/nccoe-mdl-project-static-website/criteria.html) or future published NIST guidance
+
+Pre-Conditions:
+- The Patient (or Authorized Representative User) registered for an account and their identity was verified by a physician’s office (or their software system, or another organization sharing a system and identity management practices) AND by a third-party Identity Provider as per the Core Identity Workflows
+- The Patient (or Authorized Representative User) posesses a state-issused mDL in a compliant digital wallet
+
+Workflow:
+1.	A user wishes to access their health information through an app of their choice (Patient-Chosen App).
+2.	HL7 UDAP JWT-Based Authentication B2C is used to register and authenticate the Patient-Chosen App in a way that is securely scaled (optional).
+3.	User authorizes data flow to Patient-Chosen App.
+4.	User authenticates with their mDL.
+5.	User completes necessary prompts, invoking the Identity Proofing Workflow, Match Workflow, and Digital Identity Creation Use Cases, as applicable.
+6.	The usual requirements for a Consumer Match apply to confirming that the user authenticated per NIST guidance is the expected authorized representative or patient according to identity management practices of the system of record that conform with this IG. 
 
 #### Patient-Directed B2C Using Digital Identity from External Identity Provider and Optional HL7 Person Identifier
 
@@ -132,6 +177,35 @@ Workflow:
 5.	The responder will undergo a weighting adjudication to determine the strength of the match request.
 6.	If sufficient, the responder will then complete a Consumer Match against their patient database that includes identities responder has verified at IDIAL1.5 or higher.
 7.	If there is a Consumer Match on the patient, and the User is authorized to access that patient's health data, the resultant Patient resource will be returned in a FHIR Bundle as per $IDI-match; otherwise, the bundle is empty. If an alternative workflow is used ($IDI-match, the appropriate patient data or “no match found” is returned.
+
+OIDC ID Token Example
+
+{ 
+   "alg":"RS256", 
+   "kid":"...", 
+   "typ":"JWT" 
+} 
+{ 
+   "aud":"...", 
+   "iat":1666280632, 
+   "iss":"https://generalhospital.example.com/as", 
+   "sub":"328473298643", 
+   "hl7_person_identifier":"123e4567-e89b-12d3-a456-426614174000a", 
+   "amr":"http://udap.org/code/auth/aal2", 
+   "acr":"http://udap.org/code/id/idial1.8", 
+   "name": "Jane Doe", 
+   "given_name": "Jane", 
+   "family_name": "Doe", 
+   "birthdate": "1979-01-01", 
+   "address": { 
+     "street_address": "1234 Hollywood Blvd.", 
+     "locality": "Los Angeles", 
+     "region": "CA", 
+     "postal_code": "90210", 
+     "country": "US"}, 
+   "phone_number": "+1 (555) 777-1234", 
+   "email": "janedoe@example.com" 
+} 
 
 <div>
 <figure class="figure">
