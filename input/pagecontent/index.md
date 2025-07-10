@@ -4,12 +4,25 @@ This Identity-focused FHIR implementation guide (IG) has been established upon t
 
  
 
-The IG may provide a foundation for future digital identity management requirements. 
+The IG provides a foundation for additional, future digital identity management requirements. 
 </div> 
 
  
 
 &emsp;&emsp;   
+### About HL7
+
+[HL7](http://hl7.org/), which stands for Health Level Seven, creates standards to help different healthcare computer systems talk to each other. These HL7 standards are a special language or set of rules that lets information be shared between hospitals, doctors’ offices (e.g. Electronic Health Record Systems), labs, patients (e.g. via patient portals), pharmacies, and insurers, among others.
+
+One of the HL7 standards is HL7 FHIR (Fast Healthcare Interoperability Resources). It helps connect healthcare systems, making it easier for doctors, nurses, and other healthcare professionals to share important information about patients. For example, if you have a lab test at a hospital, HL7 FHIR helps send the results to your doctor’s office so they can provide the right care.
+
+A goal of HL7 is to make sure everyone involved in your healthcare has the right information at the right time. Our standards help machines and people, including you, work together to make better decisions for your health. HL7 sets rules that computer systems follow, so they can understand and share information in a consistent and reliable way.
+
+To learn more about HL7, you can visit the website [hl7.org](http://hl7.org/)
+
+The people at HL7 make guides that explain how to use the rules (standards) for different things. These guides bring the rules together and show how to use them for specific purposes.
+
+
 ### About This Guide 
 
 This IG profiles the FHIR patient $match operation for use in cross-organizational workflows and serves as a set of best practices for person matching and identity management in similar FHIR transactions, as well as in other non-FHIR transaction types. 

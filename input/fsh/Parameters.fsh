@@ -5,7 +5,7 @@ Title:          "IDI Match Input Parameters"
 Description:    "The Parameters profile used to define the inputs of the $IDI-match operation using an IDI-Patient profile for submission."
 
 * ^status = #active
-* parameter ^slicing.discriminator.type = #pattern
+* parameter ^slicing.discriminator.type = #value
 * parameter ^slicing.discriminator.path = "name"
 * parameter ^slicing.rules = #open
 * parameter ^slicing.description = "Slice based on $this pattern"
@@ -24,7 +24,7 @@ Title:          "IDI Match Output Parameters"
 Description:    "The Parameters profile used to define the outputs of the $IDI-match operation."
 
 * ^status = #active
-* parameter ^slicing.discriminator.type = #pattern
+* parameter ^slicing.discriminator.type = #value
 * parameter ^slicing.discriminator.path = "name"
 * parameter ^slicing.rules = #open
 * parameter ^slicing.description = "Slice based on $this pattern"

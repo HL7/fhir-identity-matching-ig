@@ -8,7 +8,7 @@ Sources: NIST SP 800-63-3, NIST SP 1800-17c
 
 Source(s): NIST SP 800-63-3 
 
-**Digital Identity**: Digital Identity referred to in this guide means the technology and processes that support personal identity as it pertains to electronic health information. Digital health identity includes not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), identity authentication, authorization and access control, as well as other technologies and processes. 
+**Digital Identity**: The term digital identity used in this guide refers to the technology and processes that support personal and business identities as they pertain to electronic health information. Digital health identity involves not just identifiers, but also components such as matching, identity vetting (also referred to as proofing or verification), authentication, authorization and access control, and other technologies and processes. The guide also defines specific minimum requirements for Digital Identifiers, representing a preferred subset of digital identities designed to improve person matching and appropriate access to health data, referred to as the HL7Identifier and found in [Requirements on Digital Identifiers for Individuals](digital-identity.html#requirements-for-digital-identifiers-for-individuals).
 
 **Golden Record**: The golden record encompasses all the data in every system of record within a particular organization. A system of record is an information storage and retrieval system that serves as the authoritative source for a particular data element in a system containing multiple sources of the same element. 
 
@@ -29,6 +29,8 @@ NOTE: A Golden Record captures all the correct and current information for a Pat
 **Patient Mediated**: Patient or their authorized representative authorizes access to their data by a third party when it is under patient’s management and not the data creator’s management (e.g., a consumer app enables the patient to manage their own data) 
 
 **Strengths of Identity Evidence**: The quality requirements (UNACCEPTABLE, WEAK, FAIR, STRONG, and SUPERIOR) for identity evidence collected during identity proofing.  See the [Table 5-1 Strengths of Identity Evidence](https://pages.nist.gov/800-63-3/sp800-63a.html#63aSec5-Table1) 
+
+**Trusted Referee**: A trained and approved or certified individual that can vouch for or act on behalf of an individual pursuing identity verification, in accordance with applicable laws, regulations, or agency policy, consistent with this term as used in [NIST 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html).
 
 **Unified Data Access Profiles (UDAP)**: Published by [UDAP.org](https://www.UDAP.org) to increase confidence in open API transactions through the use of trusted identities and verified attributes. UDAP use cases support standards-based security, privacy, and scalable interoperability through reusable identities, leveraging Dynamic Client Registration, JWT-based client authentication and Tiered OAuth.  
 

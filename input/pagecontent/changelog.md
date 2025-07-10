@@ -32,6 +32,35 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-45206](https://jira.hl7.org/browse/FHIR-45206)|Add attribute applicability section 3.8 with criteria for field matches based on codes|
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IDIAL1.6|
 |[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Change IAL levels to IDIAL throughout the IG to differentiate from NIST IAL levels|
+|[FHIR-47700](https://jira.hl7.org/browse/FHIR-47700)|Add Public Health as Entity Type in section 2.7|
+|[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
+|[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
+|[FHIR-48052](https://jira.hl7.org/browse/FHIR-48052)|Clarifications to Use Cases to make it clearer how entities come to shared consensus about identity of user|
+|[FHIR-45199](https://jira.hl7.org/browse/FHIR-45199)|Requirements to clarify when an individual has been authenticated or when sufficient demographics plus sufficiently high authentication by a trusted IdP are equivalent to local authentication|
+|[FHIR-45312](https://jira.hl7.org/browse/FHIR-45312)|Include minimum identity verification levels in invariant definitions|
+|[FHIR-45449](https://jira.hl7.org/browse/FHIR-45449)|Include Level 2 invariant at IAL2/IDIAL2|
+|[FHIR-50257](https://jira.hl7.org/browse/FHIR-50257)|Clarifying minimum level of identity assurance for responder records management (B2B matches)|
+|[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Adding ID before our IAL levels where they differ from NIST|
+|[FHIR-48298](https://jira.hl7.org/browse/FHIR-48298)|Rules for comparing SSN (last 4) to SSN|
+|[FHIR-48677](https://jira.hl7.org/browse/FHIR-48677)|Adding push and other patient-facing workflows to examples|
+|[FHIR-49054](https://jira.hl7.org/browse/FHIR-49054)|Clarified that IDIAL1.5 is not the minimum bar for Digital Identifier; rather, it is IDIAL1.8; additional technical corrections related to FHIR-48032|
+|[FHIR-48282](https://jira.hl7.org/browse/FHIR-48282)|Clarify requirements for how IAL intersects with workflows|
+|[FHIR-50930](https://jira.hl7.org/browse/FHIR-50930)|Clarify that alternative numbers are verified as with mobile numbers|
+|[FHIR-49647](https://jira.hl7.org/browse/FHIR-49647)|Identifier must have been issued by IdP to be shared (technical correction portion of ticket)|
+|[FHIR-51016](https://jira.hl7.org/browse/FHIR-51016)|Digital Identifier section erroneously states IDIAL1.5 can be used|
+|[FHIR-46410](https://jira.hl7.org/browse/FHIR-46410)|Guidance on including explicit authorization and token expiration time frame|
+|[FHIR-47661](https://jira.hl7.org/browse/FHIR-47661)|n-tuple or n-combination of PII attributes|
+|[FHIR-46755](https://jira.hl7.org/browse/FHIR-46755)|Need normative requirements linking (or not linking) this IG to Patient $match|
+|[FHIR-48294](https://jira.hl7.org/browse/FHIR-48294)|Clarify how HL7 Identifier works|
+|[FHIR-50088](https://jira.hl7.org/browse/FHIR-50088)|Clarify requirements for IAL2|
+|[FHIR-50086](https://jira.hl7.org/browse/FHIR-50086)|Clarify how Trusted Referees or Trusted Agents can vouch for individuals|
+|[FHIR-45307](https://jira.hl7.org/browse/FHIR-45307)|Include mDL as a Valid Identification Source|
+|[FHIR-48047](https://jira.hl7.org/browse/FHIR-48047)|Hashing is not effective for preserving privacy or facilitating matches for many UTF-8 characters.|
+|[FHIR-50085](https://jira.hl7.org/browse/FHIR-50085)|Add "Trusted Referee" to glossary|
+|[FHIR-47555](https://jira.hl7.org/browse/FHIR-47555)|Plain Language Summary about HL7 and this Guide to the home page|
+|[FHIR-48042](https://jira.hl7.org/browse/FHIR-48042)|NIST 800-63-3 guidelines for address confirmation has additional requirements not explicitly mentioned|
+|[FHIR-51424](https://jira.hl7.org/browse/FHIR-51424)|State IG Status Explicitly|
+
 
 <style>
 table, th, td 
