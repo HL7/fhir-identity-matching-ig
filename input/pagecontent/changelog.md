@@ -20,7 +20,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48287](https://jira.hl7.org/browse/FHIR-48287)|Reorder language around note in 2.2 and clarify separate IdP systems|
 |[FHIR-48033](https://jira.hl7.org/browse/FHIR-48033)|Improve precision of wording in 5.1.1 Identity Proofing Workflow|
 |[FHIR-47663](https://jira.hl7.org/browse/FHIR-47663)|Create additional example demonstrating incomplete information and weighted match input score too low|
-|[FHIR-48045](https://jira.hl7.org/browse/FHIR-48045)|Add link to verified attributes in glossary, correction to clarify IAL1.8 for internal consistency with Consumer Match section|
+|[FHIR-48045](https://jira.hl7.org/browse/FHIR-48045)|Add link to verified attributes in glossary, correction to clarify IDIAL1.8 for internal consistency with Consumer Match section|
 |[FHIR-48049](https://jira.hl7.org/browse/FHIR-48049)|Clarify rationale for avoiding I and O in enterprise identifiers|
 |[FHIR-48034](https://jira.hl7.org/browse/FHIR-48034)|Clarify match workflow pre-conditions 5.1.2|
 |[FHIR-48035](https://jira.hl7.org/browse/FHIR-48035)|Clarify natch workflow outcome in 5.1.2|
@@ -28,8 +28,10 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-48051](https://jira.hl7.org/browse/FHIR-48051)|Added verified attribute details to Glossary|
 |[FHIR-47044](https://jira.hl7.org/browse/FHIR-47044)|Clafiry mDL guidance in Identity Assurance page|
 |[FHIR-48026](https://jira.hl7.org/browse/FHIR-48026)|Use terms defined in cited NIST publications for added precision|
-|[FHIR-48030](https://jira.hl7.org/browse/FHIR-48030)|Clarify requirements for section 2.2 for IAL1.5|
+|[FHIR-48030](https://jira.hl7.org/browse/FHIR-48030)|Clarify requirements for section 2.2 for IDIAL1.5|
 |[FHIR-45206](https://jira.hl7.org/browse/FHIR-45206)|Add attribute applicability section 3.8 with criteria for field matches based on codes|
+|[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IDIAL1.6|
+|[FHIR-48041](https://jira.hl7.org/browse/FHIR-48041)|Change IAL levels to IDIAL throughout the IG to differentiate from NIST IAL levels|
 |[FHIR-47700](https://jira.hl7.org/browse/FHIR-47700)|Add Public Health as Entity Type in section 2.7|
 |[FHIR-48031](https://jira.hl7.org/browse/FHIR-48031)|Clarify evidentiary mitigation claim in IAL1.6|
 |[FHIR-48053](https://jira.hl7.org/browse/FHIR-48053)|Clarify verification terminology used in section 4.2|
