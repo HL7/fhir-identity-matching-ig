@@ -2,7 +2,7 @@
 
 This section provides best practices to be used in addition to NIST 800-63-3 Digital Identity Guidelines for practical application in healthcare settings. These procedures can be used to achieve Identity Assurance Level 2, referred to as IDIAL2 when conformant with this IG, and other [identity assurance levels](glossary.html) between IAL1 and IAL2 in typical healthcare settings, considering the [identity evidence](glossary.html) generally available across patient populations and for others having a role in managing or exchanging health information and personally identifiable information.
 
-The authors have been mindful of health equity considerations and have considered in the development of this guidance sensitive populations such as pediatric patients and persons experiencing housing insecurity. As a result, the guidance reflects an understanding of the prevalence of shared addresses (when shelters and last known hospitalization are used as a home street address) and other cases where identity evidence typically needed for IDIAL2 may not be available. 
+The authors have been mindful of health equity considerations and have considered in the development of this guidance sensitive populations such as pediatric patients and persons experiencing housing insecurity. As a result, the guidance reflects an understanding of the prevalence of shared addresses (when shelters and last known hospitalization are used as a home street address) and other cases where identity evidence typically needed for IAL2 may not be available. 
 
 ### Best Practices for Identity Verification
 

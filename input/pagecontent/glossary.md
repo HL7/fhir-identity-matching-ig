@@ -14,7 +14,7 @@ Source(s): NIST SP 800-63-3
 
 NOTE: A Golden Record captures all the correct and current information for a Patient while suppressing information that is thought to be out-of-date or incorrect. Often, such a Golden Record simply omits older inconsistent information such as an address. 
 
-**Interoperable Digital Identity Assurance Level (IDIAL)**: A category that conveys the degree of confidence that the applicant’s claimed identity is their real identity, more and more superseding LoA. 
+**Identity Assurance Level (IAL)**: A category that conveys the degree of confidence that the applicant’s claimed identity is their real identity, more and more superseding LoA. 
 
 **Knowledge Based Verification (KBV)**:  A process that involves questions related to financial transactions tied to a Social Security Number (SSN). KBV SHALL NOT be used as a substitute for the in-person or remote unsupervised match of the individual to the government issued photo ID at this level or higher and MAY only be used if necessary as an addition to a photo ID comparison process, when required to resolve to a unique identity. 
 
