@@ -344,67 +344,151 @@
     </mxGraphModel>
   </diagram>
   <diagram name="IdP" id="FGjucd4hwiJVBTRZdyo6">
-    <mxGraphModel dx="1893" dy="556" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="2446" dy="674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="v8cOWdxnc2Yur_4qxM7X-0" />
         <mxCell id="v8cOWdxnc2Yur_4qxM7X-1" parent="v8cOWdxnc2Yur_4qxM7X-0" />
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-2" value="Client App" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;rounded=1;" vertex="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry x="-960" y="40" width="120" height="300" as="geometry" />
+        <mxCell id="v8cOWdxnc2Yur_4qxM7X-2" value="Client App" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;rounded=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" vertex="1">
+          <mxGeometry x="-960" y="40" width="120" height="660" as="geometry" />
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-3" value="Auth Server" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;rounded=1;" vertex="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry x="-720" y="40" width="120" height="300" as="geometry" />
+        <mxCell id="v8cOWdxnc2Yur_4qxM7X-3" value="Data Holder&#39;s&lt;div&gt;Authorization Server&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;rounded=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" vertex="1">
+          <mxGeometry x="-720" y="40" width="120" height="660" as="geometry" />
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-4" value="Authorization Request" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#ff0000, #ededed);entryX=0.5;entryY=0.267;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="v8cOWdxnc2Yur_4qxM7X-1" source="v8cOWdxnc2Yur_4qxM7X-2" target="v8cOWdxnc2Yur_4qxM7X-3">
-          <mxGeometry x="-0.1646" y="20" relative="1" as="geometry">
-            <mxPoint x="-880" y="120" as="sourcePoint" />
+        <mxCell id="v8cOWdxnc2Yur_4qxM7X-4" value="Authorization Request&lt;div&gt;(including IdP parameter)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);entryX=0.5;entryY=0.267;entryDx=0;entryDy=0;entryPerimeter=0;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="0.0017" relative="1" as="geometry">
+            <mxPoint x="-900.5" y="159" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="-700" y="120" />
+              <mxPoint x="-700" y="159" />
             </Array>
-            <mxPoint x="-675" y="120" as="targetPoint" />
-            <mxPoint x="1" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-5" value="Data Holder" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;rounded=1;" vertex="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry x="-480" y="40" width="120" height="300" as="geometry" />
-        </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-6" value="Authorization Response" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#e51400;strokeColor=light-dark(#ff0000, #ffacac);" edge="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-660" y="160" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="-770" y="160" />
-              <mxPoint x="-582" y="180" />
-            </Array>
-            <mxPoint x="-900" y="160" as="targetPoint" />
+            <mxPoint x="-660" y="159.10000000000002" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-7" value="$idi-match request" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);" edge="1" parent="v8cOWdxnc2Yur_4qxM7X-1" source="v8cOWdxnc2Yur_4qxM7X-2" target="v8cOWdxnc2Yur_4qxM7X-5">
-          <mxGeometry x="0.5019" relative="1" as="geometry">
-            <mxPoint x="-880" y="280" as="sourcePoint" />
+        <mxCell id="v8cOWdxnc2Yur_4qxM7X-5" value="Identity Provider&#39;s&lt;div&gt;Authorization Server&lt;/div&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;rounded=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" vertex="1">
+          <mxGeometry x="-480" y="40" width="120" height="660" as="geometry" />
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-0" value="Discovery request" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);" parent="v8cOWdxnc2Yur_4qxM7X-1" target="v8cOWdxnc2Yur_4qxM7X-5" edge="1">
+          <mxGeometry x="-0.499" relative="1" as="geometry">
+            <mxPoint x="-660" y="200" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="-530" y="200" />
-              <mxPoint x="-675" y="280" />
+              <mxPoint x="-400" y="200" />
+              <mxPoint x="-290" y="120" />
+              <mxPoint x="-435" y="200" />
             </Array>
-            <mxPoint x="-635" y="280" as="targetPoint" />
+            <mxPoint x="-430" y="200" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-8" value="$idi-match response" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;fillColor=#e51400;strokeColor=light-dark(#000000,#FFACAC);" edge="1" parent="v8cOWdxnc2Yur_4qxM7X-1" source="v8cOWdxnc2Yur_4qxM7X-5" target="v8cOWdxnc2Yur_4qxM7X-2">
-          <mxGeometry x="-0.5019" relative="1" as="geometry">
-            <mxPoint x="-490" y="320" as="sourcePoint" />
+        <mxCell id="WvA5CF2laHlm8uCttpuT-1" value="Discovery response" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#000000;strokeColor=light-dark(#000000,#FFACAC);dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint x="-420" y="240" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="-590" y="240" />
-              <mxPoint x="-412" y="340" />
+              <mxPoint x="-530" y="240" />
+              <mxPoint x="-342" y="260" />
             </Array>
-            <mxPoint x="-730" y="320" as="targetPoint" />
+            <mxPoint x="-660" y="240" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-9" value="Authorization depends on a successful Consumer Match with the B2B with User Authorizatoin Extension Object" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry x="-640" y="86" width="200" height="100" as="geometry" />
+        <mxCell id="WvA5CF2laHlm8uCttpuT-3" value="Registration request (if needed)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);" parent="v8cOWdxnc2Yur_4qxM7X-1" target="v8cOWdxnc2Yur_4qxM7X-5" edge="1">
+          <mxGeometry x="-0.2484" relative="1" as="geometry">
+            <mxPoint x="-660" y="280" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-400" y="280" />
+              <mxPoint x="-290" y="200" />
+              <mxPoint x="-435" y="280" />
+            </Array>
+            <mxPoint x="-420" y="280" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="v8cOWdxnc2Yur_4qxM7X-10" value="MPI runs matching algorithm on FHIR Patient resource in $idi-match request attempt Consumer Match" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="v8cOWdxnc2Yur_4qxM7X-1">
-          <mxGeometry x="-410" y="169" width="200" height="100" as="geometry" />
+        <mxCell id="WvA5CF2laHlm8uCttpuT-4" value="Registration response" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#000000;strokeColor=light-dark(#000000,#FFACAC);" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.4167" relative="1" as="geometry">
+            <mxPoint x="-420" y="320" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-530" y="320" />
+              <mxPoint x="-342" y="340" />
+            </Array>
+            <mxPoint x="-660" y="320" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-5" value="Authentication request&lt;div&gt;(including openid scope)&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);align=left;" parent="v8cOWdxnc2Yur_4qxM7X-1" target="v8cOWdxnc2Yur_4qxM7X-5" edge="1">
+          <mxGeometry x="-0.9286" relative="1" as="geometry">
+            <mxPoint x="-660" y="360" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-400" y="360" />
+              <mxPoint x="-290" y="280" />
+              <mxPoint x="-435" y="360" />
+            </Array>
+            <mxPoint x="-440" y="370" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-6" value="IdP incorporates user input&lt;div&gt;into authentication decision&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=light-dark(#000000,#EDEDED);align=left;dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" target="v8cOWdxnc2Yur_4qxM7X-5" edge="1">
+          <mxGeometry x="-0.9132" relative="1" as="geometry">
+            <mxPoint x="-420" y="400" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-320" y="430" />
+            </Array>
+            <mxPoint x="-220" y="460" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-7" value="Authentication response" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#000000;strokeColor=light-dark(#000000,#FFACAC);align=center;dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.4167" relative="1" as="geometry">
+            <mxPoint x="-420" y="479" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-530" y="479" />
+              <mxPoint x="-342" y="499" />
+            </Array>
+            <mxPoint x="-660" y="479" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-9" value="Token request" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;strokeColor=light-dark(#000000,#EDEDED);" parent="v8cOWdxnc2Yur_4qxM7X-1" target="v8cOWdxnc2Yur_4qxM7X-5" edge="1">
+          <mxGeometry x="-0.666" relative="1" as="geometry">
+            <mxPoint x="-660" y="520" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-400" y="520" />
+              <mxPoint x="-290" y="440" />
+              <mxPoint x="-435" y="520" />
+            </Array>
+            <mxPoint x="-420" y="520" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-10" value="&lt;div style=&quot;text-align: right;&quot;&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Token respomse&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-align: center;&quot;&gt;(including id_token) *&lt;/span&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#000000;strokeColor=light-dark(#000000,#FFACAC);align=center;dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.1667" relative="1" as="geometry">
+            <mxPoint x="-420" y="559" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-530" y="559" />
+              <mxPoint x="-342" y="579" />
+            </Array>
+            <mxPoint x="-660" y="559" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-11" value="Data Holder incorporates user&lt;div&gt;input into authorization decision&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=light-dark(#000000,#EDEDED);align=left;dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.9132" relative="1" as="geometry">
+            <mxPoint x="-660" y="600" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-560" y="630" />
+            </Array>
+            <mxPoint x="-660" y="630" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WvA5CF2laHlm8uCttpuT-12" value="&lt;div style=&quot;text-align: right;&quot;&gt;Authorization response&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fillColor=#000000;strokeColor=light-dark(#000000,#FFACAC);align=center;dashed=1;" parent="v8cOWdxnc2Yur_4qxM7X-1" edge="1">
+          <mxGeometry x="-0.5" relative="1" as="geometry">
+            <mxPoint x="-660" y="680" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-770" y="680" />
+              <mxPoint x="-582" y="700" />
+            </Array>
+            <mxPoint x="-900" y="680" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
