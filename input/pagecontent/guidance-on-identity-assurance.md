@@ -110,7 +110,7 @@ From 800-63:
 - KBV **SHALL NOT** be used for in-person (physical or supervised remote) identity verification. 
 - KBV (sometimes referred to as knowledge-based authentication) has historically been used to verify a claimed identity by testing the knowledge of the applicant against information obtained from public databases. The [CSP](glossary.html) (referred to in this IG as an Identity Provider) MAY use KBV to resolve to a unique, claimed identity. 
 - KBV can be used to verify one Fair piece of evidence 
-- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2, which **SHALL** also apply to IDIAL2, in section 5.3.2 Knowledge-Based Verification Requirements.
+- NIST 800-63A contains additional restrictions on the use of KBV for identity verification at IAL2, which **SHALL** also apply to IDIAL1.8 and IDIAL2, in section 5.3.2 Knowledge-Based Verification Requirements.
 
 ### Authorized Representatives
 
