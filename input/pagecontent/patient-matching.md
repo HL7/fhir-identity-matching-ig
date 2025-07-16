@@ -175,6 +175,8 @@ Although it is possible to request a match with only First or only Last Name and
 
 To request a match on a patient with a single legal name, known as a mononymous individual, requesters **SHOULD** use that name in the Last name field and leave the First name NULL. 
 
+The .identifier.assigner element in a conformant match response **SHOULD** include an Organization resource that contains at least one appropriate contact point (in the case of FHIR; otherwise equivalent organization and out of band contact details such as telephone number or email address should be provided in a query response or data push), so that the data holder may be reached regarding suspected inappropriate use or need for data correction that is discovered during a match transaction, allowing for improved identity management over time.
+
 When it is permitted by [$IDI-match] or other match transaction types, and if the requester is using a profile that includes these, additional matching information can be included as input extensions or contained resources within the Patient resource. For example, current occupation data for health attributes from Resource Profile: Past Or Present Job as per the [Occupational Data for Health (ODH)](http://hl7.org/fhir/us/odh/) set of profiles on Observation resource, **SHOULD** be included by requesters since this information is useful to matching. 
 
 Patient Match need not support wildcards, unlike the usual FHIR search mechanism. 
