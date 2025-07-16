@@ -12,7 +12,7 @@ Usage: #example
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
@@ -49,7 +49,7 @@ Usage: #example
 * identifier[0].type.coding.code = #PN
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "4004-202-9999-12345678901"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 
 * name[0].family = "Paeshent"
 * name[0].given[0] = "Nancy"
@@ -144,13 +144,13 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
-* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
 * identifier[=].assigner = Reference(Organization/xyz-payer)
-* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
 * identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
@@ -168,12 +168,44 @@ Usage: #example
 * address.state = "OH"
 * address.postalCode = "43210"
 * address.country = "US"
+* extension.url = "http://hl7.org/fhir/StructureDefinition/patient-authorizedRepresentative"
+* extension.valueReference = Reference(RelatedPerson/henrietta.huberdeau.1982-02-14.a5cf9b62-2498-4c97-8dc3-03a20b0f5412)
+
+//====================================================================================================
+
+Instance: patient-authorized-representative
+InstanceOf: RelatedPerson
+Description: "Example of Patient who has been assigned a Digital Identifier, and is the authorized representative of another patient."
+Usage: #example
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* id = "henrietta.huberdeau.1982-02-14.a5cf9b62-2498-4c97-8dc3-03a20b0f5412"
+* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0131"
+* relationship.coding.code = "N"
+* relationship.text = "Authorized Representative"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+* identifier[=].value = "a5cf9b62-2498-4c97-8dc3-03a20b0f5412"
+* identifier[=].assigner = Reference(Organization/abc-hospital)
+* active = true
+* name.family = "Huberdeau"
+* name.given = "Henrietta"
+* telecom[0].system = #phone
+* telecom[=].value = "555-978-3349"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "etta.huberdeau@example.com"
+* gender = #female
+* birthDate = "1982-02-14"
+* address.line = "999 Not Real Street"
+* address.city = "Columbus"
+* address.state = "OH"
+* address.postalCode = "43210"
+* address.country = "US"
 
 //====================================================================================================
 
 Instance: abc-hospital
 InstanceOf: Organization
-Description: "Example of Organization used as a hospital for digital identifier"
+Description: "Example hospital as Organization issuing a Digital Identifier"
 Usage: #example
 * identifier[0].use = #official
 * identifier[=].system = "http://example.org/fhir/endpoint/"
@@ -204,12 +236,12 @@ Usage: #example
 
 Instance: xyz-payer
 InstanceOf: Organization
-Description: "Example of Organization used as a payer for digital identifier"
+Description: "Example payer as Organization issuing a Digital Identifier"
 Usage: #example
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "666666"
 * name = "XYZ Insurance"
-* alias = "ABC Insurance"
+* alias = "XYZ"
 * contact.telecom[0].system = #phone
 * contact.telecom[=].value = "+1 555 234 3523"
 * contact.telecom[=].use = #work
@@ -223,7 +255,7 @@ Instance: def-idp
 InstanceOf: Organization
 Description: "Example of Organization used as an identity provider for digital identifier"
 Usage: #example
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "SecureIdp"
 * name = "Secure Idp"
 * contact.telecom[0].system = #phone
@@ -256,7 +288,7 @@ InstanceOf: USCoreOrganizationProfile
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
 * text.status = #generated
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization Insurance Company</b></p><a name=\"OrgExample\"> </a><p><b>name</b>: Insurance Compaany</p><p><b>address</b>: 688 Asylum Street Hartford CT 06155</p></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization Insurance Company</b></p><a name=\"OrgExample\"> </a><p><b>name</b>: Insurance Company</p><p><b>address</b>: 688 Asylum Street Hartford CT 06155</p></div>"
 * active = true
 * type = $organization-type#pay "Payer"
 * name = "Insurance Company"
