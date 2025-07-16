@@ -25,7 +25,7 @@ Severity:   #error
 
 Invariant:   idi-L0
 Description: "Combined weighted values of included elements must have a minimum value of 9 (see Patient Weighted Elements table). Note that the logic for computing weights is somewhat imperfect, particularly considering that it does not confirm that exactly the expected coded type is the one that exists in a match request; this is acceptable because it will not in itself lead to mismatches, though it may give requestors an overly-optimistic sense of their input quality."
-Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier')) and identifier.value.exists()).toInteger()*10 +
+Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier')) and identifier.value.exists()).toInteger()*10 +
                iif(((address.exists(use = 'home') and address.line.exists() and (address.postalCode.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
@@ -44,7 +44,7 @@ Severity:    #error
 
 Invariant:   idi-L1
 Description: "Requestors asserting compliance with this Invariant level are also thereby indicating that all included demographics are consistent with an identity verification event performed as part of a documented process that is compliant with this IG. Combined weighted values of included elements must have a minimum value of 10 (see Patient Weighted Elements table). Note that the logic for computing weights is somewhat imperfect, particularly considering that it does not confirm that exactly the expected coded type is the one that exists in a match request; this is acceptable because it will not in itself lead to mismatches, though it may give requestors an overly-optimistic sense of their input quality."
-Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier')) and identifier.value.exists()).toInteger()*10 +
+Expression:  "((identifier.type.coding.exists(code = 'PPN' or code = 'DL' or code = 'STID') or identifier.exists(system='http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier')) and identifier.value.exists()).toInteger()*10 +
                iif(((address.exists(use = 'home') and address.line.exists() and (address.postalCode.exists() or (address.state.exists() and address.city.exists()))).toInteger() + 
                   (identifier.type.coding.exists(code != 'PPN' and code != 'DL' and code != 'STID') and identifier.value.exists()).toInteger() +
                   (telecom.exists(system = 'email') and telecom.value.exists()).toInteger() + 
