@@ -180,7 +180,7 @@ Usage: #example
 * active = true
 * patient.reference = "Patient/patient-multi-digital-identifier"
 * relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction"
-* relationship.coding.code = "AUTM"
+* relationship.coding.code = ""
 * relationship.text = "HIPAA Authorized Representative"
 * name.family = "Huberdeau"
 * name.given = "Henrietta"
