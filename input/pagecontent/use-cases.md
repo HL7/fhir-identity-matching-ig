@@ -32,7 +32,7 @@ Workflow:
 
 1.	Identity Provider **SHALL** work with Individual to complete an IDIAL1.8 or greater identity verification process per Identity Proofing Workflow.
 2.	Identity Provider **SHALL** generate and bind Individual's Digital Identifier to an OpenID Connect credential (or equivalent) with AAL2 authentication assurance. 
-3.	The resultant Digital Identifier **SHALL** then be associated with Individual in the Identity Provider's system as an HL7 Person Identifier; if the Identitiy Provider's system is a medical record the HL7 Person Identifier is persisted as a FHIR Patient.identifier with "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier" as its Identifier.system. The Digital Identifier **SHALL** be shared, when authorized by the individual, with other systems as the Individual's hl7_identifier when included as part of a Match Workflow.
+3.	The resultant Digital Identifier **SHALL** then be associated with Individual in the Identity Provider's system as an HL7 Person Identifier; if the Identitiy Provider's system is a medical record the HL7 Person Identifier is persisted as a FHIR Patient.identifier with "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier" as its Identifier.system. The Digital Identifier **SHALL** be shared, when authorized by the individual, with other systems as the Individual's hl7_identifier when included as part of a Match Workflow.
 
 #### Match Workflow
 
