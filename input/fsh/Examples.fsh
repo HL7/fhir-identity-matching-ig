@@ -144,6 +144,7 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* id = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
@@ -168,8 +169,6 @@ Usage: #example
 * address.state = "OH"
 * address.postalCode = "43210"
 * address.country = "US"
-* extension.url = "http://hl7.org/fhir/StructureDefinition/patient-authorizedRepresentative"
-* extension.valueReference = Reference(RelatedPerson/henrietta.huberdeau.1982-02-14.a5cf9b62-2498-4c97-8dc3-03a20b0f5412)
 
 //====================================================================================================
 
@@ -177,15 +176,11 @@ Instance: patient-authorized-representative
 InstanceOf: RelatedPerson
 Description: "Example of Patient who has been assigned a Digital Identifier, and is the authorized representative of another patient."
 Usage: #example
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* id = "henrietta.huberdeau.1982-02-14.a5cf9b62-2498-4c97-8dc3-03a20b0f5412"
-* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0131"
-* relationship.coding.code = "N"
-* relationship.text = "Authorized Representative"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
-* identifier[=].value = "a5cf9b62-2498-4c97-8dc3-03a20b0f5412"
-* identifier[=].assigner = Reference(Organization/abc-hospital)
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
 * active = true
+* patient.reference = "Patient/a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
+* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
+* relationship.coding.code = "POWATT"
 * name.family = "Huberdeau"
 * name.given = "Henrietta"
 * telecom[0].system = #phone
@@ -193,8 +188,6 @@ Usage: #example
 * telecom[=].use = #home
 * telecom[+].system = #email
 * telecom[=].value = "etta.huberdeau@example.com"
-* gender = #female
-* birthDate = "1982-02-14"
 * address.line = "999 Not Real Street"
 * address.city = "Columbus"
 * address.state = "OH"
