@@ -174,7 +174,7 @@ Usage: #example
 
 Instance: patient-authorized-representative
 InstanceOf: RelatedPerson
-Description: "Example of Patient who has been assigned a Digital Identifier, and is the authorized representative of another patient."
+Description: "Example of a Patient who has been assigned a Digital Identifier, and is the authorized representative of another Patient. NOTE: Determining the nature of the authorized representative relationship and, ultimately, user authorization, is out of scope for this implementation guide. However, this example illustrates the demographics and identifiers that might be used to match on these individuals' identities assuming the authorized representative status can be confirmed. This expression of an authorized representative is therefore not intended to be normative, and feedback on preferred alternative approaches is encouraged."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
 * active = true
