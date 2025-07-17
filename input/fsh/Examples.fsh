@@ -144,7 +144,7 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* id = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
+* id = "patient-multi-digital-identifier"
 * identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
@@ -178,7 +178,10 @@ Description: "Example of Patient who has been assigned a Digital Identifier, and
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
 * active = true
-* patient.reference = "Patient/a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
+* patient.reference = "Patient/patient-multi-digital-identifier"
+* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction"
+* relationship.coding.code = "AUTM"
+* relationship.text = "HIPAA Authorized Representative"
 * name.family = "Huberdeau"
 * name.given = "Henrietta"
 * telecom[0].system = #phone
@@ -186,6 +189,9 @@ Usage: #example
 * telecom[=].use = #home
 * telecom[+].system = #email
 * telecom[=].value = "etta.huberdeau@example.com"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+* identifier[=].value = "927398f0-d506-443b-b731-fa09869625e3"
+* identifier[=].assigner = Reference(Organization/abc-hospital)
 * address.line = "999 Not Real Street"
 * address.city = "Columbus"
 * address.state = "OH"
@@ -300,7 +306,7 @@ Usage: #inline
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Person PatExample</b></p><a name=\"PatExample\"> </a><p><b>name</b>: Johnny Beegood (Official)</p><p><b>birthDate</b>: 1986-05-01</p><p><b>address</b>: 123 Main Street Pittsburgh PA 12519 (physical)</p></div>"
 * identifier.type = #PN
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "1234-234-1243-12345678901"
 * active = true
 * name.family = "Beegood"
