@@ -179,8 +179,6 @@ Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
 * active = true
 * patient.reference = "Patient/a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
-* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
-* relationship.coding.code = "POWATT"
 * name.family = "Huberdeau"
 * name.given = "Henrietta"
 * telecom[0].system = #phone
