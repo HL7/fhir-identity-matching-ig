@@ -11,8 +11,8 @@ Description:    "The Parameters profile used to define the inputs of the $IDI-ma
 * parameter ^slicing.description = "Slice based on $this pattern"
 * parameter 1..1 MS
 * parameter contains 
-	  IDIPatient 0..1 MS
-* parameter[IDIPatient].name = "patient"
+	  IDIPatient 1..1 MS
+* parameter[IDIPatient].name = "IDIPatient"
 * parameter[IDIPatient].resource 1..1 MS
 * parameter[IDIPatient].resource only IDI-Patient or IDI-Patient-L0 or IDI-Patient-L1
 
@@ -31,6 +31,6 @@ Description:    "The Parameters profile used to define the outputs of the $IDI-m
 * parameter 1..1 MS
 * parameter contains 
 	  IDIMatchBundle 1..1 MS
-* parameter[IDIMatchBundle].name = "bundle"
+* parameter[IDIMatchBundle].name = "IDIMatchBundle"
 * parameter[IDIMatchBundle].resource 1..1 MS
 * parameter[IDIMatchBundle].resource only idi-match-bundle

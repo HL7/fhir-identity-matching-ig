@@ -3,28 +3,20 @@ InstanceOf: IDIPatient
 Description: "Example of Patient used as input to $IDI-match operation"
 Usage: #example
 
-* meta.profile = Canonical(IDI-Patient)
-* meta.lastUpdated = "2020-07-07T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatient"
 * active = true
-
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
 * identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
-
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
-
 * telecom[0].system = #phone
 * telecom[0].value = "301-555-2112"
 * telecom[0].use = #mobile 
-
 * gender = #male
-
 * birthDate = "1986-05-01"
-
 * address[0].type = #physical
 * address[0].line[0] = "123 Main Street"
 * address[0].city = "Pittsburgh"
@@ -40,8 +32,6 @@ InstanceOf: IDIPatientL0
 Description: "Example of Patient used as input to $IDI-match operation meeting Level 0 information conformance"
 Usage: #example
 
-* meta.profile = Canonical(IDI-Patient-L0)
-* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatientL0"
 * active = true
@@ -272,13 +262,18 @@ InstanceOf: IDIMatchBundle
 Description: "Example of $IDI-match operation response with patient and organization"
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
-* identifier.assigner = Reference(http://example.org/Organization/OrgExample)
+* identifier[+].assigner = Reference(http://example.org/Organization/OrgExample)
+* identifier[=].value = "urn:uuid:c3c6f1c5-3072-439e-a8ef-ba6a57ae3aa5"
+* identifier[=].system = "urn:ietf:rfc:3986"
 * type = #searchset
-
-* entry[0].fullUrl = "https://example.com/base/Organization/OrgExample"
+* link.relation = "self"
+* link.url = "http://example.org/Bundle/MATCHOperationResponse"
+* entry[+].fullUrl = "https://example.com/base/Organization/OrgExample"
 * entry[=].resource = OrgExample
+* entry[=].search.mode = #match
 * entry[+].fullUrl = "https://example.com/base/Patient/PatExample"
 * entry[=].resource = PatExample
+* entry[=].search.mode = #match
 
 Instance: OrgExample
 InstanceOf: USCoreOrganizationProfile
@@ -305,7 +300,8 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Person PatExample</b></p><a name=\"PatExample\"> </a><p><b>name</b>: Johnny Beegood (Official)</p><p><b>birthDate</b>: 1986-05-01</p><p><b>address</b>: 123 Main Street Pittsburgh PA 12519 (physical)</p></div>"
-* identifier.type = #PN
+* identifier[0].type.coding.code = #MB
+* identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "1234-234-1243-12345678901"
 * active = true
@@ -351,7 +347,10 @@ Instance: IDIMatchInputParameters-Example
 InstanceOf: IDIMatchInputParameters
 Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
 Usage: #example
-* parameter[0].name = "patient"
+* parameter[IDIPatient].name = "IDIPatient"
+* parameter[IDIPatient].resource = Patient1
+
+/*
 * parameter[=].resource.resourceType = "Patient"
 * parameter[=].resource.text.status = #generated
 * parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Example Patient</b></p><a name=\"ExamplePatient\"> </a><p><b>name</b>: ExamplePatient</p><p><b>address</b>: Peter Chalmers</p></div>"
@@ -360,6 +359,7 @@ Usage: #example
 * parameter[=].resource.name.family = "Chalmers"
 * parameter[=].resource.name.given[0] = "Peter"
 * parameter[=].resource.name.given[+] = "James"
+*/
 
 
 //====================================================================================================
@@ -368,5 +368,5 @@ Instance: IDIMatchOutputParameters-Example
 InstanceOf: IDIMatchOutputParameters
 Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
 Usage: #example
-* parameter[0].name = "bundle"
+* parameter[0].name = "IDIMatchBundle"
 * parameter[=].resource = MATCHOperationResponse

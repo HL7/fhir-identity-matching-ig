@@ -26,6 +26,8 @@ extension:
     valueCode: pa  # <<< The value must be the code for the workgroup
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 2
 
 parameters:
   show-inherited-invariants: false
