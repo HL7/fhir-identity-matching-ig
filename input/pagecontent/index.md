@@ -80,7 +80,7 @@ table, th, td
 |   |   |   | 
 | <u><b>Primary Authors:</b></u>&emsp; |Julie Maas | EMR Direct | 
 |   | Carmen Smiley | HRSA | 
-|   | Humberto Lee | Lantana Consulting Group | 
+|   | Ari Kermaier | Oracle |
 |   | Aaron Nusstein | Lantana Consulting Group | 
 |   | Jeff Brown | Lantana Consulting Group |  | 
 |   |   |   | 
@@ -90,7 +90,7 @@ table, th, td
 |   | Catherine Schulten | Walmart | 
 |   | Ryan Howells | Leavitt Partners | 
 |   | Rita Torkzadeh | Independent Consultant | 
-|   | Ari Kermaier | Oracle |
+|   | Humberto Lee | Lantana Consulting Group | 
 
 &emsp;&emsp;   
 This IG was made possible by the thoughtful contributions and feedback of the following additional people and organizations: 
