@@ -14,7 +14,7 @@ Description:    "The Parameters profile used to define the inputs of the $IDI-ma
 	  IDIPatient 1..1 MS
 * parameter[IDIPatient].name = "IDIPatient"
 * parameter[IDIPatient].resource 1..1 MS
-* parameter[IDIPatient].resource only IDI-Patient or IDI-Patient-L0 or IDI-Patient-L1
+* parameter[IDIPatient].resource only IDI-Patient or IDI-Patient-L0 or IDI-Patient-L1 or IDI-Patient-L2
 
 
 Profile:        IDIMatchOutputParameters

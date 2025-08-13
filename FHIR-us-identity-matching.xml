@@ -27,6 +27,7 @@
 <artifact id="Patient/ExamplePatientINCOMPLETE" key="Patient-ExamplePatientINCOMPLETE" name="Patient-INCOMPLETE"/>
 <artifact id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>
 <artifact id="Patient/ExamplePatientL1" key="Patient-ExamplePatientL1" name="Patient-L1"/>
+<artifact id="Patient/ExamplePatientL2" key="Patient-ExamplePatientL2" name="Patient-L2"/>
 <artifact id="Patient/ExamplePatient" key="Patient-ExamplePatient" name="Patient1"/>
 <artifact id="Organization/abc-hospital" key="Organization-abc-hospital" name="abc-hospital"/>
 <artifact id="Organization/def-idp" key="Organization-def-idp" name="def-idp"/>

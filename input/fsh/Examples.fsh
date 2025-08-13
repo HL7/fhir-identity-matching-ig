@@ -3,20 +3,27 @@ InstanceOf: IDIPatient
 Description: "Example of Patient used as input to $IDI-match operation"
 Usage: #example
 
+* meta.profile = Canonical(IDI-Patient)
 * language = #en-US
 * id = "ExamplePatient"
 * active = true
+
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
 * identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
+
 * telecom[0].system = #phone
 * telecom[0].value = "301-555-2112"
 * telecom[0].use = #mobile 
+
 * gender = #male
+
 * birthDate = "1986-05-01"
+
 * address[0].type = #physical
 * address[0].line[0] = "123 Main Street"
 * address[0].city = "Pittsburgh"
@@ -32,6 +39,7 @@ InstanceOf: IDIPatientL0
 Description: "Example of Patient used as input to $IDI-match operation meeting Level 0 information conformance"
 Usage: #example
 
+* meta.profile = Canonical(IDI-Patient-L0)
 * language = #en-US
 * id = "ExamplePatientL0"
 * active = true
@@ -64,7 +72,6 @@ Description: "Example of Patient used as input to $IDI-match operation meeting L
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L1)
-* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatientL1"
 * active = true
@@ -88,6 +95,48 @@ Usage: #example
 
 * address[0].type = #physical
 * address[0].line[0] = "418 Teapot Lane"
+* address[0].city = "Raleigh"
+* address[0].state = "NC"
+* address[0].postalCode = "27513"
+
+* maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
+
+//====================================================================================================
+
+Instance: Patient-L2
+InstanceOf: IDIPatientL2
+Description: "Example of Patient used as input to $IDI-match operation meeting Level 2 information conformance"
+Usage: #example
+
+* meta.profile = Canonical(IDI-Patient-L2)
+* language = #en-US
+* id = "ExamplePatientL2"
+* active = true
+
+* identifier[0].type.coding.code = #DL
+* identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[0].value = "3955-56122846"
+* identifier[0].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
+* identifier[0].assigner[0].display[0] = "North Carolina"
+
+* identifier[+].type.coding.code = #PN
+* identifier[=].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[=].value = "0000-000-0000-00000000000"
+* identifier[=].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+
+* name[0].family = "Cheze"
+* name[0].given[0] = "Teddy"
+
+* telecom[0].system = #phone
+* telecom[0].value = "726-999-1990"
+* telecom[0].use = #mobile 
+
+* gender = #male
+
+* birthDate = "1980-05-05"
+
+* address[0].type = #physical
+* address[0].line[0] = "123 High Street"
 * address[0].city = "Raleigh"
 * address[0].state = "NC"
 * address[0].postalCode = "27513"
@@ -348,7 +397,7 @@ InstanceOf: IDIMatchInputParameters
 Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
 Usage: #example
 * parameter[IDIPatient].name = "IDIPatient"
-* parameter[IDIPatient].resource = Patient1
+* parameter[IDIPatient].resource = Patient-L2
 
 /*
 * parameter[=].resource.resourceType = "Patient"
