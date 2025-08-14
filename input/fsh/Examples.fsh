@@ -96,6 +96,50 @@ Usage: #example
 
 //====================================================================================================
 
+Instance: Patient-L2
+InstanceOf: IDIPatientL2
+Description: "Example of Patient used as input to $IDI-match operation meeting Level 2 information conformance"
+Usage: #example
+
+* meta.profile = Canonical(IDI-Patient-L2)
+* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
+* language = #en-US
+* id = "ExamplePatientL2"
+* active = true
+
+* identifier[0].type.coding.code = #DL
+* identifier[=].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[=].value = "3902-16532901"
+* identifier[=].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
+* identifier[=].assigner.display = "North Carolina"
+* identifier[+].type.coding.code = #PPN
+* identifier[=].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[=].value = "X12345678"
+* identifier[=].system = "http://hl7.org/fhir/sid/passport-USA"
+* identifier[=].assigner.display = "U.S. Department of State"
+
+
+* name[0].family = "Case"
+* name[0].given[0] = "Justin"
+
+* telecom[0].system = #phone
+* telecom[0].value = "726-555-2900"
+* telecom[0].use = #mobile 
+
+* gender = #female
+
+* birthDate = "1992-05-17"
+
+* address[0].type = #physical
+* address[0].line[0] = "418 Teapot Lane"
+* address[0].city = "Raleigh"
+* address[0].state = "NC"
+* address[0].postalCode = "27513"
+
+* maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
+
+//====================================================================================================
+
 Instance: Patient-INCOMPLETE
 InstanceOf: IDIPatientL1
 Description: "Example of Patient used as input to $IDI-match operation but NOT meeting Level 0, 1, OR 2 information conformance; due to partial street address, missing DL assigner, and missing first name, this example incorrectly asserts L1 and would have a match input score of only 6, amounting to insufficient data for even a B2B match"
