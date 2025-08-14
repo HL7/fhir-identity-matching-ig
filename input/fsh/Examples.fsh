@@ -4,7 +4,6 @@ Description: "Example of Patient used as input to $IDI-match operation"
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient)
-* meta.lastUpdated = "2020-07-07T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatient"
 * active = true
@@ -12,7 +11,7 @@ Usage: #example
 * identifier[0].type.coding.code = #MB
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "1234-234-1243-12345678901"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 
 * name[0].family = "Beegood"
 * name[0].given[0] = "Johnny"
@@ -41,7 +40,6 @@ Description: "Example of Patient used as input to $IDI-match operation meeting L
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L0)
-* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatientL0"
 * active = true
@@ -49,7 +47,7 @@ Usage: #example
 * identifier[0].type.coding.code = #PN
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[0].value = "4004-202-9999-12345678901"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 
 * name[0].family = "Paeshent"
 * name[0].given[0] = "Nancy"
@@ -74,7 +72,6 @@ Description: "Example of Patient used as input to $IDI-match operation meeting L
 Usage: #example
 
 * meta.profile = Canonical(IDI-Patient-L1)
-* meta.lastUpdated = "2021-11-01T13:26:22.0314215+00:00"
 * language = #en-US
 * id = "ExamplePatientL1"
 * active = true
@@ -98,6 +95,48 @@ Usage: #example
 
 * address[0].type = #physical
 * address[0].line[0] = "418 Teapot Lane"
+* address[0].city = "Raleigh"
+* address[0].state = "NC"
+* address[0].postalCode = "27513"
+
+* maritalStatus = http://terminology.hl7.org/CodeSystem/v3-NullFlavor#UNK
+
+//====================================================================================================
+
+Instance: Patient-L2
+InstanceOf: IDIPatientL2
+Description: "Example of Patient used as input to $IDI-match operation meeting Level 2 information conformance"
+Usage: #example
+
+* meta.profile = Canonical(IDI-Patient-L2)
+* language = #en-US
+* id = "ExamplePatientL2"
+* active = true
+
+* identifier[0].type.coding.code = #DL
+* identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[0].value = "3955-56122846"
+* identifier[0].system = "http://terminology.hl7.org/NamingSystem/NorthCarolinaDLN"
+* identifier[0].assigner[0].display[0] = "North Carolina"
+
+* identifier[+].type.coding.code = #PN
+* identifier[=].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier[=].value = "0000-000-0000-00000000000"
+* identifier[=].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+
+* name[0].family = "Cheze"
+* name[0].given[0] = "Teddy"
+
+* telecom[0].system = #phone
+* telecom[0].value = "726-999-1990"
+* telecom[0].use = #mobile 
+
+* gender = #male
+
+* birthDate = "1980-05-05"
+
+* address[0].type = #physical
+* address[0].line[0] = "123 High Street"
 * address[0].city = "Raleigh"
 * address[0].state = "NC"
 * address[0].postalCode = "27513"
@@ -144,13 +183,14 @@ InstanceOf: Patient
 Description: "Example of Patient where the individual has mulitple Digital Identifiers assigned to them from three different entities: a hospital, a payer, and an IdP."
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* id = "patient-multi-digital-identifier"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "a5c2498f-9b62-4c97-8dc3-03a20b0f5412"
 * identifier[=].assigner = Reference(Organization/abc-hospital)
-* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "40e31ed2-4d16-4416-a66d-c3e84f8a4812"
 * identifier[=].assigner = Reference(Organization/xyz-payer)
-* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[+].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier[=].value = "db0cfc86-58e4-467c-b1d7-78571598ee15"
 * identifier[=].assigner = Reference(Organization/def-idp)
 * active = true
@@ -171,9 +211,37 @@ Usage: #example
 
 //====================================================================================================
 
+Instance: patient-authorized-representative
+InstanceOf: RelatedPerson
+Description: "Example of a Patient who has been assigned a Digital Identifier, and is the authorized representative of another Patient. NOTE: Determining the nature of the authorized representative relationship and, ultimately, user authorization, is out of scope for this implementation guide. However, this example illustrates the demographics and identifiers that might be used to match on these individuals' identities assuming the authorized representative status can be confirmed. This expression of an authorized representative is therefore not intended to be normative, and feedback on preferred alternative approaches is encouraged."
+Usage: #example
+* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
+* active = true
+* patient.reference = "Patient/patient-multi-digital-identifier"
+* relationship.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction"
+* relationship.coding.code = #AUTM
+* relationship.text = "HIPAA Authorized Representative"
+* name.family = "Huberdeau"
+* name.given = "Henrietta"
+* telecom[0].system = #phone
+* telecom[=].value = "555-978-3349"
+* telecom[=].use = #home
+* telecom[+].system = #email
+* telecom[=].value = "etta.huberdeau@example.com"
+* identifier[0].system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
+* identifier[=].value = "927398f0-d506-443b-b731-fa09869625e3"
+* identifier[=].assigner = Reference(Organization/abc-hospital)
+* address.line = "999 Not Real Street"
+* address.city = "Columbus"
+* address.state = "OH"
+* address.postalCode = "43210"
+* address.country = "US"
+
+//====================================================================================================
+
 Instance: abc-hospital
 InstanceOf: Organization
-Description: "Example of Organization used as a hospital for digital identifier"
+Description: "Example hospital as Organization issuing a Digital Identifier"
 Usage: #example
 * identifier[0].use = #official
 * identifier[=].system = "http://example.org/fhir/endpoint/"
@@ -204,12 +272,12 @@ Usage: #example
 
 Instance: xyz-payer
 InstanceOf: Organization
-Description: "Example of Organization used as a payer for digital identifier"
+Description: "Example payer as Organization issuing a Digital Identifier"
 Usage: #example
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "666666"
 * name = "XYZ Insurance"
-* alias = "ABC Insurance"
+* alias = "XYZ"
 * contact.telecom[0].system = #phone
 * contact.telecom[=].value = "+1 555 234 3523"
 * contact.telecom[=].use = #work
@@ -223,7 +291,7 @@ Instance: def-idp
 InstanceOf: Organization
 Description: "Example of Organization used as an identity provider for digital identifier"
 Usage: #example
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "SecureIdp"
 * name = "Secure Idp"
 * contact.telecom[0].system = #phone
@@ -243,20 +311,25 @@ InstanceOf: IDIMatchBundle
 Description: "Example of $IDI-match operation response with patient and organization"
 Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
-* identifier.assigner = Reference(http://example.org/Organization/OrgExample)
+* identifier[+].assigner = Reference(http://example.org/Organization/OrgExample)
+* identifier[=].value = "urn:uuid:c3c6f1c5-3072-439e-a8ef-ba6a57ae3aa5"
+* identifier[=].system = "urn:ietf:rfc:3986"
 * type = #searchset
-
-* entry[0].fullUrl = "https://example.com/base/Organization/OrgExample"
+* link.relation = "self"
+* link.url = "http://example.org/Bundle/MATCHOperationResponse"
+* entry[+].fullUrl = "https://example.com/base/Organization/OrgExample"
 * entry[=].resource = OrgExample
+* entry[=].search.mode = #match
 * entry[+].fullUrl = "https://example.com/base/Patient/PatExample"
 * entry[=].resource = PatExample
+* entry[=].search.mode = #match
 
 Instance: OrgExample
 InstanceOf: USCoreOrganizationProfile
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
 * text.status = #generated
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization Insurance Company</b></p><a name=\"OrgExample\"> </a><p><b>name</b>: Insurance Compaany</p><p><b>address</b>: 688 Asylum Street Hartford CT 06155</p></div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Organization Insurance Company</b></p><a name=\"OrgExample\"> </a><p><b>name</b>: Insurance Company</p><p><b>address</b>: 688 Asylum Street Hartford CT 06155</p></div>"
 * active = true
 * type = $organization-type#pay "Payer"
 * name = "Insurance Company"
@@ -276,8 +349,9 @@ Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Person PatExample</b></p><a name=\"PatExample\"> </a><p><b>name</b>: Johnny Beegood (Official)</p><p><b>birthDate</b>: 1986-05-01</p><p><b>address</b>: 123 Main Street Pittsburgh PA 12519 (physical)</p></div>"
-* identifier.type = #PN
-* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7Identifier"
+* identifier[0].type.coding.code = #MB
+* identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier.system = "http://hl7.org/fhir/us/identity-matching/ns/HL7PersonIdentifier"
 * identifier.value = "1234-234-1243-12345678901"
 * active = true
 * name.family = "Beegood"
@@ -322,7 +396,10 @@ Instance: IDIMatchInputParameters-Example
 InstanceOf: IDIMatchInputParameters
 Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
 Usage: #example
-* parameter[0].name = "patient"
+* parameter[IDIPatient].name = "IDIPatient"
+* parameter[IDIPatient].resource = Patient-L2
+
+/*
 * parameter[=].resource.resourceType = "Patient"
 * parameter[=].resource.text.status = #generated
 * parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Example Patient</b></p><a name=\"ExamplePatient\"> </a><p><b>name</b>: ExamplePatient</p><p><b>address</b>: Peter Chalmers</p></div>"
@@ -331,6 +408,7 @@ Usage: #example
 * parameter[=].resource.name.family = "Chalmers"
 * parameter[=].resource.name.given[0] = "Peter"
 * parameter[=].resource.name.given[+] = "James"
+*/
 
 
 //====================================================================================================
@@ -339,5 +417,5 @@ Instance: IDIMatchOutputParameters-Example
 InstanceOf: IDIMatchOutputParameters
 Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
 Usage: #example
-* parameter[0].name = "bundle"
+* parameter[0].name = "IDIMatchBundle"
 * parameter[=].resource = MATCHOperationResponse

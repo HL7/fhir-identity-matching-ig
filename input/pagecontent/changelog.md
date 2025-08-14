@@ -58,7 +58,11 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-47555](https://jira.hl7.org/browse/FHIR-47555)|Plain Language Summary about HL7 and this Guide to the home page|
 |[FHIR-48042](https://jira.hl7.org/browse/FHIR-48042)|NIST 800-63-3 guidelines for address confirmation has additional requirements not explicitly mentioned|
 |[FHIR-51424](https://jira.hl7.org/browse/FHIR-51424)|State IG Status Explicitly|
-
+|[FHIR-43188](https://jira.hl7.org/browse/FHIR-43188)|Clarify "such queries" in Patient Match 4.2|
+|[FHIR-40616](https://jira.hl7.org/browse/FHIR-40616)|Clarification that identifier details are subject to change pending official registration|
+|[FHIR-44920](https://jira.hl7.org/browse/FHIR-44920)|Reporting Issues in Matching|
+|[FHIR-44797](https://jira.hl7.org/browse/FHIR-44797)|Create Examples Demonstrating Digital Identifiers in Patient Resources|
+|[FHIR-51517](https://jira.hl7.org/browse/FHIR-51517)|Update $match to $idi-match in 10.0.2, 10.0.3, 10.0.4|
 
 <style>
 table, th, td 
