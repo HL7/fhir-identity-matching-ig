@@ -7,7 +7,10 @@ The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
- 
+
+# Variance Request from CGP for new profiles in STU2 that are not derived from US Core - https://jira.hl7.org/browse/FHIR-51611
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
+
 # INFORMATION: Will leave for an STU Update with the intent to make the change during a major version
 Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
