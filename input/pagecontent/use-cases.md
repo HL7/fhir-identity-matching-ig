@@ -267,4 +267,35 @@ Workflow:
 
 &emsp;&emsp;   
 
+#### Patient-Directed B2C Using Digital Identity
+
+Actors: User (individual or third-party system), Patient or Authorized Representative, Patient PHR App, App’s Authorization Server, App’s FHIR Server, Identity Provider
+
+Description: A patient or their authorized representative authorizes access to their data by a third-party app when the data are under the patient’s management, and the patient’s authentication is delegated to a trusted Identity Provider (IdP). The data holder’s authorization server initiates authentication with the IdP, which incorporates user-supplied input into its authentication decision. The resulting verified digital identity is used by the data holder to perform a Consumer Match, ensuring the correct individual’s records are accessed before data are shared.
+
+Workflow:
+1. Client App requests authorization from the Data Holder’s Authorization Server, specifying the preferred Identity Provider.
+
+2. Data Holder contacts IdP to discover configuration and register if needed.
+
+3. User is redirected to IdP for authentication, where the IdP may use demographic or other inputs to confirm identity.
+
+4. IdP returns authentication results (including an ID Token) to the Data Holder’s Authorization Server.
+
+5. Data Holder performs Consumer Match using the ID Token and/or user input to identify the correct patient record.
+
+6. If match and consent are successful, the Data Holder issues an authorization response to the Client App.
+
+7. Client App uses access token to retrieve authorized FHIR data from the Data Holder.
+
+<div>
+<figure class="figure">
+    <img src="idp.png" alt="Patient-Directed B2C Using Digital Identity" title="Patient-Directed B2C Using Digital Identity" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Directed B2C Using Digital Identity</strong></figcaption>
+</figure>
+<p>*See ID Token Examples in [Artifacts](artifacts.html)</p>
+</div>
+
+&emsp;&emsp;   
+
 {% include link-list.md %} 
