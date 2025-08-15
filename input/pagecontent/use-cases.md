@@ -274,31 +274,19 @@ Actors: User (individual or third-party system), Patient or Authorized Represent
 Description: A patient or their authorized representative authorizes access to their data by a third-party app when the data are under the patient’s management, and the patient’s authentication is delegated to a trusted Identity Provider (IdP). The data holder’s authorization server initiates authentication with the IdP, which incorporates user-supplied input into its authentication decision. The resulting verified digital identity is used by the data holder to perform a Consumer Match, ensuring the correct individual’s records are accessed before data are shared.
 
 Workflow:
-1.	Digital Identity Creation is performed by the PHR App for the individual. In addition or instead, the individual may use a Digital Identity managed by a trusted Identity Provider to authenticate themselves to the PHR App.   
-2.	When the individual attempts to authorize User's access to the patient’s health data, they do so using SMART App Launch, including an explicit authorization, and either a Digital Identity managed by a trusted Identity Provider or credentials of equivalent identity and authentication assurance managed by the PHR App itself.
-3.	Whether the PHR App's own or a trusted, third-party Identity Provider’s assertions are used to authenticate the individual, the requirements for a Consumer Match apply and the responding PHR App matches either the Digital Identifier or a combination of demographics with input weight score of 10 or greater, consistent with this guidance, against the identities they manage. If a successful Consumer Match is found, the PHR App may provision a credential, reset an authenticator, or know which individual is being authenticated when relying on a trusted Identity Provider.
-4.	If an appropriate individual was authenticated and consents to information sharing, health data can be returned to the User.
+1. Client App requests authorization from the Data Holder’s Authorization Server, specifying the preferred Identity Provider.
 
-1. The Client App initiates an authorization request to the Data Holder’s Authorization Server, indicating the preferred Identity Provider via an idp parameter in the SMART on FHIR authorization request.
+2. Data Holder contacts IdP to discover configuration and register if needed.
 
-2. The Data Holder’s Authorization Server sends an OpenID Connect Discovery request to the selected IdP to obtain its configuration, endpoints, and capabilities.
+3. User is redirected to IdP for authentication, where the IdP may use demographic or other inputs to confirm identity.
 
-3. If the Data Holder’s Authorization Server has not previously registered with the IdP, it performs OIDC Dynamic Client Registration to establish credentials and redirect URIs.
+4. IdP returns authentication results (including an ID Token) to the Data Holder’s Authorization Server.
 
-4. The Data Holder’s Authorization Server redirects the end-user to the IdP’s authorization endpoint with an OIDC authentication request (including the openid scope and any additional scopes needed for matching).
+5. Data Holder performs Consumer Match using the ID Token and/or user input to identify the correct patient record.
 
-5. The IdP authenticates the user, optionally incorporating user-provided demographic information or other inputs to strengthen the identity proofing process.
-The IdP returns an Authentication Response to the Data Holder’s Authorization Server, including an ID Token.
+6. If match and consent are successful, the Data Holder issues an authorization response to the Client App.
 
-6. The Data Holder’s Authorization Server exchanges the authorization code with the IdP for tokens (access token, ID token). The ID Token conveys the verified digital identity attributes and assurance level.
-
-7. Using the identity attributes from the ID Token and/or additional user input, the Data Holder performs a Consumer Match per the Interoperable Digital Identity and Patient Matching IG:
-- Match on a Digital Identifier from the IdP (issuer + subject) or
-- Match on demographics with an input weight ≥ 10 using IDI Patient L2 data elements.
-
-8. If the Consumer Match is successful and the patient consents, the Data Holder issues an Authorization Response back to the Client App, providing an access token (and optional refresh token) scoped per the consent.
-
-9. The Client App uses the access token to make FHIR API calls to the Data Holder’s FHIR server, retrieving only the authorized resources.
+7. Client App uses access token to retrieve authorized FHIR data from the Data Holder.
 
 <div>
 <figure class="figure">
