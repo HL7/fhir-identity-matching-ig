@@ -111,8 +111,8 @@ Workflow:
 
 <div>
 <figure class="figure">
-    <img src="patient-directed-b2c.png" alt="Patient-Directed B2C" title="Patient-Directed B2C" class="img-responsive img-rounded center-block" width="75%">
-    <figcaption class="figure-caption"><strong>Patient-Directed B2C</strong></figcaption>
+    <img src="patient-directed-b2c-tiered-oauth.png" alt="Patient-Directed B2C with Tiered OAuth" title="Patient-Directed B2C with Tiered OAuth" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>Patient-Directed B2C with Tiered OAuth</strong></figcaption>
 </figure>
 <p></p>
 </div>
@@ -198,7 +198,7 @@ OIDC ID Token Example
    "family_name": "Doe", 
    "birthdate": "1979-01-01", 
    "address": { 
-     "street_address": "1234 Hollywood Blvd.", 
+     "street_address": "1234 Hollywortod Blvd.", 
      "locality": "Los Angeles", 
      "region": "CA", 
      "postal_code": "90210", 
@@ -209,8 +209,8 @@ OIDC ID Token Example
 
 <div>
 <figure class="figure">
-    <img src="b2b-with-patient-user.png" alt="B2B with Patient User" title="B2B with Patient User" class="img-responsive img-rounded center-block" width="75%">
-    <figcaption class="figure-caption"><strong>B2B with Patient User</strong></figcaption>
+    <img src="b2b-with-patient-user.png" alt="B2B with Individual User" title="B2B with Individual User" class="img-responsive img-rounded center-block" width="75%">
+    <figcaption class="figure-caption"><strong>B2B with Individual User</strong></figcaption>
 </figure>
 <p></p>
 </div>
@@ -293,7 +293,7 @@ Workflow:
     <img src="idp.png" alt="Patient-Directed B2C Using Digital Identity" title="Patient-Directed B2C Using Digital Identity" class="img-responsive img-rounded center-block" width="75%">
     <figcaption class="figure-caption"><strong>Patient-Directed B2C Using Digital Identity</strong></figcaption>
 </figure>
-<p>*See ID Token Examples in [Artifacts](artifacts.html)</p>
+<p>*See ID Token Examples in <a href="artifacts.html">Artifacts</a></p>
 </div>
 
 &emsp;&emsp;   
