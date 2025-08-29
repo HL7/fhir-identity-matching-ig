@@ -150,7 +150,7 @@ It is a best practice to include all known (required + optional) patient matchin
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | ((First Name and Last Name) or DOB) and unique Enterprise Identifier | IDIAL1.5; onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below instead                              |
 | First, Last, DOB, full (normalized as a best practice) street address | Same as above | N/A; see below instead |
-| First, Last, DOB, and [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals)      | Same as above    | Identifier is established based on [IDIAL1.8](guidance-on-identity-assurance.html#best-practices-for-identity-verification) or higher requirements and First, Last, DOB are consistent with the assigner's (or that of another relying party using the Digital Identifier) IDIAL1.8 or higher identity verification event |
+| First, Last, DOB, and [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals)      | Same as above    | Identifier is established based on [IDIAL1.8](guidance-on-identity-assurance.html#best-practices-for-identity-verification) or higher requirements and First, Last, DOB, and Digital Identifier are consistent with the assigner's (or that of another relying party using the Digital Identifier) IDIAL1.8 or higher identity verification event |
 | First, Last, DOB, Current Address, City, State, Medical Record Number and Assigner    | Same as above             | Verifiable patient attributes within a match request are consistent with the IDIAL1.8 or higher identity verification event |
 | First, Last, DOB, Current Address, Zip, Insurance Member ID, Payer ID             | Same as above       | Verifiable patient attributes within a match request are consistent with the IDIAL1.8 or higher  identity verification event |
 | First, Last, DOB, mobile number and email address          | Same as above      | Verifiable patient attributes within a match request are consistent with the IDIAL1.8 or higher identity verification event; confirming control of the mobile number and email address satisfies the verification requirement in this example, when mobile number utility bill was not one of the two Fair pieces of evidence used to meet identity verification requirements |
@@ -192,7 +192,7 @@ The workgroup invites suggestions from commenters regarding the use of Artificia
 
 ### Patient Weighted Input Information 
 
-&emsp;&emsp;*(The information and values included here serve as an example of weights that may be adopted to achieve various threshold levels responders' systems may choose to require when performing person matching with a desired degree of certainty.)* 
+*(The information and values included here serve as an example of weights that may be adopted to achieve various threshold levels responders' systems may choose to require when performing person matching with a desired degree of certainty.)* 
 
 Providing an agreed-upon value for matching (i.e., "weight") to specific Patient information elements included in a match request allows for a degree of matching capability either through profiling the Patient resource or through other potential mechanisms within the guidance.   
 
@@ -238,7 +238,7 @@ Trust communities may have specific requirements about minimum attributes, but i
 
 This IG does not intend to set requirements on the use of HumanName.family and HumanName.given in lieu of HumanName.text, though for purposes of clarity we generally refer to First name and Last name (Surname) since some requirements depend on that level of granularity. Systems compliant with this IG **SHALL** recognize that [HumanName.text](https://www.hl7.org/fhir/datatypes-definitions.html#HumanName.text) may be provided instead of or in lieu of HumanName.family and HumanName.given. 
 
-<font color="Black"><b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the Patient resource instance provided as input to a match request and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "0" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.</font>  
+<b>NOTE:</b> It is important to remember that this weighted information guidance is ONLY applicable to the Patient resource instance (or equivalent attributes) provided as input to a match request and does not pertain in any way to the matching process or results returned from it. Data elements with weight indicated as "0" are known to be valuable in matching but were not identified as contributors to the defined example weight input tiers.
 
 &emsp;    
 
@@ -281,10 +281,10 @@ A match output **SHOULD** reveal a presence or lack of manual stewardship.
 &emsp;&emsp;   
 
 ### Scoring Matches & Responder's System Match Output Quality Score 
-<div class="stu-note" markdown="1">
+<!-- <div class="stu-note" markdown="1">
 
 The information and values included here are a first published Standard for Trial Use. Feedback is invited on the quality levels themselves, on the combinations of matching elements included, and on whether this publicly available definition of a search quality score (note that this is not intended to be a match probability) should be returned by responders in lieu of a locally-computed match confidence. 
-</div> 
+</div>  -->
 
 Scoring **SHOULD** be as probabilistic as possible; however search scoring algorithms vary and stakeholders have expressed interest in better informing the score shared across organizational boundaries in a [$IDI-match] response. The group, therefore, seeks feedback on [$IDI-match] implementers' interest in using either the new Score indicated below or a similar option which would include attribute-specific match result information from the [$IDI-match] responder (exact match, partial match, soundex match, etc.) for each demographic element relevant to matching within the Patient resource.  
 
@@ -327,7 +327,7 @@ th {
 |           |            | First Name & Last Name & Date of Birth & Sex (Assigned at Birth)      |
 |           |            | First Name & Last Name & Date of Birth       |
 
-Recognizing and scoring identifier matches can be quite sophisticated in several ways. Our guidance above is geared toward simplistic scenarios where the system or assigner is specified, corresponds, and is recognized as a system that identifies individual people. However, in some cases, scoring an Identifier may depend on the type of system (from the Identifier.type field) without knowing or recognizing the exact system. Also, cross-system identifier scoring can be appropriate in some situations. While ostensibly unique identifiers such as a PPN should generally score higher, non-unique identifiers can be valuable as scoring lower. Note that some healthcare insurance identifiers identify the family as opposed to an individual. Scoring an identifier match where the system or type is not given or not recognized, or the identifier context is otherwise unknown, should be avoided due to the possibility that it identifies a broad group of unknown size such as all employees of a large organization, all members of an insurance plan, or when the assignor is unknown. 
+Recognizing and scoring identifier matches can be quite sophisticated in several ways. Our guidance above is geared toward simplistic scenarios where the system or assigner is specified, corresponds, and is recognized as a system that identifies individual people. However, in some cases, scoring an Identifier may depend on the type of system (from the Identifier.type field) without knowing or recognizing the exact system. Also, cross-system identifier scoring can be appropriate in some situations. While ostensibly unique identifiers such as a PPN should generally score higher, non-unique identifiers can be valuable as scoring lower. Note that some healthcare insurance identifiers identify the family as opposed to an individual. Scoring an identifier match where the system or type is not given or not recognized, or the identifier context is otherwise unknown, should be avoided due to the possibility that it identifies a broad group of unknown size such as all employees of a large organization, all members of an insurance plan, or when the assigner is unknown. 
 
 The scoring system used may be validated by the organization using it to determine its accuracy so that the level of effort to manually close identity matching is known and scoring factors that are missing are added to the score based on experience to refine the score and reduce the level of manually matching that needs to be done--over time this process should result in minimal manual matching. 
 
