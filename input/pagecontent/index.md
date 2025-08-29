@@ -2,12 +2,7 @@
 
 This Identity-focused FHIR implementation guide (IG) has been established upon the recommendations of ONC's FHIR at Scale Task Force (FAST) Identity Team and has been adapted from solution documents previously published by the team. The IG’s primary objective is to provide guidance on identity verification and patient matching as used in workflows pertinent to FHIR exchange and to facilitate cross-organizational and cross-network interoperability. 
 
- 
-
-The IG provides a foundation for additional, future digital identity management requirements. 
-</div> 
-
- 
+ </div> 
 
 &emsp;&emsp;   
 ### About HL7
@@ -21,7 +16,6 @@ A goal of HL7 is to make sure everyone involved in your healthcare has the right
 To learn more about HL7, you can visit the website [hl7.org](http://hl7.org/)
 
 The people at HL7 make guides that explain how to use the rules (standards) for different things. These guides bring the rules together and show how to use them for specific purposes.
-
 
 ### About This Guide 
 
@@ -104,8 +98,4 @@ The members of the HL7 Patient Administration Work Group
 (1)  <a href="https://www.justassociates.com/application/files/1414/9134/1517/PIIWhitePaper.pdf">Patient Identity Integrity White Paper</a>  HIMSS, December 2009   
 (2)  <a href="https://www.gao.gov/assets/gao-19-197.pdf">Approaches and Challenges to Electronically Matching Patients’ Records across Providers</a>  GAO, January 2019   
 (3)  <a href="https://sequoiaproject.org/resources/patient-matching/">The Sequoia Project</a>     
-(4)  <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RR2200/RR2275/RAND_RR2275.pdf">Defining and Evaluating Patient-Empowered Approaches to Improving Record Matching</a>  RAND, 2018  
-
- 
-
- 
+(4)  <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RR2200/RR2275/RAND_RR2275.pdf">Defining and Evaluating Patient-Empowered Approaches to Improving Record Matching</a>  RAND, 2018
