@@ -392,12 +392,12 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: IDIMatchInputParameters-Example
-InstanceOf: IDIMatchInputParameters
-Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
-Usage: #example
-* parameter[IDIPatient].name = "IDIPatient"
-* parameter[IDIPatient].resource = Patient-L2
+// Instance: IDIMatchInputParameters-Example
+// InstanceOf: IDIMatchInputParameters
+// Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
+// Usage: #example
+// * parameter[IDIPatient].name = "IDIPatient"
+// * parameter[IDIPatient].resource = Patient-L2
 
 /*
 * parameter[=].resource.resourceType = "Patient"
@@ -413,9 +413,9 @@ Usage: #example
 
 //====================================================================================================
 
-Instance: IDIMatchOutputParameters-Example
-InstanceOf: IDIMatchOutputParameters
-Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
-Usage: #example
-* parameter[0].name = "IDIMatchBundle"
-* parameter[=].resource = MATCHOperationResponse
+// Instance: IDIMatchOutputParameters-Example
+// InstanceOf: IDIMatchOutputParameters
+// Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
+// Usage: #example
+// * parameter[0].name = "IDIMatchBundle"
+// * parameter[=].resource = MATCHOperationResponse
