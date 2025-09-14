@@ -24,6 +24,13 @@ This IG profiles the FHIR patient $match operation for use in cross-organization
 The requirements described in this guide are intended to align with the solutions originally proposed by the ONC FHIR at Scale Task Force’s Identity Tiger Team. 
 {:.bg-info} 
 
+This Implementation Guide was designed with the goals of:
+
+- Establishing a Digital Identifier standard that can be used along with limited demographics to deterministically match on an individual human or organizational identity including across different systems, and considering its relative accuracy matching with this identifier is the preferred matching method;
+- Improving patient matching that continues to rely on demographics, so that matching is based on attributes verified at a high level of assurance along with rubrics determined through stakeholder consensus--giving implementers a framework that may be considered recognized security practices for patient matching and identity management; 
+- Establishing a well-defined 1) professional healthcare user and 2) consumer-facing identity management playbook that begins with the identity verification event and continues through a transaction with requirements of identity services, requesters, and responders, in order to provide measurable confidence in the identities of all parties to a healthcare transaction such that reliable health data results may be returned, results returned more often, with increased predictably, and at increasing scale;
+- Although the IG is not limited to FHIR in its applicability to person matching and Digital Identity, its guidance prioritizes how to use identity concepts, match identities, and locate records with FHIR and complements [HL7 UDAP FAST Security for Scalable Registration, Authentication, and Authorization](https://hl7.org/fhir/us/udap-security), particularly through its [Consumer Match](patient-matching.html#consumer-match) requirements for determining whether a user who was authenticated by a third-party identity service matches an individual on the implementer's system and through automated federation of trusted OpenID Connect services using existing healthcare PKI and Tiered OAuth.
+
 This guide is divided into several pages which are listed in the menu bar. 
 
 - [Home]\: The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide. 
