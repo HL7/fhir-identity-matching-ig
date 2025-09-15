@@ -25,7 +25,7 @@ Usage: #definition
 * parameter[0].use = #in
 * parameter[0].min = 1
 * parameter[0].max = "1"
-* parameter[0].documentation = "A Patient resource that is being requested in the match operation. The requester must use one of the IDI Patient profiles for the resource in their submission."
+* parameter[0].documentation = "A Patient resource that is being requested in the match operation. The requester SHALL use one of the IDI Patient profiles for the resource in their submission."
 * parameter[0].type = #Patient
 * parameter[0].targetProfile[0] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient"
 * parameter[0].targetProfile[1] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0"
@@ -57,6 +57,6 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
-* parameter[=].documentation = "When successful, a Bundle resource containing Patient resources of a high confidence match is returned to the requestor. In addition, an Organization resource of the responding entity will be included in the Bundle for error reporting purposes. When the responding server is unable to return a match, a response of 'No Match Found' will be returned."
+* parameter[=].documentation = "When successful, a Bundle resource containing Patient resources of a high confidence match SHALL be returned to the requestor. In addition, an Organization resource of the responding entity SHALL be included in the Bundle for error reporting purposes. When the responding server is unable to return a match, a response of 'No Match Found' will be returned."
 * parameter[=].type = #Bundle
 * parameter[=].targetProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
