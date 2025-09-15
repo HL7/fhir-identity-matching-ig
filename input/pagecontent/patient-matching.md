@@ -148,7 +148,7 @@ It is a best practice to include all known (required + optional) patient matchin
 
 | **Minimum Included Attributes**                     | **Attribute Verification in B2B TPO Workflow** (PHI or PII to HIPAA Covered Entity)               | **Attribute Verification in App-Mediated B2B with Individual User Workflow** (PHI or PII to non-HIPAA Covered Entity)     |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| First Name and Last Name, DOB, and unique Enterprise Identifier | [IDIAL1.8](guidance-on-identity-assurance.html#best-practices-for-identity-verification); onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below instead                              |
+| First Name and Last Name, DOB, and unique Enterprise Identifier | [IDIAL1.5](guidance-on-identity-assurance.html#best-practices-for-identity-verification); onlyCertainMatches and count=1  required for patient care delivery, coverage determination, or  billing/operations | N/A; see below instead                              |
 | First, Last, DOB, full (normalized as a best practice) street address | Same as above | N/A; see below instead |
 | First, Last, DOB, and [Digital Identifier](digital-identity.html#requirements-for-digital-identifiers-for-individuals)      | Same as above    | Identifier is established based on [IDIAL1.8](guidance-on-identity-assurance.html#best-practices-for-identity-verification) or higher requirements and First, Last, DOB, and Digital Identifier are consistent with the assigner's (or that of another relying party using the Digital Identifier) IDIAL1.8 or higher identity verification event |
 | First, Last, DOB, Current Address, City, State, Medical Record Number and Assigner    | Same as above             | Verifiable patient attributes within a match request are consistent with the IDIAL1.8 or higher identity verification event |
@@ -390,3 +390,4 @@ Benchmarking of patient matching has been a suggestion made previously by stakeh
  
 
 {% include link-list.md %} 
+
