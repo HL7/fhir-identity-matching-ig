@@ -392,30 +392,23 @@ Usage: #example
 
 //====================================================================================================
 
-// Instance: IDIMatchInputParameters-Example
-// InstanceOf: IDIMatchInputParameters
-// Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
-// Usage: #example
-// * parameter[IDIPatient].name = "IDIPatient"
-// * parameter[IDIPatient].resource = Patient-L2
+Instance: IDIMatchInputParameters-Example
+InstanceOf: IDIMatchInputParameters
+Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
+Usage: #example
 
-/*
-* parameter[=].resource.resourceType = "Patient"
-* parameter[=].resource.text.status = #generated
-* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Example Patient</b></p><a name=\"ExamplePatient\"> </a><p><b>name</b>: ExamplePatient</p><p><b>address</b>: Peter Chalmers</p></div>"
-* parameter[=].resource.id = "ExamplePatient"
-* parameter[=].resource.name.use = #official
-* parameter[=].resource.name.family = "Chalmers"
-* parameter[=].resource.name.given[0] = "Peter"
-* parameter[=].resource.name.given[+] = "James"
-*/
+* parameter[resource].name = "resource"
+* parameter[resource].resource = Patient-L0
+* parameter[onlySingleMatch].name = "onlySingleMatch"
+* parameter[onlySingleMatch].valueBoolean = true
 
 
 //====================================================================================================
 
-// Instance: IDIMatchOutputParameters-Example
-// InstanceOf: IDIMatchOutputParameters
-// Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
-// Usage: #example
-// * parameter[0].name = "IDIMatchBundle"
-// * parameter[=].resource = MATCHOperationResponse
+Instance: IDIMatchOutputParameters-Example
+InstanceOf: IDIMatchOutputParameters
+Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
+Usage: #example
+
+* parameter[return].name = "return"
+* parameter[return].resource = MATCHOperationResponse
