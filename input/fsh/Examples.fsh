@@ -397,8 +397,8 @@ InstanceOf: IDIMatchInputParameters
 Description: "Example of IDI-Patient profile for submission as input parameter for $IDI-match operation"
 Usage: #example
 
-* parameter[resource].name = "resource"
-* parameter[resource].resource = Patient-L0
+* parameter[IDIPatient].name = "IDIPatient"
+* parameter[IDIPatient].resource = Patient-L0
 * parameter[onlySingleMatch].name = "onlySingleMatch"
 * parameter[onlySingleMatch].valueBoolean = true
 
@@ -410,5 +410,5 @@ InstanceOf: IDIMatchOutputParameters
 Description: "Example of IDI-Patient profile for used to define the outputs of the $IDI-match operation"
 Usage: #example
 
-* parameter[return].name = "return"
-* parameter[return].resource = MATCHOperationResponse
+* parameter[IDIMatchBundle].name = "IDIMatchBundle"
+* parameter[IDIMatchBundle].resource = MATCHOperationResponse

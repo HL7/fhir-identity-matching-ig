@@ -1,6 +1,6 @@
 Instance: IDIMatchOperation
 InstanceOf: OperationDefinition
-Description: "This extension of the $match operation is further constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
+Description: "This operation is an alternative of the $match operation, constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 Usage: #definition
 
 * id = "IDI-match"
@@ -19,7 +19,7 @@ Usage: #definition
 * inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-input-parameters"
 * outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-output-parameters"
 
-* parameter[0].name = #resource
+* parameter[0].name = #IDIPatient
 * parameter[0].use = #in
 * parameter[0].min = 1
 * parameter[0].max = "1"
@@ -51,7 +51,7 @@ Usage: #definition
 * parameter[=].documentation = "The maximum number of records to return. If no value is provided, the server decides how many matches to return. Note that clients should be careful when using this, as it may prevent probable - and valid - matches from being returned."
 * parameter[=].type = #integer
 
-* parameter[+].name = #return
+* parameter[+].name = #IDIMatchBundle
 * parameter[=].use = #out
 * parameter[=].min = 1
 * parameter[=].max = "1"
