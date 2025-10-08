@@ -1,6 +1,6 @@
 Changes from the previous version are summarized below with links to the corresponding HL7 ticket. The summaries below are non-normative.
 
-### Version 2.0.0-ballot - STU2 Ballot
+### Version 2.0.0 - STU2 (Change log is new to this version)
 
 |Ticket|Ticket Description|
 |---------|----------|
