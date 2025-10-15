@@ -398,7 +398,7 @@ Description: "Example of IDI-Patient profile for submission as input parameter f
 Usage: #example
 
 * parameter[IDIPatient].name = "IDIPatient"
-* parameter[IDIPatient].resource = Patient-L0
+* parameter[IDIPatient].resource = Patient1
 * parameter[onlySingleMatch].name = "onlySingleMatch"
 * parameter[onlySingleMatch].valueBoolean = true
 

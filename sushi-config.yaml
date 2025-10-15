@@ -9,11 +9,11 @@ name: DigitalIdentity
 title: "Interoperable Digital Identity and Patient Matching"
 status: active
 license: "CC0-1.0"
-version: 2.0.0-ballot
+version: 2.0.0
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU2 Ballot
-date: 2024-07-30
+releaseLabel: STU2
+date: 2025-10-14
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Patient Administration

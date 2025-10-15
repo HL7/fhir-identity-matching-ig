@@ -1,6 +1,6 @@
 Instance: IDIMatchOperation
 InstanceOf: OperationDefinition
-Description: "This operation is an alternative of the $match operation, constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
+Description: "§1:This operation is an alternative of the $match operation, constrained to meet the additional requirements found in this IG. One of the IDI Patient profiles outline in this guide (IDI-Patient, IDI-Patient-L0, IDI-Patient-L1, IDI-Patient-L2) SHALL be used as the input for the match request. An IDI-Match-Bundle will be returned to the requesting entity. This Bundle will contain the full URLs of the sourced information, an Organization resource, and any matched Patient resources."
 Usage: #definition
 
 * id = "IDI-match"

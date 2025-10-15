@@ -1,5 +1,0 @@
-== Suppressed Messages ==
-# Approved by Cross Group Projects WG:3/24/2022 https://confluence.hl7.org/pages/viewpage.action?pageId=94637403 
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile

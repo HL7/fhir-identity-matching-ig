@@ -1,9 +1,11 @@
-Changes from the previous version are summarized below with links to the corresponding HL7 ticket. The summaries below are non-normative.
+Changes from the previous version are summarized below with links to the corresponding HL7 ticket. The summaries below are non-normative. No change log was created for STU1 due to it being the first published version of this IG.
 
 ### Version 2.0.0 - STU2 (Change log is new to this version)
 
 |Ticket|Ticket Description|
 |---------|----------|
+|[FHIR-51538](https://jira.hl7.org/browse/FHIR-51538)|Update $IDI-match operation to include $match requirements|
+|[FHIR-51409](https://jira.hl7.org/browse/FHIR-51409)|Update L0 and L1 invariants to fix identifier bugs|
 |[FHIR-49853](https://jira.hl7.org/browse/FHIR-49853)|No changelog page for Digital Identity and Patient Matching IG|
 |[FHIR-39349](https://jira.hl7.org/browse/FHIR-39349)|We omit a method for verifying mobile number|
 |[FHIR-40548](https://jira.hl7.org/browse/FHIR-40548)|Update to OpenID section to include responses|

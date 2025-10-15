@@ -11,7 +11,7 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matchi
 # Variance Request from CGP for new profiles in STU2 that are not derived from US Core - https://jira.hl7.org/browse/FHIR-51611
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
-# INFORMATION: Will leave for an STU Update with the intent to make the change during a major version
+# INFORMATION: This Code System is only defined for this IG and is not needed outside of this IG
 Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
 # The SUSHI Generated Patient does have generated narrative, but SUSHI seems to NOT create narrative for resources referenced from a Parameters resource
@@ -20,10 +20,15 @@ Constraint failed: dom-6: 'A resource should have narrative for robust managemen
 # The profiles in this IG are intentionally similar, and a give instance may match 1 or several of the profiles. The meta profile for this instance indicates it conforms to IDI-Patient, which is one of the legal choices.
 Found multiple matching profiles among 4 choices: http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2
 The parameter resource matched more than one of the allowed profiles (http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1, http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2)
-%This element does not match any known slice defined in the profile http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient%
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2|2.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The self-link for these searchset bundles is to the $IDI-match operation and not to a FHIR search string
-%No types could be determined from the search string, so the types can't be checked%
+No types could be determined from the search string, so the types can't be checked
 
 # INFORMATION: Inherited deprecated element from R4
 The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
+
+# INFORMATION: 
+The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
