@@ -25,10 +25,10 @@ Usage: #definition
 * parameter[0].max = "1"
 * parameter[0].documentation = "A Patient resource that is being requested in the match operation. The requester **SHALL** use one of the IDI Patient profiles for the resource in their submission."
 * parameter[0].type = #Patient
-// * parameter[0].targetProfile[0] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient"
-// * parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0"
-// * parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1"
-// * parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2"
+* parameter[0].targetProfile[0] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient"
+* parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L0"
+* parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L1"
+* parameter[0].targetProfile[+] = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2"
 
 * parameter[+].name = #onlySingleMatch
 * parameter[=].use = #in
