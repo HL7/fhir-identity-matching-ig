@@ -16,8 +16,8 @@ Usage: #definition
 * system = false
 * type = true
 * instance = false
-* inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-input-parameters"
-* outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-output-parameters"
+// * inputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-input-parameters"
+// * outputProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-output-parameters"
 
 * parameter[0].name = #IDIPatient
 * parameter[0].use = #in
@@ -57,4 +57,4 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "When successful, a Bundle resource containing Patient resources of a high confidence match **SHALL** be returned to the requestor. In addition, an Organization resource of the responding entity **SHALL** be included in the Bundle for error reporting purposes. When the responding server is unable to return a match, a response of 'No Match Found' will be returned."
 * parameter[=].type = #Bundle
-// * parameter[=].targetProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/identity-matching/StructureDefinition/idi-match-bundle"
