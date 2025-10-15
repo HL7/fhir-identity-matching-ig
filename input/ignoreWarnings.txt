@@ -30,5 +30,5 @@ No types could be determined from the search string, so the types can't be check
 # INFORMATION: Inherited deprecated element from R4
 The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
 
-# INFORMATION: 
+# INFORMATION: Ignoring conformance language message for STU2
 The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
