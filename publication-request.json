@@ -4,7 +4,7 @@
   "path": "http://hl7.org/fhir/us/identity-matching/STU2",
   "mode" : "milestone",
   "status": "trial-use",
-  "sequence": "STU2",
+  "sequence": "STU 2",
   "first": "false",
   "desc": "HL7 FHIR Implementation Guide for Interoperable Digital Identity and Patient Matching"
 }

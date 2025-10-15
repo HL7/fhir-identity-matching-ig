@@ -12,7 +12,7 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matchi
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient-L2').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
 # INFORMATION: This Code System is only defined for this IG and is not needed outside of this IG
-Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+INFORMATION: CodeSystem/Identity-Identifier-cs: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
 
 # The SUSHI Generated Patient does have generated narrative, but SUSHI seems to NOT create narrative for resources referenced from a Parameters resource
 Constraint failed: dom-6: 'A resource should have narrative for robust management' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)
