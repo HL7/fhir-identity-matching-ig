@@ -19,10 +19,6 @@ Description:    "The Parameters profile used to define the inputs of the $IDI-ma
 * parameter[IDIPatient]
   * name = "IDIPatient"
   * resource 1..1 MS
-  * targetProfile[0] = IDI-Patient
-  * targetProfile[1] = IDI-Patient-L0 
-  * targetProfile[2] = IDI-Patient-L1 
-  * targetProfile[3] = IDI-Patient-L2
 
 * parameter[onlySingleMatch]
   * name = "onlySingleMatch" (exactly)
