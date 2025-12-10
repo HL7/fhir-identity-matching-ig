@@ -1,7 +1,7 @@
 == Suppressed Messages ==
 
 # This IG uses US Core 6.1.0 because of TEFCA requirements
-The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 8.0.0. This reference is getting old and the more recent version should be considered
+The ImplementationGuide uses package hl7.fhir.us.core#6.1.0 released on 2023-06-30, but the most recent appropriate version is 8.0.1. This reference is getting old and the more recent version should be considered
 
 # Variance Request from CGP for the profiles that are not derived from US Core - https://jira.hl7.org/browse/FHIR-46489
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/identity-matching/StructureDefinition/IDI-Patient').baseDefinition: US FHIR Usage rules require that all profiles on Patient derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
@@ -32,3 +32,6 @@ The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValue
 
 # INFORMATION: Ignoring conformance language message for STU2
 The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
+
+# WARNING: Additional text for this parameter example is not necessary
+Constraint failed: dom-6: 'A resource should have narrative for robust management (text.`div`.exists())' (defined in http://hl7.org/fhir/StructureDefinition/DomainResource) (Best Practice Recommendation)
