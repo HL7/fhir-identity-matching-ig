@@ -1,4 +1,4 @@
-This section is an ongoing compilation of industry-wide, including international, digital identity and patient matching projects, with input from [Digital Identity](digital-identity.html) & [Patient Matching](patient-matching.html) on cross-cutting capabilities and how various efforts may be leveraged in the healthcare setting. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page. 
+This section is an ongoing compilation of industry-wide, including international, digital identity and patient matching projects. These initiatives are about solving identity and matching. The current NIST 800-63 standard, a measure for evaluating identity verification and authentication assurance, is not listed on this page. 
 
 ### Digital Identity and Patient Matching Projects
 
@@ -47,7 +47,4 @@ IHE Final Text Profiles (normative)
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Demographics Query (PDQ)](https://profiles.ihe.net/ITI/TF/Volume1/ch-8.html)
 
 &nbsp;&nbsp;&nbsp;&nbsp;[IHE - Patient Identifier Cross-Referencing (PIX)](https://profiles.ihe.net/ITI/TF/Volume1/ch-5.html)  
-
-
-{% include link-list.md %}
 
