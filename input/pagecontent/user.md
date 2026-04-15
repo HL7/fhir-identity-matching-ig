@@ -4,11 +4,62 @@ When a user interacts with healthcare the identity needs to be highly assured, a
 
 These identities will map into FHIR as either
 
-- [Person](https://www.hl7.org/fhir/person.html) in a Person.identifier
-- [Practitioner](https://www.hl7.org/fhir/practitioner.html) in a Practitioner.identifier
-- [RelatedPerson](https://www.hl7.org/fhir/relatedperson.html) in a RelatedPerson.identifier
-- [Patient](https://www.hl7.org/fhir/patient.html) in a Patient.identifier
+- [Person](StructureDefinition-PersonLei.html) in a Person.identifier
+- [Practitioner](StructureDefinition-PractitionerLei.html) in a Practitioner.identifier
+- [RelatedPerson](StructureDefinition-RelatedPersonLei.html) in a RelatedPerson.identifier
+- [Patient](StructureDefinition-PatientLei.html) in a Patient.identifier
+- [Organization](StructureDefinition-OrganizationLei.html) in a Organization.identifier
 
 
-The resource used will depend on the use case. The Person resource is used to represent an individual who may have multiple roles in the healthcare system, such as a patient who is also a caregiver. The Practitioner resource is used to represent a worker such as a healthcare professional who provides care or services to patients. All of these resources can include identifiers, demographics, and other relevant information to support identity management in healthcare transactions.
+The resource used will depend on the use case, and the LEI can appear in multiple more than one place. The Person resource is used to represent an individual who may have multiple roles in the healthcare system, such as a patient who is also a caregiver. The Practitioner resource is used to represent a worker such as a healthcare professional who provides care or services to patients. All of these resources can include identifiers, demographics, and other relevant information to support identity management in healthcare transactions.
 
+The vLEI and/or LEI SHALL be encoded in an Identifier datatype as follows:
+
+- Identifier.value = LEI
+- Identifier.system = "https://www.gleif.org/lei"
+- Identifier.assigner = may be the LOU, not the QVI
+- Identifier.extension[lei] = the vLEI
+
+Profiles:
+- [Profile of Identifier to hold LEI and vLEI](StructureDefinition-lei.html)
+- [Extension to carry the vLEI inside an Identifier](StructureDefinition-vlei.html)
+- [Profile Person with an LEI Identifier](StructureDefinition-PersonLei.html)
+- [Example Person with an LEI and vLEI](Person-example-person-lei.html)
+
+```mermaid
+flowchart TD
+
+    subgraph Org["FHIR Organization"]
+        OID["Identifier (LEI)\n system=https://www.gleif.org/lei\n value=20-char LEI"]
+        OEXT["Identifier.extension\n vLEI JSON blob\n (opaque ACDC credential)"]
+        OASS["Identifier.assigner\n LEI Issuer (LOU)"]
+    end
+
+    subgraph LEI["LEI Ecosystem"]
+        LOU["LOU\n(Local Operating Unit)\nIssues LEI"]
+        GLEIF["GLEIF\nRoot of Trust"]
+    end
+
+    subgraph vLEI["vLEI Ecosystem"]
+        QVI["QVI\n(Qualified vLEI Issuer)\nIssues vLEI Credential"]
+        VC["vLEI Credential\n(ACDC JSON)\nContains: dt, issuer, schema, signatures"]
+    end
+
+    subgraph Verify["Optional Verification"]
+        VR["VerificationResult\n(verification event)\nstatus=validated"]
+    end
+
+    %% Relationships
+    OID --> OEXT
+    OID --> OASS
+
+    OASS --> LOU
+    LOU --> GLEIF
+
+    OEXT --> VC
+    VC --> QVI
+    QVI --> GLEIF
+
+    VR --> OID
+    VR --> QVI
+```
