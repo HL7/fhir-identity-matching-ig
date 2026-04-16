@@ -61,9 +61,9 @@
 <page key="golden-identity" name="Golden Identity"/>
 <page deprecated="true" key="guidance-on-identity-assurance" name="Guidance on Identity Assurance"/>
 <page key="index" name="Home"/>
+<page key="identity" name="Identity"/>
 <page key="industry-initiatives" name="Industry Initiatives"/>
 <page deprecated="true" key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
 <page key="use-cases" name="Use Cases"/>
-<page key="user" name="User Identity"/>
 </specification>

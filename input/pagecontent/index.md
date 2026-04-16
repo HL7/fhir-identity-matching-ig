@@ -31,6 +31,6 @@ This guide is divided into several pages which are listed in the menu bar.
 - [Home](index.html): The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide.
 - [Use Cases](use-cases.html): This page provides workflows around core Identity concepts, as well as Use Case workflows that highlight different types of healthcare transactions.
 - [Golden Identity](golden-identity.html): This page describes the appropriate usage of identity for associating with the subject's data (Patient or Client) for cross-organizational exchange.
-- [User Identity](user.html): This page provides best practices for individual and organizational identity management in the healthcare context.
+- [Identity](identity.html): This page provides best practices for individual and organizational identity management in the healthcare context.
 - [Artifacts](artifacts.html): This page provides additional conformance artifacts for FHIR resources.
 - [About](about.html): This page includes background, download details, industry initiatives, the glossary, and change log for this IG.

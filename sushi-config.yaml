@@ -49,8 +49,8 @@ pages:
     title: Use Cases
   golden-identity.md:
     title: Golden Identity
-  user.md:
-    title: User Identity
+  identity.md:
+    title: Identity
   about.md:
     title: About
   glossary.md:
@@ -67,7 +67,7 @@ menu:
   Home: index.html
   Use Cases: use-cases.html
   Golden Identity: golden-identity.html
-  User Identity: user.html
+  Identity: identity.html
   Artifacts: artifacts.html
   About: 
     about: about.html
