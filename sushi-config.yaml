@@ -38,7 +38,7 @@ parameters:
   apply-version: true
   usage-stats-opt-out: true
   excludexml: false
-  excludettl: true
+  excludettl: false
   excludemap: true
   shownav: true
 
