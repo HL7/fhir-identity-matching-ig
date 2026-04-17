@@ -13,9 +13,7 @@ The source code for this Implementation Guide can be found on [HL7 FAST Identity
 
 ### Analysis
 
-#### Inline Cross Version Analysis
-
-{% include cross-version-analysis-inline.xhtml %}
+The IG publisher analysis tools provide a number of useful reports that can be used to understand the content of the IG and its dependencies. The following sections provide links to these reports.
 
 #### Cross Version Analysis
 
