@@ -1,10 +1,12 @@
-# HL7 Patient Matching Implementation Guide - Interoperable Digital Identity and Patient Matching
+# HL7 Patient Matching 
+
+Implementation Guide - Interoperable Digital Identity and Patient Matching
 
 ## View the IG
 
 - [Current build](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/branches/master/)
 - [stu3 CI build](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/branches/stu3/index.html)
-
+- [github repository](https://github.com/HL7/fhir-identity-matching-ig/tree/stu3)
 
 ## Scope
 
