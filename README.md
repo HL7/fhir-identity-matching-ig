@@ -16,5 +16,4 @@ For more information about this project see the project [Confluence Page](https:
 
 ## Why the change
 
-See [unified identity token payload discussion]
-(unified-identity-token-payload-discussion-v0.1.md)
+See [unified identity token payload discussion](unified-identity-token-payload-discussion-v0.1.md)
