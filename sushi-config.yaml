@@ -49,6 +49,10 @@ pages:
     title: Use Cases
   golden-identity.md:
     title: Golden Identity
+  LEI_vLEI_primer.md:
+    title: LEI and vLEI Primer
+  LEI_vLEI_Profiling.md:
+    title: LEI and vLEI Profiling
   identity.md:
     title: Identity
   about.md:
@@ -67,7 +71,10 @@ menu:
   Home: index.html
   Use Cases: use-cases.html
   Golden Identity: golden-identity.html
-  Identity: identity.html
+  Identity: 
+    LEI and vLEI Primer: LEI_vLEI_primer.html
+    LEI and vLEI Profiling: LEI_vLEI_Profiling.html
+    FHIR Identity: identity.html
   Artifacts: artifacts.html
   About: 
     about: about.html

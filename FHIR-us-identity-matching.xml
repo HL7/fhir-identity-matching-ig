@@ -63,6 +63,8 @@
 <page key="index" name="Home"/>
 <page key="identity" name="Identity"/>
 <page key="industry-initiatives" name="Industry Initiatives"/>
+<page key="LEI_vLEI_primer" name="LEI and vLEI Primer"/>
+<page key="LEI_vLEI_Profiling" name="LEI and vLEI Profiling"/>
 <page deprecated="true" key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
 <page key="use-cases" name="Use Cases"/>
