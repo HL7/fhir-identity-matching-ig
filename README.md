@@ -14,6 +14,6 @@ This project is intended to enhance interoperability among patient matching and 
 
 For more information about this project see the project [Confluence Page](https://confluence.hl7.org/display/PA/Patient+Matching+PSS)
 
-## Why the change
+## Why the change for STU3
 
 See [unified identity token payload discussion](unified-identity-token-payload-discussion-v0.1.md)
