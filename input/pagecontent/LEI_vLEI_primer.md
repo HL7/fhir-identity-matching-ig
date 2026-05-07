@@ -40,6 +40,7 @@ Healthcare in the United States identifies organizations through a patchwork of 
 | Portable | Not bound to one regulator, network, or sector | Lets the same identity work across FHIR APIs, non-FHIR APIs, directories, and OAuth |
 | Cryptographically verifiable | Trust does not depend on a directory lookup | Enables zero-trust patterns and offline / asynchronous validation |
 | Role-aware | Can carry "who is authorized to do what on behalf of whom" | Supports delegation, purpose-of-use, and accountability |
+{: .grid}
 
 The LEI provides the first two. The vLEI adds the second two. Together they directly advance the core FAST objective of building **scalable, reusable infrastructure that enables FHIR exchange at national scale** — a foundational layer that every network, directory, and trust framework can rely on rather than each one inventing its own organizational identity. By pinning organizational identity to a single, globally rooted, cryptographically verifiable anchor, the LEI/vLEI pair lets FAST extend the same exchange infrastructure across FHIR APIs, non-FHIR APIs, directories, OAuth-secured endpoints, and trust frameworks (TEFCA, CMS Aligned Networks, payer-provider, vendor ecosystems) without bespoke per-network identity work. This aligns with the FAST principle of solving foundational interoperability problems *once*, in a way that is reusable and composable, rather than re-solving them inside every implementation guide.
 
@@ -57,6 +58,7 @@ The vLEI does not replace existing identifiers — it *anchors* and *verifies* t
 | **LEI** | A legal entity worldwide | GLEIF + LOU | No (string only) | Identification only — not authentication |
 | **vLEI (Legal Entity Credential)** | A legal entity worldwide | GLEIF → QVI chain (KERI/ACDC) | Yes — credential is signed, chain is verifiable | Adoption is early in healthcare; tooling is maturing |
 | **vLEI OOR / ECR** | A person + role + organization | Same chain, anchored to Legal Entity vLEI | Yes | Role taxonomy (OOR) is general business; ECR vocabulary for healthcare is emerging |
+{: .grid}
 
 The strongest mental model is layered:
 

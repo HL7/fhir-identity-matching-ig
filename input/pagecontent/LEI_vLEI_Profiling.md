@@ -62,6 +62,7 @@ The following matrix maps common FAST scenarios to the minimum identity assuranc
 | 10 | Logging / auditing an action attributed to an organization in a way that survives later dispute | Cryptographic accountability | No | Yes | Only a cryptographically signed credential supports non-repudiation. |
 | 11 | Population health, benchmarking, or de-identified analytics that name participating organizations | Identification only | Yes | No | No transactional trust required. |
 | 12 | Initial onboarding of an organization to a network where credentials will *later* be issued | Identification (then authentication on issuance) | Yes (initial); vLEI on activation | Required by go-live | The organization can be referenced by LEI during paperwork; the vLEI is required before the entity is allowed to authenticate. |
+{: .grid}
 
 #### B.4.2 Plain-English Decision Rule
 
@@ -211,6 +212,7 @@ The IAL2 layer is independent of the vLEI: **IAL2 establishes who the human is**
 | Stability | Long-lived; tied to public corporate roles | Often time-bounded or scoped to a transaction class |
 | Healthcare fit | Limited (few healthcare-specific roles in ISO 5009) | High — encodes "authorized for prior auth," "authorized for regulatory filing," "data exchange representative" |
 | When to require | Board attestations, public regulatory filings, signed corporate disclosures | Day-to-day transactional authority across FHIR APIs, TEFCA exchange, payer-provider workflows |
+{: .grid}
 
 For most FAST FHIR use cases, the **ECR is the operative credential**. OORs are useful for high-formality attestations.
 
@@ -258,6 +260,7 @@ A practical motivation for layering the vLEI under UDAP is that vLEI-based legal
 | CA distrust / root program change | All certs under that CA must be replaced; trust paths break until reissued | Verification path runs through GLEIF/KERI, not X.509 — unaffected |
 | Organization changes its TLS provider | New cert from a different CA; counterparty trust must be re-established | None — vLEI is independent of the TLS provider |
 | Organization changes its OAuth client implementation | New `client_id`, new software statement, new dynamic registration | Same vLEI references the same legal entity; only the client-auth layer is rebuilt |
+{: .grid}
 
 Operationally, this means the vLEI gives healthcare organizations an identity layer that **outlives the certs and CAs underneath it**. UDAP keeps doing what UDAP does well at the channel and client-auth layers; the vLEI provides continuity at the legal-entity layer. For long-lived FHIR exchange relationships — which is most of healthcare — that continuity is a substantial reduction in operational and audit burden.
 
@@ -272,6 +275,7 @@ When a relying party processes an OAuth/UDAP request:
 | **Legal entity** | **Which legal entity is behind this client?** | **Legal Entity vLEI** |
 | **Acting individual** | **Which proofed person is making this request, and on whose behalf?** | **OOR / ECR + IAL2/AAL2 assertion** |
 | Authorization | What is this combination allowed to do? | Scopes, purpose-of-use, network policy |
+{: .grid}
 
 Profiling each layer is the responsibility of the IG that owns it. The **legal entity** and **acting individual** layers are owned by FAST Identity (this IG); the **client auth** layer is owned by FAST Security; the **TLS** layer is owned by deployment guidance.
 
@@ -438,6 +442,7 @@ A summary at the end (§B.8.6) consolidates the credential picture across all fi
 | LEI sufficient anywhere? | Directory listings only | Directory listings only | Directory listings only | Directory listings only | Directory listings only |
 | vLEI required for action? | Yes | Yes | Yes | Yes | Yes |
 | Defining trust gap closed | Provider-to-org binding | Cross-entity delegation | Endpoint trust ≠ entity trust | Non-clinical accountability | Attribution and scoping of autonomous AI actions |
+{: .grid}
 
 The pattern across all five is the same: **LEI is enough for static reference; vLEI is required as soon as anyone — or anything — *acts*.**
 
