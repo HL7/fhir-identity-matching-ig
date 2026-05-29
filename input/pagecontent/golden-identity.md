@@ -11,3 +11,4 @@ Patient.identifier
 ### Matching
 
 Sometimes the identifier is not available, and matching must be done on demographics.  This IG recommends the use of the FHIR `$match` operation to request a match given the information that the client knows. The algorithm that the server uses is not specified.
+

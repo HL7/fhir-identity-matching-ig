@@ -17,3 +17,21 @@ For more information about this project see the project [Confluence Page](https:
 ## Why the change for STU3
 
 See [unified identity token payload discussion](unified-identity-token-payload-discussion-v0.1.md)
+
+### John Notes
+
+Those that have Patient data, will work with an idp to get LEI issued, and record that value in the Patient.identifier.
+
+How will duplicate LEI issued will get merged/linked?
+
+will the community trust all LEI issued by some set of IDPs? Regardless of if they ever identified as a patient or user?
+
+need transactions identified between IDPs to assure non-duplicate issuance.
+
+need transaction for authorized retrieval of LEI details given an LEI.
+- usecase. New patient shows up and has an LEI. Thus the healthcare organization can get the current Demographics given that LEI. So the patient does not need to provide demographics independently.
+
+will LEI support sensitive demographics? Will they be able to protect them? (sexual orientation, gender identity, etc) If this is not part of the LEI, then there is still recognition of the need for the FHIR Patient elements.
+
+Do we define STU3 as a backward compatible version, where we add breaking changes in the version after that? Tefca and cms alignment may be hard.
+
