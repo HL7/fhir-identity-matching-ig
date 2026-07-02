@@ -1,0 +1,190 @@
+{
+  "resourceType": "Patient",
+  "id": "fast-dual-citizen-example",
+  "meta": {
+    "profile": [
+      "https://fast.hl7.org/identity/StructureDefinition/fast-identity-patient"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Jordan Alexander Rivera — dual US/UK citizen. Two jurisdiction-scoped Golden Record Identifiers plus two CSP identities (CLEAR, ID.me) with NIST 800-63-3 assurance metadata.</div>"
+  },
+  "identifier": [
+    {
+      "extension": [
+        {
+          "url": "https://fast.hl7.org/identity/StructureDefinition/identity-jurisdiction",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America"
+              }
+            ]
+          }
+        }
+      ],
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-identifier-type",
+            "code": "GRI",
+            "display": "Golden Record Identifier"
+          }
+        ]
+      },
+      "system": "https://fast.hl7.org/identity/golden-record/us",
+      "value": "US-GRI-8f3a1c2e-6b41-4d9a-9f21-1a2b3c4d5e6f",
+      "assigner": {
+        "display": "US FAST Identity Trust Network"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "https://fast.hl7.org/identity/StructureDefinition/identity-jurisdiction",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "GB",
+                "display": "United Kingdom of Great Britain and Northern Ireland"
+              }
+            ]
+          }
+        }
+      ],
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-identifier-type",
+            "code": "GRI",
+            "display": "Golden Record Identifier"
+          }
+        ]
+      },
+      "system": "https://fast.hl7.org/identity/golden-record/gb",
+      "value": "GB-GRI-4471-9920-3388",
+      "assigner": {
+        "display": "NHS England Identity Authority"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "https://fast.hl7.org/identity/StructureDefinition/csp-assurance",
+          "extension": [
+            {
+              "url": "identityAssuranceLevel",
+              "valueCoding": {
+                "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-assurance-level",
+                "code": "IAL2",
+                "display": "Identity Assurance Level 2"
+              }
+            },
+            {
+              "url": "authenticatorAssuranceLevel",
+              "valueCoding": {
+                "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-assurance-level",
+                "code": "AAL2",
+                "display": "Authenticator Assurance Level 2"
+              }
+            },
+            {
+              "url": "verificationDate",
+              "valueDateTime": "2026-03-14"
+            },
+            {
+              "url": "verificationEvidence",
+              "valueString": "Government-issued photo ID + liveness selfie match"
+            }
+          ]
+        }
+      ],
+      "use": "secondary",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-identifier-type",
+            "code": "CSPID",
+            "display": "Credential Service Provider Identifier"
+          }
+        ]
+      },
+      "system": "https://clearme.com/identity",
+      "value": "CLEAR-99201-JAR",
+      "assigner": {
+        "display": "CLEAR"
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "https://fast.hl7.org/identity/StructureDefinition/csp-assurance",
+          "extension": [
+            {
+              "url": "identityAssuranceLevel",
+              "valueCoding": {
+                "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-assurance-level",
+                "code": "IAL2",
+                "display": "Identity Assurance Level 2"
+              }
+            },
+            {
+              "url": "verificationDate",
+              "valueDateTime": "2025-11-02"
+            }
+          ]
+        }
+      ],
+      "use": "secondary",
+      "type": {
+        "coding": [
+          {
+            "system": "https://fast.hl7.org/identity/CodeSystem/fast-identity-identifier-type",
+            "code": "CSPID",
+            "display": "Credential Service Provider Identifier"
+          }
+        ]
+      },
+      "system": "https://id.me/identity",
+      "value": "IDME-44817-JAR",
+      "assigner": {
+        "display": "ID.me"
+      }
+    },
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          }
+        ]
+      },
+      "system": "https://hospital.example.org/mrn",
+      "value": "MRN-556677",
+      "assigner": {
+        "display": "Example Health System"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Rivera",
+      "given": [
+        "Jordan",
+        "Alexander"
+      ]
+    }
+  ],
+  "gender": "other",
+  "birthDate": "1988-07-21"
+}
