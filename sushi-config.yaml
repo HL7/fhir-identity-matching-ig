@@ -49,6 +49,10 @@ pages:
     title: Use Cases
   golden-identity.md:
     title: Golden Identity
+  golden-design-notes.md:
+    title: Golden Identity Design Notes
+  golden-record-identity-design-brief.md:
+    title: Golden Record Identity Design Brief
   LEI_vLEI_primer.md:
     title: LEI and vLEI Primer
   LEI_vLEI_Profiling.md:

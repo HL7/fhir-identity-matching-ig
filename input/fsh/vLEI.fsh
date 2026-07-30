@@ -106,7 +106,7 @@ Description: "A Practitioner resource that includes an Identifier with a value t
 //* identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
-* identifier[lei].system = "https://www.gleif.org/lei"
+* identifier[lei].system = "https://www.gleif.org/lei" (exactly)
 
 Instance: example-practitioner-lei
 InstanceOf: PractitionerLei
