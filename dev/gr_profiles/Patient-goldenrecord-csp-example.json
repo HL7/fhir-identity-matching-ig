@@ -1,0 +1,70 @@
+{
+  "resourceType": "Patient",
+  "id": "goldenrecord-csp-example",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/identity-matching/StructureDefinition/GoldenRecord-Patient"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Jane Marie Doe — a Golden Record Identifier asserted by a Credential Service Provider on a base FHIR Patient. Universal-ready: no USCDI demographics required (design brief §2.3, §3.2).</div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/identity-matching/CodeSystem/IdentifierTypes",
+            "code": "golden",
+            "display": "Golden Identifier"
+          }
+        ]
+      },
+      "system": "https://csp-a.example.org/golden-ids",
+      "value": "123e4567-e89b-12d3-a456-426614174000",
+      "period": {
+        "start": "2026-01-15"
+      },
+      "assigner": {
+        "display": "CSP-A Identity Trust Network"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "Jane",
+        "Marie"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1979-01-01",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "+1-617-555-0187",
+      "use": "mobile"
+    },
+    {
+      "system": "email",
+      "value": "jane.doe@example.com"
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "742 Evergreen Terrace"
+      ],
+      "city": "Springfield",
+      "state": "MA",
+      "postalCode": "01101",
+      "country": "US"
+    }
+  ]
+}
