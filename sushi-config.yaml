@@ -9,11 +9,11 @@ name: DigitalIdentity
 title: "Interoperable Digital Identity and Patient Matching"
 status: active
 license: "CC0-1.0"
-version: 2.0.0
+version: 3.0.0-current
 fhirVersion: 4.0.1
 copyrightYear: 2021+
-releaseLabel: STU 2
-date: 2025-10-14
+releaseLabel: STU 3
+#date: 2025-10-14
 jurisdiction: "urn:iso:std:iso:3166#US"
 publisher:
   name: HL7 International / Patient Administration
@@ -38,25 +38,34 @@ parameters:
   apply-version: true
   usage-stats-opt-out: true
   excludexml: false
-  excludettl: true
+  excludettl: false
   excludemap: true
+  shownav: true
+  auto-oid-root: 2.16.840.1.113883.4.642.40.81
 
 pages:
   index.md:
     title: Home
-  guidance-on-identity-assurance.md:
-    title: Guidance on Identity Assurance
-  patient-matching.md:
-    title: Patient Matching
-  digital-identity.md:
-    title: Digital Identity
   use-cases.md:
     title: Use Cases
-  industry-initiatives.md:
-    title: Industry Initiatives
-  downloads.md:
+  golden-identity.md:
+    title: Golden Identity
+  golden-design-notes.md:
+    title: Golden Identity Design Notes
+  golden-record-identity-design-brief.md:
+    title: Golden Record Identity Design Brief
+  LEI_vLEI_primer.md:
+    title: LEI and vLEI Primer
+  LEI_vLEI_Profiling.md:
+    title: LEI and vLEI Profiling
+  identity.md:
+    title: Identity
+  about.md:
+    title: About
   glossary.md:
     title: Glossary
+  industry-initiatives.md:
+    title: Industry Initiatives
   changelog.md:
     title: Change Log
 
@@ -65,15 +74,17 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
-  Guidance on Identity Assurance: guidance-on-identity-assurance.html
-  Patient Matching: patient-matching.html
-  Digital Identity: digital-identity.html
-  Implementation:
-    Artifacts: artifacts.html
-    Use Cases: use-cases.html
-    Industry Initiatives: industry-initiatives.html
-    Downloads: downloads.html
-  Glossary: glossary.html
-  Change Log: changelog.html
+  Use Cases: use-cases.html
+  Golden Identity: golden-identity.html
+  Identity: 
+    LEI and vLEI Primer: LEI_vLEI_primer.html
+    LEI and vLEI Profiling: LEI_vLEI_Profiling.html
+    FHIR Identity: identity.html
+  Artifacts: artifacts.html
+  About: 
+    about: about.html
+    Industry initiatives: industry-initiatives.html
+    Glossary: glossary.html
+    Change Log: changelog.html
 
   

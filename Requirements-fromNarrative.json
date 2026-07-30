@@ -1,0 +1,20 @@
+{
+  "resourceType" : "Requirements",
+  "id" : "fromNarrative",
+  "url" : "http://hl7.org/fhir/us/identity-matching/Requirements/fromNarrative",
+  "name" : "FromNarrative",
+  "title" : "Narrative Conformance Statements",
+  "status" : "active",
+  "experimental" : false,
+  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
+  "statement" : [{
+    "key" : "1",
+    "conformance" : ["MAY"],
+    "requirement" : "B.8.4 for administrative staff) MAY be more appropriate for orchestration agents whose scope exceeds a single device's traditional remit. This is flagged in"
+  },
+  {
+    "key" : "2",
+    "conformance" : ["MAY"],
+    "requirement" : "B.8.4 for administrative staff) MAY be more appropriate for orchestration agents whose scope exceeds a single device's traditional remit. This is flagged in"
+  }]
+}
