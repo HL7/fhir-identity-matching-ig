@@ -16,10 +16,6 @@
 // with the official FAST canonical base before publication.
 // =====================================================================
 
-Alias: $iso3166   = urn:iso:std:iso:3166
-Alias: $iso3166-2 = urn:iso:std:iso:3166:-2
-Alias: $USCorePatient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $identifier-use = http://hl7.org/fhir/ValueSet/identifier-use
 
 
 // ---------------------------------------------------------------------
@@ -63,6 +59,7 @@ Description: "Permitted NIST 800-63-3 Identity Assurance Levels."
 * FASTAssuranceLevelCS#IAL1
 * FASTAssuranceLevelCS#IAL2
 * FASTAssuranceLevelCS#IAL3
+* ^experimental = false
 
 ValueSet: FASTAuthenticatorAssuranceLevelVS
 Id: fast-identity-authenticator-assurance-level
@@ -71,6 +68,7 @@ Description: "Permitted NIST 800-63-3 Authenticator Assurance Levels."
 * FASTAssuranceLevelCS#AAL1
 * FASTAssuranceLevelCS#AAL2
 * FASTAssuranceLevelCS#AAL3
+* ^experimental = false
 
 
 // ---------------------------------------------------------------------
@@ -125,7 +123,7 @@ Title: "FAST Identity Patient"
 Description: "US Core 6.1.0 Patient constrained for FAST Identity STU3: adds jurisdiction-scoped Golden Record Identifier(s) and CSP-issued identifier(s) with assurance metadata. Slicing is open, so US Core / local identifiers (MRN, member ID) remain valid."
 
 // Open slicing on identifier, discriminated by the identifier type code.
-* identifier ^slicing.discriminator[0].type = #pattern
+* identifier ^slicing.discriminator[0].type = #value
 * identifier ^slicing.discriminator[0].path = "type"
 * identifier ^slicing.rules = #open
 * identifier ^slicing.description = "Named slices for Golden Record and CSP identifiers; all other identifiers permitted."

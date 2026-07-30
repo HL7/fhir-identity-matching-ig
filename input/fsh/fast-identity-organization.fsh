@@ -21,10 +21,6 @@
 // should be confirmed against the official GLEIF/HL7 registrations.
 // =====================================================================
 
-Alias: $USCoreOrganization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
-
-// GLEIF LEI namespace (confirm official URI before publication)
-Alias: $LEI = https://www.gleif.org/lei
 
 
 // ---------------------------------------------------------------------
@@ -89,6 +85,7 @@ Id: fast-identity-vlei-status-vs
 Title: "vLEI Credential Status Value Set"
 Description: "Lifecycle status of a verifiable LEI (vLEI) credential."
 * include codes from system VLEIStatusCS
+* ^experimental = false
 
 
 // ---------------------------------------------------------------------

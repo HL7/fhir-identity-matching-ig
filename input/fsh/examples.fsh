@@ -1,12 +1,4 @@
-Alias: $IdentifierTypes = http://hl7.org/fhir/us/identity-matching/CodeSystem/IdentifierTypes
-Alias: $FASTIdentifierTypeCS = https://fast.hl7.org/identity/CodeSystem/fast-identity-identifier-type
-Alias: $FASTAssuranceLevelCS = https://fast.hl7.org/identity/CodeSystem/fast-identity-assurance-level
-Alias: $IdentityJurisdiction = https://fast.hl7.org/identity/StructureDefinition/identity-jurisdiction
-Alias: $CSPAssurance = https://fast.hl7.org/identity/StructureDefinition/csp-assurance
-Alias: $us-core-race = http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
-Alias: $us-core-ethnicity = http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity
-Alias: $us-core-birthsex = http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
-Alias: $omb-race-ethnicity = urn:oid:2.16.840.1.113883.6.238
+
 
 Instance: FastOrgExample
 InstanceOf: FASTIdentityOrganization
@@ -19,13 +11,13 @@ Description: "Example Health System — NPI plus LEI (golden record) and a vLEI 
 * extension[vlei].extension[issuer].valueString = "Qualified vLEI Issuer — Example QVI Inc. (AID: EKY1t...QVI)"
 * extension[vlei].extension[verificationDate].valueDateTime = "2026-05-19T14:32:00Z"
 * extension[vlei].extension[status].valueCode = #active
-* identifier[0].type = http://terminology.hl7.org/CodeSystem/v2-0203#NPI "National provider identifier"
-* identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
-* identifier[0].value = "1234567893"
-* identifier[1].use = #official
-* identifier[1].system = "https://www.gleif.org/lei"
-* identifier[1].value = "5493001KJTIIGC8Y1R12"
-* identifier[1].assigner.display = "GLEIF (via accredited LOU)"
+* identifier[NPI].type = http://terminology.hl7.org/CodeSystem/v2-0203#NPI "National provider identifier"
+* identifier[NPI].system = "http://hl7.org/fhir/sid/us-npi"
+* identifier[NPI].value = "1234567893"
+* identifier[lei].use = #official
+* identifier[lei].system = "https://www.gleif.org/lei"
+* identifier[lei].value = "5493001KJTIIGC8Y1R12"
+* identifier[lei].assigner.display = "GLEIF (via accredited LOU)"
 * active = true
 * name = "Example Health System"
 * telecom[0].system = #phone
@@ -42,34 +34,34 @@ InstanceOf: FASTIdentityPatient
 Usage: #example
 Title: "FAST Dual Citizen Example"
 Description: "Jordan Alexander Rivera — dual US/UK citizen. Two jurisdiction-scoped Golden Record Identifiers plus two CSP identities (CLEAR, ID.me) with NIST 800-63-3 assurance metadata."
-* identifier[goldenRecord][0].extension[jurisdiction].valueCodeableConcept.coding[0] = urn:iso:std:iso:3166#US "United States of America"
-* identifier[goldenRecord][0].use = #official
-//* identifier[goldenRecord][0].type = $FASTIdentifierTypeCS#GRI "Golden Record Identifier"
-* identifier[goldenRecord][0].system = "https://fast.hl7.org/identity/golden-record/us"
-* identifier[goldenRecord][0].value = "US-GRI-8f3a1c2e-6b41-4d9a-9f21-1a2b3c4d5e6f"
-* identifier[goldenRecord][0].assigner.display = "US FAST Identity Trust Network"
-* identifier[goldenRecord][1].extension[jurisdiction].valueCodeableConcept.coding[0] = urn:iso:std:iso:3166#GB "United Kingdom of Great Britain and Northern Ireland"
-* identifier[goldenRecord][1].use = #official
-//* identifier[goldenRecord][1].type = $FASTIdentifierTypeCS#GRI "Golden Record Identifier"
-* identifier[goldenRecord][1].system = "https://fast.hl7.org/identity/golden-record/gb"
-* identifier[goldenRecord][1].value = "GB-GRI-4471-9920-3388"
-* identifier[goldenRecord][1].assigner.display = "NHS England Identity Authority"
-* identifier[cspIdentifier][0].extension[assurance].extension[identityAssuranceLevel].valueCoding = $FASTAssuranceLevelCS#IAL2 "Identity Assurance Level 2"
-* identifier[cspIdentifier][0].extension[assurance].extension[authenticatorAssuranceLevel].valueCoding = $FASTAssuranceLevelCS#AAL2 "Authenticator Assurance Level 2"
-* identifier[cspIdentifier][0].extension[assurance].extension[verificationDate].valueDateTime = "2026-03-14"
-* identifier[cspIdentifier][0].extension[assurance].extension[verificationEvidence][0].valueString = "Government-issued photo ID + liveness selfie match"
-* identifier[cspIdentifier][0].use = #secondary
-//* identifier[cspIdentifier][0].type = $FASTIdentifierTypeCS#CSPID "Credential Service Provider Identifier"
-* identifier[cspIdentifier][0].system = "https://clearme.com/identity"
-* identifier[cspIdentifier][0].value = "CLEAR-99201-JAR"
-* identifier[cspIdentifier][0].assigner.display = "CLEAR"
-* identifier[cspIdentifier][1].extension[assurance].extension[identityAssuranceLevel].valueCoding = $FASTAssuranceLevelCS#IAL2 "Identity Assurance Level 2"
-* identifier[cspIdentifier][1].extension[assurance].extension[verificationDate].valueDateTime = "2025-11-02"
-* identifier[cspIdentifier][1].use = #secondary
-//* identifier[cspIdentifier][1].type = $FASTIdentifierTypeCS#CSPID "Credential Service Provider Identifier"
-* identifier[cspIdentifier][1].system = "https://id.me/identity"
-* identifier[cspIdentifier][1].value = "IDME-44817-JAR"
-* identifier[cspIdentifier][1].assigner.display = "ID.me"
+* identifier[goldenRecord][+].extension[jurisdiction].valueCodeableConcept.coding[0] = urn:iso:std:iso:3166#US "United States of America"
+* identifier[goldenRecord][=].use = #official
+//* identifier[goldenRecord][=].type = FASTIdentifierTypeCS#GRI "Golden Record Identifier"
+* identifier[goldenRecord][=].system = "https://fast.hl7.org/identity/golden-record/us"
+* identifier[goldenRecord][=].value = "US-GRI-8f3a1c2e-6b41-4d9a-9f21-1a2b3c4d5e6f"
+* identifier[goldenRecord][=].assigner.display = "US FAST Identity Trust Network"
+* identifier[goldenRecord][+].extension[jurisdiction].valueCodeableConcept.coding[0] = urn:iso:std:iso:3166#GB "United Kingdom of Great Britain and Northern Ireland"
+* identifier[goldenRecord][=].use = #official
+//* identifier[goldenRecord][=].type = FASTIdentifierTypeCS#GRI "Golden Record Identifier"
+* identifier[goldenRecord][=].system = "https://fast.hl7.org/identity/golden-record/gb"
+* identifier[goldenRecord][=].value = "GB-GRI-4471-9920-3388"
+* identifier[goldenRecord][=].assigner.display = "NHS England Identity Authority"
+* identifier[cspIdentifier][+].extension[assurance].extension[identityAssuranceLevel].valueCoding = FASTAssuranceLevelCS#IAL2 "Identity Assurance Level 2"
+* identifier[cspIdentifier][=].extension[assurance].extension[authenticatorAssuranceLevel].valueCoding = FASTAssuranceLevelCS#AAL2 "Authenticator Assurance Level 2"
+* identifier[cspIdentifier][=].extension[assurance].extension[verificationDate].valueDateTime = "2026-03-14"
+* identifier[cspIdentifier][=].extension[assurance].extension[verificationEvidence][0].valueString = "Government-issued photo ID + liveness selfie match"
+* identifier[cspIdentifier][=].use = #secondary
+//* identifier[cspIdentifier][=].type = FASTIdentifierTypeCS#CSPID "Credential Service Provider Identifier"
+* identifier[cspIdentifier][=].system = "https://clearme.com/identity"
+* identifier[cspIdentifier][=].value = "CLEAR-99201-JAR"
+* identifier[cspIdentifier][=].assigner.display = "CLEAR"
+* identifier[cspIdentifier][+].extension[assurance].extension[identityAssuranceLevel].valueCoding = FASTAssuranceLevelCS#IAL2 "Identity Assurance Level 2"
+* identifier[cspIdentifier][=].extension[assurance].extension[verificationDate].valueDateTime = "2025-11-02"
+* identifier[cspIdentifier][=].use = #secondary
+//* identifier[cspIdentifier][=].type = FASTIdentifierTypeCS#CSPID "Credential Service Provider Identifier"
+* identifier[cspIdentifier][=].system = "https://id.me/identity"
+* identifier[cspIdentifier][=].value = "IDME-44817-JAR"
+* identifier[cspIdentifier][=].assigner.display = "ID.me"
 * identifier[+].use = #usual
 * identifier[=].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR "Medical Record Number"
 * identifier[=].system = "https://hospital.example.org/mrn"
@@ -88,7 +80,7 @@ Usage: #example
 Title: "Golden Record CSP Example"
 Description: "Jane Marie Doe — a Golden Record Identifier asserted by a Credential Service Provider on a base FHIR Patient. Universal-ready: no USCDI demographics required (design brief §2.3, §3.2)."
 * identifier[GoldenIdentifier].use = #official
-* identifier[GoldenIdentifier].type = $IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier].type = IdentifierTypes#golden "Golden Identifier"
 * identifier[GoldenIdentifier].system = "https://csp-a.example.org/golden-ids"
 * identifier[GoldenIdentifier].value = "123e4567-e89b-12d3-a456-426614174000"
 * identifier[GoldenIdentifier].period.start = "2026-01-15"
@@ -116,18 +108,18 @@ InstanceOf: GoldenRecordPatient
 Usage: #example
 Title: "Golden Record Multi-CSP Example"
 Description: "Jane Doe — one person carrying Golden Record Identifiers from two different CSPs, distinguished by system and assigner (multi-CSP scenario, design brief §4 Q6)."
-* identifier[GoldenIdentifier][0].use = #official
-* identifier[GoldenIdentifier][0].type = $IdentifierTypes#golden "Golden Identifier"
-* identifier[GoldenIdentifier][0].system = "https://csp-a.example.org/golden-ids"
-* identifier[GoldenIdentifier][0].value = "123e4567-e89b-12d3-a456-426614174000"
-* identifier[GoldenIdentifier][0].period.start = "2026-01-15"
-* identifier[GoldenIdentifier][0].assigner.display = "CSP-A Identity Trust Network"
-* identifier[GoldenIdentifier][1].use = #official
-* identifier[GoldenIdentifier][1].type = $IdentifierTypes#golden "Golden Identifier"
-* identifier[GoldenIdentifier][1].system = "https://csp-b.example.org/golden-ids"
-* identifier[GoldenIdentifier][1].value = "987f6543-a21b-45d6-b789-123456789abc"
-* identifier[GoldenIdentifier][1].period.start = "2025-09-30"
-* identifier[GoldenIdentifier][1].assigner.display = "CSP-B Identity Services"
+* identifier[GoldenIdentifier][+].use = #official
+* identifier[GoldenIdentifier][=].type = IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier][=].system = "https://csp-a.example.org/golden-ids"
+* identifier[GoldenIdentifier][=].value = "123e4567-e89b-12d3-a456-426614174000"
+* identifier[GoldenIdentifier][=].period.start = "2026-01-15"
+* identifier[GoldenIdentifier][=].assigner.display = "CSP-A Identity Trust Network"
+* identifier[GoldenIdentifier][+].use = #official
+* identifier[GoldenIdentifier][=].type = IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier][=].system = "https://csp-b.example.org/golden-ids"
+* identifier[GoldenIdentifier][=].value = "987f6543-a21b-45d6-b789-123456789abc"
+* identifier[GoldenIdentifier][=].period.start = "2025-09-30"
+* identifier[GoldenIdentifier][=].assigner.display = "CSP-B Identity Services"
 * name[0].use = #official
 * name[0].family = "Doe"
 * name[0].given[0] = "Jane"
@@ -145,7 +137,7 @@ Description: "Jane Doe — the same Golden Record Identifier persisted inside a 
 * extension[us-core-ethnicity].extension[text].valueString = "Not Hispanic or Latino"
 * extension[us-core-birthsex].valueCode = #F
 * identifier[GoldenIdentifier].use = #official
-* identifier[GoldenIdentifier].type = $IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier].type = IdentifierTypes#golden "Golden Identifier"
 * identifier[GoldenIdentifier].system = "https://csp-a.example.org/golden-ids"
 * identifier[GoldenIdentifier].value = "123e4567-e89b-12d3-a456-426614174000"
 * identifier[GoldenIdentifier].period.start = "2026-01-15"

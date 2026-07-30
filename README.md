@@ -38,10 +38,7 @@ Do we define STU3 as a backward compatible version, where we add breaking change
 #### questions on latest merge
 
 - I need help understanding the 'brief §' use such as 'brief §4'
-- Do we need profiles that are not us-core? The latest profiles come in two flavors.
-- Latest uses #pattern slicing which is deprecated
 - Latest allows for multiple golden identifiers. do we want that?
 - New extension OrganizationVLEI, should be harmonized with VLEI extension. These should be extensions on Identifier, not Organization element.
 - I understand that the system value for all LEI/vLEI identifiers is "https://www.gleif.org/lei"
-- Should use the Profile on Identifier
 - 

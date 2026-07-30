@@ -22,11 +22,6 @@
 // The standalone .json files in this folder are the raw-resource equivalents of A–C.
 // =====================================================================================
 
-Alias: $IdentifierTypes = http://hl7.org/fhir/us/identity-matching/CodeSystem/IdentifierTypes
-Alias: $us-core-race      = http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
-Alias: $us-core-ethnicity = http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity
-Alias: $us-core-birthsex  = http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
-Alias: $omb-race-ethnicity = urn:oid:2.16.840.1.113883.6.238
 
 
 // -------------------------------------------------------------------------------------
@@ -45,7 +40,7 @@ a US Core producer, yet the record is fully conformant because only core identit
 attributes are required. No USCDI demographics are present, by design (brief §3.2).
 """
 * identifier[GoldenIdentifier].use = #official
-* identifier[GoldenIdentifier].type = $IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier].type = IdentifierTypes#golden "Golden Identifier"
 * identifier[GoldenIdentifier].system = "https://csp-a.example.org/golden-ids"
 * identifier[GoldenIdentifier].value = "123e4567-e89b-12d3-a456-426614174000"
 * identifier[GoldenIdentifier].period.start = "2026-01-15"
@@ -83,18 +78,18 @@ One person, two Golden Record Identifiers from different CSPs (multi-CSP scenari
 brief §4 Q6). The identifiers share the #golden type but differ in system and assigner,
 which is how a matcher tells the issuing authorities apart.
 """
-* identifier[GoldenIdentifier][0].use = #official
-* identifier[GoldenIdentifier][0].type = $IdentifierTypes#golden "Golden Identifier"
-* identifier[GoldenIdentifier][0].system = "https://csp-a.example.org/golden-ids"
-* identifier[GoldenIdentifier][0].value = "123e4567-e89b-12d3-a456-426614174000"
-* identifier[GoldenIdentifier][0].period.start = "2026-01-15"
-* identifier[GoldenIdentifier][0].assigner.display = "CSP-A Identity Trust Network"
-* identifier[GoldenIdentifier][1].use = #official
-* identifier[GoldenIdentifier][1].type = $IdentifierTypes#golden "Golden Identifier"
-* identifier[GoldenIdentifier][1].system = "https://csp-b.example.org/golden-ids"
-* identifier[GoldenIdentifier][1].value = "987f6543-a21b-45d6-b789-123456789abc"
-* identifier[GoldenIdentifier][1].period.start = "2025-09-30"
-* identifier[GoldenIdentifier][1].assigner.display = "CSP-B Identity Services"
+* identifier[GoldenIdentifier][+].use = #official
+* identifier[GoldenIdentifier][=].type = IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier][=].system = "https://csp-a.example.org/golden-ids"
+* identifier[GoldenIdentifier][=].value = "123e4567-e89b-12d3-a456-426614174000"
+* identifier[GoldenIdentifier][=].period.start = "2026-01-15"
+* identifier[GoldenIdentifier][=].assigner.display = "CSP-A Identity Trust Network"
+* identifier[GoldenIdentifier][+].use = #official
+* identifier[GoldenIdentifier][=].type = IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier][=].system = "https://csp-b.example.org/golden-ids"
+* identifier[GoldenIdentifier][=].value = "987f6543-a21b-45d6-b789-123456789abc"
+* identifier[GoldenIdentifier][=].period.start = "2025-09-30"
+* identifier[GoldenIdentifier][=].assigner.display = "CSP-B Identity Services"
 * name[0].use = #official
 * name[0].family = "Doe"
 * name[0].given[0] = "Jane"
@@ -122,7 +117,7 @@ are only present here because US Core requires them — the reason the authorita
 profile stays on base Patient (brief §2.3, §3.2).
 """
 * identifier[GoldenIdentifier].use = #official
-* identifier[GoldenIdentifier].type = $IdentifierTypes#golden "Golden Identifier"
+* identifier[GoldenIdentifier].type = IdentifierTypes#golden "Golden Identifier"
 * identifier[GoldenIdentifier].system = "https://csp-a.example.org/golden-ids"
 * identifier[GoldenIdentifier].value = "123e4567-e89b-12d3-a456-426614174000"
 * identifier[GoldenIdentifier].period.start = "2026-01-15"

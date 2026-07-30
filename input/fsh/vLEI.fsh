@@ -52,8 +52,8 @@ Parent: Person
 Title: "A Person resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "A Person resource that includes an Identifier with a value that is a Legal Entity Identifier
 (LEI), and may carry the verified LEI (vLEI). This profile is used to represent a person who has a legal entity identifier, which is typically used for individuals who are associated with legal entities in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.discriminator.type = #profile
+* identifier ^slicing.discriminator.path = "$this"
 * identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
@@ -78,12 +78,11 @@ Profile: OrganizationLei
 Parent: us-core-organization
 Title: "An Organization resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "An Organization resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI), and may carry the verified LEI (vLEI). This profile is used to represent an organization that has a legal entity identifier, which is typically used for organizations that are involved in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-//* identifier ^slicing.discriminator.type = #value
-//* identifier ^slicing.discriminator.path = "system"
-//* identifier ^slicing.rules = #open
+* identifier ^slicing.discriminator[1].type = #type
+* identifier ^slicing.discriminator[1].path = "$this"
+* identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
-* identifier[lei].system = "https://www.gleif.org/lei"
 
 Instance: example-organization-lei
 InstanceOf: OrganizationLei
@@ -101,12 +100,11 @@ Profile: PractitionerLei
 Parent: us-core-practitioner
 Title: "A Practitioner resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "A Practitioner resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI), and may carry the verified LEI (vLEI). This profile is used to represent a practitioner who has a legal entity identifier, which is typically used for individuals who are associated with legal entities in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-//* identifier ^slicing.discriminator.type = #value
-//* identifier ^slicing.discriminator.path = "system"
-//* identifier ^slicing.rules = #open
+* identifier ^slicing.discriminator[1].type = #type
+* identifier ^slicing.discriminator[1].path = "$this"
+* identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
-* identifier[lei].system = "https://www.gleif.org/lei" (exactly)
 
 Instance: example-practitioner-lei
 InstanceOf: PractitionerLei
@@ -126,8 +124,8 @@ Profile: PractitionerRoleLei
 Parent: us-core-practitionerrole
 Title: "A PractitionerRole resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "A PractitionerRole resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI), and may carry the verified LEI (vLEI). This profile is used to represent a practitioner role that has a legal entity identifier, which is typically used for roles that are associated with legal entities in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.discriminator.type = #profile
+* identifier ^slicing.discriminator.path = "$this"
 * identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
@@ -152,8 +150,9 @@ Profile: PatientLei
 Parent: us-core-patient
 Title: "A Patient resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "A Patient resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI), and may carry the verified LEI (vLEI). This profile is used to represent a patient who has a legal entity identifier, which is typically used for individuals who are associated with legal entities in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
+
+* identifier ^slicing.discriminator.type = #profile
+* identifier ^slicing.discriminator.path = "$this"
 * identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI
@@ -178,8 +177,9 @@ Profile: RelatedPersonLei
 Parent: us-core-relatedperson
 Title: "A RelatedPerson resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI)"
 Description: "A RelatedPerson resource that includes an Identifier with a value that is a Legal Entity Identifier (LEI), and may carry the verified LEI (vLEI). This profile is used to represent a related person who has a legal entity identifier, which is typically used for individuals who are associated with legal entities in financial transactions. The profile includes an extension for the verified LEI (vLEI) to indicate that the LEI has been verified and is valid."
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
+
+* identifier ^slicing.discriminator.type = #profile
+* identifier ^slicing.discriminator.path = "$this"
 * identifier ^slicing.rules = #open
 * identifier contains lei 1..* MS
 * identifier[lei] only LEI

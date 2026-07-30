@@ -1,0 +1,5 @@
+# SUSHI warning ignore list for this IG
+# Add one warning message per line (without file/line metadata)
+
+# these are itterations that are not sliced
+Sliced element Patient.identifier is being accessed via numeric index. Use slice names in rule paths when possible.

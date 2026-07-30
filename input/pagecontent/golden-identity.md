@@ -1,7 +1,7 @@
 The Golden Identity is a concept that represents a unique and consistent identifier for a data subject (such as a patient or client) across different healthcare systems and organizations. It is designed to improve the accuracy of patient matching and identity management in healthcare transactions. The Golden Identity can be used in conjunction with limited demographics to deterministically match an individual human or organizational identity, providing a preferred method for matching on an individual across different systems.
 
-- [Golden Identity Design Notes](golden-design-notes.md) 
-- [Golden Record Identity Design Brief](golden-record-identity-design-brief.md) 
+- [Golden Identity Design Notes](golden-design-notes.html) 
+- [Golden Record Identity Design Brief](golden-record-identity-design-brief.html) 
 
 ### Identifier
 

@@ -32,6 +32,7 @@ ValueSet: GoldenIdentifierTypeVS
 Title: "Golden Identifier Type Value Set"
 Description: "Type code(s) that mark a Patient.identifier as a Golden Record Identifier."
 * include codes from system IdentifierTypes
+* ^experimental = false
 
 
 // -------------------------------------------------------------------------------------
@@ -52,7 +53,8 @@ not required by this profile and lives in other resources.
 
 // ---- Golden Identifier slice --------------------------------------------------------
 * identifier MS
-* identifier ^slicing.discriminator.type = #pattern            // WG DECISION (§4 Q3): pattern > value
+//* identifier ^slicing.discriminator.type = #pattern            // WG DECISION (§4 Q3): pattern > value
+* identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type"
 * identifier ^slicing.rules = #open
 * identifier ^slicing.description = "Allows multiple identifiers, including a required Golden Record Identifier distinguished by its type. Additional CSP-issued identifiers may appear as further repetitions (multi-CSP scenario)."
@@ -130,12 +132,12 @@ Instance: GoldenRecordPatientMultiCSPExample
 InstanceOf: GoldenRecordPatient
 Title: "Golden Record Patient — multiple CSP-issued identifiers"
 Description: "Illustrates action item #7: the same person carrying Golden Identifiers from two different CSPs, distinguished by system/assigner (brief §4 Q6)."
-* identifier[GoldenIdentifier][0].type = IdentifierTypes#golden
-* identifier[GoldenIdentifier][0].value = "123e4567-e89b-12d3-a456-426614174000"
-* identifier[GoldenIdentifier][0].system = "https://csp-a.example.org/golden-ids"
-* identifier[GoldenIdentifier][1].type = IdentifierTypes#golden
-* identifier[GoldenIdentifier][1].value = "987f6543-a21b-45d6-b789-123456789abc"
-* identifier[GoldenIdentifier][1].system = "https://csp-b.example.org/golden-ids"
+* identifier[GoldenIdentifier][+].type = IdentifierTypes#golden
+* identifier[GoldenIdentifier][=].value = "123e4567-e89b-12d3-a456-426614174000"
+* identifier[GoldenIdentifier][=].system = "https://csp-a.example.org/golden-ids"
+* identifier[GoldenIdentifier][+].type = IdentifierTypes#golden
+* identifier[GoldenIdentifier][=].value = "987f6543-a21b-45d6-b789-123456789abc"
+* identifier[GoldenIdentifier][=].system = "https://csp-b.example.org/golden-ids"
 * name[0].family = "Doe"
 * name[0].given[0] = "Jane"
 * gender = #female
