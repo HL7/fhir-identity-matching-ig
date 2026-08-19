@@ -1,8 +1,29 @@
 <div class="stu-note" markdown="1"> 
 
-STU3 is moving to a service model for the identity management. Providing a common method of identity lookup and referencing, with a service that assures the identity and provides authentication as necessary.
+STU3 is moving to a Credential Service Provider (CSP) model for the identity management. Using nationwide commercial CSP providers. Providing a common method of identity lookup and referencing, with a service that assures the identity and provides authentication as necessary.
 
- </div> 
+</div>
+
+Creation of a Golden Record and linking that to a Digital Identity and Identity token can create a better age of care and reduced costs for Providers and Payers.  Working with private sector identity providers (IdPs)Common Data Model can create a method to critically reduce issues with patient matching and individual data breaches by creating an environment where trust is created through partnerships.
+
+A possible workflow to create and use a Golden Record would be:
+
+1. Clear/ID.Me/Login.gov/etc. signs a person up, either through the IdP’s portal or at point of care, and creates a digital identity and token identifier.  The IdP would use verified demographics and biometrics (e.g. photo, 3D scan, etc.) as part of the creation, in future, this could include mobile Drivers Licenses or other sources of trusted identification 
+2. Each IdP shares that identity Common Data Model information with the other partnered IdPs creating a Golden Record common across all IdPs with one patient identifier that is used wherever that patient gets care. Each IdP may have separate internal identifiers but only the shared identifier is the Golden Record identifier.
+3. On the Payer/Provider side, the organization signs up with one of the IdP partners for provision of identity verification.
+  - Larger hospitals may have identity verification terminal (as in airports)
+  - Smaller may have portal that brings up picture and PII that can be verified by the admitting clerk.
+4. On initial or additional visit, user presents their phone app/card/etc. containing the token/QR Code or logs in with verification terminal.
+  - In the case of a portal with PII and photo, a notification goes to the patient’s phone that their ID is being used and to agree/disagree with its use.
+5. Once verified, the Payer/Provider uses the identifier code to query the Golden Record on IdP and ingest that patient’s/member’s information.
+6. Once ingested, the Payer/Provider does TEFCA/etc. query using Golden Record identifier and gathers all patient records.
+
+Demographic updates to a patient/member record are done either through IdP or Payer/Provider with validation.  These updates can be done at point of care or through an IdP portal. Updates from Payer/Provider without terminals are held until validated by IdP via a terminal or an on-line portal. 
+
+- Updates to demographics can be pushed to the Payer/Provider when the record is accessed or may be pushed to their system at time of update, depending on design.
+- The Payer/Provider would have the choice to only store Identifier and limited demographics (Name/DOB/etc.) locally and reply on the Golden Record when demographics needed.
+
+This is done as a private sector initiative with Login.gov/VA/DOD/SSA/etc. participating but not owning. Once established, this identity could grow beyond healthcare to be used wherever identity is required.
 
 ### HL7
 
@@ -23,17 +44,17 @@ This IG focuses on a Golden Identity for data subjects (aka Patient, or Client),
 This Implementation Guide was designed with the goals of:
 
 - Establishing a Digital Identifier standard that can be used along with limited demographics to deterministically match on an individual human or organizational identity including across different systems, and considering its relative accuracy matching with this identifier is the preferred matching method;
-- Improving patient matching that continues to rely on demographics, so that matching is based on attributes verified at a high level of assurance along with rubrics determined through stakeholder consensus--giving implementers a framework that may be considered recognized security practices for patient matching and identity management; 
+- Improving patient matching that continues to rely on demographics, so that matching is based on attributes verified at a high level of assurance along with rubrics determined through stakeholder consensus--giving implementers a framework that may be considered recognized security practices for patient matching and identity management;
 - Establishing a well-defined 1) professional healthcare user and 2) consumer-facing identity management playbook that begins with the identity verification event and continues through a transaction with requirements of identity services, requesters, and responders, in order to provide measurable confidence in the identities of all parties to a healthcare transaction such that reliable health data results may be returned, results returned more often, with increased predictably, and at increasing scale;
 
-This guide is divided into several pages which are listed in the menu bar. 
+This guide is divided into several pages which are listed in the menu bar.
 
 - [Home](index.html): The home page provides the introduction and background for this project and general requirements that apply to all workflows described in this guide.
 - [Use Cases](use-cases.html): This page provides workflows around core Identity concepts, as well as Use Case workflows that highlight different types of healthcare transactions.
 - [Golden Identity](golden-identity.html): This page describes the appropriate usage of identity for associating with the subject's data (Patient or Client) for cross-organizational exchange.
 - Identity
-    - [LEI and vLEI Primer](LEI_vLEI_primer.html): This page provides an introduction to LEI and vLEI concepts for organizational identity.
-    - [LEI and vLEI Profiling](LEI_vLEI_Profiling.html): This page provides guidance on profiling LEI and vLEI for verifiable organizational identity.
-    - [FHIR Identity](identity.html): This page provides best practices for individual and organizational identity management in the healthcare context.
+  - [LEI and vLEI Primer](LEI_vLEI_primer.html): This page provides an introduction to LEI and vLEI concepts for organizational identity.
+  - [LEI and vLEI Profiling](LEI_vLEI_Profiling.html): This page provides guidance on profiling LEI and vLEI for verifiable organizational identity.
+  - [FHIR Identity](identity.html): This page provides best practices for individual and organizational identity management in the healthcare context.
 - [Artifacts](artifacts.html): This page provides additional conformance artifacts for FHIR resources.
 - [About](about.html): This page includes background, download details, industry initiatives, the glossary, and change log for this IG.
