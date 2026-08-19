@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- User Identity circle (larger, left) -->
+  <circle cx="120" cy="150" r="100" fill="none" stroke="#4A90E2" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Golden Identity circle (smaller, right) -->
+  <circle cx="220" cy="150" r="70" fill="#E3F2FD" stroke="#4A90E2" stroke-width="2" opacity="0.9"/>
+  
+  <!-- Labels -->
+  <text x="70" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#1565C0">User</text>
+  <text x="70" y="170" text-anchor="middle" font-size="14" font-weight="bold" fill="#1565C0">Identity</text>
+  <text x="240" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565C0">Golden</text>
+  <text x="240" y="170" text-anchor="middle" font-size="12" font-weight="bold" fill="#1565C0">Identity</text>
+</svg>
