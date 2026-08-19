@@ -7,13 +7,13 @@ Golden Identity and User Identity are the two main categories of identity manage
 Human and Organization Actors:
 
 - **Patient**: The individual seeking healthcare services or accessing their own medical records.
-- **Credential Service Provider** (**CSP**): The entity responsible for verifying the patient's identity and issuing a Golden Identifier.
+- **Credential Service Provider** (**CSP**): The nationwide commercial entity responsible for verifying the patient's identity and issuing a Golden Identifier.
 - **Healthcare System**: The organization providing healthcare services and managing patient interactions, including the use of Golden and User Identities for accurate record matching and access.
 - **Practitioner**: The healthcare professional providing care to the patient and accessing their medical records for clinical decision-making. Practitioners include clinical, billing, administrative, and other healthcare users.
 
 Technical Actors:
 
-- **Credential Service Provider** (**CSP**): The entity responsible for verifying the patient's identity and issuing a Golden Identifier. The CSP may use various authentication methods, such as biometric verification, to ensure the accuracy of the identity verification process.
+- **Credential Service Provider** (**CSP**): The entity responsible for verifying the patient's identity and issuing a Golden Identifier. The CSP may use various identity assurance methods, such as document verification. The CSP may use various authentication methods, such as biometric verification, to ensure the accuracy of the identity verification process.
 - **Authorization Server** (**AS**): The system responsible for making authorization decisions based on the User Identity tokens provided by the CSP. The Authorization Server may use role-based access control (RBAC) or attribute-based access control (ABAC) to determine the appropriate level of access for each user. The Authorization Server may also provide Consent enforcement (see FAST Consent Management)
 - **Relying Party** (**RP**): The healthcare system or application that relies on the User Identity tokens provided by the CSP for authentication and authorization. The RP may use the tokens to grant access to specific resources or perform actions on behalf of the user.
 - **Requesting Party** (**RQ**): The entity requesting access to a patient's medical records or other healthcare resources. The RQ is a system that may be used by a practitioner, patient, or other authorized agent. .
