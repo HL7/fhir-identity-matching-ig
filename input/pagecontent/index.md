@@ -1,6 +1,6 @@
 <div class="stu-note" markdown="1"> 
 
-STU3 is moving to a Credential Service Provider (CSP) model for the identity management. Using nationwide commercial CSP providers. Providing a common method of identity lookup and referencing, with a service that assures the identity and provides authentication as necessary.
+STU3 is moving to a model where nationwide commercial credential issuers play a fundamental role in identity management. Providing a common method of identity lookup, verification, authentication, and referencing, with a service that assures the identity and provides authentication as necessary.
 
 </div>
 
@@ -39,13 +39,16 @@ The people at HL7 make guides that explain how to use the rules (standards) for 
 
 ### This Guide
 
-This IG focuses on a Golden Identity for data subjects (aka Patient, or Client), and user identity (aka healthcare professional, patient as user, relative or other authorized agent).  The IG provides guidance on APIs and workflows that support identity verification, patient matching, and digital identity management in the context of healthcare transactions. The IG also provides guidance on how to use FHIR resources to support these workflows.
+This IG focuses on a Golden Identity for data subjects (aka Patient, or Client), and user identity (a.k.a., healthcare professional, patient as user, relative or other authorized agent) and organizations (a.k.a., providers, payers, etc).  The IG provides guidance on APIs and workflows that support identity verification, patient matching, and digital identity management in the context of healthcare transactions. The IG also provides guidance on how to use FHIR resources to support these workflows. 
 
 This Implementation Guide was designed with the goals of:
 
 - Establishing a Digital Identifier standard that can be used along with limited demographics to deterministically match on an individual human or organizational identity including across different systems, and considering its relative accuracy matching with this identifier is the preferred matching method;
 - Improving patient matching that continues to rely on demographics, so that matching is based on attributes verified at a high level of assurance along with rubrics determined through stakeholder consensus--giving implementers a framework that may be considered recognized security practices for patient matching and identity management;
 - Establishing a well-defined 1) professional healthcare user and 2) consumer-facing identity management playbook that begins with the identity verification event and continues through a transaction with requirements of identity services, requesters, and responders, in order to provide measurable confidence in the identities of all parties to a healthcare transaction such that reliable health data results may be returned, results returned more often, with increased predictably, and at increasing scale;
+- Establishing a reliable and unambiguous mechanism to identify organizations, proving their bona fides and their ownership through the existing Global Legal Entity Identifier Foundation (GLEIF) and the Legal Entity Identifier (LEI);
+- Utilize a verifiable credential bound to the LEI called a Verifiable Legal Entity Identifier (vLEI) in order to provide a cryptographic capability to assert organizational and individual identity as an alternative to Digital Certificates;
+- Make use of credentials that are chained to the vLEI for a legal entity that assert what authorizations the organization has obtained and who at the organization is delegating this authority.
 
 This guide is divided into several pages which are listed in the menu bar.
 

@@ -4,10 +4,10 @@ This IG is the result of a multi-year effort to address the challenges of identi
 
 Download the entire implementation guide [here](full-ig.zip)
 
-| | XML | JSON | Turtle |
-|---|---|---|---|
+|                          | XML                           | JSON                            | Turtle                           |
+| ------------------------ | ----------------------------- | ------------------------------- | -------------------------------- |
 | **Artifact Definitions** | [XML](../definitions.xml.zip) | [JSON](../definitions.json.zip) | [Turtle](../definitions.ttl.zip) |
-| **Examples** | [XML](../examples.xml.zip) | [JSON](../examples.json.zip) | [Turtle](../examples.ttl.zip) |
+| **Examples**             | [XML](../examples.xml.zip)    | [JSON](../examples.json.zip)    | [Turtle](../examples.ttl.zip)    |
 
 The source code for this Implementation Guide can be found on [HL7 FAST Identity Github Repo](https://github.com/HL7/fhir-identity-matching-ig).
 
