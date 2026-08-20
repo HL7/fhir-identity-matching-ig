@@ -4,11 +4,11 @@ STU3 is moving to a model where nationwide commercial credential issuers play a 
 
 </div>
 
-Creation of a Golden Record and linking that to a Digital Identity and Identity token can create a better age of care and reduced costs for Providers and Payers.  Working with private sector identity providers (IdPs)Common Data Model can create a method to critically reduce issues with patient matching and individual data breaches by creating an environment where trust is created through partnerships.
+Creation of a Golden Record and linking that to a Digital Identity and Identity token can create a better age of care and reduced costs for Providers and Payers.  Working with private sector identity providers (IdPs) Common Data Model can create a method to critically reduce issues with patient matching and individual data breaches by creating an environment where trust is created through partnerships.
 
 A possible workflow to create and use a Golden Record would be:
 
-1. Clear/ID.Me/Login.gov/etc. signs a person up, either through the IdP’s portal or at point of care, and creates a digital identity and token identifier.  The IdP would use verified demographics and biometrics (e.g. photo, 3D scan, etc.) as part of the creation, in future, this could include mobile Drivers Licenses or other sources of trusted identification 
+1. Clear/ID.Me/Login.gov/etc. signs a person up, either through the IdP’s portal or at point of care, and creates a digital identity and token identifier.  The IdP would use verified demographics and biometrics (e.g. photo, 3D scan, etc.) as part of the creation, in future, this could include mobile Drivers Licenses or other sources of trusted identification
 2. Each IdP shares that identity Common Data Model information with the other partnered IdPs creating a Golden Record common across all IdPs with one patient identifier that is used wherever that patient gets care. Each IdP may have separate internal identifiers but only the shared identifier is the Golden Record identifier.
 3. On the Payer/Provider side, the organization signs up with one of the IdP partners for provision of identity verification.
   - Larger hospitals may have identity verification terminal (as in airports)
@@ -18,7 +18,7 @@ A possible workflow to create and use a Golden Record would be:
 5. Once verified, the Payer/Provider uses the identifier code to query the Golden Record on IdP and ingest that patient’s/member’s information.
 6. Once ingested, the Payer/Provider does TEFCA/etc. query using Golden Record identifier and gathers all patient records.
 
-Demographic updates to a patient/member record are done either through IdP or Payer/Provider with validation.  These updates can be done at point of care or through an IdP portal. Updates from Payer/Provider without terminals are held until validated by IdP via a terminal or an on-line portal. 
+Demographic updates to a patient/member record are done either through IdP or Payer/Provider with validation.  These updates can be done at point of care or through an IdP portal. Updates from Payer/Provider without terminals are held until validated by IdP via a terminal or an on-line portal.
 
 - Updates to demographics can be pushed to the Payer/Provider when the record is accessed or may be pushed to their system at time of update, depending on design.
 - The Payer/Provider would have the choice to only store Identifier and limited demographics (Name/DOB/etc.) locally and reply on the Golden Record when demographics needed.

@@ -54,6 +54,8 @@ pages:
     title: Golden Identity Design Notes
   golden-record-identity-design-brief.md:
     title: Golden Record Identity Design Brief
+  patient-matching.md:
+    title: Patient Matching
   LEI_vLEI_primer.md:
     title: LEI and vLEI Primer
   LEI_vLEI_Profiling.md:
@@ -76,6 +78,7 @@ menu:
   Home: index.html
   Use Cases: use-cases.html
   Golden Identity: golden-identity.html
+  Patient Matching: patient-matching.html
   Identity: 
     LEI and vLEI Primer: LEI_vLEI_primer.html
     LEI and vLEI Profiling: LEI_vLEI_Profiling.html

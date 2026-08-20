@@ -44,10 +44,10 @@
 <artifact id="Patient/GoldenRecordPatientExample" key="Patient-GoldenRecordPatientExample" name="Golden Record Patient — single CSP"/>
 <artifact id="Patient/GoldenRecordPatientMultiCSPExample2" key="Patient-GoldenRecordPatientMultiCSPExample2" name="Golden Record Patient — two CSP-issued identifiers (base FHIR Patient)"/>
 <artifact id="Patient/GoldenRecordUSCoreExampleFromJson" key="Patient-GoldenRecordUSCoreExampleFromJson" name="Golden Record US Core Example"/>
-<artifact deprecated="true" id="StructureDefinition/idi-match-bundle" key="StructureDefinition-idi-match-bundle" name="IDI Match Bundle"/>
-<artifact deprecated="true" id="StructureDefinition/idi-match-input-parameters" key="StructureDefinition-idi-match-input-parameters" name="IDI Match Input Parameters"/>
-<artifact deprecated="true" id="OperationDefinition/IDI-match" key="OperationDefinition-IDI-match" name="IDI Match Operation"/>
-<artifact deprecated="true" id="StructureDefinition/idi-match-output-parameters" key="StructureDefinition-idi-match-output-parameters" name="IDI Match Output Parameters"/>
+<artifact id="StructureDefinition/idi-match-bundle" key="StructureDefinition-idi-match-bundle" name="IDI Match Bundle"/>
+<artifact id="StructureDefinition/idi-match-input-parameters" key="StructureDefinition-idi-match-input-parameters" name="IDI Match Input Parameters"/>
+<artifact id="OperationDefinition/IDI-match" key="OperationDefinition-IDI-match" name="IDI Match Operation"/>
+<artifact id="StructureDefinition/idi-match-output-parameters" key="StructureDefinition-idi-match-output-parameters" name="IDI Match Output Parameters"/>
 <artifact deprecated="true" id="StructureDefinition/IDI-Patient" key="StructureDefinition-IDI-Patient" name="IDI Patient"/>
 <artifact deprecated="true" id="StructureDefinition/IDI-Patient-L0" key="StructureDefinition-IDI-Patient-L0" name="IDI Patient L0"/>
 <artifact deprecated="true" id="StructureDefinition/IDI-Patient-L1" key="StructureDefinition-IDI-Patient-L1" name="IDI Patient L1"/>
@@ -91,7 +91,7 @@
 <page key="industry-initiatives" name="Industry Initiatives"/>
 <page key="LEI_vLEI_primer" name="LEI and vLEI Primer"/>
 <page key="LEI_vLEI_Profiling" name="LEI and vLEI Profiling"/>
-<page deprecated="true" key="patient-matching" name="Patient Matching"/>
+<page key="patient-matching" name="Patient Matching"/>
 <page key="toc" name="Table of Contents"/>
 <page key="use-cases" name="Use Cases"/>
 </specification>

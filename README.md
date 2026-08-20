@@ -5,8 +5,7 @@ Implementation Guide - Interoperable Digital Identity and Patient Matching
 ## View the IG
 
 - [Current build](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/branches/master/)
-- [stu3 CI build](https://build.fhir.org/ig/HL7/fhir-identity-matching-ig/branches/stu3/index.html)
-- [github repository](https://github.com/HL7/fhir-identity-matching-ig/tree/stu3)
+- [github repository](https://github.com/HL7/fhir-identity-matching-ig/)
 
 ## Scope
 
@@ -18,7 +17,9 @@ For more information about this project see the project [Confluence Page](https:
 
 See [unified identity token payload discussion](unified-identity-token-payload-discussion-v0.1.md)
 
-### John Notes
+### TODO and Notes
+
+This is not an ordered list, but rather a collection of items that need to be addressed in the IG.  Some of these are questions that need to be answered, some are items that need to be added to the IG, and some are items that need to be clarified.
 
 Those that have Patient data, will work with an idp to get LEI issued, and record that value in the Patient.identifier.
 
@@ -35,10 +36,15 @@ will LEI support sensitive demographics? Will they be able to protect them? (sex
 
 Do we define STU3 as a backward compatible version, where we add breaking changes in the version after that? Tefca and cms alignment may be hard.
 
-#### questions on latest merge
-
 - I need help understanding the 'brief §' use such as 'brief §4'
 - Latest allows for multiple golden identifiers. do we want that?
 - New extension OrganizationVLEI, should be harmonized with VLEI extension. These should be extensions on Identifier, not Organization element.
 - I understand that the system value for all LEI/vLEI identifiers is "https://www.gleif.org/lei"
-- 
+- Need diagramming of all of the new concepts: SETI, GLEIF, LEI, Golden Identifier, etc...
+- Clarify the boundaries among FAST Identity, FAST Security, FAST National Directory, and Credential Service Providers (CSPs) so the IG shows how the specifications work together within an end-to-end trust model.
+  - What affect does FAST Identity have on NDH
+  - How does FAST Security use the concepts in FAST Identity
+  - What are the responsibilities assigned to CSP without explicit "how" 
+- Incorporate plain-language explanations and consistent terminology, including use of “Credential Service Provider (CSP).” -- This is done closer to publication so that the AI summary is across the IG as it will be published.
+- Continue evaluating how vLEI, organizational credentials, delegated authority, and emerging models such as SEDI should be referenced within the IG without expanding beyond FAST Identity’s intended scope.
+- Bring back the IDI-MATCH operation. It will need to be further improved to allow for clients to request the organizations where the matched patient has data.
