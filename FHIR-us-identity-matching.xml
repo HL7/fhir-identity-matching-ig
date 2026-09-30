@@ -54,6 +54,7 @@
 <artifact deprecated="true" id="StructureDefinition/IDI-Patient-L2" key="StructureDefinition-IDI-Patient-L2" name="IDI Patient L2"/>
 <artifact deprecated="true" id="Parameters/IDIMatchInputParameters-Example" key="Parameters-IDIMatchInputParameters-Example" name="IDIMatchInputParameters-Example"/>
 <artifact deprecated="true" id="Parameters/IDIMatchOutputParameters-Example" key="Parameters-IDIMatchOutputParameters-Example" name="IDIMatchOutputParameters-Example"/>
+<artifact id="StructureDefinition/identity-assertion" key="StructureDefinition-identity-assertion" name="Identity Assertion"/>
 <artifact deprecated="true" id="CodeSystem/Identity-Identifier-cs" key="CodeSystem-Identity-Identifier-cs" name="Identity Identifier Code System"/>
 <artifact deprecated="true" id="ValueSet/Identity-Identifier-vs" key="ValueSet-Identity-Identifier-vs" name="Identity Identifier Value Set"/>
 <artifact id="StructureDefinition/identity-jurisdiction" key="StructureDefinition-identity-jurisdiction" name="Identity Jurisdiction"/>
