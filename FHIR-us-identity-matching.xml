@@ -61,6 +61,7 @@
 <artifact deprecated="true" id="NamingSystem/Identity-HL7-Identifier" key="NamingSystem-Identity-HL7-Identifier" name="Identity-HL7-Identifier"/>
 <artifact deprecated="true" id="NamingSystem/Identity-HL7-Person-Identifier" key="NamingSystem-Identity-HL7-Person-Identifier" name="Identity-HL7-Person-Identifier"/>
 <artifact deprecated="true" id="Bundle/MATCHOperationResponse" key="Bundle-MATCHOperationResponse" name="MATCHOperationResponse"/>
+<artifact id="StructureDefinition/oidc-token" key="StructureDefinition-oidc-token" name="OpenID Connect ID Token"/>
 <artifact id="StructureDefinition/organization-vlei" key="StructureDefinition-organization-vlei" name="Organization vLEI"/>
 <artifact deprecated="true" id="Patient/ExamplePatientINCOMPLETE" key="Patient-ExamplePatientINCOMPLETE" name="Patient-INCOMPLETE"/>
 <artifact deprecated="true" id="Patient/ExamplePatientL0" key="Patient-ExamplePatientL0" name="Patient-L0"/>

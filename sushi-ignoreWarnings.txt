@@ -3,3 +3,6 @@
 
 # these are itterations that are not sliced
 Sliced element Patient.identifier is being accessed via numeric index. Use slice names in rule paths when possible.
+
+# OIDC logical model is using _ as that is what OIDC uses
+Inadvisable path%
