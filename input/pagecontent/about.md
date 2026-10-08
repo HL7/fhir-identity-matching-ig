@@ -8,6 +8,7 @@ Download the entire implementation guide [here](full-ig.zip)
 | ------------------------ | ----------------------------- | ------------------------------- | -------------------------------- |
 | **Artifact Definitions** | [XML](../definitions.xml.zip) | [JSON](../definitions.json.zip) | [Turtle](../definitions.ttl.zip) |
 | **Examples**             | [XML](../examples.xml.zip)    | [JSON](../examples.json.zip)    | [Turtle](../examples.ttl.zip)    |
+{: .grid}
 
 The source code for this Implementation Guide can be found on [HL7 FAST Identity Github Repo](https://github.com/HL7/fhir-identity-matching-ig).
 

@@ -43,6 +43,7 @@ The Golden Record Identifier is a **durable, cross-domain identity token** — a
 | **Regulatory floor / EHR reuse** (ONC USCDI, CMS interop; EHRs already emit US Core) | Requires a companion path for EHRs | Native — EHRs already produce this shape |
 | **Continuity with STU2 design** (IDI matching profiles were intentionally lightweight) | Consistent | A departure |
 | **IG dependency already present** | US Core still available for the companion profile | Already wired in |
+{: .grid}
 
 ### 2.3 Recommendation
 
@@ -106,6 +107,7 @@ A single test distinguishes the two: *if the attribute can change without the pe
 | Administrative gender | `gender` | Administrative matching attribute (not clinical sex) |
 | Verified mobile & email *(matching aid)* | `telecom` | Used to bind and confirm identity; verified-control attributes |
 | Verified home address *(matching aid)* | `address` | Standard demographic matching attribute |
+{: .grid}
 
 **Outside the Golden Record boundary (contextual — not required by this profile):**
 
@@ -118,6 +120,7 @@ A single test distinguishes the two: *if the attribute can change without the pe
 | Clinical data (conditions, meds, allergies) | Clinical resources | Out of scope of identity entirely |
 | USCDI race, ethnicity, birth sex, tribal affiliation | US Core extensions on the record | Demographic/clinical reporting, not identity resolution |
 | Communication language, marital status, emergency contact | Base Patient elements | Contextual; not needed to resolve identity |
+{: .grid}
 
 ### 3.3 How this connects to the assurance model and to LEI/vLEI
 

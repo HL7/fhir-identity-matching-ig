@@ -27,6 +27,7 @@ We stay on `Patient.identifier` (R4 `0..*`, US Core 6.1.0 makes it Must Support 
 |-------|-----------|-------|---------|
 | `goldenRecord` | `GRI` | `0..*` | One per jurisdiction; scoped by a jurisdiction extension |
 | `cspIdentifier` | `CSPID` | `0..*` | One per CSP identity; carries assurance metadata |
+{: .grid}
 
 Slicing is **open**, so ordinary identifiers (MRN, member ID) still validate and US Core
 compliance is preserved. Slicing is discriminated by `type` rather than `system` so that

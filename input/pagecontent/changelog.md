@@ -65,6 +65,7 @@ Changes from the previous version are summarized below with links to the corresp
 |[FHIR-44920](https://jira.hl7.org/browse/FHIR-44920)|Reporting Issues in Matching|
 |[FHIR-44797](https://jira.hl7.org/browse/FHIR-44797)|Create Examples Demonstrating Digital Identifiers in Patient Resources|
 |[FHIR-51517](https://jira.hl7.org/browse/FHIR-51517)|Update $match to $idi-match in 10.0.2, 10.0.3, 10.0.4|
+{: .grid}
 
 <style>
 table, th, td 

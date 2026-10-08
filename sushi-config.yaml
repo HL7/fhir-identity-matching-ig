@@ -62,6 +62,8 @@ pages:
     title: LEI and vLEI Profiling
   identity.md:
     title: Identity
+  oauth-token-type-cross-reference.md:
+    title: OAuth Token Type Cross Reference
   about.md:
     title: About
   glossary.md:
@@ -77,9 +79,12 @@ pages:
 menu:
   Home: index.html
   Use Cases: use-cases.html
-  Golden Identity: golden-identity.html
-  Patient Matching: patient-matching.html
+  Patient:
+    Golden Record Identity Design Brief: golden-record-identity-design-brief.html
+    Golden Identity: golden-identity.html
+    Patient Matching: patient-matching.html
   Identity: 
+    Oauth Token Type Cross Reference: oauth-token-type-cross-reference.html
     LEI and vLEI Primer: LEI_vLEI_primer.html
     LEI and vLEI Profiling: LEI_vLEI_Profiling.html
     FHIR Identity: identity.html
