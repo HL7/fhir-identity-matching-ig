@@ -1,4 +1,7 @@
-# OAuth and OpenID Token Cross-Reference
+
+Patient Matching - [CMS Aligned Networks - token IAL2 requirement](https://patientmatching.org/docs/ial2-claims-tokens)
+
+### OAuth and OpenID Token Cross-Reference
 
 This table cross-references the token names and related protocol objects in
 the source documents. The names do not all describe distinct
@@ -16,10 +19,9 @@ serving as that identity assertion.
 | **Access Token** (`access_token`) | Authorization Server; referenced in the CMS Patient Matching Proposal | Used to authorize access to a protected resource. The proposal mentions it only as the value whose hash may appear in the ID Token's optional `at_hash` claim. | Distinct from the patient identity assertion; it does not by itself establish IAL2 assurance. Other profiles can carry verified claims in access tokens, but the cited patient-matching documents do not define its format or lifecycle. |
 | **Refresh Token** (`refresh_token`) | Authorization Server; discussed in the unified identity-token discussion | Used to obtain replacement access tokens without repeating the initial authorization flow. | The discussion says a 90-day rolling refresh window is referenced informally and calls for a separate specification; it does not define a refresh-token payload or complete behavior. It is not an ID Token. |
 | **VP Token** (`vp_token`) | Wallet / credential holder in an OID4VP flow; OID4VP specification copy and the [SMART Health Check-in Protocol](https://smart-health-checkin.joshuamandel.com/protocol/) | Carries one or more Verifiable Presentations assembled from requested credentials. OID4VP allows it in the Authorization Response or Token Response, depending on the response type. The SMART Health Check-in profile keys it by `smart-checkin`, with a one-element Presentation array containing the clinical response object. | Despite its name, this is not the CSP's OIDC ID Token or an OAuth access token. The SMART profile specifies the shape of its VP Token value. |
-| **Self-Issued ID Token** (`id_token` in `vp_token id_token`) | End-user / wallet under the Self-Issued OpenID Provider v2 profile; OID4VP specification copy | In the OID4VP combined response type, an ID Token can accompany the VP Token when the request includes the `openid` scope. OID4VP identifies this as a Self-Issued ID Token. | Separate from a CSP-issued TEFCA/CMS IAL2 Claims Token. Do not infer CSP identity proofing or IAL2 assurance from this token's presence. |
 {: .grid}
 
-## Reading the cross-reference
+### Reading the cross-reference
 
 - **Identity assertion:** `id_token` is the relevant OIDC token for the TEFCA
   and CMS-aligned identity claims. The two network-specific names describe
@@ -39,7 +41,7 @@ See [RFC 7519](https://www.rfc-editor.org/rfc/rfc7519),
 [OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html),
 and [OpenID Connect for Identity Assurance](https://openid.net/specs/openid-connect-4-identity-assurance-1_0.html).
 
-## Data-element encoding cross-reference
+### Data-element encoding cross-reference
 
 This matrix compares payload encodings, not conformance requirements or
 interchangeability. Claim names are case-sensitive. The columns use these
@@ -60,10 +62,10 @@ specific sources:
   referenced by the discussion; a draft targeting TEFCA v2.1 compatibility.
 - **Unified v2:** the illustrative payload in section 5.2 of the unified
   identity-token discussion, including separately identified proposed additions.
-- **OID4VP / Check-in:** the credential-presentation model and its SMART
+- **OID4VP:** the credential-presentation model and its SMART
   Health Check-in profile, respectively, not CSP identity-token profiles.
 
-### Notation and verification
+#### Notation and verification
 
 - **V** means an identity attribute is explicitly carried in OIDC4IDA's
   verified claims envelope, or is asserted as CSP-verified by the TEFCA/CMS
@@ -89,50 +91,54 @@ specific sources:
   verified-claims envelope; the matrix does not infer verification for every
   field, particularly nicknames and alternate-name types.
 
-| Data element | JWT | OIDC Core | OIDC4IDA | TEFCA v3 | CMS v3.4 | Unified v1 (draft) | Unified v2 (draft) | OID4VP | Check-in |
-|---|---|---|---|---|---|---|---|---|---|
-| First Name | ND | `given_name` | V `C.given_name` | V `given_name` | V `given_name` | `given_name` | V `C.given_name` | P | P |
-| Middle Name | ND | `middle_name` | V `C.middle_name` | V `middle_name` | V `middle_name` | `middle_name` | V `C.middle_name` | P | P |
-| Middle Initial | ND | ND; no separate claim | ND; extension needed | V `middle initial` (literal table label; see notes) | ND | `middle_initial` | ND | P | P |
-| Last Name | ND | `family_name` | V `C.family_name` | V `family_name` | V `family_name` | `family_name` | V `C.family_name` | P | P |
-| Full Name | ND | `name` | V `C.name` | ND | ND | `name_full` | ND | P | P |
-| Name Suffix | ND | ND; may be part of `name` | ND; extension needed | V `suffix` | ND | `suffix`; `name_historical[].suffix` | ND | P | P |
-| Nickname / Preferred Name | ND | `nickname` | Ordinary `nickname`; no implied identity proofing | ND | ND | `nickname` | Excluded from main verified payload | P | P |
-| Historical Legal Names | ND | ND | ND; extension needed | V URI-named extension; exact suffix unspecified | V `historical_name` | `name_historical[]` with `given_name`, `middle_name`, `family_name`, `suffix`, `name_type` | V `C.name_historical[]` (proposed) | P | P |
-| Date of Birth | ND | `birthdate` | V `C.birthdate` | V `birthdate` | V `birthdate` | `birthdate` | V `C.birthdate` | P | P |
-| Gender / Legal Sex (not equivalent) | ND | `gender` | V `C.gender`, when asserted as verified | V `gender`; semantics not detailed in table | `gender` described as legal sex or gender at birth | Intentionally excluded pending semantic alignment | V `C.sex_legal` (custom) | P | P |
-| Email Address | ND | `email` | V `C.email`; ordinary `email` can coexist | V `email` | V `email` | `email` | V `C.email` | P | P |
-| Email Control Verified | ND | `email_verified` (boolean) | Ordinary `email_verified` can coexist with `C.email` | Not separately listed | `email_verified` SHALL NOT be populated | Excluded as discussed errata | Omitted; verified-envelope membership instead | P | P |
-| Phone Number | ND | `phone_number` | V `C.phone_number`; ordinary `phone_number` can coexist | V `phone_number` | V `phone_number` | `phone_number` | V `C.phone_number` | P | P |
-| Phone Control Verified | ND | `phone_number_verified` (boolean) | Ordinary `phone_number_verified` can coexist with `C.phone_number` | Not separately listed | `phone_number_verified` SHALL NOT be populated | ND | Omitted; verified-envelope membership instead | P | P |
-| Historical Phone Numbers | ND | ND | ND; extension needed | V URI-named extension; exact suffix unspecified | `historical_phone_number` | `phone_number_historical[]` | V `C.phone_number_historical[]` | P | P |
-| Current Address | ND | `address` (object) | V `C.address` | V `address` (single object) | V `address` | `address` (object or array) | V `C.address` (object in example) | P | P |
-| Formatted Address | ND | `address.formatted` | V `C.address.formatted` | V `address.formatted` | ND | `address.formatted` | V `C.address.formatted` | P | P |
-| Street Address | ND | `address.street_address` | V `C.address.street_address` | V `address.street_address` | V `address.street_address` | `address.street_address` | V `C.address.street_address` | P | P |
-| Address Line 2 | ND | No separate member; multiple lines in `address.street_address` | Same within V `C.address.street_address` | No separate member | No separate member | `address.address_line2` (custom) | No separate member | P | P |
-| City | ND | `address.locality` | V `C.address.locality` | V `address.locality` | V `address.locality` | `address.locality` | V `C.address.locality` | P | P |
-| State / Region | ND | `address.region` | V `C.address.region` | V `address.region` | V `address.region` | `address.region` | V `C.address.region` | P | P |
-| ZIP / Postal Code | ND | `address.postal_code` | V `C.address.postal_code` | V `address.postal_code` | V `address.postal_code` | `address.postal_code`; separate `["ZIP+4"]` | V `C.address.postal_code` | P | P |
-| Country | ND | `address.country` | V `C.address.country` | V `address.country` | V `address.country` | `address.country` | V `C.address.country` | P | P |
-| Historical Addresses | ND | ND | ND; extension needed | V `historical_address` | V `historical_address[]` if validated by CSP | `historical_address` (object or array) | V `C.address_historical` (object in example) | P | P |
-| Full SSN / ITIN | ND | ND | ND; extension needed | Not listed; URI-named extension if supplied | `ssn_itin` | `SSN`; `itin` | ND | P | P |
-| Last Four SSN / ITIN Digits | ND | ND | ND; extension needed | Not listed; URI-named extension if supplied | `ssn_itin_short` | `SSN_Last_four_digits` (SSN) | V `C.ssn_last4` (custom; SSN) | P | P |
-| Legal Identity Document | ND | ND | `M.evidence[]` entries of type `document`, with `document_details` | Not listed; URI-named extension if supplied | `legal_id` object (for discussion): `legal_id_issuer`, `id_number` | `legal_id_issuer` object: `issuer`, `type`, `identifier` (assumed draft structure) | ND | P | P |
-| Stable CSP Person Identifier | ND; `sub` does not ensure lifetime stability | `sub`; distinct stable identifier not defined | Inherits `sub`; distinct stable identifier not defined | `csp_issued_identifier` (optional; stable across accounts) | `uuid` (for discussion) | `csp_uuid` | `uuid` | P | P |
-| Issuer | `iss` | `iss` | `iss` | `iss` | `iss` | `iss` | `iss` | Credential/presentation-specific issuer, not a common `vp_token.iss` | Payload-dependent |
-| Subject Identifier | `sub` | `sub` | `sub` | `sub` (inherited OIDC requirement) | `sub` | `sub` | `sub` | Credential/holder-specific; not a common `vp_token.sub` | Payload-dependent |
-| Audience | `aud` (string or array) | `aud` includes client ID | Inherits OIDC `aud` | `aud` = IAS Provider HCID URI | `aud` = app client ID | `aud` (string or array) | `aud` | Format-specific verifier binding; not a common `vp_token.aud` | No CSP ID Token audience claim defined |
-| Issued At / Expiration | `iat`; `exp` (NumericDate) | `iat`; `exp` | Inherits OIDC `iat`; `exp` | `iat`; `exp` (short-lived) | `iat`; `exp` with `exp <= iat + 300` | `iat`; `exp` | `iat`; `exp` | Credential/presentation-specific | Payload-dependent |
-| Token Identifier | `jti` | `jti` if used; not Core-required | Inherits JWT/OIDC `jti` if used | `jti` | `jti` | `jti` | `jti` | Format-specific; no common `vp_token.jti` | No common `jti` defined |
-| Authentication Time | ND | `auth_time` | Inherits OIDC `auth_time` | OIDC `auth_time` when applicable; not separately listed | `auth_time` | `auth_time` | `auth_time` | Not an OIDC authentication-time claim for all presentations | ND |
-| Request Nonce | ND | `nonce` | Inherits OIDC `nonce` | OIDC `nonce` when applicable; not separately listed | Not listed | Not declared in gist | `nonce` | Request `nonce`; response binding is format-specific | Inherits OID4VP request context |
-| Access Token Hash | ND | `at_hash` | Inherits OIDC `at_hash` | OIDC `at_hash` when applicable; not separately listed | `at_hash` (optional) | `at_hash` | `at_hash` | Not a common VP claim | ND |
-| Trust Framework / Identity Assurance | ND | `acr` is authentication context, not a generic IAL claim | `M.trust_framework`; `M.assurance_level` | IAL2 required by profile; no separate framework/IAL claim listed | `tToken_policy.trust_framework`; `tToken_policy.assurance_level` (literal source spelling) | No explicit framework/IAL claim in gist | `M.trust_framework`; `M.assurance_level`; `identity_assurance_level` (proposed) | Credential-specific assurance; no universal IAL claim | No IAL2 assertion defined by clinical response wrapper |
-| Payload / Policy Version | ND | ND | No universal token-version claim | `tefca_ial2claims_version` (SHOULD include; default `"1.0"`) | ND | No explicit version claim | Computed vs. explicit version remains open | Protocol/format-specific | Clinical request `meta.request.version = "1"`; not an identity-token version |
+**The table below is represented in a [shared Excel spreadsheet](https://lantanagroup-my.sharepoint.com/:x:/p/c-john_moehrke/IQAj69AmdgxGRJIYV0sWUuf5AYwn443bjzoDqz0zw28y8YA?e=Kg9Ql0) for better visibility** The spreadsheet may be more advanced than the table below.
+
+| Data element | OIDC Core | OIDC4IDA | TEFCA v3 | CMS v3.4 | Unified v1 (draft) | Unified v2 (draft) | OID4VP |
+|---|---|---|---|---|---|---|---|
+| First Name | `given_name` | V `C.given_name` | V `given_name` | V `given_name` | `given_name` | V `C.given_name` | P |
+| Middle Name | `middle_name` | V `C.middle_name` | V `middle_name` | V `middle_name` | `middle_name` | V `C.middle_name` | P |
+| Middle Initial | ND; no separate claim | ND; extension needed | V `middle initial` (literal table label; see notes) | ND | `middle_initial` | ND | P |
+| Last Name | `family_name` | V `C.family_name` | V `family_name` | V `family_name` | `family_name` | V `C.family_name` | P |
+| Full Name | `name` | V `C.name` | ND | ND | `name_full` | ND | P |
+| Name Suffix | ND; may be part of `name` | ND; extension needed | V `suffix` | ND | `suffix`; `name_historical[].suffix` | ND | P |
+| Nickname / Preferred Name | `nickname` | Ordinary `nickname`; no implied identity proofing | ND | ND | `nickname` | Excluded from main verified payload | P |
+| Historical Legal Names | ND | ND; extension needed | V URI-named extension; exact suffix unspecified | V `historical_name` | `name_historical[]` with `given_name`, `middle_name`, `family_name`, `suffix`, `name_type` | V `C.name_historical[]` (proposed) | P |
+| Date of Birth | `birthdate` | V `C.birthdate` | V `birthdate` | V `birthdate` | `birthdate` | V `C.birthdate` | P |
+| Gender / Legal Sex (not equivalent) | `gender` | V `C.gender`, when asserted as verified | V `gender`; semantics not detailed in table | `gender` described as legal sex or gender at birth | Intentionally excluded pending semantic alignment | V `C.sex_legal` (custom) | P |
+| Email Address | `email` | V `C.email`; ordinary `email` can coexist | V `email` | V `email` | `email` | V `C.email` | P |
+| Email Control Verified | `email_verified` (boolean) | Ordinary `email_verified` can coexist with `C.email` | Not separately listed | `email_verified` SHALL NOT be populated | Excluded as discussed errata | Omitted; verified-envelope membership instead | P |
+| Phone Number | `phone_number` | V `C.phone_number`; ordinary `phone_number` can coexist | V `phone_number` | V `phone_number` | `phone_number` | V `C.phone_number` | P |
+| Phone Control Verified | `phone_number_verified` (boolean) | Ordinary `phone_number_verified` can coexist with `C.phone_number` | Not separately listed | `phone_number_verified` SHALL NOT be populated | ND | Omitted; verified-envelope membership instead | P |
+| Historical Phone Numbers | ND | ND; extension needed | V URI-named extension; exact suffix unspecified | `historical_phone_number` | `phone_number_historical[]` | V `C.phone_number_historical[]` | P |
+| Current Address | `address` (object) | V `C.address` | V `address` (single object) | V `address` | `address` (object or array) | V `C.address` (object in example) | P |
+| Formatted Address | `address.formatted` | V `C.address.formatted` | V `address.formatted` | ND | `address.formatted` | V `C.address.formatted` | P |
+| Street Address | `address.street_address` | V `C.address.street_address` | V `address.street_address` | V `address.street_address` | `address.street_address` | V `C.address.street_address` | P |
+| Address Line 2 | No separate member; multiple lines in `address.street_address` | Same within V `C.address.street_address` | No separate member | No separate member | `address.address_line2` (custom) | No separate member | P |
+| City | `address.locality` | V `C.address.locality` | V `address.locality` | V `address.locality` | `address.locality` | V `C.address.locality` | P |
+| State / Region | `address.region` | V `C.address.region` | V `address.region` | V `address.region` | `address.region` | V `C.address.region` | P |
+| ZIP / Postal Code | `address.postal_code` | V `C.address.postal_code` | V `address.postal_code` | V `address.postal_code` | `address.postal_code`; separate `["ZIP+4"]` | V `C.address.postal_code` | P |
+| Country | `address.country` | V `C.address.country` | V `address.country` | V `address.country` | `address.country` | V `C.address.country` | P |
+| Historical Addresses | ND | ND; extension needed | V `historical_address` | V `historical_address[]` if validated by CSP | `historical_address` (object or array) | V `C.address_historical` (object in example) | P |
+| Full SSN / ITIN | ND | ND; extension needed | Not listed; URI-named extension if supplied | `ssn_itin` | `SSN`; `itin` | ND | P |
+| Last Four SSN / ITIN Digits | ND | ND; extension needed | Not listed; URI-named extension if supplied | `ssn_itin_short` | `SSN_Last_four_digits` (SSN) | V `C.ssn_last4` (custom; SSN) | P |
+| Legal Identity Document | ND | `M.evidence[]` entries of type `document`, with `document_details` | Not listed; URI-named extension if supplied | `legal_id` object (for discussion): `legal_id_issuer`, `id_number` | `legal_id_issuer` object: `issuer`, `type`, `identifier` (assumed draft structure) | ND | P |
+| Stable CSP Person Identifier | `sub`; distinct stable identifier not defined | Inherits `sub`; distinct stable identifier not defined | `csp_issued_identifier` (optional; stable across accounts) | `uuid` (for discussion) | `csp_uuid` | `uuid` | P |
+| Issuer | `iss` | `iss` | `iss` | `iss` | `iss` | `iss` | Credential/presentation-specific issuer, not a common `vp_token.iss` |
+| Subject Identifier | `sub` | `sub` | `sub` (inherited OIDC requirement) | `sub` | `sub` | `sub` | Credential/holder-specific; not a common `vp_token.sub` |
+| Audience | `aud` includes client ID | Inherits OIDC `aud` | `aud` = IAS Provider HCID URI | `aud` = app client ID | `aud` (string or array) | `aud` | Format-specific verifier binding; not a common `vp_token.aud` |
+| Issued At / Expiration | `iat`; `exp` | Inherits OIDC `iat`; `exp` | `iat`; `exp` (short-lived) | `iat`; `exp` with `exp <= iat + 300` | `iat`; `exp` | `iat`; `exp` | Credential/presentation-specific |
+| Token Identifier | `jti` if used; not Core-required | Inherits JWT/OIDC `jti` if used | `jti` | `jti` | `jti` | `jti` | Format-specific; no common `vp_token.jti` |
+| Authentication Time | `auth_time` | Inherits OIDC `auth_time` | OIDC `auth_time` when applicable; not separately listed | `auth_time` | `auth_time` | `auth_time` | Not an OIDC authentication-time claim for all presentations |
+| Request Nonce | `nonce` | Inherits OIDC `nonce` | OIDC `nonce` when applicable; not separately listed | Not listed | Not declared in gist | `nonce` | Request `nonce`; response binding is format-specific |
+| Access Token Hash | `at_hash` | Inherits OIDC `at_hash` | OIDC `at_hash` when applicable; not separately listed | `at_hash` (optional) | `at_hash` | `at_hash` | Not a common VP claim |
+| Trust Framework / Identity Assurance | `acr` is authentication context, not a generic IAL claim | `M.trust_framework`; `M.assurance_level` | IAL2 required by profile; no separate framework/IAL claim listed | `tToken_policy.trust_framework`; `tToken_policy.assurance_level` (literal source spelling) | No explicit framework/IAL claim in gist | `M.trust_framework`; `M.assurance_level`; `identity_assurance_level` (proposed) | Credential-specific assurance; no universal IAL claim |
+| Payload / Policy Version | ND | No universal token-version claim | `tefca_ial2claims_version` (SHOULD include; default `"1.0"`) | ND | No explicit version claim | Computed vs. explicit version remains open | Protocol/format-specific |
 {: .grid}
 
-### Mapping cautions
+#### Mapping cautions
 
+- **Unified v1** Should this be removed from the table as it has no verified elements?
+- **OIDC Core** This is provided for reference, but likely does not add anything useful, so should it be removed?
 - **Version differences matter.** TEFCA v3 prohibits unverified demographic
   claims. It requires a full `YYYY-MM-DD` birthdate and uses `address.region`,
   unlike issues described for older TEFCA drafts. Its table prints
@@ -166,3 +172,16 @@ specific sources:
   structures), but being an access token alone establishes no IAL2 assurance.
   A Self-Issued ID Token uses its applicable OIDC/SIOP profile and does not
   inherit CSP verification simply by using OIDC claim names.
+
+### Discussion Notes
+
+Patient as a user will fit OIDC token, but we also need to consider use-cases where the requester is not the patient themselves, such as caregivers or authorized representatives.
+
+Patient presenting while unable to use technology to authenticate themselves poses additional challenges for identity verification and token handling.
+
+Practitioner as a user is a use-case that should also be addressed. Concern that leaving this use-case till later may result in missing important considerations for identity verification and token handling specific to practitioners.
+
+Authorized representative is a is also important. The relationship between the Patient and the representative must be carefully considered. The solution may be in-scope for the technical solution, or may leverage other services such as a Consent Management system.
+
+Identity element quality is a concern. Especially regarding historic values. These are often not suitable for matching and have inconsistencies and gaps.
+
