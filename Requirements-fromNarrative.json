@@ -11,10 +11,5 @@
     "key" : "1",
     "conformance" : ["MAY"],
     "requirement" : "B.8.4 for administrative staff) MAY be more appropriate for orchestration agents whose scope exceeds a single device's traditional remit. This is flagged in"
-  },
-  {
-    "key" : "2",
-    "conformance" : ["MAY"],
-    "requirement" : "B.8.4 for administrative staff) MAY be more appropriate for orchestration agents whose scope exceeds a single device's traditional remit. This is flagged in"
   }]
 }

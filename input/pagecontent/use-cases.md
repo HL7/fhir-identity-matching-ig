@@ -1,15 +1,35 @@
 This section provides a high level overview of identity workflows outlined in this IG. 
 
-<img src="identity-venn.svg" alt="Identity Venn Diagram" width="150"/>
+<div>
+<img src="identity-venn.svg" alt="Identity Venn Diagram" width="350"/>
+</div>
+
+| Use-Case | Description | Technical Solution |
+| ---------- | ------------- | ------------------- |
+| Patient Identity Verification | Verifying the Hight Assurance identity of a patient to ensure accurate record matching and access control; and is the foundation of the Golden Identity. | OAuth |
+| Patient Record Matching | Finding a patient Golden Identity when the Patient can't provide Identity Verification. | IDI-Match |
+| User Authentication and Authorization | Managing access to healthcare resources based on user identity and roles, founded on a High Assurance Identity. These may be patients, clinicians, payer agents, or other authorized agents. | OAuth |
+| Clinician Identity Verification | Verifying the High Assurance identity of a clinician to ensure accurate access control and record management. | OAuth |
+| Payer Identity Verification | Verifying the High Assurance identity of a payer professional to ensure accurate access control and claims management. | OAuth |
+| Health System Identity Verification | Verifying the High Assurance identity of a health system organization to ensure accurate access control and record management. | LEI / vLEI |
+| Payer Identity Verification | Verifying the High Assurance identity of a payer organization to ensure accurate access control and claims management. | LEI / vLEI |
+{: .grid}
+
+### Breakdown to use-cases
 
 Golden Identity and User Identity are the two main categories of identity management covered in this IG. The Golden Identity focuses on the unique and consistent identifier for a data subject (such as a patient or client) across different healthcare systems and organizations, while the User Identity focuses on the identity management for clinical users, patients as users, and other authorized agents such as relatives or caregivers.
 
+Organization Identity are used by organizations to uniquely identify themselves and establish trust in interactions with other entities, such as healthcare systems, payers, and regulatory bodies. This ensures accurate access control, record management, and claims processing.
+
 Human and Organization Actors:
 
-- **Patient**: The individual seeking healthcare services or accessing their own medical records.
-- **Credential Service Provider** (**CSP**): The nationwide commercial entity responsible for verifying the patient's identity and issuing a Golden Identifier.
+- **Patient / Client**: The individual seeking healthcare services or accessing their own medical records.
+- **Credential Service Provider** (**CSP**): The nationwide commercial entity responsible for High Assurance identity verification, verifying the patient's identity and issuing a Golden Identifier. The CSP may use various methods such as document verification, biometric verification, and other identity assurance techniques.
+- **IDP Service** (**IDP**): The service responsible for High Assurance Identity verifying the identity of individuals or organizations, which includes payers, and health systems. The IDP may use various methods such as document verification, biometric verification, and other identity assurance techniques.
 - **Healthcare System**: The organization providing healthcare services and managing patient interactions, including the use of Golden and User Identities for accurate record matching and access.
-- **Practitioner**: The healthcare professional providing care to the patient and accessing their medical records for clinical decision-making. Practitioners include clinical, billing, administrative, and other healthcare users.
+- **Clinical Practitioner**: The healthcare professional providing care to the patient and accessing their medical records for clinical decision-making. Practitioners include clinical, and other healthcare users.
+- **Payer Organization**: The organization responsible for managing healthcare claims, authorizations, and other payer-related activities for the patient.
+- **Payer Practitioner**: The healthcare professional associated with a payer organization, responsible for managing claims, authorizations, and other payer-related activities for the patient.
 
 Technical Actors:
 
