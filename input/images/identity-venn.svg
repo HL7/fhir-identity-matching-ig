@@ -1,18 +1,28 @@
 <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="user-non-overlap">
+      <rect x="0" y="0" width="400" height="300" fill="black"/>
+      <circle cx="120" cy="150" r="100" fill="white"/>
+      <circle cx="220" cy="150" r="70" fill="black"/>
+    </mask>
+  </defs>
+
   <!-- User Identity circle (larger, left) -->
+  <circle cx="120" cy="150" r="100" fill="#E8F5E9" mask="url(#user-non-overlap)"/>
   <circle cx="120" cy="150" r="100" fill="none" stroke="#4A90E2" stroke-width="2" opacity="0.7"/>
   
   <!-- Golden Identity circle (smaller, right) -->
-  <circle cx="220" cy="150" r="70" fill="#E3F2FD" stroke="#4A90E2" stroke-width="2" opacity="0.9"/>
+  <circle cx="220" cy="150" r="70" fill="#FFD54F" stroke="#4A90E2" stroke-width="2" opacity="0.9"/>
 
   <!-- Organization Identity circle (separate) -->
-  <circle cx="350" cy="150" r="45" fill="none" stroke="#4A90E2" stroke-width="2" opacity="0.7"/>
+  <circle cx="350" cy="150" r="45" fill="#E3F2FD" stroke="#4A90E2" stroke-width="2" opacity="0.7"/>
   
   <!-- Labels -->
   <text x="70" y="155" text-anchor="middle" font-size="21" font-weight="bold" fill="#1565C0">User</text>
   <text x="70" y="170" text-anchor="middle" font-size="21" font-weight="bold" fill="#1565C0">Identity</text>
-  <text x="240" y="155" text-anchor="middle" font-size="18" font-weight="bold" fill="#1565C0">Golden</text>
-  <text x="240" y="170" text-anchor="middle" font-size="18" font-weight="bold" fill="#1565C0">Identity</text>
+  <text x="220" y="140" text-anchor="middle" font-size="15" font-weight="bold" fill="#1565C0">Patient</text>
+  <text x="220" y="155" text-anchor="middle" font-size="15" font-weight="bold" fill="#1565C0">Golden</text>
+  <text x="220" y="170" text-anchor="middle" font-size="15" font-weight="bold" fill="#1565C0">Identity</text>
   <text x="350" y="145" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">Organization</text>
   <text x="350" y="160" text-anchor="middle" font-size="10" font-weight="bold" fill="#1565C0">Identity</text>
 </svg>

@@ -4,15 +4,15 @@ This section provides a high level overview of identity workflows outlined in th
 <img src="identity-venn.svg" alt="Identity Venn Diagram" width="350"/>
 </div>
 
-| Use-Case | Description | Technical Solution |
-| ---------- | ------------- | ------------------- |
-| Patient Identity Verification | Verifying the Hight Assurance identity of a patient to ensure accurate record matching and access control; and is the foundation of the Golden Identity. | OAuth |
-| Patient Record Matching | Finding a patient Golden Identity when the Patient can't provide Identity Verification. | IDI-Match |
-| User Authentication and Authorization | Managing access to healthcare resources based on user identity and roles, founded on a High Assurance Identity. These may be patients, clinicians, payer agents, or other authorized agents. | OAuth |
-| Clinician Identity Verification | Verifying the High Assurance identity of a clinician to ensure accurate access control and record management. | OAuth |
-| Payer Identity Verification | Verifying the High Assurance identity of a payer professional to ensure accurate access control and claims management. | OAuth |
-| Health System Identity Verification | Verifying the High Assurance identity of a health system organization to ensure accurate access control and record management. | LEI / vLEI |
-| Payer Identity Verification | Verifying the High Assurance identity of a payer organization to ensure accurate access control and claims management. | LEI / vLEI |
+| Use-Case | Description | Interop Solution | Identity Container |Assurance Solution |
+| ---------- | ------------- | ------------------- | ----------------- | ----------------- |
+| Patient Golden Identity | A high assurance identity for a patient that serves as the foundation for accurate record matching and access control. | OAuth | JWT | TBD |
+| Patient Record Matching | Finding a patient Golden Identity when the Patient can't provide their Identity Verification (e.g. unconscious, not yet verified, etc). | FHIR Operation | Patient | IDI-Match |
+| User Authentication and Authorization | Managing access to healthcare resources based on user identity and roles, founded on a High Assurance Identity. These may be patients, clinicians, payer agents, or other authorized agents. | OAuth | JWT | TBD |
+| Clinician Identity | a subset of User Identity focused on clinicians. Verified at a High Assurance identity of a clinician to ensure accurate access control and record management. | OAuth | JWT | TBD |
+| Payer Identity | a subset of User Identity focused on payers. Verified at a High Assurance identity of a payer professional to ensure accurate access control and claims management. | OAuth | JWT | TBD |
+| Health System Identity Verification | Verifying the High Assurance identity of a health system organization to ensure accurate access control and record management. | FAST Security | LEI / vLEI | TBD |
+| Payer Identity Verification | Verifying the High Assurance identity of a payer organization to ensure accurate access control and claims management. | FAST Security | LEI / vLEI | TBD |
 {: .grid}
 
 ### Breakdown to use-cases
@@ -113,4 +113,22 @@ TODO: This is a new feature not previously supported by the IDI-Match Operation.
 over time Patients change their demographics, such as name, address, and phone number. The healthcare system must ensure that the Golden Identifier associated details are updated to reflect these changes, so that the patient's medical records remain accurate and accessible. The CSP may provide a process for patients to update their demographics information, which will then be used to update the Golden Identifier in the healthcare system. Relying Parties may also have a process for updating the Golden Identifier associated details, which will then be used to update the Golden Identifier in the healthcare system. The healthcare system may also have a process for verifying and validating the updated information to ensure that it is accurate and complete.
 
 A specific example is when two Golden Identifiers are found to be associated with the same patient. The healthcare system must have a process for merging the two Golden Identifiers into a single identifier, ensuring that all of the patient's medical records are accurately linked to the correct identifier. This may involve verifying the patient's identity and demographics information, as well as reviewing the medical records associated with each identifier to ensure that they are accurate and complete. This process might not be automated due to the sensitive nature of changing medical records and identities that had previously been used as high assurance identities. 
+
+### Organization Identity
+
+Organization Identity refers to the high assurance identity of an organization within the healthcare ecosystem. This includes health systems, payers, and other healthcare-related organizations. Verifying the identity of an organization ensures accurate access control, record management, and compliance with regulatory requirements. The identity verification process may involve validating legal entity identifiers (LEI), organizational structure, and other relevant credentials to establish the organization's authenticity and trustworthiness.    
+
+### Consumer to Organization
+
+Consumer to Organization refers to the interactions and relationships between individual consumers (patients) and healthcare organizations. This includes scenarios where consumers access services, share their health information, or engage with organizations for care management. Ensuring the accurate identification and verification of both consumers and organizations is crucial for maintaining data integrity, privacy, and security within the healthcare ecosystem. This process may involve authenticating the consumer's identity, verifying the organization's credentials, and managing consent for data sharing and access.
+
+### Business to Business
+
+Business to Business refers to the interactions and relationships between different healthcare organizations. This includes scenarios where organizations exchange data, collaborate on patient care, or engage in joint initiatives. Ensuring the accurate identification and verification of both parties is essential for maintaining data integrity, security, and compliance with regulatory requirements. This process may involve authenticating the identities of the organizations, verifying their credentials, and managing consent and access controls for shared data.
+
+This includes Healthcare Provider to Payer, Payer to Payer, and Healthcare Provider to Healthcare Provider interactions.
+
+The Identities use must be high assurance to ensure the accuracy, security, and trustworthiness of the interactions and data exchanges between healthcare organizations. High assurance identities help mitigate risks related to data breaches, unauthorized access, and compliance violations, thereby supporting the overall integrity and reliability of the healthcare ecosystem.
+
+The B2B interactions will be initiated by an individual, but that interaction will be conducted on behalf of the organization they represent. This ensures that the organization is accurately identified and authenticated, and that the appropriate access controls and consent mechanisms are applied to the data being exchanged. High assurance identities for both the individual and the organization are critical to maintaining the security, integrity, and trustworthiness of these interactions within the healthcare ecosystem.
 
