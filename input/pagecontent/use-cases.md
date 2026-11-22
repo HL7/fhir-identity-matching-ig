@@ -4,20 +4,22 @@ This section provides a high level overview of identity workflows outlined in th
 <img src="identity-venn.svg" alt="Identity Venn Diagram" width="350"/>
 </div>
 
-| Use-Case | Description | Interop Solution | Identity Container |Assurance Solution |
+| Use-Case | Description | Interop Solution | Identity Container | Assurance Solution |
 | ---------- | ------------- | ------------------- | ----------------- | ----------------- |
-| Patient Golden Identity | A high assurance identity for a patient that serves as the foundation for accurate record matching and access control. | OAuth | JWT | TBD |
+| Patient Golden Identity | A high assurance identity for a patient that serves as the foundation for accurate record matching and access control. | OAuth | OIDC ID Token | TBD |
 | Patient Record Matching | Finding a patient Golden Identity when the Patient can't provide their Identity Verification (e.g. unconscious, not yet verified, etc). | FHIR Operation | Patient | IDI-Match |
-| User Authentication and Authorization | Managing access to healthcare resources based on user identity and roles, founded on a High Assurance Identity. These may be patients, clinicians, payer agents, or other authorized agents. | OAuth | JWT | TBD |
-| Clinician Identity | a subset of User Identity focused on clinicians. Verified at a High Assurance identity of a clinician to ensure accurate access control and record management. | OAuth | JWT | TBD |
-| Payer Identity | a subset of User Identity focused on payers. Verified at a High Assurance identity of a payer professional to ensure accurate access control and claims management. | OAuth | JWT | TBD |
+| User Authentication and Authorization | Managing access to healthcare resources based on user identity and roles, founded on a High Assurance Identity. These may be patients, clinicians, payer agents, or other authorized agents. | OAuth | OIDC ID Token | TBD |
+| Clinician Identity | a subset of User Identity focused on clinicians. Verified at a High Assurance identity of a clinician to ensure accurate access control and record management. | OAuth | OIDC ID Token | TBD |
+| Payer Identity | a subset of User Identity focused on payers. Verified at a High Assurance identity of a payer professional to ensure accurate access control and claims management. | OAuth | OIDC ID Token | TBD |
 | Health System Identity Verification | Verifying the High Assurance identity of a health system organization to ensure accurate access control and record management. | FAST Security | LEI / vLEI | TBD |
 | Payer Identity Verification | Verifying the High Assurance identity of a payer organization to ensure accurate access control and claims management. | FAST Security | LEI / vLEI | TBD |
 {: .grid}
 
 ### Breakdown to use-cases
 
-Golden Identity and User Identity are the two main categories of identity management covered in this IG. The Golden Identity focuses on the unique and consistent identifier for a data subject (such as a patient or client) across different healthcare systems and organizations, while the User Identity focuses on the identity management for clinical users, patients as users, and other authorized agents such as relatives or caregivers.
+Patient Golden Identity and User Identity are the two main categories of identity management covered in this IG. The Patient Golden Identity focuses on the unique and consistent identifier for a data subject (such as a patient or client) across different healthcare systems and organizations, while the User Identity focuses on the identity management for clinical users, patients as users, and other authorized agents such as relatives or caregivers. Where a Patient Golden Identity can be used, it must be used. When the Patient Golden Identity can be used there is no fuzzy matching, and there is less reliance on demographic information for identity. This does not eliminate the need to in-person confirm the patient's identity when necessary. The Patient Golden Identity is thus used for multiple use-cases: The Patient as a user, the patient as subject fo the data, the patient as the subject of care.
+
+The User Identity is used for Patient, but is also used for other types of Practitioners such as Clinical Practitioners and Payer Practitioners.
 
 Organization Identity are used by organizations to uniquely identify themselves and establish trust in interactions with other entities, such as healthcare systems, payers, and regulatory bodies. This ensures accurate access control, record management, and claims processing.
 
@@ -68,7 +70,11 @@ graph LR
     MatchClient <--> MatchService
 ```
 
-### Patient presents with a Golden Identity
+### Patient 
+
+Patients (Clients) present in multiple ways. They can be users, accessing their own data or setting up appointments; they are also the subjects of care and thus the subjects of data. The Golden Identity is the key identifier used to accurately link and manage their healthcare information across different systems and organizations.
+
+#### presents with a Golden Identity
 
 When a patient presents with a Golden Identity, the healthcare system can use this identifier to accurately find the patient across different systems and organizations. The Golden Identity allows for seamless access to the patient's medical records, ensuring that the correct information is retrieved and used for clinical decision-making. The Golden Identity includes current and accurate demographics and other attributes. The Golden Identity has been identity assurance proofed.
 
@@ -82,11 +88,11 @@ When a patient presents as a User, they may be accessing their own medical recor
 
 The Patient is a user of the healthcare system, and the User Identity is used to access their own medical records, update their information, or perform other actions related to their care. For example: setup appointments, request prescription refills, update Consent provisions, review lab results, and communicate with their healthcare providers.
 
-### Patient presents without a Golden Identity
+#### Patient presents without a Golden Identity
 
 There are two scenarios when a patient presents without a Golden Identity depending on the urgency of the situation. Ultimately the Patient will need to obtain a Golden Identity to ensure accurate matching and access to their medical records in the future, but the immediate healthcare need will be accomplished with the available demographic information.
 
-#### Patient is not able to get a Golden Identifier at this time
+##### Patient is not able to get a Golden Identifier at this time
 
 Such as when the patient is not healthy in an urgent or emergent setting.
 
@@ -94,7 +100,7 @@ When a patient presents without a Golden Identity, the healthcare system must re
 
 The Match Client can ask for only certain matches, or only the best ONE match be returned, or all matches.
 
-#### Patient is asked to get a Golden Identifier
+##### Patient is asked to get a Golden Identifier
 
 In this case the Patient has not been issued a Golden Identifier, so is assisted with obtaining one. The verification process is handled by the Credential Service Provider (CSP) which is outside the scope of this IG. The CSP will verify the patient's identity and issue a Golden Identifier, which can then be used for future interactions with the healthcare system.
 
@@ -102,17 +108,17 @@ The CSP will interact with the Data custodians to align the new Golden Identifie
 
 CSP -> Match Service -> Data Custodian
 
-### Resource Locator
-
-Match Client may have a Golden Identifier or may only have demographics information. The Match Client wants to know where (i.e. Organizations) the patient has records. The Match Client will use the Golden Identifier or demographics information to request a list of organizations where the patient has records. The Match Service will return a list of organizations where the patient has records, along with any relevant metadata about the records, such as the type of record, date of service, and other relevant information.
-
-TODO: This is a new feature not previously supported by the IDI-Match Operation.
-
-### Maintenance of Golden Identifier
+#### Maintenance of Golden Identifier
 
 over time Patients change their demographics, such as name, address, and phone number. The healthcare system must ensure that the Golden Identifier associated details are updated to reflect these changes, so that the patient's medical records remain accurate and accessible. The CSP may provide a process for patients to update their demographics information, which will then be used to update the Golden Identifier in the healthcare system. Relying Parties may also have a process for updating the Golden Identifier associated details, which will then be used to update the Golden Identifier in the healthcare system. The healthcare system may also have a process for verifying and validating the updated information to ensure that it is accurate and complete.
 
 A specific example is when two Golden Identifiers are found to be associated with the same patient. The healthcare system must have a process for merging the two Golden Identifiers into a single identifier, ensuring that all of the patient's medical records are accurately linked to the correct identifier. This may involve verifying the patient's identity and demographics information, as well as reviewing the medical records associated with each identifier to ensure that they are accurate and complete. This process might not be automated due to the sensitive nature of changing medical records and identities that had previously been used as high assurance identities. 
+
+#### Patient Resource Locator
+
+Match Client may have a Golden Identifier or may only have demographics information. The Match Client wants to know where (i.e. Organizations) the patient has records. The Match Client will use the Golden Identifier or demographics information to request a list of organizations where the patient has records. The Match Service will return a list of organizations where the patient has records
+
+Alternately, the Match Service may return the list of organizations along with any relevant metadata about the records, such as the type of record, date of service, and other relevant information. TODO: This is a new feature not previously supported by the IDI-Match Operation.
 
 ### Organization Identity
 

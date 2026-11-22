@@ -185,3 +185,4 @@ Authorized representative is a is also important. The relationship between the P
 
 Identity element quality is a concern. Especially regarding historic values. These are often not suitable for matching and have inconsistencies and gaps.
 
+[RFC8485](https://datatracker.ietf.org/doc/rfc8485/) - "Vectors of Trust" may be used to express vectors of trust in the `vot` and `vtm` claims. **Trust Framework / Identity Assurance**However it is unclear how useful these vectors are given that the vtm is a url to the trust framework, which is not defined (but we could define one); and the interpretation of the vot claims is dependent on the definitions within that trust framework. Note that we could bind to the definitions in Appendix A. Note that in OpenID Connect, the client can request specific vectors of trust using the `vtr` claim request if the RP has some specific set vectors they need.
